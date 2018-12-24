@@ -1,28 +1,35 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import styled from 'styled-components'
+import { Bar } from './silky-charts'
+import data from './data/bar'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+const App = styled.div`
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+`
 
-export default App;
+const Chart = styled.div`
+  background-color: rgb(255, 255, 255);
+  height: 540px;
+  width: 960px;
+`
+
+export default () => (
+  <App>
+    <Chart>
+      <Bar
+        data={data}
+        referenceLine
+        source="Source: AWeber Reports"
+        title="Subscriptions during February 2018"
+        valueOnBars
+        xAxisLabel="February 2018"
+        yAxisLabel="Subscribers"
+        grid
+      />
+    </Chart>
+  </App>
+)
