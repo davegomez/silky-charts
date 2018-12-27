@@ -29,6 +29,7 @@ export default () => (
         xAxisLabel="February 2018"
         yAxisLabel="Subscribers"
         grid
+        valuesOnVar
       />
     </Chart>
   </App>

@@ -1,15 +1,17 @@
 // @flow
 import type { Bar } from '../types'
-import { select, selectAll, selection } from 'd3-selection' // eslint-disable-line
+import { event, select, selectAll, selection } from 'd3-selection' // eslint-disable-line
 import { axisBottom, axisLeft } from 'd3-axis'
 import { areAllDate } from '../utils'
 import {
   drawGrid,
   drawLabels,
   drawReferenceLine,
+  extendXAxisPathOnDates,
   getXScale,
   getYScale,
   highValues,
+  rotateXAxisLabels,
 } from './helpers'
 import 'd3-transition'
 
@@ -21,6 +23,8 @@ export default ({
   horizontal,
   localization,
   margin = { top: 60, right: 60, bottom: 60, left: 60 },
+  onMouseEnter,
+  onMouseLeave,
   ref,
   referenceLine,
   shortNotation,
@@ -29,14 +33,15 @@ export default ({
   title,
   valueOnBars,
   xAxisLabel,
+  xAxisLabelRotation,
   yAxisLabel,
 }: Bar) => {
   const svg = select(ref)
   const height = size.height - margin.top - margin.bottom
   const width = size.width - margin.left - margin.right
   const drawLabel = drawLabels(svg, size, margin)
-  // const areNamesDate = areAllDate(data.map(d => d.name))
-  const areNamesDate = false
+  const areNamesDate = areAllDate(data.map(d => d.name))
+  // const areNamesDate = false
   const isValueHidden = x => height - yScale(x) < 50
 
   const chart = svg
@@ -59,15 +64,12 @@ export default ({
 
   // Translate and rotate the x axis labels when they are not instance of Date
   if (!areNamesDate) {
-    xAxis
-      .selectAll('text')
-      .attr('text-anchor', 'end')
-      .attr('transform', 'translate(-12, 6) rotate(-50)')
+    rotateXAxisLabels(xAxis, xAxisLabelRotation)
   }
 
   // Extend x axis path length if the names values are instance of Date
   if (areNamesDate) {
-    chart.select('.x-axis path.domain').attr('d', () => `M0,0.5V0.5H${width}`)
+    extendXAxisPathOnDates(chart, width)
   }
 
   if (grid) {
@@ -118,13 +120,13 @@ export default ({
 
   barGroup
     .selectAll('.bar')
-    .on('mouseenter', function({ value: currentValue }) {
-      referenceLine && drawReferenceLine(chart, yScale(currentValue), width)
+    .on('mouseenter', function(data) {
+      referenceLine && drawReferenceLine(chart, yScale(data.value), width)
 
       if (valueOnBars) {
         const _parentNode = this.parentNode
         selectAll('.value').text(function({ value }) {
-          const divergence = value - currentValue
+          const divergence = value - data.value
           const text = divergence > 0 ? `+${divergence}` : `${divergence}`
           return _parentNode === this.parentNode ? '' : text
         })

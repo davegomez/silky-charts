@@ -33,5 +33,6 @@ export type Bar = {
   title?: string,
   valueOnBars?: boolean,
   xAxisLabel?: string,
+  xAxisLabelRotation?: number,
   yAxisLabel?: string,
 }

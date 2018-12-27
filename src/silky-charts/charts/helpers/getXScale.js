@@ -9,7 +9,7 @@ import T from 'ramda/src/T'
 const timeScale = (data, width) =>
   scaleTime()
     .domain(extent(data, ({ name }) => new Date(name)))
-    .range([width / data.length / 1.8, width - width / data.length / 1.8])
+    .rangeRound([width / data.length / 1.8, width - width / data.length / 1.8])
 
 const bandScale = (data, width) =>
   scaleBand()
