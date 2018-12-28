@@ -1,6 +1,8 @@
 import { selectAll } from 'd3-selection'
 
-export default deg =>
+export default deg => {
+  const isNegative = deg < 0
   selectAll('text')
-    .attr('text-anchor', 'end')
-    .attr('transform', `translate(-12, 6) rotate(${deg})`)
+    .attr('text-anchor', isNegative ? 'end' : 'start')
+    .attr('transform', `translate(${isNegative ? -12 : 12}, 6) rotate(${deg})`)
+}

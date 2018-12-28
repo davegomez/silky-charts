@@ -33,7 +33,7 @@ export default ({
   title,
   valueOnBars,
   xAxisLabel,
-  xAxisLabelRotation,
+  xAxisLabelRotationValue,
   yAxisLabel,
 }: Bar) => {
   const svg = select(ref)
@@ -64,7 +64,7 @@ export default ({
 
   // Translate and rotate the x axis labels when they are not instance of Date
   if (!areNamesDate) {
-    rotateXAxisLabels(xAxis, xAxisLabelRotation)
+    rotateXAxisLabels(xAxis, xAxisLabelRotationValue)
   }
 
   // Extend x axis path length if the names values are instance of Date

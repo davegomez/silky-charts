@@ -30,6 +30,8 @@ export default () => (
         title="Subscriptions during February 2018"
         xAxisLabel="February 2018"
         yAxisLabel="Subscribers"
+        // xAxisLabelRotation
+        // xAxisLabelRotationValue={-50}
       />
     </Chart>
   </App>

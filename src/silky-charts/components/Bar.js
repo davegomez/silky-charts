@@ -26,7 +26,8 @@ const Bar = ({
   width: svgWidth = 960,
   height: svgHeight = 540,
   theme = 'blue',
-  xAxisLabelRotation = -50,
+  xAxisLabelRotation,
+  xAxisLabelRotationValue = -50,
 }) => {
   const width = svgWidth - margin.left - margin.right
   const height = svgHeight - margin.top - margin.bottom
@@ -66,7 +67,8 @@ const Bar = ({
           translate={{ x: 0, y: height }}
           ref={node => {
             select(node).call(axisBottom(x))
-            isAllDate ? extendXPath(width) : rotateXLabels(xAxisLabelRotation)
+            isAllDate && extendXPath(width)
+            xAxisLabelRotation && rotateXLabels(xAxisLabelRotationValue)
           }}
         />
         <Axis axis="y" ref={node => select(node).call(axisLeft(y))} />
