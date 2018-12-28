@@ -1,11 +1,17 @@
 import React, { useState } from 'react'
 import identity from 'ramda/src/identity'
 import { select } from 'd3-selection'
-import { scaleBand, scaleLinear } from 'd3-scale'
 import { axisBottom, axisLeft } from 'd3-axis'
-import { max } from 'd3-array'
 import { Axis, BarDatum, Grid, SVG } from './styled'
-import { drawGrid, getDivergence, getXScale, getYScale } from '../utils'
+import {
+  allDate,
+  drawGrid,
+  extendXPath,
+  getDivergence,
+  getXScale,
+  getYScale,
+  rotateXLabels,
+} from '../utils'
 
 const Bar = ({
   data,
@@ -20,18 +26,22 @@ const Bar = ({
   width: svgWidth = 960,
   height: svgHeight = 540,
   theme = 'blue',
+  xAxisLabelRotation = -50,
 }) => {
   const width = svgWidth - margin.left - margin.right
   const height = svgHeight - margin.top - margin.bottom
+  const isAllDate = allDate(data.map(({ value }) => value))
+  // const isAllDate = false
   const [currentValue, setCurrentValue] = useState(null)
 
-  const x = getXScale('band', data, width)
+  const x = getXScale(isAllDate ? 'time' : 'band', data, width)
   const y = getYScale('linear', data, height)
 
   const handleOnMouseEnter = event => {
     setCurrentValue(event.target.textContent)
     onMouseEnter(event)
   }
+
   const handleOnMouseLeave = event => {
     setCurrentValue(null)
     onMouseLeave(event)
@@ -54,7 +64,10 @@ const Bar = ({
         <Axis
           axis="x"
           translate={{ x: 0, y: height }}
-          ref={node => select(node).call(axisBottom(x))}
+          ref={node => {
+            select(node).call(axisBottom(x))
+            isAllDate ? extendXPath(width) : rotateXLabels(xAxisLabelRotation)
+          }}
         />
         <Axis axis="y" ref={node => select(node).call(axisLeft(y))} />
 
@@ -70,9 +83,13 @@ const Bar = ({
                     ? getDivergence(value, currentValue)
                     : value,
               }}
-              x={x(name)}
+              x={
+                isAllDate
+                  ? x(new Date(name)) - width / data.length / 2.65
+                  : x(name)
+              }
               y={y(value)}
-              width={x.bandwidth()}
+              width={isAllDate ? width / (data.length * 1.1973) : x.bandwidth()}
               height={height - y(value)}
               onClick={onClick}
               onMouseEnter={handleOnMouseEnter}
