@@ -1,3 +1,6 @@
 export { default as areAllDate } from './areAllDate'
 export { default as drawGrid } from './drawGrid'
+export { default as getDivergence } from './getDivergence'
+export { default as getXScale } from './getXScale'
+export { default as getYScale } from './getYScale'
 export { default as themes } from './themes'

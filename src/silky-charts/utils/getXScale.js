@@ -15,7 +15,7 @@ const bandScale = (data, width) =>
   scaleBand()
     .domain(data.map(({ name }) => name))
     .range([0, width])
-    .padding(0.2)
+    .padding(0.16)
 
 export default (type, data, width) =>
   cond([
