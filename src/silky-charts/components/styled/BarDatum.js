@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
-import { bar, white } from '../../utils/themes'
+import { bar, black, white } from '../../utils/themes'
 
 const Rect = styled.rect.attrs(({ position: { x, y } }) => ({
   x,
@@ -16,28 +16,43 @@ const Rect = styled.rect.attrs(({ position: { x, y } }) => ({
   }
 `
 
-const Text = styled.text.attrs(({ position: { x, y }, width }) => ({
-  className: 'value',
-  textAnchor: 'middle',
-  transform: `translate(${x + width / 2}, ${y + 30})`,
-}))`
-  fill: ${white};
+const Text = styled.text.attrs(
+  ({ position: { x, y }, size: { width, height } }) => ({
+    className: 'value',
+    textAnchor: 'middle',
+    transform: `translate(${x + width / 2}, ${y + (height < 40 ? -18 : 30)})`,
+  })
+)`
+  fill: ${({ size: { height } }) => (height < 40 ? black : white)};
+  pointer-events: none;
 `
 
 const BarDatum = ({
   datum: { name, value },
   position,
-  valuesOnBar,
   x,
   y,
   width,
   height,
+  onClick,
+  onMouseEnter,
+  onMouseLeave,
+  showValue,
   theme,
 }) => (
   <Fragment>
-    <Rect position={{ x, y }} size={{ width, height }} theme={theme} />
-    {valuesOnBar && (
-      <Text position={{ x, y }} width={width}>
+    <Rect
+      position={{ x, y }}
+      size={{ width, height }}
+      theme={theme}
+      onClick={onClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      {value}
+    </Rect>
+    {showValue && (
+      <Text position={{ x, y }} size={{ width, height }}>
         {value}
       </Text>
     )}

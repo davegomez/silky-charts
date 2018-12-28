@@ -22,14 +22,14 @@ export default () => (
     <Chart>
       <Bar
         data={data}
+        // showValue
+        // showDivergence
+        // grid
         referenceLine
         source="Source: AWeber Reports"
         title="Subscriptions during February 2018"
-        valueOnBars
         xAxisLabel="February 2018"
         yAxisLabel="Subscribers"
-        grid
-        valuesOnVar
       />
     </Chart>
   </App>
