@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react'
-import styled from 'styled-components'
-import { bar, black, white } from '../../utils/themes'
+import React, { Fragment } from 'react';
+import styled from 'styled-components';
+import { bar, black, white } from '../../utils/themes';
 
 const Rect = styled.rect.attrs(({ position: { x, y } }) => ({
   x,
@@ -14,7 +14,7 @@ const Rect = styled.rect.attrs(({ position: { x, y } }) => ({
   &:hover {
     fill: ${({ theme }) => bar[theme].fg};
   }
-`
+`;
 
 const Text = styled.text.attrs(
   ({ position: { x, y }, size: { width, height } }) => ({
@@ -25,9 +25,9 @@ const Text = styled.text.attrs(
 )`
   fill: ${({ size: { height } }) => (height < 40 ? black : white)};
   pointer-events: none;
-`
+`;
 
-const BarDatum = ({
+const BarRect = ({
   datum: { name, value },
   position,
   x,
@@ -57,6 +57,6 @@ const BarDatum = ({
       </Text>
     )}
   </Fragment>
-)
+);
 
-export default BarDatum
+export default BarRect;
