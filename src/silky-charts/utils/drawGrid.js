@@ -1,12 +1,12 @@
-import { axisBottom, axisLeft } from 'd3-axis';
+import { axisBottom as d3AxisBottom, axisLeft as d3AxisLeft } from 'd3-axis';
 
 export default (isHorizontal, xScale, height, yScale, width) =>
   isHorizontal
-    ? axisBottom()
+    ? d3AxisBottom()
         .scale(xScale)
         .tickSize(height, 0, 0)
         .tickFormat('')
-    : axisLeft()
+    : d3AxisLeft()
         .scale(yScale)
         .tickSize(-width, 0, 0)
         .tickFormat('');

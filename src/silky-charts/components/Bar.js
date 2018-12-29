@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import identity from 'ramda/src/identity';
-import { select } from 'd3-selection';
-import { axisBottom, axisLeft } from 'd3-axis';
+import { select as d3Select } from 'd3-selection';
+import { axisBottom as d3AxisBottom, axisLeft as d3AxisLeft } from 'd3-axis';
 import { Axis, BarRect, Grid, SVG } from './styled';
 import {
   allDate,
@@ -13,6 +13,7 @@ import {
   getYScale,
   rotateXLabels,
 } from '../utils';
+import { SCALE_TIME, SCALE_BAND, SCALE_LINEAR } from '../utils/constants';
 
 const Bar = ({
   data,
@@ -35,8 +36,8 @@ const Bar = ({
   // const isAllDate = false
   const [currentValue, setCurrentValue] = useState(null);
 
-  const x = getXScale(isAllDate ? 'time' : 'band', data, width);
-  const y = getYScale('linear', data, height);
+  const x = getXScale(isAllDate ? SCALE_TIME : SCALE_BAND, data, width);
+  const y = getYScale(SCALE_LINEAR, data, height);
 
   const handleOnMouseEnter = event => {
     setCurrentValue(event.target.textContent);
@@ -57,7 +58,7 @@ const Bar = ({
         {grid && (
           <Grid
             ref={node =>
-              select(node).call(drawGrid(horizontal, x, height, y, width))
+              d3Select(node).call(drawGrid(horizontal, x, height, y, width))
             }
           />
         )}
@@ -66,12 +67,12 @@ const Bar = ({
           axis="x"
           translate={{ x: 0, y: height }}
           ref={node => {
-            select(node).call(axisBottom(x));
+            d3Select(node).call(d3AxisBottom(x));
             isAllDate && extendXPath(width);
             xAxisLabelRotation && rotateXLabels(xAxisLabelRotationValue);
           }}
         />
-        <Axis axis="y" ref={node => select(node).call(axisLeft(y))} />
+        <Axis axis="y" ref={node => d3Select(node).call(d3AxisLeft(y))} />
 
         <g className="data">
           {data.map(({ name, value }, idx) => (

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Bar } from './silky-charts';
-import data from './data/bar';
+import { BarLine } from './silky-charts';
+import data from './data/bar-line';
 
 const App = styled.div`
   align-items: center;
@@ -20,19 +20,36 @@ const Chart = styled.div`
 export default () => (
   <App>
     <Chart>
-      <Bar
+      <BarLine
         data={data}
         // showValue
         // showDivergence
-        // grid
-        referenceLine
-        source="Source: AWeber Reports"
-        title="Subscriptions during February 2018"
-        xAxisLabel="February 2018"
-        yAxisLabel="Subscribers"
+        grid
+        // referenceLine
+        stackedKeys={['apples', 'bananas']}
+        // sourceLabel="Source: AWeber Reports"
+        // titleLabel="Subscriptions during February 2018"
+        // xAxisLabel="February 2018"
+        // yAxisLabel="Subscribers"
         // xAxisLabelRotation
         // xAxisLabelRotationValue={-50}
       />
     </Chart>
   </App>
 );
+
+/*
+<Bar
+  data={data}
+  showValue
+  showDivergence
+  grid
+  referenceLine
+  source="Source: AWeber Reports"
+  title="Subscriptions during February 2018"
+  xAxisLabel="February 2018"
+  yAxisLabel="Subscribers"
+  xAxisLabelRotation
+  xAxisLabelRotationValue={-50}
+/>
+*/
