@@ -8,6 +8,7 @@ import {
   drawGrid,
   extendXPath,
   getDivergence,
+  getSize,
   getXScale,
   getYScale,
   rotateXLabels,
@@ -29,8 +30,7 @@ const Bar = ({
   xAxisLabelRotation,
   xAxisLabelRotationValue = -50,
 }) => {
-  const width = svgWidth - margin.left - margin.right;
-  const height = svgHeight - margin.top - margin.bottom;
+  const [width, height] = getSize(svgWidth, svgHeight, margin);
   const isAllDate = allDate(data.map(({ value }) => value));
   // const isAllDate = false
   const [currentValue, setCurrentValue] = useState(null);
