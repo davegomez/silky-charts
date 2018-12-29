@@ -1,4 +1,4 @@
-import { axisBottom, axisLeft } from 'd3-axis'
+import { axisBottom, axisLeft } from 'd3-axis';
 
 export default (isHorizontal, xScale, height, yScale, width) =>
   isHorizontal
@@ -9,4 +9,4 @@ export default (isHorizontal, xScale, height, yScale, width) =>
     : axisLeft()
         .scale(yScale)
         .tickSize(-width, 0, 0)
-        .tickFormat('')
+        .tickFormat('');

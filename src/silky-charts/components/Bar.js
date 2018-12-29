@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import identity from 'ramda/src/identity'
-import { select } from 'd3-selection'
-import { axisBottom, axisLeft } from 'd3-axis'
-import { Axis, BarDatum, Grid, SVG } from './styled'
+import React, { useState } from 'react';
+import identity from 'ramda/src/identity';
+import { select } from 'd3-selection';
+import { axisBottom, axisLeft } from 'd3-axis';
+import { Axis, BarRect, Grid, SVG } from './styled';
 import {
   allDate,
   drawGrid,
@@ -11,7 +11,7 @@ import {
   getXScale,
   getYScale,
   rotateXLabels,
-} from '../utils'
+} from '../utils';
 
 const Bar = ({
   data,
@@ -29,24 +29,24 @@ const Bar = ({
   xAxisLabelRotation,
   xAxisLabelRotationValue = -50,
 }) => {
-  const width = svgWidth - margin.left - margin.right
-  const height = svgHeight - margin.top - margin.bottom
-  const isAllDate = allDate(data.map(({ value }) => value))
+  const width = svgWidth - margin.left - margin.right;
+  const height = svgHeight - margin.top - margin.bottom;
+  const isAllDate = allDate(data.map(({ value }) => value));
   // const isAllDate = false
-  const [currentValue, setCurrentValue] = useState(null)
+  const [currentValue, setCurrentValue] = useState(null);
 
-  const x = getXScale(isAllDate ? 'time' : 'band', data, width)
-  const y = getYScale('linear', data, height)
+  const x = getXScale(isAllDate ? 'time' : 'band', data, width);
+  const y = getYScale('linear', data, height);
 
   const handleOnMouseEnter = event => {
-    setCurrentValue(event.target.textContent)
-    onMouseEnter(event)
-  }
+    setCurrentValue(event.target.textContent);
+    onMouseEnter(event);
+  };
 
   const handleOnMouseLeave = event => {
-    setCurrentValue(null)
-    onMouseLeave(event)
-  }
+    setCurrentValue(null);
+    onMouseLeave(event);
+  };
 
   return (
     <SVG size={{ width: svgWidth, height: svgHeight }}>
@@ -66,16 +66,16 @@ const Bar = ({
           axis="x"
           translate={{ x: 0, y: height }}
           ref={node => {
-            select(node).call(axisBottom(x))
-            isAllDate && extendXPath(width)
-            xAxisLabelRotation && rotateXLabels(xAxisLabelRotationValue)
+            select(node).call(axisBottom(x));
+            isAllDate && extendXPath(width);
+            xAxisLabelRotation && rotateXLabels(xAxisLabelRotationValue);
           }}
         />
         <Axis axis="y" ref={node => select(node).call(axisLeft(y))} />
 
         <g className="data">
           {data.map(({ name, value }, idx) => (
-            <BarDatum
+            <BarRect
               key={idx}
               showValue={showValue}
               datum={{
@@ -102,7 +102,7 @@ const Bar = ({
         </g>
       </g>
     </SVG>
-  )
-}
+  );
+};
 
-export default Bar
+export default Bar;

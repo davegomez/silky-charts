@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { themes } from '../../utils'
+import styled from 'styled-components';
+import { themes } from '../../utils';
 
 const Grid = styled.g.attrs(() => ({
   className: 'grid',
@@ -11,6 +11,6 @@ const Grid = styled.g.attrs(() => ({
   line {
     stroke: ${themes.grid};
   }
-`
+`;
 
-export default Grid
+export default Grid;

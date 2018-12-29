@@ -1,4 +1,4 @@
-export { default as Axis } from './Axis'
-export { default as BarDatum } from './BarDatum'
-export { default as Grid } from './Grid'
-export { default as SVG } from './SVG'
+export { default as Axis } from './Axis';
+export { default as BarRect } from './BarRect';
+export { default as Grid } from './Grid';
+export { default as SVG } from './SVG';

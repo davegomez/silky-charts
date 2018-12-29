@@ -1,6 +1,6 @@
-export const white = 'rgb(255, 255, 255)' // #FFFFFF
-export const black = 'rgb(33, 33, 33)' // #212121
-export const grid = 'rgb(220, 220, 220)' // #DCDCDC
+export const white = 'rgb(255, 255, 255)'; // #FFFFFF
+export const black = 'rgb(33, 33, 33)'; // #212121
+export const grid = 'rgb(220, 220, 220)'; // #DCDCDC
 
 export const bar = {
   blue: {
@@ -38,11 +38,11 @@ export const bar = {
     fg: 'rgb(85, 83, 68)', // #555344
     ref: '',
   },
-}
+};
 
 export default {
   white,
   black,
   grid,
   bar,
-}
+};

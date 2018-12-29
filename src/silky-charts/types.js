@@ -1,27 +1,27 @@
 // @flow
-import * as React from 'react'
-import { romanNotation } from './charts/helpers'
+import * as React from 'react';
+import { romanNotation } from './charts/helpers';
 
 type Margin = {
   top: number,
   right: number,
   bottom: number,
   left: number,
-}
+};
 
 type Size = {
   height: number,
   width: number,
-}
+};
 
-export type BarDatum = {
+export type BarRect = {
   name: string,
   value: number,
-}
+};
 
 export type Bar = {
   currencyShortNotation?: boolean,
-  data: BarDatum[],
+  data: BarRect[],
   grid?: boolean,
   horizontal?: boolean,
   margin?: Margin,
@@ -35,4 +35,4 @@ export type Bar = {
   xAxisLabel?: string,
   xAxisLabelRotationValue?: number,
   yAxisLabel?: string,
-}
+};
