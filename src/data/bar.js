@@ -111,4 +111,4 @@ export default [
     name: '2018-02-28T05:00:00.000Z',
     value: 97,
   },
-]
+];
