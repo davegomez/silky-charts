@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import head from 'ramda/src/head';
 import identity from 'ramda/src/identity';
-import last from 'ramda/src/last';
 import uuidv4 from 'uuid/v4';
 import { select as d3Select } from 'd3-selection';
 import { max as d3Max } from 'd3-array';
 import { axisBottom as d3AxisBottom, axisLeft as d3AxisLeft } from 'd3-axis';
 import { stack as d3Stack, stackOrderNone, stackOffsetNone } from 'd3-shape';
-import { Axis, BarDatum, Grid, SVG } from './styled';
+import { Axis, StackedBarDatum, Grid, SVG } from './styled';
 import {
   allDate,
   drawGrid,
@@ -54,8 +52,6 @@ const BarLine = ({
     .offset(stackOffsetNone);
   const barSeries = stack(data);
 
-  const palette = ['red', 'green', 'blue', 'orange'];
-
   return (
     <SVG identifier={id} size={{ width: svgWidth, height: svgHeight }}>
       <g
@@ -81,37 +77,16 @@ const BarLine = ({
         />
         <Axis axis="y" ref={node => d3Select(node).call(d3AxisLeft(y))} />
 
-        {barSeries.map((layer, idx) => {
-          const t = palette[idx];
-          return (
-            <g key={idx} className="stacked-bar-layer">
-              {layer.map((datum, idx) => {
-                const value = last(datum) - head(datum);
-                return (
-                  <BarDatum
-                    key={idx}
-                    datum={{ value }}
-                    x={
-                      isNamesDate
-                        ? x(new Date(datum.data.name)) -
-                          width / data.length / 2.4
-                        : x(datum.data.name)
-                    }
-                    y={y(last(datum))}
-                    width={
-                      isNamesDate
-                        ? width / (data.length * 1.1973)
-                        : x.bandwidth()
-                    }
-                    height={height - y(value)}
-                    color={t}
-                    onClick={onClick}
-                  />
-                );
-              })}
-            </g>
-          );
-        })}
+        <StackedBarDatum
+          data={data}
+          series={barSeries}
+          isDates={isNamesDate}
+          onClick={onClick}
+          x={x}
+          y={y}
+          width={width}
+          height={height}
+        />
       </g>
     </SVG>
   );

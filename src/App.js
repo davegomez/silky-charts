@@ -21,7 +21,7 @@ const Chart = styled.div`
 export default () => (
   <App>
     <Chart>
-      {/* <Bar
+      <Bar
         data={barData}
         // showValue
         // showDivergence
@@ -33,7 +33,7 @@ export default () => (
         yAxisLabel="Subscribers"
         // xAxisLabelRotation
         // xAxisLabelRotationValue={-50}
-      /> */}
+      />
 
       <BarLine
         data={barLineData}
