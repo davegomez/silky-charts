@@ -41,7 +41,7 @@ export default () => (
         // showDivergence
         // grid
         referenceLine
-        stackedKeys={['apples', 'bananas']}
+        stackedKeys={['apples', 'bananas', 'cherries', 'dates']}
         // sourceLabel="Source: AWeber Reports"
         // titleLabel="Subscriptions during February 2018"
         // xAxisLabel="February 2018"

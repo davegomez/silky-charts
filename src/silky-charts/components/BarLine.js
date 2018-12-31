@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import compose from 'ramda/src/compose';
 import head from 'ramda/src/head';
 import identity from 'ramda/src/identity';
 import last from 'ramda/src/last';
-import props from 'ramda/src/props';
-import sum from 'ramda/src/sum';
 import uuidv4 from 'uuid/v4';
 import { select as d3Select } from 'd3-selection';
 import { max as d3Max } from 'd3-array';
@@ -15,6 +12,7 @@ import {
   allDate,
   drawGrid,
   extendXPath,
+  getMaximumValues,
   getSize,
   getXScale,
   getYScale,
@@ -46,13 +44,7 @@ const BarLine = ({
   const x = getXScale(isNamesDate ? SCALE_TIME : SCALE_BAND, data, width);
   const y = getYScale(
     SCALE_LINEAR,
-    d3Max(
-      data,
-      compose(
-        sum,
-        props(stackedKeys)
-      )
-    ),
+    d3Max(getMaximumValues(stackedKeys, data)),
     height
   );
 
@@ -62,7 +54,7 @@ const BarLine = ({
     .offset(stackOffsetNone);
   const barSeries = stack(data);
 
-  const palette = ['blue', 'red', 'green'];
+  const palette = ['red', 'green', 'blue', 'orange'];
 
   return (
     <SVG identifier={id} size={{ width: svgWidth, height: svgHeight }}>
