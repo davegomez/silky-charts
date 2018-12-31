@@ -14,14 +14,14 @@ type Size = {
   width: number,
 };
 
-export type BarRect = {
+export type BarDatum = {
   name: string,
   value: number,
 };
 
 export type Bar = {
   currencyShortNotation?: boolean,
-  data: BarRect[],
+  data: BarDatum[],
   grid?: boolean,
   horizontal?: boolean,
   margin?: Margin,

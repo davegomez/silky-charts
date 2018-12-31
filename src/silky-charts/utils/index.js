@@ -6,4 +6,4 @@ export { default as getSize } from './getSize';
 export { default as getXScale } from './getXScale';
 export { default as getYScale } from './getYScale';
 export { default as rotateXLabels } from './rotateXLabels';
-export { default as themes } from './themes';
+export { default as palette } from './palette';

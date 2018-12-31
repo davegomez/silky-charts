@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import identity from 'ramda/src/identity';
+import uuidv4 from 'uuid/v4';
 import { select as d3Select } from 'd3-selection';
+import { max as d3Max } from 'd3-array';
 import { axisBottom as d3AxisBottom, axisLeft as d3AxisLeft } from 'd3-axis';
-import { Axis, BarRect, Grid, SVG } from './styled';
+import { Axis, BarDatum, Grid, SVG } from './styled';
 import {
   allDate,
   drawGrid,
@@ -27,20 +29,21 @@ const Bar = ({
   onMouseLeave = identity,
   width: svgWidth = 960,
   height: svgHeight = 540,
-  theme = 'blue',
+  color = 'red',
   xAxisLabelRotation,
   xAxisLabelRotationValue = -50,
 }) => {
   const [width, height] = getSize(svgWidth, svgHeight, margin);
-  const isAllDate = allDate(data.map(({ value }) => value));
-  // const isAllDate = false
+  const isNamesDate = allDate(data.map(({ name }) => name));
+  // const isNamesDate = false
   const [currentValue, setCurrentValue] = useState(null);
+  const [id] = useState(`bar-${uuidv4()}`);
 
-  const x = getXScale(isAllDate ? SCALE_TIME : SCALE_BAND, data, width);
-  const y = getYScale(SCALE_LINEAR, data, height);
+  const x = getXScale(isNamesDate ? SCALE_TIME : SCALE_BAND, data, width);
+  const y = getYScale(SCALE_LINEAR, d3Max(data, ({ value }) => value), height);
 
   const handleOnMouseEnter = event => {
-    setCurrentValue(event.target.textContent);
+    setCurrentValue(event.target.getAttribute('value'));
     onMouseEnter(event);
   };
 
@@ -50,7 +53,7 @@ const Bar = ({
   };
 
   return (
-    <SVG size={{ width: svgWidth, height: svgHeight }}>
+    <SVG identifier={id} size={{ width: svgWidth, height: svgHeight }}>
       <g
         className="container"
         transform={`translate(${margin.left}, ${margin.top})`}
@@ -68,7 +71,7 @@ const Bar = ({
           translate={{ x: 0, y: height }}
           ref={node => {
             d3Select(node).call(d3AxisBottom(x));
-            isAllDate && extendXPath(width);
+            isNamesDate && extendXPath(id, width);
             xAxisLabelRotation && rotateXLabels(xAxisLabelRotationValue);
           }}
         />
@@ -76,7 +79,7 @@ const Bar = ({
 
         <g className="data">
           {data.map(({ name, value }, idx) => (
-            <BarRect
+            <BarDatum
               key={idx}
               showValue={showValue}
               datum={{
@@ -87,17 +90,19 @@ const Bar = ({
                     : value,
               }}
               x={
-                isAllDate
-                  ? x(new Date(name)) - width / data.length / 2.65
+                isNamesDate
+                  ? x(new Date(name)) - width / data.length / 2.4
                   : x(name)
               }
               y={y(value)}
-              width={isAllDate ? width / (data.length * 1.1973) : x.bandwidth()}
+              width={
+                isNamesDate ? width / (data.length * 1.1973) : x.bandwidth()
+              }
               height={height - y(value)}
+              color={color}
               onClick={onClick}
               onMouseEnter={handleOnMouseEnter}
               onMouseLeave={handleOnMouseLeave}
-              theme={theme}
             />
           ))}
         </g>

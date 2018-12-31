@@ -1,4 +1,3 @@
-import { max as d3Max } from 'd3-array';
 import { scaleLinear as d3ScaleLinear } from 'd3-scale';
 import always from 'ramda/src/always';
 import cond from 'ramda/src/cond';
@@ -7,9 +6,9 @@ import identity from 'ramda/src/identity';
 import T from 'ramda/src/T';
 import { SCALE_LINEAR } from './constants';
 
-const linearScale = (data, height) =>
+const linearScale = (max, height) =>
   d3ScaleLinear()
-    .domain([0, d3Max(data, ({ value }) => value)])
+    .domain([0, max])
     .range([height, 0]);
 
 export default (type, data, height) =>
