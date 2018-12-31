@@ -8,3 +8,4 @@ export { default as getXScale } from './getXScale';
 export { default as getYScale } from './getYScale';
 export { default as rotateXLabels } from './rotateXLabels';
 export { default as palette } from './palette';
+export { default as valueFor } from './valueFor';

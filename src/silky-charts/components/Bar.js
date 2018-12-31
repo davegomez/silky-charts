@@ -14,6 +14,7 @@ import {
   getXScale,
   getYScale,
   rotateXLabels,
+  valueFor,
 } from '../utils';
 import { SCALE_TIME, SCALE_BAND, SCALE_LINEAR } from '../utils/constants';
 
@@ -91,12 +92,14 @@ const Bar = ({
               }}
               x={
                 isNamesDate
-                  ? x(new Date(name)) - width / data.length / 2.4
+                  ? x(new Date(name)) - valueFor('x', width, data.length)
                   : x(name)
               }
               y={y(value)}
               width={
-                isNamesDate ? width / (data.length * 1.1973) : x.bandwidth()
+                isNamesDate
+                  ? valueFor('width', width, data.length)
+                  : x.bandwidth()
               }
               height={height - y(value)}
               color={color}
