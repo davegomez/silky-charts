@@ -16,7 +16,14 @@ import {
   getYScale,
   rotateXLabels,
 } from '../utils';
-import { SCALE_TIME, SCALE_BAND, SCALE_LINEAR } from '../utils/constants';
+import {
+  SCALE_TIME,
+  SCALE_BAND,
+  SCALE_LINEAR,
+  SECONDARY_THEME,
+  THEME,
+  TICKS,
+} from '../utils/constants';
 
 const BarLine = ({
   data,
@@ -30,7 +37,9 @@ const BarLine = ({
   lineKeys = [],
   width: svgWidth = 960,
   height: svgHeight = 540,
-  theme = 'blue',
+  theme = THEME,
+  ticks = TICKS,
+  secondaryTheme = SECONDARY_THEME,
   xAxisLabelRotation,
   xAxisLabelRotationValue = -50,
 }) => {
@@ -61,7 +70,9 @@ const BarLine = ({
         {grid && (
           <Grid
             ref={node =>
-              d3Select(node).call(drawGrid(horizontal, x, height, y, width))
+              d3Select(node).call(
+                drawGrid(horizontal, x, height, y, width, ticks)
+              )
             }
           />
         )}
@@ -75,13 +86,17 @@ const BarLine = ({
             xAxisLabelRotation && rotateXLabels(xAxisLabelRotationValue);
           }}
         />
-        <Axis axis="y" ref={node => d3Select(node).call(d3AxisLeft(y))} />
+        <Axis
+          axis="y"
+          ref={node => d3Select(node).call(d3AxisLeft(y).ticks(ticks))}
+        />
 
         <StackedBarDatum
           data={data}
           series={barSeries}
           isDates={isNamesDate}
           onClick={onClick}
+          theme={theme}
           x={x}
           y={y}
           width={width}

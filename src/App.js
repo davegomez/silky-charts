@@ -37,9 +37,7 @@ export default () => (
 
       <BarLine
         data={barLineData}
-        // showValue
-        // showDivergence
-        // grid
+        grid
         referenceLine
         stackedKeys={['apples', 'bananas', 'cherries', 'dates']}
         // sourceLabel="Source: AWeber Reports"

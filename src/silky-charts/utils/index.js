@@ -1,6 +1,8 @@
 export { default as allDate } from './allDate';
 export { default as drawGrid } from './drawGrid';
 export { default as extendXPath } from './extendXPath';
+export { default as getBaseColor } from './getBaseColor';
+export { default as getHoverColor } from './getHoverColor';
 export { default as getMaximumValues } from './getMaximumValues';
 export { default as getDivergence } from './getDivergence';
 export { default as getSize } from './getSize';

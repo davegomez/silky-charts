@@ -9,6 +9,7 @@ import {
   allDate,
   drawGrid,
   extendXPath,
+  getBaseColor,
   getDivergence,
   getSize,
   getXScale,
@@ -16,7 +17,13 @@ import {
   rotateXLabels,
   valueFor,
 } from '../utils';
-import { SCALE_TIME, SCALE_BAND, SCALE_LINEAR } from '../utils/constants';
+import {
+  SCALE_TIME,
+  SCALE_BAND,
+  SCALE_LINEAR,
+  THEME,
+  TICKS,
+} from '../utils/constants';
 
 const Bar = ({
   data,
@@ -30,13 +37,13 @@ const Bar = ({
   onMouseLeave = identity,
   width: svgWidth = 960,
   height: svgHeight = 540,
-  color = 'red',
+  theme = THEME,
+  ticks = TICKS,
   xAxisLabelRotation,
   xAxisLabelRotationValue = -50,
 }) => {
   const [width, height] = getSize(svgWidth, svgHeight, margin);
   const isNamesDate = allDate(data.map(({ name }) => name));
-  // const isNamesDate = false
   const [currentValue, setCurrentValue] = useState(null);
   const [id] = useState(`bar-${uuidv4()}`);
 
@@ -62,7 +69,9 @@ const Bar = ({
         {grid && (
           <Grid
             ref={node =>
-              d3Select(node).call(drawGrid(horizontal, x, height, y, width))
+              d3Select(node).call(
+                drawGrid(horizontal, x, height, y, width, ticks)
+              )
             }
           />
         )}
@@ -76,7 +85,10 @@ const Bar = ({
             xAxisLabelRotation && rotateXLabels(xAxisLabelRotationValue);
           }}
         />
-        <Axis axis="y" ref={node => d3Select(node).call(d3AxisLeft(y))} />
+        <Axis
+          axis="y"
+          ref={node => d3Select(node).call(d3AxisLeft(y).ticks(ticks))}
+        />
 
         <g className="data">
           {data.map(({ name, value }, idx) => (
@@ -102,7 +114,7 @@ const Bar = ({
                   : x.bandwidth()
               }
               height={height - y(value)}
-              color={color}
+              color={getBaseColor(theme)}
               onClick={onClick}
               onMouseEnter={handleOnMouseEnter}
               onMouseLeave={handleOnMouseLeave}

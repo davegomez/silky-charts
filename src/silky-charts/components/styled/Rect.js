@@ -1,17 +1,19 @@
 import styled from 'styled-components';
-import { theme } from '../../utils/palette';
+import { getHoverColor } from '../../utils';
 
 const Rect = styled.rect.attrs(({ chart, position: { x, y } }) => ({
   x,
   y,
   className: chart,
 }))`
-  fill: ${({ color }) => theme[color].base};
+  fill: ${({ color }) => color};
   height: ${({ size }) => size.height}px;
   width: ${({ size }) => size.width}px;
 
   &:hover {
-    fill: ${({ color }) => theme[color].hover};
+    fill: ${({ color }) => {
+      return getHoverColor(color);
+    }};
   }
 `;
 

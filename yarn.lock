@@ -2324,7 +2324,7 @@ color-string@^1.5.2:
     color-name "^1.0.0"
     simple-swizzle "^0.2.2"
 
-color@^3.0.0:
+color@^3.0.0, color@^3.1.0:
   version "3.1.0"
   resolved "http://artifactory.aweber.io:80/api/npm/npm/color/-/color-3.1.0.tgz#d8e9fb096732875774c84bf922815df0308d0ffc"
   integrity sha1-2On7CWcyh1d0yEv5IoFd8DCND/w=
