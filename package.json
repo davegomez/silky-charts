@@ -36,5 +36,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "react-test-renderer": "^16.7.0"
+  }
 }
