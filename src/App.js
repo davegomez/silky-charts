@@ -21,7 +21,7 @@ const Chart = styled.div`
 export default () => (
   <App>
     <Chart>
-      <Bar
+      {/* <Bar
         data={barData}
         // showValue
         // showDivergence
@@ -33,13 +33,14 @@ export default () => (
         yAxisLabel="Subscribers"
         // xAxisLabelRotation
         // xAxisLabelRotationValue={-50}
-      />
+      /> */}
 
       <BarLine
         data={barLineData}
         grid
         referenceLine
-        stackedKeys={['apples', 'bananas', 'cherries', 'dates']}
+        stackedKeys={['apples', 'bananas']}
+        lineKeys={['cherries']}
         // sourceLabel="Source: AWeber Reports"
         // titleLabel="Subscriptions during February 2018"
         // xAxisLabel="February 2018"

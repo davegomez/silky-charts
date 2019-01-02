@@ -1,19 +1,23 @@
 import React, { useState } from 'react';
+import head from 'ramda/src/head';
 import identity from 'ramda/src/identity';
 import uuidv4 from 'uuid/v4';
 import { select as d3Select } from 'd3-selection';
 import { max as d3Max } from 'd3-array';
 import { axisBottom as d3AxisBottom, axisLeft as d3AxisLeft } from 'd3-axis';
-import { stack as d3Stack, stackOrderNone, stackOffsetNone } from 'd3-shape';
-import { Axis, StackedBarDatum, Grid, SVG } from './styled';
+import { Axis, StackedBarDatum, Grid, LineDatum, SVG } from './styled';
 import {
   allDate,
+  buildLine,
+  buildStack,
   drawGrid,
   extendXPath,
+  getLineDataForKeys,
   getMaximumValues,
   getSize,
   getXScale,
   getYScale,
+  palette,
   rotateXLabels,
 } from '../utils';
 import {
@@ -23,6 +27,7 @@ import {
   SECONDARY_THEME,
   THEME,
   TICKS,
+  LINE_TYPE,
 } from '../utils/constants';
 
 const BarLine = ({
@@ -35,6 +40,8 @@ const BarLine = ({
   onMouseLeave = identity,
   stackedKeys = [],
   lineKeys = [],
+  lineType = LINE_TYPE,
+  lineTypeOption = null,
   width: svgWidth = 960,
   height: svgHeight = 540,
   theme = THEME,
@@ -55,11 +62,10 @@ const BarLine = ({
     height
   );
 
-  const stack = d3Stack()
-    .keys(stackedKeys)
-    .order(stackOrderNone)
-    .offset(stackOffsetNone);
-  const barSeries = stack(data);
+  const stack = buildStack(stackedKeys);
+  const line = buildLine(x, y, lineType, lineTypeOption);
+
+  const lineData = getLineDataForKeys(lineKeys, data);
 
   return (
     <SVG identifier={id} size={{ width: svgWidth, height: svgHeight }}>
@@ -93,7 +99,7 @@ const BarLine = ({
 
         <StackedBarDatum
           data={data}
-          series={barSeries}
+          series={stack(data)}
           isDates={isNamesDate}
           onClick={onClick}
           theme={theme}
@@ -102,6 +108,18 @@ const BarLine = ({
           width={width}
           height={height}
         />
+
+        {lineData.map((datum, idx) => (
+          <g className={`${head(datum)['key']}-layer`} key={idx}>
+            <LineDatum
+              data={datum}
+              d={line(datum)}
+              xScale={x}
+              yScale={y}
+              color={palette.themes[secondaryTheme].base[idx]}
+            />
+          </g>
+        ))}
       </g>
     </SVG>
   );
