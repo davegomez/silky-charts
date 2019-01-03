@@ -47,8 +47,12 @@ const Bar = ({
   const [currentValue, setCurrentValue] = useState(null);
   const [id] = useState(`bar-${uuidv4()}`);
 
-  const x = getXScale(isNamesDate ? SCALE_TIME : SCALE_BAND, data, width);
-  const y = getYScale(SCALE_LINEAR, d3Max(data, ({ value }) => value), height);
+  const xScale = getXScale(isNamesDate ? SCALE_TIME : SCALE_BAND, data, width);
+  const yScale = getYScale(
+    SCALE_LINEAR,
+    d3Max(data, ({ value }) => value),
+    height
+  );
 
   const handleOnMouseEnter = event => {
     setCurrentValue(event.target.getAttribute('value'));
@@ -70,7 +74,7 @@ const Bar = ({
           <Grid
             ref={node =>
               d3Select(node).call(
-                drawGrid(horizontal, x, height, y, width, ticks)
+                drawGrid(horizontal, xScale, height, yScale, width, ticks)
               )
             }
           />
@@ -80,14 +84,14 @@ const Bar = ({
           axis="x"
           position={{ x: 0, y: height }}
           ref={node => {
-            d3Select(node).call(d3AxisBottom(x));
+            d3Select(node).call(d3AxisBottom(xScale));
             isNamesDate && extendXPath(id, width);
             xAxisLabelRotation && rotateXLabels(xAxisLabelRotationValue);
           }}
         />
         <Axis
           axis="y"
-          ref={node => d3Select(node).call(d3AxisLeft(y).ticks(ticks))}
+          ref={node => d3Select(node).call(d3AxisLeft(yScale).ticks(ticks))}
         />
 
         <g className="data">
@@ -104,16 +108,16 @@ const Bar = ({
               }}
               x={
                 isNamesDate
-                  ? x(new Date(name)) - valueFor('x', width, data.length)
-                  : x(name)
+                  ? xScale(new Date(name)) - valueFor('x', width, data.length)
+                  : xScale(name)
               }
-              y={y(value)}
+              y={yScale(value)}
               width={
                 isNamesDate
                   ? valueFor('width', width, data.length)
-                  : x.bandwidth()
+                  : xScale.bandwidth()
               }
-              height={height - y(value)}
+              height={height - yScale(value)}
               color={getBaseColor(theme)}
               onClick={onClick}
               onMouseEnter={handleOnMouseEnter}

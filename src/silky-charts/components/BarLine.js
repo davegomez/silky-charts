@@ -55,15 +55,15 @@ const BarLine = ({
 
   const [id] = useState(`bar-line-${uuidv4()}`);
 
-  const x = getXScale(isNamesDate ? SCALE_TIME : SCALE_BAND, data, width);
-  const y = getYScale(
+  const xScale = getXScale(isNamesDate ? SCALE_TIME : SCALE_BAND, data, width);
+  const yScale = getYScale(
     SCALE_LINEAR,
     d3Max(getMaximumValues(stackedKeys, data)),
     height
   );
 
   const stack = buildStack(stackedKeys);
-  const line = buildLine(x, y, lineType, lineTypeOption);
+  const line = buildLine(xScale, yScale, lineType, lineTypeOption);
 
   const lineData = getLineDataForKeys(lineKeys, data);
 
@@ -77,7 +77,7 @@ const BarLine = ({
           <Grid
             ref={node =>
               d3Select(node).call(
-                drawGrid(horizontal, x, height, y, width, ticks)
+                drawGrid(horizontal, xScale, height, yScale, width, ticks)
               )
             }
           />
@@ -87,14 +87,14 @@ const BarLine = ({
           axis="x"
           position={{ x: 0, y: height }}
           ref={node => {
-            d3Select(node).call(d3AxisBottom(x));
+            d3Select(node).call(d3AxisBottom(xScale));
             isNamesDate && extendXPath(id, width);
             xAxisLabelRotation && rotateXLabels(xAxisLabelRotationValue);
           }}
         />
         <Axis
           axis="y"
-          ref={node => d3Select(node).call(d3AxisLeft(y).ticks(ticks))}
+          ref={node => d3Select(node).call(d3AxisLeft(yScale).ticks(ticks))}
         />
 
         <StackedBarDatum
@@ -102,27 +102,23 @@ const BarLine = ({
           series={stack(data)}
           onClick={onClick}
           theme={theme}
-          x={x}
-          y={y}
+          x={xScale}
+          y={yScale}
           width={width}
           height={height}
         />
 
-        {lineData.map((datum, idx) => {
-          console.log(datum);
-
-          return (
-            <g className={`${head(datum)['key']}-layer`} key={idx}>
-              <LineDatum
-                data={datum}
-                d={line(datum)}
-                xScale={x}
-                yScale={y}
-                color={palette.themes[secondaryTheme].base[idx]}
-              />
-            </g>
-          );
-        })}
+        {lineData.map((datum, idx) => (
+          <g className={`${head(datum)['key']}-layer`} key={idx}>
+            <LineDatum
+              data={datum}
+              d={line(datum)}
+              xScale={xScale}
+              yScale={yScale}
+              color={palette.themes[secondaryTheme].base[idx]}
+            />
+          </g>
+        ))}
       </g>
     </SVG>
   );
