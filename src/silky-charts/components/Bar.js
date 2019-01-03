@@ -91,7 +91,7 @@ const Bar = ({
           ref={node => {
             d3Select(node).call(d3AxisBottom(xScale));
             isNamesDate && extendXPath(id, width);
-            xAxisLabelRotation && rotateXLabels(xAxisLabelRotationValue);
+            xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
           }}
         />
         <Axis

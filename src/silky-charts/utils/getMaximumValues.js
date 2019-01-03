@@ -9,7 +9,7 @@ import values from 'ramda/src/values';
 /**
  * Using an optional list of keys calculate the largest possible values adding
  * the values for the keys provided plus the rest of the values present in the
- * data.
+ * data
  *
  * @param {Array} stacked List of keys whose values will be added to calculate
  * the largest possible value
