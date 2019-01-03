@@ -47,7 +47,12 @@ const Bar = ({
   const [currentValue, setCurrentValue] = useState(null);
   const [id] = useState(`bar-${uuidv4()}`);
 
-  const xScale = getXScale(isNamesDate ? SCALE_TIME : SCALE_BAND, data, width);
+  const xScale = getXScale(
+    isNamesDate ? SCALE_TIME : SCALE_BAND,
+    data,
+    width,
+    true
+  );
   const yScale = getYScale(
     SCALE_LINEAR,
     d3Max(data, ({ value }) => value),

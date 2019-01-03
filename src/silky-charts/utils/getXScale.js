@@ -7,11 +7,11 @@ import identity from 'ramda/src/identity';
 import T from 'ramda/src/T';
 import { SCALE_TIME, SCALE_BAND } from './constants';
 
-const timeScale = (data, width) => {
+const timeScale = (data, width, barChart = false) => {
   const rangeWidth = width / data.length / 1.8;
   return d3ScaleTime()
     .domain(d3Extent(data, ({ name }) => new Date(name)))
-    .rangeRound([rangeWidth, width - rangeWidth]);
+    .rangeRound(barChart ? [rangeWidth, width - rangeWidth] : [0, width]);
 };
 
 const bandScale = (data, width) =>
@@ -20,9 +20,9 @@ const bandScale = (data, width) =>
     .range([0, width])
     .padding(0.16);
 
-export default (type, data, width) =>
+export default (type, data, width, barChart) =>
   cond([
-    [equals(SCALE_TIME), always(timeScale(data, width))],
+    [equals(SCALE_TIME), always(timeScale(data, width, barChart))],
     [equals(SCALE_BAND), always(bandScale(data, width))],
     [(T, identity)],
   ])(type);

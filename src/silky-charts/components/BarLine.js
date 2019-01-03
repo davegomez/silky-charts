@@ -55,7 +55,12 @@ const BarLine = ({
 
   const [id] = useState(`bar-line-${uuidv4()}`);
 
-  const xScale = getXScale(isNamesDate ? SCALE_TIME : SCALE_BAND, data, width);
+  const xScale = getXScale(
+    isNamesDate ? SCALE_TIME : SCALE_BAND,
+    data,
+    width,
+    true
+  );
   const yScale = getYScale(
     SCALE_LINEAR,
     d3Max(getMaximumValues(stackedKeys, data)),
