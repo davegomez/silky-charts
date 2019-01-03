@@ -15,7 +15,7 @@ const testCases = [
   },
 ];
 
-test('should return the correct width and height', () => {
+test('Should return the correct width and height', () => {
   testCases.map(({ testCase, expected }) =>
     expect(getSize(...testCase)).toEqual(expected)
   );

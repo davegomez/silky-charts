@@ -1,10 +1,9 @@
 import React, { Fragment } from 'react';
-import Rect from './Rect';
-import Text from './Text';
+import { Rect, Text } from './';
 
 const BarDatum = ({
+  color,
   datum: { value },
-  position,
   x,
   y,
   width,
@@ -13,11 +12,10 @@ const BarDatum = ({
   onMouseEnter,
   onMouseLeave,
   showValue,
-  color,
 }) => (
   <Fragment>
     <Rect
-      chart={'bar'}
+      chart="bar"
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}

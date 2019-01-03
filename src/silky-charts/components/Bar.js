@@ -78,7 +78,7 @@ const Bar = ({
 
         <Axis
           axis="x"
-          translate={{ x: 0, y: height }}
+          position={{ x: 0, y: height }}
           ref={node => {
             d3Select(node).call(d3AxisBottom(x));
             isNamesDate && extendXPath(id, width);

@@ -85,7 +85,7 @@ const BarLine = ({
 
         <Axis
           axis="x"
-          translate={{ x: 0, y: height }}
+          position={{ x: 0, y: height }}
           ref={node => {
             d3Select(node).call(d3AxisBottom(x));
             isNamesDate && extendXPath(id, width);
@@ -100,7 +100,6 @@ const BarLine = ({
         <StackedBarDatum
           data={data}
           series={stack(data)}
-          isDates={isNamesDate}
           onClick={onClick}
           theme={theme}
           x={x}
@@ -109,17 +108,21 @@ const BarLine = ({
           height={height}
         />
 
-        {lineData.map((datum, idx) => (
-          <g className={`${head(datum)['key']}-layer`} key={idx}>
-            <LineDatum
-              data={datum}
-              d={line(datum)}
-              xScale={x}
-              yScale={y}
-              color={palette.themes[secondaryTheme].base[idx]}
-            />
-          </g>
-        ))}
+        {lineData.map((datum, idx) => {
+          console.log(datum);
+
+          return (
+            <g className={`${head(datum)['key']}-layer`} key={idx}>
+              <LineDatum
+                data={datum}
+                d={line(datum)}
+                xScale={x}
+                yScale={y}
+                color={palette.themes[secondaryTheme].base[idx]}
+              />
+            </g>
+          );
+        })}
       </g>
     </SVG>
   );

@@ -3,7 +3,7 @@ import equals from 'ramda/src/equals';
 import T from 'ramda/src/T';
 import { LINE_TYPES } from './constants';
 
-export default (type, option) =>
+export default (type, option = null) =>
   cond([
     [equals('curveBundle'), () => LINE_TYPES[type].beta(option)],
     [equals('curveCardinalOpen'), () => LINE_TYPES[type].tension(option)],

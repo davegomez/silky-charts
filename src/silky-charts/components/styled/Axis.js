@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const Axis = styled.g.attrs(({ axis, translate }) => ({
+const Axis = styled.g.attrs(({ axis, position }) => ({
   className: `axis-${axis}`,
-  transform: translate && `translate(${translate.x}, ${translate.y})`,
+  transform: position && `translate(${position.x}, ${position.y})`,
 }))``;
 
 export default Axis;
