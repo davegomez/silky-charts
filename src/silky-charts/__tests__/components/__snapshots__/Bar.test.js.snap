@@ -1,0 +1,1306 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should call onMouseEnter and update divergence on bars 1`] = `
+.c1 {
+  fill: rgb(90,200,250);
+  height: 100.10752688172045px;
+  width: 181.73076923076923px;
+}
+
+.c1:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c3 {
+  fill: rgb(90,200,250);
+  height: 368.81720430107526px;
+  width: 181.73076923076923px;
+}
+
+.c3:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c4 {
+  fill: rgb(90,200,250);
+  height: 490px;
+  width: 181.73076923076923px;
+}
+
+.c4:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c5 {
+  fill: rgb(90,200,250);
+  height: 421.505376344086px;
+  width: 181.73076923076923px;
+}
+
+.c5:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c0 {
+  height: 540px;
+  width: 960px;
+}
+
+.c2 {
+  fill: rgb(255,255,255);
+  pointer-events: none;
+}
+
+<svg
+  className="silky-charts c0"
+  id={null}
+  size={
+    Object {
+      "height": 540,
+      "width": 960,
+    }
+  }
+>
+  <g
+    className="container"
+    transform="translate(40, 20)"
+  >
+    <g
+      className="axis-x "
+      transform="translate(0, 490)"
+    />
+    <g
+      className="axis-y "
+    />
+    <g
+      className="data"
+    >
+      <rect
+        className="bar c1"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 100.10752688172045,
+            "width": 181.73076923076923,
+          }
+        }
+        value="+18"
+        x={34.61538461538464}
+        y={389.89247311827955}
+      />
+      <text
+        className="value c2"
+        size={
+          Object {
+            "height": 100.10752688172045,
+            "width": 181.73076923076923,
+          }
+        }
+        textAnchor="middle"
+        transform="translate(125.48076923076925, 419.89247311827955)"
+      >
+        +18
+      </text>
+      <rect
+        className="bar c3"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 368.81720430107526,
+            "width": 181.73076923076923,
+          }
+        }
+        value="+69"
+        x={250.96153846153848}
+        y={121.18279569892474}
+      />
+      <text
+        className="value c2"
+        size={
+          Object {
+            "height": 368.81720430107526,
+            "width": 181.73076923076923,
+          }
+        }
+        textAnchor="middle"
+        transform="translate(341.8269230769231, 151.18279569892474)"
+      >
+        +69
+      </text>
+      <rect
+        className="bar c4"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 490,
+            "width": 181.73076923076923,
+          }
+        }
+        value="+92"
+        x={467.3076923076923}
+        y={0}
+      />
+      <text
+        className="value c2"
+        size={
+          Object {
+            "height": 490,
+            "width": 181.73076923076923,
+          }
+        }
+        textAnchor="middle"
+        transform="translate(558.1730769230769, 30)"
+      >
+        +92
+      </text>
+      <rect
+        className="bar c5"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 421.505376344086,
+            "width": 181.73076923076923,
+          }
+        }
+        value="+79"
+        x={683.6538461538462}
+        y={68.49462365591398}
+      />
+      <text
+        className="value c2"
+        size={
+          Object {
+            "height": 421.505376344086,
+            "width": 181.73076923076923,
+          }
+        }
+        textAnchor="middle"
+        transform="translate(774.5192307692308, 98.49462365591398)"
+      >
+        +79
+      </text>
+    </g>
+  </g>
+</svg>
+`;
+
+exports[`Should render correctly 1`] = `
+.c1 {
+  fill: rgb(90,200,250);
+  height: 100.10752688172045px;
+  width: 181.73076923076923px;
+}
+
+.c1:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c2 {
+  fill: rgb(90,200,250);
+  height: 368.81720430107526px;
+  width: 181.73076923076923px;
+}
+
+.c2:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c3 {
+  fill: rgb(90,200,250);
+  height: 490px;
+  width: 181.73076923076923px;
+}
+
+.c3:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c4 {
+  fill: rgb(90,200,250);
+  height: 421.505376344086px;
+  width: 181.73076923076923px;
+}
+
+.c4:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c0 {
+  height: 540px;
+  width: 960px;
+}
+
+<svg
+  className="silky-charts c0"
+  id={null}
+  size={
+    Object {
+      "height": 540,
+      "width": 960,
+    }
+  }
+>
+  <g
+    className="container"
+    transform="translate(40, 20)"
+  >
+    <g
+      className="axis-x "
+      transform="translate(0, 490)"
+    />
+    <g
+      className="axis-y "
+    />
+    <g
+      className="data"
+    >
+      <rect
+        className="bar c1"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 100.10752688172045,
+            "width": 181.73076923076923,
+          }
+        }
+        value={19}
+        x={34.61538461538464}
+        y={389.89247311827955}
+      />
+      <rect
+        className="bar c2"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 368.81720430107526,
+            "width": 181.73076923076923,
+          }
+        }
+        value={70}
+        x={250.96153846153848}
+        y={121.18279569892474}
+      />
+      <rect
+        className="bar c3"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 490,
+            "width": 181.73076923076923,
+          }
+        }
+        value={93}
+        x={467.3076923076923}
+        y={0}
+      />
+      <rect
+        className="bar c4"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 421.505376344086,
+            "width": 181.73076923076923,
+          }
+        }
+        value={80}
+        x={683.6538461538462}
+        y={68.49462365591398}
+      />
+    </g>
+  </g>
+</svg>
+`;
+
+exports[`Should render correctly X axis label rotation 1`] = `
+.c1 {
+  fill: rgb(90,200,250);
+  height: 100.10752688172045px;
+  width: 181.73076923076923px;
+}
+
+.c1:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c2 {
+  fill: rgb(90,200,250);
+  height: 368.81720430107526px;
+  width: 181.73076923076923px;
+}
+
+.c2:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c3 {
+  fill: rgb(90,200,250);
+  height: 490px;
+  width: 181.73076923076923px;
+}
+
+.c3:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c4 {
+  fill: rgb(90,200,250);
+  height: 421.505376344086px;
+  width: 181.73076923076923px;
+}
+
+.c4:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c0 {
+  height: 540px;
+  width: 960px;
+}
+
+<svg
+  className="silky-charts c0"
+  id={null}
+  size={
+    Object {
+      "height": 540,
+      "width": 960,
+    }
+  }
+>
+  <g
+    className="container"
+    transform="translate(40, 20)"
+  >
+    <g
+      className="axis-x "
+      transform="translate(0, 490)"
+    />
+    <g
+      className="axis-y "
+    />
+    <g
+      className="data"
+    >
+      <rect
+        className="bar c1"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 100.10752688172045,
+            "width": 181.73076923076923,
+          }
+        }
+        value={19}
+        x={34.61538461538464}
+        y={389.89247311827955}
+      />
+      <rect
+        className="bar c2"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 368.81720430107526,
+            "width": 181.73076923076923,
+          }
+        }
+        value={70}
+        x={250.96153846153848}
+        y={121.18279569892474}
+      />
+      <rect
+        className="bar c3"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 490,
+            "width": 181.73076923076923,
+          }
+        }
+        value={93}
+        x={467.3076923076923}
+        y={0}
+      />
+      <rect
+        className="bar c4"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 421.505376344086,
+            "width": 181.73076923076923,
+          }
+        }
+        value={80}
+        x={683.6538461538462}
+        y={68.49462365591398}
+      />
+    </g>
+  </g>
+</svg>
+`;
+
+exports[`Should render correctly showing the value and divergence on bars 1`] = `
+.c1 {
+  fill: rgb(90,200,250);
+  height: 100.10752688172045px;
+  width: 181.73076923076923px;
+}
+
+.c1:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c3 {
+  fill: rgb(90,200,250);
+  height: 368.81720430107526px;
+  width: 181.73076923076923px;
+}
+
+.c3:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c4 {
+  fill: rgb(90,200,250);
+  height: 490px;
+  width: 181.73076923076923px;
+}
+
+.c4:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c5 {
+  fill: rgb(90,200,250);
+  height: 421.505376344086px;
+  width: 181.73076923076923px;
+}
+
+.c5:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c0 {
+  height: 540px;
+  width: 960px;
+}
+
+.c2 {
+  fill: rgb(255,255,255);
+  pointer-events: none;
+}
+
+<svg
+  className="silky-charts c0"
+  id={null}
+  size={
+    Object {
+      "height": 540,
+      "width": 960,
+    }
+  }
+>
+  <g
+    className="container"
+    transform="translate(40, 20)"
+  >
+    <g
+      className="axis-x "
+      transform="translate(0, 490)"
+    />
+    <g
+      className="axis-y "
+    />
+    <g
+      className="data"
+    >
+      <rect
+        className="bar c1"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 100.10752688172045,
+            "width": 181.73076923076923,
+          }
+        }
+        value={19}
+        x={34.61538461538464}
+        y={389.89247311827955}
+      />
+      <text
+        className="value c2"
+        size={
+          Object {
+            "height": 100.10752688172045,
+            "width": 181.73076923076923,
+          }
+        }
+        textAnchor="middle"
+        transform="translate(125.48076923076925, 419.89247311827955)"
+      >
+        19
+      </text>
+      <rect
+        className="bar c3"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 368.81720430107526,
+            "width": 181.73076923076923,
+          }
+        }
+        value={70}
+        x={250.96153846153848}
+        y={121.18279569892474}
+      />
+      <text
+        className="value c2"
+        size={
+          Object {
+            "height": 368.81720430107526,
+            "width": 181.73076923076923,
+          }
+        }
+        textAnchor="middle"
+        transform="translate(341.8269230769231, 151.18279569892474)"
+      >
+        70
+      </text>
+      <rect
+        className="bar c4"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 490,
+            "width": 181.73076923076923,
+          }
+        }
+        value={93}
+        x={467.3076923076923}
+        y={0}
+      />
+      <text
+        className="value c2"
+        size={
+          Object {
+            "height": 490,
+            "width": 181.73076923076923,
+          }
+        }
+        textAnchor="middle"
+        transform="translate(558.1730769230769, 30)"
+      >
+        93
+      </text>
+      <rect
+        className="bar c5"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 421.505376344086,
+            "width": 181.73076923076923,
+          }
+        }
+        value={80}
+        x={683.6538461538462}
+        y={68.49462365591398}
+      />
+      <text
+        className="value c2"
+        size={
+          Object {
+            "height": 421.505376344086,
+            "width": 181.73076923076923,
+          }
+        }
+        textAnchor="middle"
+        transform="translate(774.5192307692308, 98.49462365591398)"
+      >
+        80
+      </text>
+    </g>
+  </g>
+</svg>
+`;
+
+exports[`Should render correctly showing the value on bars 1`] = `
+.c1 {
+  fill: rgb(90,200,250);
+  height: 100.10752688172045px;
+  width: 181.73076923076923px;
+}
+
+.c1:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c3 {
+  fill: rgb(90,200,250);
+  height: 368.81720430107526px;
+  width: 181.73076923076923px;
+}
+
+.c3:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c4 {
+  fill: rgb(90,200,250);
+  height: 490px;
+  width: 181.73076923076923px;
+}
+
+.c4:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c5 {
+  fill: rgb(90,200,250);
+  height: 421.505376344086px;
+  width: 181.73076923076923px;
+}
+
+.c5:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c0 {
+  height: 540px;
+  width: 960px;
+}
+
+.c2 {
+  fill: rgb(255,255,255);
+  pointer-events: none;
+}
+
+<svg
+  className="silky-charts c0"
+  id={null}
+  size={
+    Object {
+      "height": 540,
+      "width": 960,
+    }
+  }
+>
+  <g
+    className="container"
+    transform="translate(40, 20)"
+  >
+    <g
+      className="axis-x "
+      transform="translate(0, 490)"
+    />
+    <g
+      className="axis-y "
+    />
+    <g
+      className="data"
+    >
+      <rect
+        className="bar c1"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 100.10752688172045,
+            "width": 181.73076923076923,
+          }
+        }
+        value={19}
+        x={34.61538461538464}
+        y={389.89247311827955}
+      />
+      <text
+        className="value c2"
+        size={
+          Object {
+            "height": 100.10752688172045,
+            "width": 181.73076923076923,
+          }
+        }
+        textAnchor="middle"
+        transform="translate(125.48076923076925, 419.89247311827955)"
+      >
+        19
+      </text>
+      <rect
+        className="bar c3"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 368.81720430107526,
+            "width": 181.73076923076923,
+          }
+        }
+        value={70}
+        x={250.96153846153848}
+        y={121.18279569892474}
+      />
+      <text
+        className="value c2"
+        size={
+          Object {
+            "height": 368.81720430107526,
+            "width": 181.73076923076923,
+          }
+        }
+        textAnchor="middle"
+        transform="translate(341.8269230769231, 151.18279569892474)"
+      >
+        70
+      </text>
+      <rect
+        className="bar c4"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 490,
+            "width": 181.73076923076923,
+          }
+        }
+        value={93}
+        x={467.3076923076923}
+        y={0}
+      />
+      <text
+        className="value c2"
+        size={
+          Object {
+            "height": 490,
+            "width": 181.73076923076923,
+          }
+        }
+        textAnchor="middle"
+        transform="translate(558.1730769230769, 30)"
+      >
+        93
+      </text>
+      <rect
+        className="bar c5"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 421.505376344086,
+            "width": 181.73076923076923,
+          }
+        }
+        value={80}
+        x={683.6538461538462}
+        y={68.49462365591398}
+      />
+      <text
+        className="value c2"
+        size={
+          Object {
+            "height": 421.505376344086,
+            "width": 181.73076923076923,
+          }
+        }
+        textAnchor="middle"
+        transform="translate(774.5192307692308, 98.49462365591398)"
+      >
+        80
+      </text>
+    </g>
+  </g>
+</svg>
+`;
+
+exports[`Should render correctly width horizontal grid 1`] = `
+.c1 path {
+  stroke: transparent;
+}
+
+.c1 line {
+  stroke: rgb(220,220,220);
+}
+
+.c2 {
+  fill: rgb(90,200,250);
+  height: 100.10752688172045px;
+  width: 181.73076923076923px;
+}
+
+.c2:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c3 {
+  fill: rgb(90,200,250);
+  height: 368.81720430107526px;
+  width: 181.73076923076923px;
+}
+
+.c3:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c4 {
+  fill: rgb(90,200,250);
+  height: 490px;
+  width: 181.73076923076923px;
+}
+
+.c4:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c5 {
+  fill: rgb(90,200,250);
+  height: 421.505376344086px;
+  width: 181.73076923076923px;
+}
+
+.c5:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c0 {
+  height: 540px;
+  width: 960px;
+}
+
+<svg
+  className="silky-charts c0"
+  id={null}
+  size={
+    Object {
+      "height": 540,
+      "width": 960,
+    }
+  }
+>
+  <g
+    className="container"
+    transform="translate(40, 20)"
+  >
+    <g
+      className="grid c1"
+    />
+    <g
+      className="axis-x "
+      transform="translate(0, 490)"
+    />
+    <g
+      className="axis-y "
+    />
+    <g
+      className="data"
+    >
+      <rect
+        className="bar c2"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 100.10752688172045,
+            "width": 181.73076923076923,
+          }
+        }
+        value={19}
+        x={34.61538461538464}
+        y={389.89247311827955}
+      />
+      <rect
+        className="bar c3"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 368.81720430107526,
+            "width": 181.73076923076923,
+          }
+        }
+        value={70}
+        x={250.96153846153848}
+        y={121.18279569892474}
+      />
+      <rect
+        className="bar c4"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 490,
+            "width": 181.73076923076923,
+          }
+        }
+        value={93}
+        x={467.3076923076923}
+        y={0}
+      />
+      <rect
+        className="bar c5"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 421.505376344086,
+            "width": 181.73076923076923,
+          }
+        }
+        value={80}
+        x={683.6538461538462}
+        y={68.49462365591398}
+      />
+    </g>
+  </g>
+</svg>
+`;
+
+exports[`Should render correctly width vertical grid 1`] = `
+.c1 path {
+  stroke: transparent;
+}
+
+.c1 line {
+  stroke: rgb(220,220,220);
+}
+
+.c2 {
+  fill: rgb(90,200,250);
+  height: 100.10752688172045px;
+  width: 181.73076923076923px;
+}
+
+.c2:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c3 {
+  fill: rgb(90,200,250);
+  height: 368.81720430107526px;
+  width: 181.73076923076923px;
+}
+
+.c3:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c4 {
+  fill: rgb(90,200,250);
+  height: 490px;
+  width: 181.73076923076923px;
+}
+
+.c4:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c5 {
+  fill: rgb(90,200,250);
+  height: 421.505376344086px;
+  width: 181.73076923076923px;
+}
+
+.c5:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c0 {
+  height: 540px;
+  width: 960px;
+}
+
+<svg
+  className="silky-charts c0"
+  id={null}
+  size={
+    Object {
+      "height": 540,
+      "width": 960,
+    }
+  }
+>
+  <g
+    className="container"
+    transform="translate(40, 20)"
+  >
+    <g
+      className="grid c1"
+    />
+    <g
+      className="axis-x "
+      transform="translate(0, 490)"
+    />
+    <g
+      className="axis-y "
+    />
+    <g
+      className="data"
+    >
+      <rect
+        className="bar c2"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 100.10752688172045,
+            "width": 181.73076923076923,
+          }
+        }
+        value={19}
+        x={34.61538461538464}
+        y={389.89247311827955}
+      />
+      <rect
+        className="bar c3"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 368.81720430107526,
+            "width": 181.73076923076923,
+          }
+        }
+        value={70}
+        x={250.96153846153848}
+        y={121.18279569892474}
+      />
+      <rect
+        className="bar c4"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 490,
+            "width": 181.73076923076923,
+          }
+        }
+        value={93}
+        x={467.3076923076923}
+        y={0}
+      />
+      <rect
+        className="bar c5"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 421.505376344086,
+            "width": 181.73076923076923,
+          }
+        }
+        value={80}
+        x={683.6538461538462}
+        y={68.49462365591398}
+      />
+    </g>
+  </g>
+</svg>
+`;
+
+exports[`Should render correctly with dates as name 1`] = `
+.c1 {
+  fill: rgb(90,200,250);
+  height: 100.10752688172045px;
+  width: 187.92282635930843px;
+}
+
+.c1:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c2 {
+  fill: rgb(90,200,250);
+  height: 368.81720430107526px;
+  width: 187.92282635930843px;
+}
+
+.c2:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c3 {
+  fill: rgb(90,200,250);
+  height: 490px;
+  width: 187.92282635930843px;
+}
+
+.c3:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c4 {
+  fill: rgb(90,200,250);
+  height: 421.505376344086px;
+  width: 187.92282635930843px;
+}
+
+.c4:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c0 {
+  height: 540px;
+  width: 960px;
+}
+
+<svg
+  className="silky-charts c0"
+  id={null}
+  size={
+    Object {
+      "height": 540,
+      "width": 960,
+    }
+  }
+>
+  <g
+    className="container"
+    transform="translate(40, 20)"
+  >
+    <g
+      className="axis-x "
+      transform="translate(0, 490)"
+    />
+    <g
+      className="axis-y "
+    />
+    <g
+      className="data"
+    >
+      <rect
+        className="bar c1"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 100.10752688172045,
+            "width": 187.92282635930843,
+          }
+        }
+        value={19}
+        x={31.25}
+        y={389.89247311827955}
+      />
+      <rect
+        className="bar c2"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 368.81720430107526,
+            "width": 187.92282635930843,
+          }
+        }
+        value={70}
+        x={248.25}
+        y={121.18279569892474}
+      />
+      <rect
+        className="bar c3"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 490,
+            "width": 187.92282635930843,
+          }
+        }
+        value={93}
+        x={464.25}
+        y={0}
+      />
+      <rect
+        className="bar c4"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 421.505376344086,
+            "width": 187.92282635930843,
+          }
+        }
+        value={80}
+        x={681.25}
+        y={68.49462365591398}
+      />
+    </g>
+  </g>
+</svg>
+`;

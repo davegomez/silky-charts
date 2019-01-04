@@ -9,6 +9,7 @@ export {
 } from './formatCurrencyShortNotation';
 export { default as getBaseColor } from './getBaseColor';
 export { default as getHoverColor } from './getHoverColor';
+export { default as getId } from './getId';
 export { default as getLineDataForKeys } from './getLineDataForKeys';
 export { default as getMaximumValues } from './getMaximumValues';
 export { default as getDivergence } from './getDivergence';

@@ -12,10 +12,10 @@ module.exports = function(wallaby) {
   return {
     files: [
       'src/silky-charts/**/*.+(js|jsx|json|snap|css|less|sass|scss|jpg|jpeg|gif|png|svg)',
-      '!src/**/*.test.js?(x)',
+      '!src/silky-charts/**/*.test.js?(x)',
     ],
 
-    tests: ['src/silky-charts/**/*.test.js?(x)'],
+    tests: ['src/**/*.test.js?(x)'],
 
     env: {
       type: 'node',
@@ -26,6 +26,10 @@ module.exports = function(wallaby) {
       '**/*.js?(x)': wallaby.compilers.babel({
         presets: ['react-app'],
       }),
+    },
+
+    hints: {
+      ignoreCoverageForFile: /ignore file coverage/,
     },
 
     setup: wallaby => {

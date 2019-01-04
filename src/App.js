@@ -35,12 +35,27 @@ export default () => (
         // xAxisLabelRotationValue={-50}
       />
 
+      <Bar
+        data={barData}
+        // showValue
+        // showDivergence
+        // grid
+        referenceLine
+        source="Source: AWeber Reports"
+        title="Subscriptions during February 2018"
+        xAxisLabel="February 2018"
+        yAxisLabel="Subscribers"
+        // xAxisLabelRotation
+        // xAxisLabelRotationValue={-50}
+      />
+
       <BarLine
         data={barLineData}
         grid
         referenceLine
         stackedKeys={['apples', 'bananas']}
         lineKeys={['cherries']}
+        lineType={'curveNatural'}
         // sourceLabel="Source: AWeber Reports"
         // titleLabel="Subscriptions during February 2018"
         // xAxisLabel="February 2018"

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import head from 'ramda/src/head';
 import identity from 'ramda/src/identity';
-import uuidv4 from 'uuid/v4';
 import { select as d3Select } from 'd3-selection';
 import { max as d3Max } from 'd3-array';
 import { axisBottom as d3AxisBottom, axisLeft as d3AxisLeft } from 'd3-axis';
@@ -12,6 +11,7 @@ import {
   buildStack,
   drawGrid,
   extendXPath,
+  getId,
   getLineDataForKeys,
   getMaximumValues,
   getSize,
@@ -53,7 +53,7 @@ const BarLine = ({
   const [width, height] = getSize(svgWidth, svgHeight, margin);
   const isNamesDate = allDate(data.map(({ name }) => name));
 
-  const [id] = useState(`bar-line-${uuidv4()}`);
+  const [id] = useState(getId('bar-line'));
 
   const xScale = getXScale(
     isNamesDate ? SCALE_TIME : SCALE_BAND,

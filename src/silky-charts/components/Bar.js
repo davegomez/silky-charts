@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import identity from 'ramda/src/identity';
-import uuidv4 from 'uuid/v4';
 import { select as d3Select } from 'd3-selection';
 import { max as d3Max } from 'd3-array';
 import { axisBottom as d3AxisBottom, axisLeft as d3AxisLeft } from 'd3-axis';
@@ -11,6 +10,7 @@ import {
   extendXPath,
   getBaseColor,
   getDivergence,
+  getId,
   getSize,
   getXScale,
   getYScale,
@@ -45,7 +45,7 @@ const Bar = ({
   const [width, height] = getSize(svgWidth, svgHeight, margin);
   const isNamesDate = allDate(data.map(({ name }) => name));
   const [currentValue, setCurrentValue] = useState(null);
-  const [id] = useState(`bar-${uuidv4()}`);
+  const [id] = useState(getId());
 
   const xScale = getXScale(
     isNamesDate ? SCALE_TIME : SCALE_BAND,

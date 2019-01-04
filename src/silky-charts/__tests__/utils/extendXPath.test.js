@@ -14,5 +14,5 @@ test('Should transform the "d" path attribute', () => {
   extendXPath('foo', 100);
 
   const path = document.querySelector('#foo .axis-x path.domain');
-  expect(path.getAttribute('d')).toEqual('M0,0.5V0.5H100');
+  expect(path.getAttribute('d')).toEqual('M0,0.6V0.5H100');
 });
