@@ -45,7 +45,7 @@ const Bar = ({
   const [width, height] = getSize(svgWidth, svgHeight, margin);
   const isNamesDate = allDate(data.map(({ name }) => name));
   const [currentValue, setCurrentValue] = useState(null);
-  const [id] = useState(getId());
+  const [id] = useState(getId('bar'));
 
   const xScale = getXScale(
     isNamesDate ? SCALE_TIME : SCALE_BAND,

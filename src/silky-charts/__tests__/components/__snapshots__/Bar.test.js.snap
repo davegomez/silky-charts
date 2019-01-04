@@ -53,7 +53,7 @@ exports[`Should call onMouseEnter and update divergence on bars 1`] = `
 
 <svg
   className="silky-charts c0"
-  id={null}
+  id="silky-charts-bar-7"
   size={
     Object {
       "height": 540,
@@ -244,7 +244,7 @@ exports[`Should render correctly 1`] = `
 
 <svg
   className="silky-charts c0"
-  id={null}
+  id="silky-charts-bar-0"
   size={
     Object {
       "height": 540,
@@ -383,7 +383,7 @@ exports[`Should render correctly X axis label rotation 1`] = `
 
 <svg
   className="silky-charts c0"
-  id={null}
+  id="silky-charts-bar-4"
   size={
     Object {
       "height": 540,
@@ -527,7 +527,7 @@ exports[`Should render correctly showing the value and divergence on bars 1`] = 
 
 <svg
   className="silky-charts c0"
-  id={null}
+  id="silky-charts-bar-6"
   size={
     Object {
       "height": 540,
@@ -723,7 +723,7 @@ exports[`Should render correctly showing the value on bars 1`] = `
 
 <svg
   className="silky-charts c0"
-  id={null}
+  id="silky-charts-bar-5"
   size={
     Object {
       "height": 540,
@@ -922,7 +922,7 @@ exports[`Should render correctly width horizontal grid 1`] = `
 
 <svg
   className="silky-charts c0"
-  id={null}
+  id="silky-charts-bar-2"
   size={
     Object {
       "height": 540,
@@ -1072,7 +1072,7 @@ exports[`Should render correctly width vertical grid 1`] = `
 
 <svg
   className="silky-charts c0"
-  id={null}
+  id="silky-charts-bar-3"
   size={
     Object {
       "height": 540,
@@ -1214,7 +1214,7 @@ exports[`Should render correctly with dates as name 1`] = `
 
 <svg
   className="silky-charts c0"
-  id={null}
+  id="silky-charts-bar-1"
   size={
     Object {
       "height": 540,
