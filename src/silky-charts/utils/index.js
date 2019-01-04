@@ -1,5 +1,4 @@
 export { default as allDate } from './allDate';
-export { default as buildLine } from './buildLine';
 export { default as buildStack } from './buildStack';
 export { default as drawGrid } from './drawGrid';
 export { default as extendXPath } from './extendXPath';

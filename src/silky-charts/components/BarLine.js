@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import head from 'ramda/src/head';
 import identity from 'ramda/src/identity';
 import { select as d3Select } from 'd3-selection';
+import { line as d3Line } from 'd3-shape';
 import { max as d3Max } from 'd3-array';
 import { axisBottom as d3AxisBottom, axisLeft as d3AxisLeft } from 'd3-axis';
 import { Axis, StackedBarDatum, Grid, LineDatum, SVG } from './styled';
 import {
   allDate,
-  buildLine,
   buildStack,
   drawGrid,
   extendXPath,
@@ -19,6 +19,7 @@ import {
   getYScale,
   palette,
   rotateXLabels,
+  setLineType,
 } from '../utils';
 import {
   SCALE_TIME,
@@ -68,7 +69,14 @@ const BarLine = ({
   );
 
   const stack = buildStack(stackedKeys);
-  const line = buildLine(xScale, yScale, lineType, lineTypeOption);
+  const line = d3Line()
+    .x(({ name }) =>
+      isNamesDate
+        ? xScale(new Date(name))
+        : xScale(name) + xScale.bandwidth() / 2
+    )
+    .y(({ value }) => yScale(value))
+    .curve(setLineType(lineType, lineTypeOption));
 
   const lineData = getLineDataForKeys(lineKeys, data);
 
@@ -105,6 +113,7 @@ const BarLine = ({
         <StackedBarDatum
           data={data}
           series={stack(data)}
+          isNamesDate={isNamesDate}
           onClick={onClick}
           theme={theme}
           x={xScale}
@@ -118,6 +127,7 @@ const BarLine = ({
             <LineDatum
               data={datum}
               d={line(datum)}
+              isNamesDate={isNamesDate}
               xScale={xScale}
               yScale={yScale}
               color={palette.themes[secondaryTheme].base[idx]}

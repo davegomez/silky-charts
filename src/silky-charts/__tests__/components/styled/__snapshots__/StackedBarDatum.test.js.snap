@@ -82,7 +82,7 @@ Array [
   .c0 {
   fill: rgb(127,29,24);
   height: NaNpx;
-  width: 8.352125615969264px;
+  width: px;
 }
 
 .c0:hover {
@@ -98,11 +98,10 @@ Array [
       size={
         Object {
           "height": NaN,
-          "width": 8.352125615969264,
+          "width": undefined,
         }
       }
       value={1}
-      x={NaN}
     />
     <rect
       className="bar c0"
@@ -110,17 +109,16 @@ Array [
       size={
         Object {
           "height": NaN,
-          "width": 8.352125615969264,
+          "width": undefined,
         }
       }
       value={5}
-      x={NaN}
     />
   </g>,
   .c0 {
   fill: rgb(255,131,124);
   height: NaNpx;
-  width: 8.352125615969264px;
+  width: px;
 }
 
 .c0:hover {
@@ -136,11 +134,10 @@ Array [
       size={
         Object {
           "height": NaN,
-          "width": 8.352125615969264,
+          "width": undefined,
         }
       }
       value={2}
-      x={NaN}
     />
     <rect
       className="bar c0"
@@ -148,11 +145,10 @@ Array [
       size={
         Object {
           "height": NaN,
-          "width": 8.352125615969264,
+          "width": undefined,
         }
       }
       value={6}
-      x={NaN}
     />
   </g>,
 ]

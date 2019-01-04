@@ -27,6 +27,7 @@ Array [
     <circle
       className="line-dot c0"
       color="rgb(0, 0, 0)"
+      cx={NaN}
       r={5}
     />
   </g>,

@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { isValid } from 'date-fns';
 import { Circle, Path } from './';
 
 const LineDatum = ({
@@ -10,6 +9,7 @@ const LineDatum = ({
   onMouseOver,
   xScale,
   yScale,
+  isNamesDate,
 }) => (
   <Fragment>
     <Path d={d} className="line-path" color={color} />
@@ -19,7 +19,11 @@ const LineDatum = ({
           key={idx}
           className="line-dot"
           color={color}
-          cx={xScale(isValid(name) ? new Date(name) : name)}
+          cx={
+            isNamesDate
+              ? xScale(new Date(name))
+              : xScale(name) + xScale.bandwidth() / 2
+          }
           cy={yScale(value)}
           onClick={onClick}
           onMouseOver={onMouseOver}

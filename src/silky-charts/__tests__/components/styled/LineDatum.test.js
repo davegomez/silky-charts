@@ -3,10 +3,13 @@ import { LineDatum } from '../../../components/styled';
 import { create } from 'react-test-renderer';
 import 'jest-styled-components';
 
+const xScale = jest.fn();
+xScale.bandwidth = jest.fn();
+
 const props = {
   color: 'rgb(0, 0, 0)',
   d: 'M0',
-  xScale: jest.fn(),
+  xScale: xScale,
   yScale: jest.fn(),
 };
 
@@ -21,6 +24,7 @@ test('Should render correctly', () => {
 test('Should render correctly width dates', () => {
   const tree = create(
     <LineDatum
+      isNamesDate
       data={[{ name: '2019-01-01T05:00:00.000Z', value: 0 }]}
       {...props}
     />
