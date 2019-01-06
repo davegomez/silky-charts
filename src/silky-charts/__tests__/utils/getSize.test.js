@@ -1,22 +1,51 @@
 import { getSize } from '../../utils';
+import { ASPECT_RATIO, MARGIN } from '../../utils/constants';
 
-const testCases = [
-  {
-    testCase: [1024, 576, { top: 10, right: 20, bottom: 20, left: 30 }],
-    expected: [974, 546],
-  },
-  {
-    testCase: [1280, 720, { top: 40, right: 30, bottom: 10, left: 20 }],
-    expected: [1230, 670],
-  },
-  {
-    testCase: [3840, 2160, { top: 20, right: 40, bottom: 15, left: 60 }],
-    expected: [3740, 2125],
-  },
-];
+test('Should return the size with undefined width and height', () => {
+  expect(getSize(undefined, undefined, MARGIN, ASPECT_RATIO)).toEqual({
+    width: 540,
+    height: 270,
+  });
+});
 
-test('Should return the correct width and height', () => {
-  testCases.map(({ testCase, expected }) =>
-    expect(getSize(...testCase)).toEqual(expected)
-  );
+test('Should return the size with defined width and undefined height', () => {
+  expect(getSize(800, undefined, MARGIN, ASPECT_RATIO)).toEqual({
+    width: 700,
+    height: 360,
+  });
+});
+
+test('Should return the size with undefined width and defined height', () => {
+  expect(getSize(undefined, 720, MARGIN, ASPECT_RATIO)).toEqual({
+    width: 1180,
+    height: 630,
+  });
+});
+
+test('Should return the size with custom aspect ratio', () => {
+  expect(getSize(undefined, undefined, MARGIN, '4:3')).toEqual({
+    width: 540,
+    height: 390,
+  });
+});
+
+test('Should return the size with defined width and custom aspect ratio', () => {
+  expect(getSize(800, undefined, MARGIN, '4:3')).toEqual({
+    width: 700,
+    height: 510,
+  });
+});
+
+test('Should return the size with defined height and custom aspect ratio', () => {
+  expect(getSize(undefined, 720, MARGIN, '4:3')).toEqual({
+    width: 860,
+    height: 630,
+  });
+});
+
+test('Should return the size with defined width and height', () => {
+  expect(getSize(1280, 720, MARGIN, '4:3')).toEqual({
+    width: 1180,
+    height: 630,
+  });
 });

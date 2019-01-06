@@ -2,8 +2,8 @@
 
 exports[`Should render correctly 1`] = `
 .c0 {
-  height: 540px;
-  width: 960px;
+  height: 90px;
+  width: 100px;
 }
 
 <svg
@@ -11,18 +11,18 @@ exports[`Should render correctly 1`] = `
   id="silky-charts-bar-line-0"
   size={
     Object {
-      "height": 540,
-      "width": 960,
+      "height": 90,
+      "width": 100,
     }
   }
 >
   <g
     className="container"
-    transform="translate(40, 20)"
+    transform="translate(50, 40)"
   >
     <g
       className="axis-x "
-      transform="translate(0, 490)"
+      transform="translate(0, 0)"
     />
     <g
       className="axis-y "
@@ -114,30 +114,30 @@ exports[`Should render correctly width vertical grid 1`] = `
 }
 
 .c0 {
-  height: 540px;
-  width: 960px;
+  height: 90px;
+  width: 100px;
 }
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-10"
+  id="silky-charts-bar-line-5"
   size={
     Object {
-      "height": 540,
-      "width": 960,
+      "height": 90,
+      "width": 100,
     }
   }
 >
   <g
     className="container"
-    transform="translate(40, 20)"
+    transform="translate(50, 40)"
   >
     <g
       className="grid c1"
     />
     <g
       className="axis-x "
-      transform="translate(0, 490)"
+      transform="translate(0, 0)"
     />
     <g
       className="axis-y "
@@ -178,28 +178,28 @@ exports[`Should render correctly with a different line type 1`] = `
 `;
 
 exports[`Should render correctly with bars and lines 1`] = `
-.c8 {
+.c4 {
   cursor: pointer;
   fill: rgb(255,255,255);
   stroke: rgb(127,22,42);
   stroke-width: 3;
 }
 
-.c10 {
+.c6 {
   cursor: pointer;
   fill: rgb(255,255,255);
   stroke: rgb(255,121,147);
   stroke-width: 3;
 }
 
-.c7 {
+.c3 {
   fill: none;
   pointer-events: none;
   stroke: rgb(127,22,42);
   stroke-width: 3;
 }
 
-.c9 {
+.c5 {
   fill: none;
   pointer-events: none;
   stroke: rgb(255,121,147);
@@ -208,8 +208,8 @@ exports[`Should render correctly with bars and lines 1`] = `
 
 .c1 {
   fill: rgb(44,98,122);
-  height: 259.4117647058824px;
-  width: 187.92282635930843px;
+  height: 0px;
+  width: 0px;
 }
 
 .c1:hover {
@@ -217,77 +217,37 @@ exports[`Should render correctly with bars and lines 1`] = `
 }
 
 .c2 {
-  fill: rgb(44,98,122);
-  height: 201.76470588235293px;
-  width: 187.92282635930843px;
+  fill: rgb(166,224,251);
+  height: 0px;
+  width: 0px;
 }
 
 .c2:hover {
-  fill: hsl(198.5,47%,26%);
-}
-
-.c3 {
-  fill: rgb(44,98,122);
-  height: 245px;
-  width: 187.92282635930843px;
-}
-
-.c3:hover {
-  fill: hsl(198.5,47%,26%);
-}
-
-.c4 {
-  fill: rgb(166,224,251);
-  height: 230.58823529411768px;
-  width: 187.92282635930843px;
-}
-
-.c4:hover {
-  fill: hsl(199.10000000000002,91.4%,65.4%);
-}
-
-.c5 {
-  fill: rgb(166,224,251);
-  height: 201.76470588235293px;
-  width: 187.92282635930843px;
-}
-
-.c5:hover {
-  fill: hsl(199.10000000000002,91.4%,65.4%);
-}
-
-.c6 {
-  fill: rgb(166,224,251);
-  height: 187.3529411764706px;
-  width: 187.92282635930843px;
-}
-
-.c6:hover {
   fill: hsl(199.10000000000002,91.4%,65.4%);
 }
 
 .c0 {
-  height: 540px;
-  width: 960px;
+  height: 90px;
+  width: 100px;
 }
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-4"
+  id="silky-charts-bar-line-2"
   size={
     Object {
-      "height": 540,
-      "width": 960,
+      "height": 90,
+      "width": 100,
     }
   }
 >
   <g
     className="container"
-    transform="translate(40, 20)"
+    transform="translate(50, 40)"
   >
     <g
       className="axis-x "
-      transform="translate(0, 490)"
+      transform="translate(0, 0)"
     />
     <g
       className="axis-y "
@@ -301,154 +261,154 @@ exports[`Should render correctly with bars and lines 1`] = `
         onClick={[Function]}
         size={
           Object {
-            "height": 259.4117647058824,
-            "width": 187.92282635930843,
+            "height": 0,
+            "width": 0,
           }
         }
         value={18}
-        x={31.25}
-        y={230.58823529411762}
+        x={0}
+        y={0}
       />
       <rect
-        className="bar c2"
+        className="bar c1"
         color="rgb(44, 98, 122)"
         onClick={[Function]}
         size={
           Object {
-            "height": 201.76470588235293,
-            "width": 187.92282635930843,
+            "height": 0,
+            "width": 0,
           }
         }
         value={14}
-        x={248.25}
-        y={288.2352941176471}
+        x={0}
+        y={0}
       />
       <rect
-        className="bar c3"
+        className="bar c1"
         color="rgb(44, 98, 122)"
         onClick={[Function]}
         size={
           Object {
-            "height": 245,
-            "width": 187.92282635930843,
+            "height": 0,
+            "width": 0,
           }
         }
         value={17}
-        x={464.25}
-        y={245}
+        x={0}
+        y={0}
       />
       <rect
-        className="bar c2"
+        className="bar c1"
         color="rgb(44, 98, 122)"
         onClick={[Function]}
         size={
           Object {
-            "height": 201.76470588235293,
-            "width": 187.92282635930843,
+            "height": 0,
+            "width": 0,
           }
         }
         value={14}
-        x={681.25}
-        y={288.2352941176471}
+        x={0}
+        y={0}
       />
     </g>
     <g
       className="bananas-layer"
     >
       <rect
-        className="bar c4"
+        className="bar c2"
         color="rgb(166, 224, 251)"
         onClick={[Function]}
         size={
           Object {
-            "height": 230.58823529411768,
-            "width": 187.92282635930843,
+            "height": 0,
+            "width": 0,
           }
         }
         value={16}
-        x={31.25}
+        x={0}
         y={0}
       />
       <rect
-        className="bar c5"
+        className="bar c2"
         color="rgb(166, 224, 251)"
         onClick={[Function]}
         size={
           Object {
-            "height": 201.76470588235293,
-            "width": 187.92282635930843,
+            "height": 0,
+            "width": 0,
           }
         }
         value={14}
-        x={248.25}
-        y={86.47058823529414}
+        x={0}
+        y={0}
       />
       <rect
-        className="bar c6"
+        className="bar c2"
         color="rgb(166, 224, 251)"
         onClick={[Function]}
         size={
           Object {
-            "height": 187.3529411764706,
-            "width": 187.92282635930843,
+            "height": 0,
+            "width": 0,
           }
         }
         value={13}
-        x={464.25}
-        y={57.64705882352945}
+        x={0}
+        y={0}
       />
       <rect
-        className="bar c6"
+        className="bar c2"
         color="rgb(166, 224, 251)"
         onClick={[Function]}
         size={
           Object {
-            "height": 187.3529411764706,
-            "width": 187.92282635930843,
+            "height": 0,
+            "width": 0,
           }
         }
         value={13}
-        x={681.25}
-        y={100.88235294117652}
+        x={0}
+        y={0}
       />
     </g>
     <g
       className="cherries-layer"
     >
       <path
-        className="line-path c7"
+        className="line-path c3"
         color="rgb(127, 22, 42)"
-        d="M125,245L342,216.1764705882353L558,230.58823529411762L775,461.1764705882353"
+        d="M0,0L0,0L0,0L0,0"
       />
       <g
         className="line-dot-group"
       >
         <circle
-          className="line-dot c8"
+          className="line-dot c4"
           color="rgb(127, 22, 42)"
-          cx={125}
-          cy={245}
+          cx={0}
+          cy={0}
           r={5}
         />
         <circle
-          className="line-dot c8"
+          className="line-dot c4"
           color="rgb(127, 22, 42)"
-          cx={342}
-          cy={216.1764705882353}
+          cx={0}
+          cy={0}
           r={5}
         />
         <circle
-          className="line-dot c8"
+          className="line-dot c4"
           color="rgb(127, 22, 42)"
-          cx={558}
-          cy={230.58823529411762}
+          cx={0}
+          cy={0}
           r={5}
         />
         <circle
-          className="line-dot c8"
+          className="line-dot c4"
           color="rgb(127, 22, 42)"
-          cx={775}
-          cy={461.1764705882353}
+          cx={0}
+          cy={0}
           r={5}
         />
       </g>
@@ -457,39 +417,39 @@ exports[`Should render correctly with bars and lines 1`] = `
       className="dates-layer"
     >
       <path
-        className="line-path c9"
+        className="line-path c5"
         color="rgb(255, 121, 147)"
-        d="M125,475.5882352941176L342,273.82352941176475L558,360.2941176470588L775,302.6470588235294"
+        d="M0,0L0,0L0,0L0,0"
       />
       <g
         className="line-dot-group"
       >
         <circle
-          className="line-dot c10"
+          className="line-dot c6"
           color="rgb(255, 121, 147)"
-          cx={125}
-          cy={475.5882352941176}
+          cx={0}
+          cy={0}
           r={5}
         />
         <circle
-          className="line-dot c10"
+          className="line-dot c6"
           color="rgb(255, 121, 147)"
-          cx={342}
-          cy={273.82352941176475}
+          cx={0}
+          cy={0}
           r={5}
         />
         <circle
-          className="line-dot c10"
+          className="line-dot c6"
           color="rgb(255, 121, 147)"
-          cx={558}
-          cy={360.2941176470588}
+          cx={0}
+          cy={0}
           r={5}
         />
         <circle
-          className="line-dot c10"
+          className="line-dot c6"
           color="rgb(255, 121, 147)"
-          cx={775}
-          cy={302.6470588235294}
+          cx={0}
+          cy={0}
           r={5}
         />
       </g>
@@ -500,27 +460,27 @@ exports[`Should render correctly with bars and lines 1`] = `
 
 exports[`Should render correctly with curveBundle line type 1`] = `
 .c0 {
-  height: 540px;
-  width: 960px;
+  height: 90px;
+  width: 100px;
 }
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-6"
+  id="silky-charts-bar-line-3"
   size={
     Object {
-      "height": 540,
-      "width": 960,
+      "height": 90,
+      "width": 100,
     }
   }
 >
   <g
     className="container"
-    transform="translate(40, 20)"
+    transform="translate(50, 40)"
   >
     <g
       className="axis-x "
-      transform="translate(0, 490)"
+      transform="translate(0, 0)"
     />
     <g
       className="axis-y "
@@ -531,27 +491,27 @@ exports[`Should render correctly with curveBundle line type 1`] = `
 
 exports[`Should render correctly with curveBundle line type 2`] = `
 .c0 {
-  height: 540px;
-  width: 960px;
+  height: 90px;
+  width: 100px;
 }
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-7"
+  id="silky-charts-bar-line-4"
   size={
     Object {
-      "height": 540,
-      "width": 960,
+      "height": 90,
+      "width": 100,
     }
   }
 >
   <g
     className="container"
-    transform="translate(40, 20)"
+    transform="translate(50, 40)"
   >
     <g
       className="axis-x "
-      transform="translate(0, 490)"
+      transform="translate(0, 0)"
     />
     <g
       className="axis-y "
@@ -625,8 +585,8 @@ exports[`Should render correctly with dates as name 1`] = `
 exports[`Should render correctly with only bars 1`] = `
 .c1 {
   fill: rgb(44,98,122);
-  height: 259.4117647058824px;
-  width: 181.73076923076923px;
+  height: 0px;
+  width: 0px;
 }
 
 .c1:hover {
@@ -634,77 +594,37 @@ exports[`Should render correctly with only bars 1`] = `
 }
 
 .c2 {
-  fill: rgb(44,98,122);
-  height: 201.76470588235293px;
-  width: 181.73076923076923px;
+  fill: rgb(166,224,251);
+  height: 0px;
+  width: 0px;
 }
 
 .c2:hover {
-  fill: hsl(198.5,47%,26%);
-}
-
-.c3 {
-  fill: rgb(44,98,122);
-  height: 245px;
-  width: 181.73076923076923px;
-}
-
-.c3:hover {
-  fill: hsl(198.5,47%,26%);
-}
-
-.c4 {
-  fill: rgb(166,224,251);
-  height: 230.58823529411768px;
-  width: 181.73076923076923px;
-}
-
-.c4:hover {
-  fill: hsl(199.10000000000002,91.4%,65.4%);
-}
-
-.c5 {
-  fill: rgb(166,224,251);
-  height: 201.76470588235293px;
-  width: 181.73076923076923px;
-}
-
-.c5:hover {
-  fill: hsl(199.10000000000002,91.4%,65.4%);
-}
-
-.c6 {
-  fill: rgb(166,224,251);
-  height: 187.3529411764706px;
-  width: 181.73076923076923px;
-}
-
-.c6:hover {
   fill: hsl(199.10000000000002,91.4%,65.4%);
 }
 
 .c0 {
-  height: 540px;
-  width: 960px;
+  height: 90px;
+  width: 100px;
 }
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-2"
+  id="silky-charts-bar-line-1"
   size={
     Object {
-      "height": 540,
-      "width": 960,
+      "height": 90,
+      "width": 100,
     }
   }
 >
   <g
     className="container"
-    transform="translate(40, 20)"
+    transform="translate(50, 40)"
   >
     <g
       className="axis-x "
-      transform="translate(0, 490)"
+      transform="translate(0, 0)"
     />
     <g
       className="axis-y "
@@ -718,115 +638,115 @@ exports[`Should render correctly with only bars 1`] = `
         onClick={[Function]}
         size={
           Object {
-            "height": 259.4117647058824,
-            "width": 181.73076923076923,
+            "height": 0,
+            "width": 0,
           }
         }
         value={18}
-        x={34.61538461538464}
-        y={230.58823529411762}
+        x={0}
+        y={0}
       />
       <rect
-        className="bar c2"
+        className="bar c1"
         color="rgb(44, 98, 122)"
         onClick={[Function]}
         size={
           Object {
-            "height": 201.76470588235293,
-            "width": 181.73076923076923,
+            "height": 0,
+            "width": 0,
           }
         }
         value={14}
-        x={250.96153846153848}
-        y={288.2352941176471}
+        x={0}
+        y={0}
       />
       <rect
-        className="bar c3"
+        className="bar c1"
         color="rgb(44, 98, 122)"
         onClick={[Function]}
         size={
           Object {
-            "height": 245,
-            "width": 181.73076923076923,
+            "height": 0,
+            "width": 0,
           }
         }
         value={17}
-        x={467.3076923076923}
-        y={245}
+        x={0}
+        y={0}
       />
       <rect
-        className="bar c2"
+        className="bar c1"
         color="rgb(44, 98, 122)"
         onClick={[Function]}
         size={
           Object {
-            "height": 201.76470588235293,
-            "width": 181.73076923076923,
+            "height": 0,
+            "width": 0,
           }
         }
         value={14}
-        x={683.6538461538462}
-        y={288.2352941176471}
+        x={0}
+        y={0}
       />
     </g>
     <g
       className="bananas-layer"
     >
       <rect
-        className="bar c4"
+        className="bar c2"
         color="rgb(166, 224, 251)"
         onClick={[Function]}
         size={
           Object {
-            "height": 230.58823529411768,
-            "width": 181.73076923076923,
+            "height": 0,
+            "width": 0,
           }
         }
         value={16}
-        x={34.61538461538464}
+        x={0}
         y={0}
       />
       <rect
-        className="bar c5"
+        className="bar c2"
         color="rgb(166, 224, 251)"
         onClick={[Function]}
         size={
           Object {
-            "height": 201.76470588235293,
-            "width": 181.73076923076923,
+            "height": 0,
+            "width": 0,
           }
         }
         value={14}
-        x={250.96153846153848}
-        y={86.47058823529414}
+        x={0}
+        y={0}
       />
       <rect
-        className="bar c6"
+        className="bar c2"
         color="rgb(166, 224, 251)"
         onClick={[Function]}
         size={
           Object {
-            "height": 187.3529411764706,
-            "width": 181.73076923076923,
+            "height": 0,
+            "width": 0,
           }
         }
         value={13}
-        x={467.3076923076923}
-        y={57.64705882352945}
+        x={0}
+        y={0}
       />
       <rect
-        className="bar c6"
+        className="bar c2"
         color="rgb(166, 224, 251)"
         onClick={[Function]}
         size={
           Object {
-            "height": 187.3529411764706,
-            "width": 181.73076923076923,
+            "height": 0,
+            "width": 0,
           }
         }
         value={13}
-        x={683.6538461538462}
-        y={100.88235294117652}
+        x={0}
+        y={0}
       />
     </g>
   </g>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import identity from 'ramda/src/identity';
 import { select as d3Select } from 'd3-selection';
 import { max as d3Max } from 'd3-array';
@@ -23,28 +23,33 @@ import {
   SCALE_LINEAR,
   THEME,
   TICKS,
+  MARGIN,
+  ASPECT_RATIO,
+  SIZE,
 } from '../utils/constants';
 
 const Bar = ({
+  aspectRatio = ASPECT_RATIO,
   data,
   showValue,
   showDivergence,
   grid,
   horizontal,
-  margin = { top: 20, right: 20, bottom: 30, left: 40 },
+  margin = MARGIN,
   onClick = identity,
   onMouseEnter = identity,
   onMouseLeave = identity,
-  width: svgWidth = 960,
-  height: svgHeight = 540,
+  width: svgWidth = undefined,
+  height: svgHeight = undefined,
   theme = THEME,
   ticks = TICKS,
   xAxisLabelRotation,
   xAxisLabelRotationValue = -50,
 }) => {
-  const [width, height] = getSize(svgWidth, svgHeight, margin);
-  const isNamesDate = allDate(data.map(({ name }) => name));
+  const svgRef = useRef();
+  const [{ width, height, isSizeSet }, setSize] = useState(SIZE);
   const [currentValue, setCurrentValue] = useState(null);
+  const isNamesDate = allDate(data.map(({ name }) => name));
   const [id] = useState(getId('bar'));
 
   const xScale = getXScale(
@@ -69,8 +74,39 @@ const Bar = ({
     onMouseLeave(event);
   };
 
+  const handleResize = () => {
+    const offsetWidth = svgRef.current.parentElement.offsetWidth;
+    if ((svgWidth || svgHeight) && !isSizeSet) {
+      setSize({
+        ...getSize(svgWidth, svgHeight, margin, aspectRatio),
+        isSizeSet: true,
+      });
+    } else if (offsetWidth !== svgWidth - (margin.left + margin.right)) {
+      setSize({
+        ...getSize(offsetWidth, undefined, margin, aspectRatio),
+        isSizeSet: true,
+      });
+    }
+  };
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
-    <SVG identifier={id} size={{ width: svgWidth, height: svgHeight }}>
+    <SVG
+      ref={svgRef}
+      identifier={id}
+      size={{
+        width: svgWidth || width + margin.left + margin.right,
+        height: svgHeight || height + margin.top + margin.bottom,
+      }}
+    >
       <g
         className="container"
         transform={`translate(${margin.left}, ${margin.top})`}

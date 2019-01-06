@@ -25,6 +25,14 @@ export const SCALE_LINEAR = 'linear';
 export const SCALE_TIME = 'time';
 
 export const TICKS = 5;
+export const ASPECT_RATIO = '16:9';
+export const WIDTH = 640;
+export const MARGIN = { top: 40, right: 50, bottom: 50, left: 50 };
+export const SIZE = {
+  width: 0,
+  height: 0,
+  isSizeSet: false,
+};
 
 // Themes
 export const THEME = 'tealBlue';
