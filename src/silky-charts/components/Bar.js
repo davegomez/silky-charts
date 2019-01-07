@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import identity from 'ramda/src/identity';
 import { select as d3Select } from 'd3-selection';
 import { max as d3Max } from 'd3-array';
@@ -15,6 +15,7 @@ import {
   getXScale,
   getYScale,
   rotateXLabels,
+  setupData,
   valueFor,
 } from '../utils';
 import {
@@ -30,7 +31,7 @@ import {
 
 const Bar = ({
   aspectRatio = ASPECT_RATIO,
-  data,
+  data: chartData,
   showValue,
   showDivergence,
   grid,
@@ -49,11 +50,11 @@ const Bar = ({
   const svgRef = useRef();
   const [{ width, height, isSizeSet }, setSize] = useState(SIZE);
   const [currentValue, setCurrentValue] = useState(null);
-  const isNamesDate = allDate(data.map(({ name }) => name));
+  const [isDates, data] = useMemo(() => setupData(chartData), chartData);
   const [id] = useState(getId('bar'));
 
   const xScale = getXScale(
-    isNamesDate ? SCALE_TIME : SCALE_BAND,
+    isDates ? SCALE_TIME : SCALE_BAND,
     data,
     width,
     true
@@ -126,7 +127,7 @@ const Bar = ({
           position={{ x: 0, y: height }}
           ref={node => {
             d3Select(node).call(d3AxisBottom(xScale));
-            isNamesDate && extendXPath(id, width);
+            isDates && extendXPath(id, width);
             xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
           }}
         />
@@ -148,13 +149,13 @@ const Bar = ({
                     : value,
               }}
               x={
-                isNamesDate
-                  ? xScale(new Date(name)) - valueFor('x', width, data.length)
+                isDates
+                  ? xScale(name) - valueFor('x', width, data.length)
                   : xScale(name)
               }
               y={yScale(value)}
               width={
-                isNamesDate
+                isDates
                   ? valueFor('width', width, data.length)
                   : xScale.bandwidth()
               }

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import head from 'ramda/src/head';
 import identity from 'ramda/src/identity';
 import { select as d3Select } from 'd3-selection';
@@ -19,6 +19,7 @@ import {
   getYScale,
   palette,
   rotateXLabels,
+  setupData,
   setLineType,
 } from '../utils';
 import {
@@ -36,7 +37,7 @@ import {
 
 const BarLine = ({
   aspectRatio = ASPECT_RATIO,
-  data,
+  data: chartData,
   grid,
   horizontal,
   margin = MARGIN,
@@ -57,11 +58,11 @@ const BarLine = ({
 }) => {
   const svgRef = useRef();
   const [{ width, height, isSizeSet }, setSize] = useState(SIZE);
-  const isNamesDate = allDate(data.map(({ name }) => name));
+  const [isDates, data] = useMemo(() => setupData(chartData), chartData);
   const [id] = useState(getId('bar-line'));
 
   const xScale = getXScale(
-    isNamesDate ? SCALE_TIME : SCALE_BAND,
+    isDates ? SCALE_TIME : SCALE_BAND,
     data,
     width,
     true
@@ -75,9 +76,7 @@ const BarLine = ({
   const stack = buildStack(stackedKeys);
   const line = d3Line()
     .x(({ name }) =>
-      isNamesDate
-        ? xScale(new Date(name))
-        : xScale(name) + xScale.bandwidth() / 2
+      isDates ? xScale(name) : xScale(name) + xScale.bandwidth() / 2
     )
     .y(({ value }) => yScale(value))
     .curve(setLineType(lineType, lineTypeOption));
@@ -136,7 +135,7 @@ const BarLine = ({
           position={{ x: 0, y: height }}
           ref={node => {
             d3Select(node).call(d3AxisBottom(xScale));
-            isNamesDate && extendXPath(id, width);
+            isDates && extendXPath(id, width);
             xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
           }}
         />
@@ -148,7 +147,7 @@ const BarLine = ({
         <StackedBarDatum
           data={data}
           series={stack(data)}
-          isNamesDate={isNamesDate}
+          isDates={isDates}
           onClick={onClick}
           theme={theme}
           x={xScale}
@@ -162,7 +161,7 @@ const BarLine = ({
             <LineDatum
               data={datum}
               d={line(datum)}
-              isNamesDate={isNamesDate}
+              isDates={isDates}
               xScale={xScale}
               yScale={yScale}
               color={palette.themes[secondaryTheme].base[idx]}

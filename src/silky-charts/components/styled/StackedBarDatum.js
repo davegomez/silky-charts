@@ -8,7 +8,7 @@ const StackedBarDatum = ({
   data,
   series,
   onClick,
-  isNamesDate,
+  isDates,
   theme,
   x,
   y,
@@ -24,16 +24,14 @@ const StackedBarDatum = ({
             key={idx}
             datum={{ value }}
             x={
-              isNamesDate
+              isDates
                 ? x(new Date(datum.data.name)) -
                   valueFor('x', width, data.length)
                 : x(datum.data.name)
             }
             y={y(last(datum))}
             width={
-              isNamesDate
-                ? valueFor('width', width, data.length)
-                : x.bandwidth()
+              isDates ? valueFor('width', width, data.length) : x.bandwidth()
             }
             height={height - y(value)}
             color={palette.themes[theme].base[layer.index]}

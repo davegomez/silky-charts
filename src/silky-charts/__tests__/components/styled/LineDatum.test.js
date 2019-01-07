@@ -24,7 +24,7 @@ test('Should render correctly', () => {
 test('Should render correctly width dates', () => {
   const tree = create(
     <LineDatum
-      isNamesDate
+      isDates
       data={[{ name: '2019-01-01T05:00:00.000Z', value: 0 }]}
       {...props}
     />

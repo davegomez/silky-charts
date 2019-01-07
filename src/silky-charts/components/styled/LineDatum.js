@@ -9,7 +9,7 @@ const LineDatum = ({
   onMouseOver,
   xScale,
   yScale,
-  isNamesDate,
+  isDates,
 }) => (
   <Fragment>
     <Path d={d} className="line-path" color={color} />
@@ -20,7 +20,7 @@ const LineDatum = ({
           className="line-dot"
           color={color}
           cx={
-            isNamesDate
+            isDates
               ? xScale(new Date(name))
               : xScale(name) + xScale.bandwidth() / 2
           }

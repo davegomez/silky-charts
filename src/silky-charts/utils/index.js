@@ -18,4 +18,5 @@ export { default as getYScale } from './getYScale';
 export { default as palette } from './palette';
 export { default as rotateXLabels } from './rotateXLabels';
 export { default as setLineType } from './setLineType';
+export { default as setupData } from './setupData';
 export { default as valueFor } from './valueFor';

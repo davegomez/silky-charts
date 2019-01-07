@@ -10,7 +10,7 @@ import { SCALE_TIME, SCALE_BAND } from './constants';
 const timeScale = (data, width, barChart = false) => {
   const rangeWidth = width / data.length / 1.8;
   return d3ScaleTime()
-    .domain(d3Extent(data, ({ name }) => new Date(name)))
+    .domain(d3Extent(data, ({ name }) => name))
     .rangeRound(barChart ? [rangeWidth, width - rangeWidth] : [0, width]);
 };
 
