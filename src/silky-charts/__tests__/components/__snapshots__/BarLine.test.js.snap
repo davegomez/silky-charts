@@ -33,27 +33,27 @@ exports[`Should render correctly 1`] = `
 
 exports[`Should render correctly X axis label rotation 1`] = `
 .c0 {
-  height: 540px;
-  width: 960px;
+  height: 90px;
+  width: 100px;
 }
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-11"
+  id="silky-charts-bar-line-22"
   size={
     Object {
-      "height": 540,
-      "width": 960,
+      "height": 90,
+      "width": 100,
     }
   }
 >
   <g
     className="container"
-    transform="translate(40, 20)"
+    transform="translate(50, 40)"
   >
     <g
       className="axis-x "
-      transform="translate(0, 490)"
+      transform="translate(0, 0)"
     />
     <g
       className="axis-y "
@@ -72,30 +72,30 @@ exports[`Should render correctly width horizontal grid 1`] = `
 }
 
 .c0 {
-  height: 540px;
-  width: 960px;
+  height: 90px;
+  width: 100px;
 }
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-9"
+  id="silky-charts-bar-line-18"
   size={
     Object {
-      "height": 540,
-      "width": 960,
+      "height": 90,
+      "width": 100,
     }
   }
 >
   <g
     className="container"
-    transform="translate(40, 20)"
+    transform="translate(50, 40)"
   >
     <g
       className="grid c1"
     />
     <g
       className="axis-x "
-      transform="translate(0, 490)"
+      transform="translate(0, 0)"
     />
     <g
       className="axis-y "
@@ -120,7 +120,7 @@ exports[`Should render correctly width vertical grid 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-5"
+  id="silky-charts-bar-line-20"
   size={
     Object {
       "height": 90,
@@ -148,27 +148,27 @@ exports[`Should render correctly width vertical grid 1`] = `
 
 exports[`Should render correctly with a different line type 1`] = `
 .c0 {
-  height: 540px;
-  width: 960px;
+  height: 90px;
+  width: 100px;
 }
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-5"
+  id="silky-charts-bar-line-10"
   size={
     Object {
-      "height": 540,
-      "width": 960,
+      "height": 90,
+      "width": 100,
     }
   }
 >
   <g
     className="container"
-    transform="translate(40, 20)"
+    transform="translate(50, 40)"
   >
     <g
       className="axis-x "
-      transform="translate(0, 490)"
+      transform="translate(0, 0)"
     />
     <g
       className="axis-y "
@@ -233,7 +233,7 @@ exports[`Should render correctly with bars and lines 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-2"
+  id="silky-charts-bar-line-8"
   size={
     Object {
       "height": 90,
@@ -466,7 +466,7 @@ exports[`Should render correctly with curveBundle line type 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-3"
+  id="silky-charts-bar-line-12"
   size={
     Object {
       "height": 90,
@@ -497,7 +497,7 @@ exports[`Should render correctly with curveBundle line type 2`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-4"
+  id="silky-charts-bar-line-14"
   size={
     Object {
       "height": 90,
@@ -522,27 +522,27 @@ exports[`Should render correctly with curveBundle line type 2`] = `
 
 exports[`Should render correctly with curveBundle line type 3`] = `
 .c0 {
-  height: 540px;
-  width: 960px;
+  height: 90px;
+  width: 100px;
 }
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-8"
+  id="silky-charts-bar-line-16"
   size={
     Object {
-      "height": 540,
-      "width": 960,
+      "height": 90,
+      "width": 100,
     }
   }
 >
   <g
     className="container"
-    transform="translate(40, 20)"
+    transform="translate(50, 40)"
   >
     <g
       className="axis-x "
-      transform="translate(0, 490)"
+      transform="translate(0, 0)"
     />
     <g
       className="axis-y "
@@ -553,27 +553,27 @@ exports[`Should render correctly with curveBundle line type 3`] = `
 
 exports[`Should render correctly with dates as name 1`] = `
 .c0 {
-  height: 540px;
-  width: 960px;
+  height: 90px;
+  width: 100px;
 }
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-1"
+  id="silky-charts-bar-line-2"
   size={
     Object {
-      "height": 540,
-      "width": 960,
+      "height": 90,
+      "width": 100,
     }
   }
 >
   <g
     className="container"
-    transform="translate(40, 20)"
+    transform="translate(50, 40)"
   >
     <g
       className="axis-x "
-      transform="translate(0, 490)"
+      transform="translate(0, 0)"
     />
     <g
       className="axis-y "
@@ -610,7 +610,7 @@ exports[`Should render correctly with only bars 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-1"
+  id="silky-charts-bar-line-4"
   size={
     Object {
       "height": 90,
@@ -783,27 +783,27 @@ exports[`Should render correctly with only lines 1`] = `
 }
 
 .c0 {
-  height: 540px;
-  width: 960px;
+  height: 90px;
+  width: 100px;
 }
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-3"
+  id="silky-charts-bar-line-6"
   size={
     Object {
-      "height": 540,
-      "width": 960,
+      "height": 90,
+      "width": 100,
     }
   }
 >
   <g
     className="container"
-    transform="translate(40, 20)"
+    transform="translate(50, 40)"
   >
     <g
       className="axis-x "
-      transform="translate(0, 490)"
+      transform="translate(0, 0)"
     />
     <g
       className="axis-y "
@@ -814,7 +814,7 @@ exports[`Should render correctly with only lines 1`] = `
       <path
         className="line-path c1"
         color="rgb(127, 22, 42)"
-        d="M125.48076923076925,51.57894736842104L341.8269230769231,0L558.1730769230769,25.789473684210577L774.5192307692308,438.42105263157896"
+        d="M0,0L0,0L0,0L0,0"
       />
       <g
         className="line-dot-group"
@@ -822,29 +822,29 @@ exports[`Should render correctly with only lines 1`] = `
         <circle
           className="line-dot c2"
           color="rgb(127, 22, 42)"
-          cx={125.48076923076925}
-          cy={51.57894736842104}
-          r={5}
-        />
-        <circle
-          className="line-dot c2"
-          color="rgb(127, 22, 42)"
-          cx={341.8269230769231}
+          cx={0}
           cy={0}
           r={5}
         />
         <circle
           className="line-dot c2"
           color="rgb(127, 22, 42)"
-          cx={558.1730769230769}
-          cy={25.789473684210577}
+          cx={0}
+          cy={0}
           r={5}
         />
         <circle
           className="line-dot c2"
           color="rgb(127, 22, 42)"
-          cx={774.5192307692308}
-          cy={438.42105263157896}
+          cx={0}
+          cy={0}
+          r={5}
+        />
+        <circle
+          className="line-dot c2"
+          color="rgb(127, 22, 42)"
+          cx={0}
+          cy={0}
           r={5}
         />
       </g>
@@ -855,7 +855,7 @@ exports[`Should render correctly with only lines 1`] = `
       <path
         className="line-path c3"
         color="rgb(255, 121, 147)"
-        d="M125.48076923076925,464.2105263157895L341.8269230769231,103.15789473684208L558.1730769230769,257.8947368421053L774.5192307692308,154.73684210526312"
+        d="M0,0L0,0L0,0L0,0"
       />
       <g
         className="line-dot-group"
@@ -863,29 +863,29 @@ exports[`Should render correctly with only lines 1`] = `
         <circle
           className="line-dot c4"
           color="rgb(255, 121, 147)"
-          cx={125.48076923076925}
-          cy={464.2105263157895}
+          cx={0}
+          cy={0}
           r={5}
         />
         <circle
           className="line-dot c4"
           color="rgb(255, 121, 147)"
-          cx={341.8269230769231}
-          cy={103.15789473684208}
+          cx={0}
+          cy={0}
           r={5}
         />
         <circle
           className="line-dot c4"
           color="rgb(255, 121, 147)"
-          cx={558.1730769230769}
-          cy={257.8947368421053}
+          cx={0}
+          cy={0}
           r={5}
         />
         <circle
           className="line-dot c4"
           color="rgb(255, 121, 147)"
-          cx={774.5192307692308}
-          cy={154.73684210526312}
+          cx={0}
+          cy={0}
           r={5}
         />
       </g>
