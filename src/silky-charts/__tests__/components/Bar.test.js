@@ -10,6 +10,27 @@ test('Should render correctly', () => {
   expect(tree).toMatchSnapshot();
 });
 
+test('Should render correctly with width', () => {
+  const tree = create(<Bar data={data} width={400} />, {
+    createNodeMock,
+  }).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('Should render correctly with height', () => {
+  const tree = create(<Bar data={data} height={400} />, {
+    createNodeMock,
+  }).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('Should render correctly with width and height', () => {
+  const tree = create(<Bar data={data} width={400} height={300} />, {
+    createNodeMock,
+  }).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
 test('Should render correctly with dates as name', () => {
   const tree = create(<Bar data={dataWidthDates} />, {
     createNodeMock,
@@ -86,4 +107,14 @@ test('Should call onMouseLeave', () => {
 
   bar.props.onMouseLeave();
   expect(handleOnMouseLeave).toHaveBeenCalled();
+});
+
+test('Should remove resize event listener on unmount', () => {
+  const renderer = create(<Bar data={data} />, { createNodeMock });
+  const tree = renderer.toJSON();
+  expect(tree).toMatchSnapshot();
+
+  renderer.unmount();
+
+  expect(tree).toMatchSnapshot();
 });

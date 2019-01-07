@@ -53,7 +53,7 @@ exports[`Should call onMouseEnter and update divergence on bars 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-14"
+  id="silky-charts-bar-20"
   size={
     Object {
       "height": 360,
@@ -196,6 +196,209 @@ exports[`Should call onMouseEnter and update divergence on bars 1`] = `
 </svg>
 `;
 
+exports[`Should remove resize event listener on unmount 1`] = `
+.c1 {
+  fill: rgb(90,200,250);
+  height: 0px;
+  width: 0px;
+}
+
+.c1:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c0 {
+  height: 90px;
+  width: 100px;
+}
+
+<svg
+  className="silky-charts c0"
+  id="silky-charts-bar-26"
+  size={
+    Object {
+      "height": 90,
+      "width": 100,
+    }
+  }
+>
+  <g
+    className="container"
+    transform="translate(50, 40)"
+  >
+    <g
+      className="axis-x "
+      transform="translate(0, 0)"
+    />
+    <g
+      className="axis-y "
+    />
+    <g
+      className="data"
+    >
+      <rect
+        className="bar c1"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 0,
+            "width": 0,
+          }
+        }
+        value={19}
+        x={0}
+        y={0}
+      />
+      <rect
+        className="bar c1"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 0,
+            "width": 0,
+          }
+        }
+        value={70}
+        x={0}
+        y={0}
+      />
+      <rect
+        className="bar c1"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 0,
+            "width": 0,
+          }
+        }
+        value={93}
+        x={0}
+        y={0}
+      />
+      <rect
+        className="bar c1"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 0,
+            "width": 0,
+          }
+        }
+        value={80}
+        x={0}
+        y={0}
+      />
+    </g>
+  </g>
+</svg>
+`;
+
+exports[`Should remove resize event listener on unmount 2`] = `
+<svg
+  className="sc-EHOje silky-charts fEtiiL"
+  id="silky-charts-bar-26"
+  size={
+    Object {
+      "height": 90,
+      "width": 100,
+    }
+  }
+>
+  <g
+    className="container"
+    transform="translate(50, 40)"
+  >
+    <g
+      className="sc-bdVaJa axis-x bDWFJH"
+      transform="translate(0, 0)"
+    />
+    <g
+      className="sc-bdVaJa axis-y bDWFJH"
+    />
+    <g
+      className="data"
+    >
+      <rect
+        className="sc-ifAKCX bar fkbQPY"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 0,
+            "width": 0,
+          }
+        }
+        value={19}
+        x={0}
+        y={0}
+      />
+      <rect
+        className="sc-ifAKCX bar fkbQPY"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 0,
+            "width": 0,
+          }
+        }
+        value={70}
+        x={0}
+        y={0}
+      />
+      <rect
+        className="sc-ifAKCX bar fkbQPY"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 0,
+            "width": 0,
+          }
+        }
+        value={93}
+        x={0}
+        y={0}
+      />
+      <rect
+        className="sc-ifAKCX bar fkbQPY"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 0,
+            "width": 0,
+          }
+        }
+        value={80}
+        x={0}
+        y={0}
+      />
+    </g>
+  </g>
+</svg>
+`;
+
 exports[`Should render correctly 1`] = `
 .c1 {
   fill: rgb(90,200,250);
@@ -323,7 +526,7 @@ exports[`Should render correctly X axis label rotation 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-8"
+  id="silky-charts-bar-14"
   size={
     Object {
       "height": 90,
@@ -437,7 +640,7 @@ exports[`Should render correctly showing the value and divergence on bars 1`] = 
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-12"
+  id="silky-charts-bar-18"
   size={
     Object {
       "height": 90,
@@ -603,7 +806,7 @@ exports[`Should render correctly showing the value on bars 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-10"
+  id="silky-charts-bar-16"
   size={
     Object {
       "height": 90,
@@ -772,7 +975,7 @@ exports[`Should render correctly width horizontal grid 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-4"
+  id="silky-charts-bar-10"
   size={
     Object {
       "height": 90,
@@ -892,7 +1095,7 @@ exports[`Should render correctly width vertical grid 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-6"
+  id="silky-charts-bar-12"
   size={
     Object {
       "height": 90,
@@ -1004,11 +1207,338 @@ exports[`Should render correctly with dates as name 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-2"
+  id="silky-charts-bar-8"
   size={
     Object {
       "height": 90,
       "width": 100,
+    }
+  }
+>
+  <g
+    className="container"
+    transform="translate(50, 40)"
+  >
+    <g
+      className="axis-x "
+      transform="translate(0, 0)"
+    />
+    <g
+      className="axis-y "
+    />
+    <g
+      className="data"
+    >
+      <rect
+        className="bar c1"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 0,
+            "width": 0,
+          }
+        }
+        value={19}
+        x={0}
+        y={0}
+      />
+      <rect
+        className="bar c1"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 0,
+            "width": 0,
+          }
+        }
+        value={70}
+        x={0}
+        y={0}
+      />
+      <rect
+        className="bar c1"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 0,
+            "width": 0,
+          }
+        }
+        value={93}
+        x={0}
+        y={0}
+      />
+      <rect
+        className="bar c1"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 0,
+            "width": 0,
+          }
+        }
+        value={80}
+        x={0}
+        y={0}
+      />
+    </g>
+  </g>
+</svg>
+`;
+
+exports[`Should render correctly with height 1`] = `
+.c1 {
+  fill: rgb(90,200,250);
+  height: 0px;
+  width: 0px;
+}
+
+.c1:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c0 {
+  height: 400px;
+  width: 100px;
+}
+
+<svg
+  className="silky-charts c0"
+  id="silky-charts-bar-4"
+  size={
+    Object {
+      "height": 400,
+      "width": 100,
+    }
+  }
+>
+  <g
+    className="container"
+    transform="translate(50, 40)"
+  >
+    <g
+      className="axis-x "
+      transform="translate(0, 0)"
+    />
+    <g
+      className="axis-y "
+    />
+    <g
+      className="data"
+    >
+      <rect
+        className="bar c1"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 0,
+            "width": 0,
+          }
+        }
+        value={19}
+        x={0}
+        y={0}
+      />
+      <rect
+        className="bar c1"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 0,
+            "width": 0,
+          }
+        }
+        value={70}
+        x={0}
+        y={0}
+      />
+      <rect
+        className="bar c1"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 0,
+            "width": 0,
+          }
+        }
+        value={93}
+        x={0}
+        y={0}
+      />
+      <rect
+        className="bar c1"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 0,
+            "width": 0,
+          }
+        }
+        value={80}
+        x={0}
+        y={0}
+      />
+    </g>
+  </g>
+</svg>
+`;
+
+exports[`Should render correctly with width 1`] = `
+.c1 {
+  fill: rgb(90,200,250);
+  height: 0px;
+  width: 0px;
+}
+
+.c1:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c0 {
+  height: 90px;
+  width: 400px;
+}
+
+<svg
+  className="silky-charts c0"
+  id="silky-charts-bar-2"
+  size={
+    Object {
+      "height": 90,
+      "width": 400,
+    }
+  }
+>
+  <g
+    className="container"
+    transform="translate(50, 40)"
+  >
+    <g
+      className="axis-x "
+      transform="translate(0, 0)"
+    />
+    <g
+      className="axis-y "
+    />
+    <g
+      className="data"
+    >
+      <rect
+        className="bar c1"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 0,
+            "width": 0,
+          }
+        }
+        value={19}
+        x={0}
+        y={0}
+      />
+      <rect
+        className="bar c1"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 0,
+            "width": 0,
+          }
+        }
+        value={70}
+        x={0}
+        y={0}
+      />
+      <rect
+        className="bar c1"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 0,
+            "width": 0,
+          }
+        }
+        value={93}
+        x={0}
+        y={0}
+      />
+      <rect
+        className="bar c1"
+        color="rgb(90, 200, 250)"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        size={
+          Object {
+            "height": 0,
+            "width": 0,
+          }
+        }
+        value={80}
+        x={0}
+        y={0}
+      />
+    </g>
+  </g>
+</svg>
+`;
+
+exports[`Should render correctly with width and height 1`] = `
+.c1 {
+  fill: rgb(90,200,250);
+  height: 0px;
+  width: 0px;
+}
+
+.c1:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
+.c0 {
+  height: 300px;
+  width: 400px;
+}
+
+<svg
+  className="silky-charts c0"
+  id="silky-charts-bar-6"
+  size={
+    Object {
+      "height": 300,
+      "width": 400,
     }
   }
 >

@@ -13,6 +13,27 @@ test('Should render correctly', () => {
   expect(tree).toMatchSnapshot();
 });
 
+test('Should render correctly with width', () => {
+  const tree = create(<BarLine data={data} width={400} />, {
+    createNodeMock,
+  }).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('Should render correctly with height', () => {
+  const tree = create(<BarLine data={data} height={400} />, {
+    createNodeMock,
+  }).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('Should render correctly with width and height', () => {
+  const tree = create(<BarLine data={data} width={400} height={300} />, {
+    createNodeMock,
+  }).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
 test('Should render correctly with dates as name', () => {
   const tree = create(<BarLine data={dataWidthDates} />, {
     createNodeMock,
@@ -120,5 +141,15 @@ test('Should render correctly X axis label rotation', () => {
   const tree = create(<BarLine data={data} xAxisLabelRotation />, {
     createNodeMock,
   }).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('Should remove resize event listener on unmount', () => {
+  const renderer = create(<BarLine data={data} />, { createNodeMock });
+  const tree = renderer.toJSON();
+  expect(tree).toMatchSnapshot();
+
+  renderer.unmount();
+
   expect(tree).toMatchSnapshot();
 });
