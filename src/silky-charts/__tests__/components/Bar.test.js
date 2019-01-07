@@ -2,7 +2,7 @@ import React from 'react';
 import { Bar } from '../../';
 import { create } from 'react-test-renderer';
 import { data, dataWidthDates } from '../../__mocks__/bar';
-import createNodeMock from '../../__mocks__/create-node-mock';
+import createNodeMock from '../../__mocks__/createNodeMock';
 import 'jest-styled-components';
 
 test('Should render correctly', () => {
@@ -26,6 +26,20 @@ test('Should render correctly with height', () => {
 
 test('Should render correctly with width and height', () => {
   const tree = create(<Bar data={data} width={400} height={300} />, {
+    createNodeMock,
+  }).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('render correctly with x axis label', () => {
+  const tree = create(<Bar data={data} xAxisLabel="foo" />, {
+    createNodeMock,
+  }).toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('render correctly with y axis label', () => {
+  const tree = create(<Bar data={data} yAxisLabel="foo" />, {
     createNodeMock,
   }).toJSON();
   expect(tree).toMatchSnapshot();

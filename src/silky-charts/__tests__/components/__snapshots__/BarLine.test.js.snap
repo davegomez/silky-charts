@@ -8,7 +8,7 @@ exports[`Should remove resize event listener on unmount 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-30"
+  id="silky-charts-bar-line-36"
   size={
     Object {
       "height": 90,
@@ -17,7 +17,7 @@ exports[`Should remove resize event listener on unmount 1`] = `
   }
 >
   <g
-    className="container"
+    className="silky-charts-container"
     transform="translate(50, 40)"
   >
     <g
@@ -33,8 +33,8 @@ exports[`Should remove resize event listener on unmount 1`] = `
 
 exports[`Should remove resize event listener on unmount 2`] = `
 <svg
-  className="sc-EHOje silky-charts fEtiiL"
-  id="silky-charts-bar-line-30"
+  className="sc-bZQynM silky-charts cuUavZ"
+  id="silky-charts-bar-line-36"
   size={
     Object {
       "height": 90,
@@ -43,7 +43,7 @@ exports[`Should remove resize event listener on unmount 2`] = `
   }
 >
   <g
-    className="container"
+    className="silky-charts-container"
     transform="translate(50, 40)"
   >
     <g
@@ -74,7 +74,7 @@ exports[`Should render correctly 1`] = `
   }
 >
   <g
-    className="container"
+    className="silky-charts-container"
     transform="translate(50, 40)"
   >
     <g
@@ -96,7 +96,7 @@ exports[`Should render correctly X axis label rotation 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-28"
+  id="silky-charts-bar-line-34"
   size={
     Object {
       "height": 90,
@@ -105,7 +105,7 @@ exports[`Should render correctly X axis label rotation 1`] = `
   }
 >
   <g
-    className="container"
+    className="silky-charts-container"
     transform="translate(50, 40)"
   >
     <g
@@ -135,7 +135,7 @@ exports[`Should render correctly width horizontal grid 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-24"
+  id="silky-charts-bar-line-30"
   size={
     Object {
       "height": 90,
@@ -144,7 +144,7 @@ exports[`Should render correctly width horizontal grid 1`] = `
   }
 >
   <g
-    className="container"
+    className="silky-charts-container"
     transform="translate(50, 40)"
   >
     <g
@@ -177,7 +177,7 @@ exports[`Should render correctly width vertical grid 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-26"
+  id="silky-charts-bar-line-32"
   size={
     Object {
       "height": 90,
@@ -186,7 +186,7 @@ exports[`Should render correctly width vertical grid 1`] = `
   }
 >
   <g
-    className="container"
+    className="silky-charts-container"
     transform="translate(50, 40)"
   >
     <g
@@ -211,7 +211,7 @@ exports[`Should render correctly with a different line type 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-16"
+  id="silky-charts-bar-line-22"
   size={
     Object {
       "height": 90,
@@ -220,7 +220,7 @@ exports[`Should render correctly with a different line type 1`] = `
   }
 >
   <g
-    className="container"
+    className="silky-charts-container"
     transform="translate(50, 40)"
   >
     <g
@@ -290,7 +290,7 @@ exports[`Should render correctly with bars and lines 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-14"
+  id="silky-charts-bar-line-20"
   size={
     Object {
       "height": 90,
@@ -299,7 +299,7 @@ exports[`Should render correctly with bars and lines 1`] = `
   }
 >
   <g
-    className="container"
+    className="silky-charts-container"
     transform="translate(50, 40)"
   >
     <g
@@ -523,7 +523,7 @@ exports[`Should render correctly with curveBundle line type 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-18"
+  id="silky-charts-bar-line-24"
   size={
     Object {
       "height": 90,
@@ -532,7 +532,7 @@ exports[`Should render correctly with curveBundle line type 1`] = `
   }
 >
   <g
-    className="container"
+    className="silky-charts-container"
     transform="translate(50, 40)"
   >
     <g
@@ -554,7 +554,7 @@ exports[`Should render correctly with curveBundle line type 2`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-20"
+  id="silky-charts-bar-line-26"
   size={
     Object {
       "height": 90,
@@ -563,7 +563,7 @@ exports[`Should render correctly with curveBundle line type 2`] = `
   }
 >
   <g
-    className="container"
+    className="silky-charts-container"
     transform="translate(50, 40)"
   >
     <g
@@ -585,7 +585,7 @@ exports[`Should render correctly with curveBundle line type 3`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-22"
+  id="silky-charts-bar-line-28"
   size={
     Object {
       "height": 90,
@@ -594,7 +594,7 @@ exports[`Should render correctly with curveBundle line type 3`] = `
   }
 >
   <g
-    className="container"
+    className="silky-charts-container"
     transform="translate(50, 40)"
   >
     <g
@@ -616,7 +616,7 @@ exports[`Should render correctly with dates as name 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-8"
+  id="silky-charts-bar-line-12"
   size={
     Object {
       "height": 90,
@@ -625,7 +625,38 @@ exports[`Should render correctly with dates as name 1`] = `
   }
 >
   <g
-    className="container"
+    className="silky-charts-container"
+    transform="translate(50, 40)"
+  >
+    <g
+      className="axis-x "
+      transform="translate(0, 0)"
+    />
+    <g
+      className="axis-y "
+    />
+  </g>
+</svg>
+`;
+
+exports[`Should render correctly with dates as name 2`] = `
+.c0 {
+  height: 90px;
+  width: 100px;
+}
+
+<svg
+  className="silky-charts c0"
+  id="silky-charts-bar-line-14"
+  size={
+    Object {
+      "height": 90,
+      "width": 100,
+    }
+  }
+>
+  <g
+    className="silky-charts-container"
     transform="translate(50, 40)"
   >
     <g
@@ -656,7 +687,7 @@ exports[`Should render correctly with height 1`] = `
   }
 >
   <g
-    className="container"
+    className="silky-charts-container"
     transform="translate(50, 40)"
   >
     <g
@@ -698,7 +729,7 @@ exports[`Should render correctly with only bars 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-10"
+  id="silky-charts-bar-line-16"
   size={
     Object {
       "height": 90,
@@ -707,7 +738,7 @@ exports[`Should render correctly with only bars 1`] = `
   }
 >
   <g
-    className="container"
+    className="silky-charts-container"
     transform="translate(50, 40)"
   >
     <g
@@ -877,7 +908,7 @@ exports[`Should render correctly with only lines 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-12"
+  id="silky-charts-bar-line-18"
   size={
     Object {
       "height": 90,
@@ -886,7 +917,7 @@ exports[`Should render correctly with only lines 1`] = `
   }
 >
   <g
-    className="container"
+    className="silky-charts-container"
     transform="translate(50, 40)"
   >
     <g
@@ -999,7 +1030,7 @@ exports[`Should render correctly with width 1`] = `
   }
 >
   <g
-    className="container"
+    className="silky-charts-container"
     transform="translate(50, 40)"
   >
     <g
@@ -1030,9 +1061,100 @@ exports[`Should render correctly with width and height 1`] = `
   }
 >
   <g
-    className="container"
+    className="silky-charts-container"
     transform="translate(50, 40)"
   >
+    <g
+      className="axis-x "
+      transform="translate(0, 0)"
+    />
+    <g
+      className="axis-y "
+    />
+  </g>
+</svg>
+`;
+
+exports[`render correctly with x axis label 1`] = `
+.c1 {
+  text-anchor: middle;
+}
+
+.c0 {
+  height: 90px;
+  width: 100px;
+}
+
+<svg
+  className="silky-charts c0"
+  id="silky-charts-bar-line-8"
+  size={
+    Object {
+      "height": 90,
+      "width": 100,
+    }
+  }
+>
+  <g
+    className="silky-charts-container"
+    transform="translate(50, 40)"
+  >
+    <text
+      className="x-axis-label c1"
+      height={0}
+      width={0}
+      x={0}
+      y={33.333333333333336}
+    >
+      foo
+    </text>
+    <g
+      className="axis-x "
+      transform="translate(0, 0)"
+    />
+    <g
+      className="axis-y "
+    />
+  </g>
+</svg>
+`;
+
+exports[`render correctly with y axis label 1`] = `
+.c1 {
+  text-anchor: middle;
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+.c0 {
+  height: 90px;
+  width: 100px;
+}
+
+<svg
+  className="silky-charts c0"
+  id="silky-charts-bar-line-10"
+  size={
+    Object {
+      "height": 90,
+      "width": 100,
+    }
+  }
+>
+  <g
+    className="silky-charts-container"
+    transform="translate(50, 40)"
+  >
+    <text
+      className="y-axis-label c1"
+      height={0}
+      width={0}
+      x={-0}
+      y={-33.333333333333336}
+    >
+      foo
+    </text>
     <g
       className="axis-x "
       transform="translate(0, 0)"

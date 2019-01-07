@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Bar, BarLine } from './silky-charts';
-import { dates, letters } from './data/bar';
-import barLineData from './data/bar-line';
+import { barData, barDates } from './data/bar';
+import { barLineData, barLineDates } from './data/bar-line';
 import 'normalize.css';
 
 const App = styled.div`
@@ -18,20 +18,22 @@ export default () => (
   <App>
     <Container>
       <Bar
-        data={letters}
+        data={barData}
         grid
         referenceLine
+        margin={{ top: 40, right: 50, bottom: 70, left: 70 }}
         // sourceLabel="Source: AWeber Reports"
         // titleLabel="Subscriptions during February 2018"
-        // xAxisLabel="February 2018"
-        // yAxisLabel="Subscribers"
+        xAxisLabel="February 2018"
+        yAxisLabel="Subscribers"
         // xAxisLabelRotation
         // xAxisLabelRotationValue={-50}
       />
 
       <Bar
-        data={dates}
+        data={barDates}
         referenceLine
+        theme="green"
         // sourceLabel="Source: AWeber Reports"
         // titleLabel="Subscriptions during February 2018"
         // xAxisLabel="February 2018"
@@ -45,7 +47,22 @@ export default () => (
         grid
         stackedKeys={['apples', 'bananas']}
         lineKeys={['cherries']}
-        lineType={'curveNatural'}
+        lineType="curveNatural"
+        // sourceLabel="Source: AWeber Reports"
+        // titleLabel="Subscriptions during February 2018"
+        // xAxisLabel="February 2018"
+        // yAxisLabel="Subscribers"
+        // xAxisLabelRotation
+        // xAxisLabelRotationValue={-50}
+      />
+
+      <BarLine
+        data={barLineDates}
+        grid
+        stackedKeys={['apples', 'cherries']}
+        lineKeys={['bananas', 'dates']}
+        theme="orange"
+        secondaryTheme="purple"
         // sourceLabel="Source: AWeber Reports"
         // titleLabel="Subscriptions during February 2018"
         // xAxisLabel="February 2018"

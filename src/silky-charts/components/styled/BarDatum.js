@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Rect, Text } from './';
+import { Rect, BarValue } from './';
 
 const BarDatum = ({
   color,
@@ -25,9 +25,9 @@ const BarDatum = ({
       value={value}
     />
     {showValue && (
-      <Text position={{ x, y }} size={{ width, height }}>
+      <BarValue position={{ x, y }} size={{ width, height }}>
         {value}
-      </Text>
+      </BarValue>
     )}
   </Fragment>
 );

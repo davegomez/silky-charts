@@ -5,9 +5,8 @@ import { select as d3Select } from 'd3-selection';
 import { line as d3Line } from 'd3-shape';
 import { max as d3Max } from 'd3-array';
 import { axisBottom as d3AxisBottom, axisLeft as d3AxisLeft } from 'd3-axis';
-import { Axis, StackedBarDatum, Grid, LineDatum, SVG } from './styled';
+import { Axis, StackedBarDatum, Grid, Label, LineDatum, SVG } from './styled';
 import {
-  allDate,
   buildStack,
   drawGrid,
   extendXPath,
@@ -55,6 +54,8 @@ const BarLine = ({
   secondaryTheme = SECONDARY_THEME,
   xAxisLabelRotation,
   xAxisLabelRotationValue = -50,
+  xAxisLabel,
+  yAxisLabel,
 }) => {
   const svgRef = useRef();
   const [{ width, height, isSizeSet }, setSize] = useState(SIZE);
@@ -117,7 +118,7 @@ const BarLine = ({
       }}
     >
       <g
-        className="container"
+        className="silky-charts-container"
         transform={`translate(${margin.left}, ${margin.top})`}
       >
         {grid && (
@@ -128,6 +129,18 @@ const BarLine = ({
               )
             }
           />
+        )}
+
+        {xAxisLabel && (
+          <Label axis="x" margin={margin} width={width} height={height}>
+            {xAxisLabel}
+          </Label>
+        )}
+
+        {yAxisLabel && (
+          <Label axis="y" margin={margin} width={width} height={height}>
+            {yAxisLabel}
+          </Label>
         )}
 
         <Axis

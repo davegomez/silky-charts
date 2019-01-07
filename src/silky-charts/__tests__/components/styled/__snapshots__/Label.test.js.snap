@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render correctly for x axis 1`] = `
+.c0 {
+  text-anchor: middle;
+}
+
+<text
+  className="x-axis-label c0"
+  height={10}
+  width={10}
+  x={5}
+  y={43.333333333333336}
+/>
+`;
+
+exports[`render correctly for y axis 1`] = `
+.c0 {
+  text-anchor: middle;
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+<text
+  className="y-axis-label c0"
+  height={10}
+  width={10}
+  x={-5}
+  y={-33.333333333333336}
+/>
+`;

@@ -3,9 +3,8 @@ import identity from 'ramda/src/identity';
 import { select as d3Select } from 'd3-selection';
 import { max as d3Max } from 'd3-array';
 import { axisBottom as d3AxisBottom, axisLeft as d3AxisLeft } from 'd3-axis';
-import { Axis, BarDatum, Grid, SVG } from './styled';
+import { Axis, BarDatum, Grid, Label, SVG } from './styled';
 import {
-  allDate,
   drawGrid,
   extendXPath,
   getBaseColor,
@@ -46,6 +45,8 @@ const Bar = ({
   ticks = TICKS,
   xAxisLabelRotation,
   xAxisLabelRotationValue = -50,
+  xAxisLabel,
+  yAxisLabel,
 }) => {
   const svgRef = useRef();
   const [{ width, height, isSizeSet }, setSize] = useState(SIZE);
@@ -109,7 +110,7 @@ const Bar = ({
       }}
     >
       <g
-        className="container"
+        className="silky-charts-container"
         transform={`translate(${margin.left}, ${margin.top})`}
       >
         {grid && (
@@ -120,6 +121,18 @@ const Bar = ({
               )
             }
           />
+        )}
+
+        {xAxisLabel && (
+          <Label axis="x" margin={margin} width={width} height={height}>
+            {xAxisLabel}
+          </Label>
+        )}
+
+        {yAxisLabel && (
+          <Label axis="y" margin={margin} width={width} height={height}>
+            {yAxisLabel}
+          </Label>
         )}
 
         <Axis

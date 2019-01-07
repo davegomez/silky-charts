@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 import { black, white } from '../../utils/palette';
 
-const Text = styled.text.attrs(
+const BarValue = styled.text.attrs(
   ({ position: { x, y }, size: { width, height } }) => ({
     className: 'value',
     textAnchor: 'middle',
@@ -12,4 +12,4 @@ const Text = styled.text.attrs(
   pointer-events: none;
 `;
 
-export default Text
+export default BarValue;

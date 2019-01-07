@@ -1,4 +1,4 @@
-export const letters = [
+export const barData = [
   { name: 'E', value: 0.12702 },
   { name: 'T', value: 0.09056 },
   { name: 'A', value: 0.08167 },
@@ -27,7 +27,7 @@ export const letters = [
   { name: 'Z', value: 0.00074 },
 ];
 
-export const dates = [
+export const barDates = [
   { name: '2018-01-27T05:00:00.000Z', value: 56 },
   { name: '2018-01-28T05:00:00.000Z', value: 38 },
   { name: '2018-01-29T05:00:00.000Z', value: 61 },
