@@ -164,15 +164,3 @@ test('render correctly X axis label rotation', () => {
   }).toJSON();
   expect(tree).toMatchSnapshot();
 });
-
-test('attach the event listeners when responsive', () => {
-  window.addEventListener = jest.fn();
-  window.removeEventListener = jest.fn();
-  const renderer = create(<BarLine data={data} responsive />, {
-    createNodeMock,
-  });
-
-  expect(window.addEventListener).toHaveBeenCalled();
-  renderer.unmount();
-  expect(window.removeEventListener).toHaveBeenCalled();
-});

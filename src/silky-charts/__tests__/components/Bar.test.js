@@ -122,15 +122,3 @@ test('call onMouseLeave', () => {
   bar.props.onMouseLeave();
   expect(handleOnMouseLeave).toHaveBeenCalled();
 });
-
-test('attach the event listeners when responsive', () => {
-  window.addEventListener = jest.fn();
-  window.removeEventListener = jest.fn();
-  const renderer = create(<Bar data={data} responsive />, {
-    createNodeMock,
-  });
-
-  expect(window.addEventListener).toHaveBeenCalled();
-  renderer.unmount();
-  expect(window.removeEventListener).toHaveBeenCalled();
-});
