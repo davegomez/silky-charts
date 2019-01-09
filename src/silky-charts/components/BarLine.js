@@ -1,14 +1,14 @@
-import React, { useState, useRef, useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import head from 'ramda/src/head';
 import identity from 'ramda/src/identity';
-import { select as d3Select } from 'd3-selection';
-import { line as d3Line } from 'd3-shape';
 import { max as d3Max } from 'd3-array';
 import { axisBottom as d3AxisBottom, axisLeft as d3AxisLeft } from 'd3-axis';
-import { Axis, StackedBarDatum, Grid, Label, LineDatum, SVG } from './styled';
+import { select as d3Select } from 'd3-selection';
+import { line as d3Line } from 'd3-shape';
+import { Axis, Grid, Label, LineDatum, StackedBarDatum, SVG } from './styled';
 import {
-  debounce,
   buildStack,
+  debounce,
   drawGrid,
   extendXPath,
   getId,
@@ -19,44 +19,45 @@ import {
   getYScale,
   palette,
   rotateXLabels,
-  setupData,
   setLineType,
+  setupData,
 } from '../utils';
 import {
-  SCALE_TIME,
-  SCALE_BAND,
-  SCALE_LINEAR,
-  SECONDARY_THEME,
-  THEME,
-  TICKS,
+  ASPECT_RATIO,
   LINE_TYPE,
   MARGIN,
-  ASPECT_RATIO,
+  ROTATION,
+  SCALE_BAND,
+  SCALE_LINEAR,
+  SCALE_TIME,
+  SECONDARY_THEME,
   SIZE,
+  THEME,
+  TICKS,
 } from '../utils/constants';
 
 const BarLine = ({
   aspectRatio = ASPECT_RATIO,
   data: chartData,
   grid,
+  height: svgHeight = undefined,
   horizontal,
+  lineKeys = [],
+  lineType = LINE_TYPE,
+  lineTypeOption = null,
   margin = MARGIN,
   onClick = identity,
   onMouseEnter = identity,
   onMouseLeave = identity,
-  stackedKeys = [],
-  lineKeys = [],
-  lineType = LINE_TYPE,
-  lineTypeOption = null,
-  width: svgWidth = undefined,
-  height: svgHeight = undefined,
   responsive = false,
+  secondaryTheme = SECONDARY_THEME,
+  stackedKeys = [],
   theme = THEME,
   ticks = TICKS,
-  secondaryTheme = SECONDARY_THEME,
-  xAxisLabelRotation,
-  xAxisLabelRotationValue = -50,
+  width: svgWidth = undefined,
   xAxisLabel,
+  xAxisLabelRotation,
+  xAxisLabelRotationValue = ROTATION,
   yAxisLabel,
 }) => {
   const svgRef = useRef();
@@ -114,12 +115,12 @@ const BarLine = ({
 
   return (
     <SVG
-      ref={svgRef}
       identifier={id}
       size={{
         width: svgWidth || width + margin.left + margin.right,
         height: svgHeight || height + margin.top + margin.bottom,
       }}
+      ref={svgRef}
     >
       <g
         className="silky-charts-container"
@@ -165,23 +166,23 @@ const BarLine = ({
           data={data}
           series={stack(data)}
           isDates={isDates}
-          onClick={onClick}
           theme={theme}
           x={xScale}
           y={yScale}
           width={width}
           height={height}
+          onClick={onClick}
         />
 
         {lineData.map((datum, idx) => (
           <g className={`${head(datum)['key']}-layer`} key={idx}>
             <LineDatum
               data={datum}
-              d={line(datum)}
               isDates={isDates}
+              color={palette.themes[secondaryTheme].base[idx]}
+              d={line(datum)}
               xScale={xScale}
               yScale={yScale}
-              color={palette.themes[secondaryTheme].base[idx]}
             />
           </g>
         ))}

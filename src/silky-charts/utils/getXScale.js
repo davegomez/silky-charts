@@ -1,10 +1,10 @@
-import { extent as d3Extent } from 'd3-array';
-import { scaleBand as d3ScaleBand, scaleTime as d3ScaleTime } from 'd3-scale';
 import always from 'ramda/src/always';
 import cond from 'ramda/src/cond';
 import equals from 'ramda/src/equals';
 import identity from 'ramda/src/identity';
 import T from 'ramda/src/T';
+import { extent as d3Extent } from 'd3-array';
+import { scaleBand as d3ScaleBand, scaleTime as d3ScaleTime } from 'd3-scale';
 import { SCALE_TIME, SCALE_BAND } from './constants';
 
 const timeScale = (data, width, barChart = false) => {
@@ -29,6 +29,7 @@ const bandScale = (data, width) =>
  * @param {Number} width Chart width
  * @param {Boolean} barChart Indicates if the chart use bars in order to
  * calculate the X axis path with for the time scale
+ *
  * @return {Function} D3 scale function
  */
 export default (type, data, width, barChart) =>

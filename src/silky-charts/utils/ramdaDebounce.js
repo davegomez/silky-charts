@@ -6,8 +6,8 @@ import curry from 'ramda/src/curry';
  * Source: https://gist.github.com/tommmyy/daf61103d6022cd23d74c71b0e8adc0d
  *
  * @param {Boolean} immediate If true run `fn` at the start of the timeout
- * @param  timeMs {Number} Debounce timeout
- * @param  fn {Function} Function to debounce
+ * @param {Number} timeMs Debounce timeout
+ * @param {Function} fn Function to debounce
  *
  * @return {Number} timeout
  * @example

@@ -1,8 +1,8 @@
-import React, { useState, useRef, useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import identity from 'ramda/src/identity';
-import { select as d3Select } from 'd3-selection';
 import { max as d3Max } from 'd3-array';
 import { axisBottom as d3AxisBottom, axisLeft as d3AxisLeft } from 'd3-axis';
+import { select as d3Select } from 'd3-selection';
 import { Axis, BarDatum, Grid, Label, SVG } from './styled';
 import {
   debounce,
@@ -19,34 +19,35 @@ import {
   valueFor,
 } from '../utils';
 import {
-  SCALE_TIME,
+  ASPECT_RATIO,
+  MARGIN,
   SCALE_BAND,
   SCALE_LINEAR,
+  SCALE_TIME,
+  SIZE,
   THEME,
   TICKS,
-  MARGIN,
-  ASPECT_RATIO,
-  SIZE,
+  ROTATION,
 } from '../utils/constants';
 
 const Bar = ({
   aspectRatio = ASPECT_RATIO,
   data: chartData,
-  showValue,
-  showDivergence,
   grid,
+  height: svgHeight = undefined,
   horizontal,
   margin = MARGIN,
   onClick = identity,
   onMouseEnter = identity,
   onMouseLeave = identity,
-  width: svgWidth = undefined,
-  height: svgHeight = undefined,
   responsive = false,
+  showDivergence,
+  showValue,
   theme = THEME,
   ticks = TICKS,
+  width: svgWidth = undefined,
   xAxisLabelRotation,
-  xAxisLabelRotationValue = -50,
+  xAxisLabelRotationValue = ROTATION,
   xAxisLabel,
   yAxisLabel,
 }) => {
@@ -106,12 +107,12 @@ const Bar = ({
 
   return (
     <SVG
-      ref={svgRef}
       identifier={id}
       size={{
         width: svgWidth || width + margin.left + margin.right,
         height: svgHeight || height + margin.top + margin.bottom,
       }}
+      ref={svgRef}
     >
       <g
         className="silky-charts-container"
@@ -157,7 +158,6 @@ const Bar = ({
           {data.map(({ name, value }, idx) => (
             <BarDatum
               key={idx}
-              showValue={showValue}
               datum={{
                 name,
                 value:
@@ -165,6 +165,8 @@ const Bar = ({
                     ? getDivergence(value, currentValue)
                     : value,
               }}
+              color={getBaseColor(theme)}
+              showValue={showValue}
               x={
                 isDates
                   ? xScale(name) - valueFor('x', width, data.length)
@@ -177,7 +179,6 @@ const Bar = ({
                   : xScale.bandwidth()
               }
               height={height - yScale(value)}
-              color={getBaseColor(theme)}
               onClick={onClick}
               onMouseEnter={handleOnMouseEnter}
               onMouseLeave={handleOnMouseLeave}

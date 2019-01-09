@@ -4,10 +4,6 @@ export { debounce } from './debounce';
 export { debounceImmediate } from './debounce';
 export { default as drawGrid } from './drawGrid';
 export { default as extendXPath } from './extendXPath';
-export { default as formatShortNotation } from './formatShortNotation';
-export {
-  default as formatCurrencyShortNotation,
-} from './formatCurrencyShortNotation';
 export { default as getBaseColor } from './getBaseColor';
 export { default as getHoverColor } from './getHoverColor';
 export { default as getId } from './getId';

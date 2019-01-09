@@ -12,7 +12,8 @@ import T from 'ramda/src/T';
  * @param {String} option Option to get the value for
  * @param {Number} width Chart width
  * @param {Number} length Data length
- * @returns {Number} Calculated number
+ *
+ * @return {Number} Calculated number
  */
 export default (option, width, length) =>
   cond([

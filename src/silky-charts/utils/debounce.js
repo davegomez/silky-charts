@@ -2,7 +2,7 @@ import {
   debounce as ramdaDebounce,
   debounceImmediate as ramdaDebounceImmediate,
 } from './ramdaDebounce';
-import { DEBOUNCE_TIME } from './constants';
+import { DEBOUNCE } from './constants';
 
-export const debounce = ramdaDebounce(DEBOUNCE_TIME);
-export const debounceImmediate = ramdaDebounceImmediate(DEBOUNCE_TIME);
+export const debounce = ramdaDebounce(DEBOUNCE);
+export const debounceImmediate = ramdaDebounceImmediate(DEBOUNCE);
