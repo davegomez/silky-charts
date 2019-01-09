@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should render correctly 1`] = `
+exports[`render correctly 1`] = `
 Array [
   .c0 {
   fill: rgb(127,29,24);
@@ -77,7 +77,7 @@ Array [
 ]
 `;
 
-exports[`Should render correctly with date 1`] = `
+exports[`render correctly with date 1`] = `
 Array [
   .c0 {
   fill: rgb(127,29,24);

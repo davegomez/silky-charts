@@ -5,7 +5,7 @@ const data = [
   { name: 'datum_01', foo: 4, bar: 5, baz: 6, qux: 7 },
 ];
 
-test('Should return the data for the given keys', () => {
+test('return the data for the given keys', () => {
   expect(getLineDataForKeys(['bar', 'baz'], data)).toEqual([
     [
       { key: 'bar', name: 'datum_00', value: 1 },

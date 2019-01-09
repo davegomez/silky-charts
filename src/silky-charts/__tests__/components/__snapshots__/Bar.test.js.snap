@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should call onMouseEnter and update divergence on bars 1`] = `
+exports[`call onMouseEnter and update divergence on bars 1`] = `
 .c1 {
   fill: rgb(90,200,250);
   height: 55.16129032258064px;
@@ -196,210 +196,7 @@ exports[`Should call onMouseEnter and update divergence on bars 1`] = `
 </svg>
 `;
 
-exports[`Should remove resize event listener on unmount 1`] = `
-.c1 {
-  fill: rgb(90,200,250);
-  height: 0px;
-  width: 0px;
-}
-
-.c1:hover {
-  fill: hsl(198.79999999999995,94.1%,53.3%);
-}
-
-.c0 {
-  height: 90px;
-  width: 100px;
-}
-
-<svg
-  className="silky-charts c0"
-  id="silky-charts-bar-30"
-  size={
-    Object {
-      "height": 90,
-      "width": 100,
-    }
-  }
->
-  <g
-    className="silky-charts-container"
-    transform="translate(50, 40)"
-  >
-    <g
-      className="axis-x "
-      transform="translate(0, 0)"
-    />
-    <g
-      className="axis-y "
-    />
-    <g
-      className="data"
-    >
-      <rect
-        className="bar c1"
-        color="rgb(90, 200, 250)"
-        onClick={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        size={
-          Object {
-            "height": 0,
-            "width": 0,
-          }
-        }
-        value={19}
-        x={0}
-        y={0}
-      />
-      <rect
-        className="bar c1"
-        color="rgb(90, 200, 250)"
-        onClick={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        size={
-          Object {
-            "height": 0,
-            "width": 0,
-          }
-        }
-        value={70}
-        x={0}
-        y={0}
-      />
-      <rect
-        className="bar c1"
-        color="rgb(90, 200, 250)"
-        onClick={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        size={
-          Object {
-            "height": 0,
-            "width": 0,
-          }
-        }
-        value={93}
-        x={0}
-        y={0}
-      />
-      <rect
-        className="bar c1"
-        color="rgb(90, 200, 250)"
-        onClick={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        size={
-          Object {
-            "height": 0,
-            "width": 0,
-          }
-        }
-        value={80}
-        x={0}
-        y={0}
-      />
-    </g>
-  </g>
-</svg>
-`;
-
-exports[`Should remove resize event listener on unmount 2`] = `
-<svg
-  className="sc-bZQynM silky-charts cuUavZ"
-  id="silky-charts-bar-30"
-  size={
-    Object {
-      "height": 90,
-      "width": 100,
-    }
-  }
->
-  <g
-    className="silky-charts-container"
-    transform="translate(50, 40)"
-  >
-    <g
-      className="sc-bdVaJa axis-x bDWFJH"
-      transform="translate(0, 0)"
-    />
-    <g
-      className="sc-bdVaJa axis-y bDWFJH"
-    />
-    <g
-      className="data"
-    >
-      <rect
-        className="sc-EHOje bar gViSbs"
-        color="rgb(90, 200, 250)"
-        onClick={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        size={
-          Object {
-            "height": 0,
-            "width": 0,
-          }
-        }
-        value={19}
-        x={0}
-        y={0}
-      />
-      <rect
-        className="sc-EHOje bar gViSbs"
-        color="rgb(90, 200, 250)"
-        onClick={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        size={
-          Object {
-            "height": 0,
-            "width": 0,
-          }
-        }
-        value={70}
-        x={0}
-        y={0}
-      />
-      <rect
-        className="sc-EHOje bar gViSbs"
-        color="rgb(90, 200, 250)"
-        onClick={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        size={
-          Object {
-            "height": 0,
-            "width": 0,
-          }
-        }
-        value={93}
-        x={0}
-        y={0}
-      />
-      <rect
-        className="sc-EHOje bar gViSbs"
-        color="rgb(90, 200, 250)"
-        onClick={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        size={
-          Object {
-            "height": 0,
-            "width": 0,
-          }
-        }
-        value={80}
-        x={0}
-        y={0}
-      />
-    </g>
-  </g>
-</svg>
-`;
-
-exports[`Should render correctly 1`] = `
+exports[`render correctly 1`] = `
 .c1 {
   fill: rgb(90,200,250);
   height: 0px;
@@ -508,7 +305,7 @@ exports[`Should render correctly 1`] = `
 </svg>
 `;
 
-exports[`Should render correctly X axis label rotation 1`] = `
+exports[`render correctly X axis label rotation 1`] = `
 .c1 {
   fill: rgb(90,200,250);
   height: 0px;
@@ -617,7 +414,7 @@ exports[`Should render correctly X axis label rotation 1`] = `
 </svg>
 `;
 
-exports[`Should render correctly showing the value and divergence on bars 1`] = `
+exports[`render correctly showing the value and divergence on bars 1`] = `
 .c1 {
   fill: rgb(90,200,250);
   height: 0px;
@@ -783,7 +580,7 @@ exports[`Should render correctly showing the value and divergence on bars 1`] = 
 </svg>
 `;
 
-exports[`Should render correctly showing the value on bars 1`] = `
+exports[`render correctly showing the value on bars 1`] = `
 .c1 {
   fill: rgb(90,200,250);
   height: 0px;
@@ -949,7 +746,7 @@ exports[`Should render correctly showing the value on bars 1`] = `
 </svg>
 `;
 
-exports[`Should render correctly width horizontal grid 1`] = `
+exports[`render correctly width horizontal grid 1`] = `
 .c1 path {
   stroke: transparent;
 }
@@ -1069,7 +866,7 @@ exports[`Should render correctly width horizontal grid 1`] = `
 </svg>
 `;
 
-exports[`Should render correctly width vertical grid 1`] = `
+exports[`render correctly width vertical grid 1`] = `
 .c1 path {
   stroke: transparent;
 }
@@ -1189,7 +986,7 @@ exports[`Should render correctly width vertical grid 1`] = `
 </svg>
 `;
 
-exports[`Should render correctly with dates as name 1`] = `
+exports[`render correctly with dates as name 1`] = `
 .c1 {
   fill: rgb(90,200,250);
   height: 0px;
@@ -1298,7 +1095,7 @@ exports[`Should render correctly with dates as name 1`] = `
 </svg>
 `;
 
-exports[`Should render correctly with height 1`] = `
+exports[`render correctly with height 1`] = `
 .c1 {
   fill: rgb(90,200,250);
   height: 0px;
@@ -1407,7 +1204,7 @@ exports[`Should render correctly with height 1`] = `
 </svg>
 `;
 
-exports[`Should render correctly with width 1`] = `
+exports[`render correctly with width 1`] = `
 .c1 {
   fill: rgb(90,200,250);
   height: 0px;
@@ -1516,7 +1313,7 @@ exports[`Should render correctly with width 1`] = `
 </svg>
 `;
 
-exports[`Should render correctly with width and height 1`] = `
+exports[`render correctly with width and height 1`] = `
 .c1 {
   fill: rgb(90,200,250);
   height: 0px;

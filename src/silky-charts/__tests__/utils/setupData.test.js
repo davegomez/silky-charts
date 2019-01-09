@@ -12,11 +12,11 @@ const dataWidthDates = [
   { name: '2018-04-20T05:00:00.000Z', value: 3 },
 ];
 
-test('Should setup user data', () => {
+test('setup user data', () => {
   expect(setupData(data)).toEqual([false, data]);
 });
 
-test('Should setup user data width dates', () => {
+test('setup user data width dates', () => {
   const [isDates, data] = setupData(dataWidthDates);
   expect(isDates).toBe(true);
   data.map(d => {

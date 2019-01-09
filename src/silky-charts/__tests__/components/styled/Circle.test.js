@@ -10,13 +10,13 @@ const props = {
   r: 10,
 };
 
-test('Should render correctly', () => {
+test('render correctly', () => {
   const tree = create(<Circle {...props} />).toJSON();
 
   expect(tree).toMatchSnapshot();
 });
 
-test('Should call the event handler onClick', () => {
+test('call the event handler onClick', () => {
   const handleOnClick = jest.fn();
   const tree = create(<Circle onClick={handleOnClick} {...props} />).toJSON();
 
@@ -24,7 +24,7 @@ test('Should call the event handler onClick', () => {
   expect(handleOnClick).toHaveBeenCalled();
 });
 
-test('Should call the event handler onMouseOver', () => {
+test('call the event handler onMouseOver', () => {
   const handleOnMouseOver = jest.fn();
   const tree = create(
     <Circle onMouseOver={handleOnMouseOver} {...props} />

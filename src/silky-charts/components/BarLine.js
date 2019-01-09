@@ -7,6 +7,7 @@ import { max as d3Max } from 'd3-array';
 import { axisBottom as d3AxisBottom, axisLeft as d3AxisLeft } from 'd3-axis';
 import { Axis, StackedBarDatum, Grid, Label, LineDatum, SVG } from './styled';
 import {
+  debounce,
   buildStack,
   drawGrid,
   extendXPath,
@@ -49,6 +50,7 @@ const BarLine = ({
   lineTypeOption = null,
   width: svgWidth = undefined,
   height: svgHeight = undefined,
+  responsive = false,
   theme = THEME,
   ticks = TICKS,
   secondaryTheme = SECONDARY_THEME,
@@ -84,7 +86,7 @@ const BarLine = ({
 
   const lineData = getLineDataForKeys(lineKeys, data);
 
-  const handleResize = () => {
+  const handleSize = () => {
     const offsetWidth = svgRef.current.parentElement.offsetWidth;
     if ((svgWidth || svgHeight) && !isSizeSet) {
       setSize({
@@ -99,12 +101,14 @@ const BarLine = ({
     }
   };
 
+  const handleResize = debounce(handleSize)();
+
   useEffect(() => {
-    handleResize();
-    window.addEventListener('resize', handleResize);
+    handleSize();
+    responsive && window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      responsive && window.removeEventListener('resize', handleResize);
     };
   }, []);
 

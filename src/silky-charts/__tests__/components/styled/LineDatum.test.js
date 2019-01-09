@@ -13,7 +13,7 @@ const props = {
   yScale: jest.fn(),
 };
 
-test('Should render correctly', () => {
+test('render correctly', () => {
   const tree = create(
     <LineDatum data={[{ name: 'foo', value: 0 }]} {...props} />
   ).toJSON();
@@ -21,7 +21,7 @@ test('Should render correctly', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly width dates', () => {
+test('render correctly width dates', () => {
   const tree = create(
     <LineDatum
       isDates

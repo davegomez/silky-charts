@@ -10,12 +10,12 @@ const props = {
   size: { width: 10, height: 10 },
 };
 
-test('Should render correctly', () => {
+test('render correctly', () => {
   const tree = create(<Rect {...props} />).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Should call the event handler onClick', () => {
+test('call the event handler onClick', () => {
   const handleOnClick = jest.fn();
   const tree = create(<Rect onClick={handleOnClick} {...props} />).toJSON();
 
@@ -23,7 +23,7 @@ test('Should call the event handler onClick', () => {
   expect(handleOnClick).toHaveBeenCalled();
 });
 
-test('Should call the event handler onMouseEnter', () => {
+test('call the event handler onMouseEnter', () => {
   const handleOnMouseEnter = jest.fn();
   const tree = create(
     <Rect onMouseEnter={handleOnMouseEnter} {...props} />
@@ -33,7 +33,7 @@ test('Should call the event handler onMouseEnter', () => {
   expect(handleOnMouseEnter).toHaveBeenCalled();
 });
 
-test('Should call the event handler onMouseLeave', () => {
+test('call the event handler onMouseLeave', () => {
   const handleOnMouseLeave = jest.fn();
   const tree = create(
     <Rect onMouseLeave={handleOnMouseLeave} {...props} />

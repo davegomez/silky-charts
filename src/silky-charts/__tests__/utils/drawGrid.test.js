@@ -3,7 +3,7 @@ import { drawGrid } from '../../utils';
 const xScale = jest.fn();
 const yScale = jest.fn();
 
-test('Should return an horizontal D3 axis constructor', () => {
+test('return an horizontal D3 axis constructor', () => {
   const result = drawGrid(true, xScale, 10, yScale, 10, 5);
 
   expect(typeof result).toBe('function');
@@ -18,7 +18,7 @@ test('Should return an horizontal D3 axis constructor', () => {
   expect(typeof result.tickPadding).toBe('function');
 });
 
-test('Should return a vertical D3 axis constructor', () => {
+test('return a vertical D3 axis constructor', () => {
   const result = drawGrid(false, xScale, 10, yScale, 10, 5);
 
   expect(typeof result).toBe('function');

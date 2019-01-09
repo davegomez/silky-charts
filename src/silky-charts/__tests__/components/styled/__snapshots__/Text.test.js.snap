@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should render correctly 1`] = `
+exports[`render correctly 1`] = `
 .c0 {
   fill: rgb(255,255,255);
   pointer-events: none;
@@ -21,7 +21,7 @@ exports[`Should render correctly 1`] = `
 </text>
 `;
 
-exports[`Should render correctly for heights less than 40 1`] = `
+exports[`render correctly for heights less than 40 1`] = `
 .c0 {
   fill: rgb(33,33,33);
   pointer-events: none;

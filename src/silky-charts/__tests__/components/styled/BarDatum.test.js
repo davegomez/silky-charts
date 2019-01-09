@@ -12,19 +12,19 @@ const props = {
   height: 10,
 };
 
-test('Should render correctly', () => {
+test('render correctly', () => {
   const tree = create(<BarDatum {...props} />).toJSON();
 
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly and show the value', () => {
+test('render correctly and show the value', () => {
   const tree = create(<BarDatum showValue {...props} />).toJSON();
 
   expect(tree).toMatchSnapshot();
 });
 
-test('Should call the event handler onClick', () => {
+test('call the event handler onClick', () => {
   const handleOnClick = jest.fn();
   const tree = create(<BarDatum onClick={handleOnClick} {...props} />).toJSON();
 
@@ -32,7 +32,7 @@ test('Should call the event handler onClick', () => {
   expect(handleOnClick).toHaveBeenCalled();
 });
 
-test('Should call the event handler onMouseEnter', () => {
+test('call the event handler onMouseEnter', () => {
   const handleonMouseEnter = jest.fn();
   const tree = create(
     <BarDatum onMouseEnter={handleonMouseEnter} {...props} />
@@ -42,7 +42,7 @@ test('Should call the event handler onMouseEnter', () => {
   expect(handleonMouseEnter).toHaveBeenCalled();
 });
 
-test('Should call the event handler onMouseLeave', () => {
+test('call the event handler onMouseLeave', () => {
   const handleonMouseLeave = jest.fn();
   const tree = create(
     <BarDatum onMouseLeave={handleonMouseLeave} {...props} />

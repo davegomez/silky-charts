@@ -5,26 +5,26 @@ import { data, dataWidthDates } from '../../__mocks__/bar';
 import createNodeMock from '../../__mocks__/createNodeMock';
 import 'jest-styled-components';
 
-test('Should render correctly', () => {
+test('render correctly', () => {
   const tree = create(<Bar data={data} />, { createNodeMock }).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly with width', () => {
+test('render correctly with width', () => {
   const tree = create(<Bar data={data} width={400} />, {
     createNodeMock,
   }).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly with height', () => {
+test('render correctly with height', () => {
   const tree = create(<Bar data={data} height={400} />, {
     createNodeMock,
   }).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly with width and height', () => {
+test('render correctly with width and height', () => {
   const tree = create(<Bar data={data} width={400} height={300} />, {
     createNodeMock,
   }).toJSON();
@@ -45,47 +45,47 @@ test('render correctly with y axis label', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly with dates as name', () => {
+test('render correctly with dates as name', () => {
   const tree = create(<Bar data={dataWidthDates} />, {
     createNodeMock,
   }).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly width horizontal grid', () => {
+test('render correctly width horizontal grid', () => {
   const tree = create(<Bar data={data} grid />, { createNodeMock }).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly width vertical grid', () => {
+test('render correctly width vertical grid', () => {
   const tree = create(<Bar data={data} grid horizontal />, {
     createNodeMock,
   }).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly X axis label rotation', () => {
+test('render correctly X axis label rotation', () => {
   const tree = create(<Bar data={data} xAxisLabelRotation />, {
     createNodeMock,
   }).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly showing the value on bars', () => {
+test('render correctly showing the value on bars', () => {
   const tree = create(<Bar data={data} showValue />, {
     createNodeMock,
   }).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly showing the value and divergence on bars', () => {
+test('render correctly showing the value and divergence on bars', () => {
   const tree = create(<Bar data={data} showValue showDivergence />, {
     createNodeMock,
   }).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Should call onMouseEnter and update divergence on bars', () => {
+test('call onMouseEnter and update divergence on bars', () => {
   const handleOnMouseEnter = jest.fn();
   const renderer = create(
     <Bar
@@ -108,7 +108,7 @@ test('Should call onMouseEnter and update divergence on bars', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Should call onMouseLeave', () => {
+test('call onMouseLeave', () => {
   const handleOnMouseLeave = jest.fn();
   const renderer = create(
     <Bar data={data} onMouseLeave={handleOnMouseLeave} />,
@@ -123,12 +123,14 @@ test('Should call onMouseLeave', () => {
   expect(handleOnMouseLeave).toHaveBeenCalled();
 });
 
-test('Should remove resize event listener on unmount', () => {
-  const renderer = create(<Bar data={data} />, { createNodeMock });
-  const tree = renderer.toJSON();
-  expect(tree).toMatchSnapshot();
+test('attach the event listeners when responsive', () => {
+  window.addEventListener = jest.fn();
+  window.removeEventListener = jest.fn();
+  const renderer = create(<Bar data={data} responsive />, {
+    createNodeMock,
+  });
 
+  expect(window.addEventListener).toHaveBeenCalled();
   renderer.unmount();
-
-  expect(tree).toMatchSnapshot();
+  expect(window.removeEventListener).toHaveBeenCalled();
 });

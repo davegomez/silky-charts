@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should render correctly 1`] = `
+exports[`render correctly 1`] = `
 Array [
   .c0 {
   fill: none;
@@ -34,7 +34,7 @@ Array [
 ]
 `;
 
-exports[`Should render correctly width dates 1`] = `
+exports[`render correctly width dates 1`] = `
 Array [
   .c0 {
   fill: none;

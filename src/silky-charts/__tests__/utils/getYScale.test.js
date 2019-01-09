@@ -6,7 +6,7 @@ const data = [
   { name: 'baz', value: 3 },
 ];
 
-test('Should return a D3 linearScale constructor function', () => {
+test('return a D3 linearScale constructor function', () => {
   const result = getYScale('linear', data, 100);
 
   expect(typeof result).toBe('function');

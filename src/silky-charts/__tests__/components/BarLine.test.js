@@ -5,7 +5,7 @@ import { data, dataWidthDates } from '../../__mocks__/barLine';
 import createNodeMock from '../../__mocks__/createNodeMock';
 import 'jest-styled-components';
 
-test('Should render correctly', () => {
+test('render correctly', () => {
   const tree = create(<BarLine data={data} />, {
     createNodeMock,
   }).toJSON();
@@ -13,21 +13,21 @@ test('Should render correctly', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly with width', () => {
+test('render correctly with width', () => {
   const tree = create(<BarLine data={data} width={400} />, {
     createNodeMock,
   }).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly with height', () => {
+test('render correctly with height', () => {
   const tree = create(<BarLine data={data} height={400} />, {
     createNodeMock,
   }).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly with width and height', () => {
+test('render correctly with width and height', () => {
   const tree = create(<BarLine data={data} width={400} height={300} />, {
     createNodeMock,
   }).toJSON();
@@ -48,21 +48,21 @@ test('render correctly with y axis label', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly with dates as name', () => {
+test('render correctly with dates as name', () => {
   const tree = create(<BarLine data={dataWidthDates} />, {
     createNodeMock,
   }).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly with dates as name', () => {
+test('render correctly with dates as name', () => {
   const tree = create(<BarLine data={dataWidthDates} />, {
     createNodeMock,
   }).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly with only bars', () => {
+test('render correctly with only bars', () => {
   const tree = create(
     <BarLine data={data} stackedKeys={['apples', 'bananas']} />,
     {
@@ -73,7 +73,7 @@ test('Should render correctly with only bars', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly with only lines', () => {
+test('render correctly with only lines', () => {
   const tree = create(
     <BarLine data={data} lineKeys={['cherries', 'dates']} />,
     {
@@ -84,7 +84,7 @@ test('Should render correctly with only lines', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly with bars and lines', () => {
+test('render correctly with bars and lines', () => {
   const tree = create(
     <BarLine
       data={dataWidthDates}
@@ -99,7 +99,7 @@ test('Should render correctly with bars and lines', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly with a different line type', () => {
+test('render correctly with a different line type', () => {
   const tree = create(<BarLine data={data} lineType={'curveNatural'} />, {
     createNodeMock,
   }).toJSON();
@@ -107,7 +107,7 @@ test('Should render correctly with a different line type', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly with curveBundle line type', () => {
+test('render correctly with curveBundle line type', () => {
   const tree = create(
     <BarLine data={data} lineType={'curveBundle'} lineTypeOption={0.5} />,
     {
@@ -118,7 +118,7 @@ test('Should render correctly with curveBundle line type', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly with curveBundle line type', () => {
+test('render correctly with curveBundle line type', () => {
   const tree = create(
     <BarLine data={data} lineType={'curveCardinalOpen'} lineTypeOption={10} />,
     {
@@ -129,7 +129,7 @@ test('Should render correctly with curveBundle line type', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly with curveBundle line type', () => {
+test('render correctly with curveBundle line type', () => {
   const tree = create(
     <BarLine
       data={data}
@@ -144,33 +144,35 @@ test('Should render correctly with curveBundle line type', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly width horizontal grid', () => {
+test('render correctly width horizontal grid', () => {
   const tree = create(<BarLine data={data} grid />, {
     createNodeMock,
   }).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly width vertical grid', () => {
+test('render correctly width vertical grid', () => {
   const tree = create(<BarLine data={data} grid horizontal />, {
     createNodeMock,
   }).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly X axis label rotation', () => {
+test('render correctly X axis label rotation', () => {
   const tree = create(<BarLine data={data} xAxisLabelRotation />, {
     createNodeMock,
   }).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('Should remove resize event listener on unmount', () => {
-  const renderer = create(<BarLine data={data} />, { createNodeMock });
-  const tree = renderer.toJSON();
-  expect(tree).toMatchSnapshot();
+test('attach the event listeners when responsive', () => {
+  window.addEventListener = jest.fn();
+  window.removeEventListener = jest.fn();
+  const renderer = create(<BarLine data={data} responsive />, {
+    createNodeMock,
+  });
 
+  expect(window.addEventListener).toHaveBeenCalled();
   renderer.unmount();
-
-  expect(tree).toMatchSnapshot();
+  expect(window.removeEventListener).toHaveBeenCalled();
 });

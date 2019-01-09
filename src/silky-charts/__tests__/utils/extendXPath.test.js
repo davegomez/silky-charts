@@ -1,6 +1,6 @@
 import { extendXPath } from '../../utils';
 
-test('Should transform the "d" path attribute', () => {
+test('transform the "d" path attribute', () => {
   document.body.innerHTML = `
   <body>
     <svg id="foo">

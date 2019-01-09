@@ -26,6 +26,7 @@ export default () => (
         // titleLabel="Subscriptions during February 2018"
         xAxisLabel="February 2018"
         yAxisLabel="Subscribers"
+        // responsive
         // xAxisLabelRotation
         // xAxisLabelRotationValue={-50}
       />

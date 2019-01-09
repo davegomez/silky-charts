@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should render correctly 1`] = `
+exports[`render correctly 1`] = `
 .c0 {
   fill: rgb(0,0,0);
   height: 10px;
@@ -26,7 +26,7 @@ exports[`Should render correctly 1`] = `
 />
 `;
 
-exports[`Should render correctly and show the value 1`] = `
+exports[`render correctly and show the value 1`] = `
 Array [
   .c0 {
   fill: rgb(0,0,0);

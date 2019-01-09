@@ -3,7 +3,7 @@ import { BarValue } from '../../../components/styled';
 import { create } from 'react-test-renderer';
 import 'jest-styled-components';
 
-test('Should render correctly', () => {
+test('render correctly', () => {
   const tree = create(
     <BarValue position={{ x: 0, y: 0 }} size={{ width: 10, height: 100 }}>
       foo
@@ -13,7 +13,7 @@ test('Should render correctly', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly for heights less than 40', () => {
+test('render correctly for heights less than 40', () => {
   const tree = create(
     <BarValue position={{ x: 0, y: 0 }} size={{ width: 10, height: 20 }}>
       foo

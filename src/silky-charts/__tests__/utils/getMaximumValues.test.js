@@ -15,7 +15,7 @@ const testCases = [
   { testCase: ['foo', 'bar', 'baz', 'qux'], expected: [12, 10, 12, 12] },
 ];
 
-test('Should return an array with the maximum values calculated', () => {
+test('return an array with the maximum values calculated', () => {
   testCases.map(({ testCase, expected }) =>
     expect(getMaximumValues(testCase, data)).toEqual(expected)
   );

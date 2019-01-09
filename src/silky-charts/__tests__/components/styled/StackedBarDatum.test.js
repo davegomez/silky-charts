@@ -27,13 +27,13 @@ const props = {
   height: 10,
 };
 
-test('Should render correctly', () => {
+test('render correctly', () => {
   const tree = create(<StackedBarDatum series={series} {...props} />).toJSON();
 
   expect(tree).toMatchSnapshot();
 });
 
-test('Should render correctly with date', () => {
+test('render correctly with date', () => {
   const tree = create(
     <StackedBarDatum
       series={seriesWithDate}

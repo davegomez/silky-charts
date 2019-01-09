@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should render correctly 1`] = `
+exports[`render correctly 1`] = `
 .c0 path {
   stroke: transparent;
 }

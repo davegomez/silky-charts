@@ -1,5 +1,7 @@
 export { default as allDate } from './allDate';
 export { default as buildStack } from './buildStack';
+export { debounce } from './debounce';
+export { debounceImmediate } from './debounce';
 export { default as drawGrid } from './drawGrid';
 export { default as extendXPath } from './extendXPath';
 export { default as formatShortNotation } from './formatShortNotation';

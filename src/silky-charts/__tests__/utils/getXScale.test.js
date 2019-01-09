@@ -12,7 +12,7 @@ const dataWithDates = [
   { name: '2018-04-20T05:00:00.000Z', value: 3 },
 ];
 
-test('Should return a D3 bandScale constructor function', () => {
+test('return a D3 bandScale constructor function', () => {
   const result = getXScale('band', data, 100);
 
   expect(typeof result).toBe('function');
@@ -29,7 +29,7 @@ test('Should return a D3 bandScale constructor function', () => {
   expect(typeof result.align).toBe('function');
 });
 
-test('Should return a D3 timeScale constructor function', () => {
+test('return a D3 timeScale constructor function', () => {
   const result = getXScale('time', data, 100);
 
   expect(typeof result).toBe('function');
@@ -45,7 +45,7 @@ test('Should return a D3 timeScale constructor function', () => {
   expect(typeof result.copy).toBe('function');
 });
 
-test('Should return a D3 timeScale constructor function for bar charts', () => {
+test('return a D3 timeScale constructor function for bar charts', () => {
   const result = getXScale('time', data, 100, true);
 
   expect(typeof result).toBe('function');

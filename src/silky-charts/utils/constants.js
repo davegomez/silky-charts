@@ -34,6 +34,8 @@ export const SIZE = {
   isSizeSet: false,
 };
 
+export const DEBOUNCE_TIME = 500;
+
 // Themes
 export const THEME = 'tealBlue';
 export const SECONDARY_THEME = 'pink';
