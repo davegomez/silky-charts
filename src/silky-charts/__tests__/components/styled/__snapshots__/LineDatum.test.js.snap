@@ -4,14 +4,12 @@ exports[`render correctly 1`] = `
 Array [
   .c0 {
   fill: none;
-  pointer-events: none;
   stroke: rgb(0,0,0);
   stroke-width: 3;
 }
 
 <path
     className="line-path c0"
-    color="rgb(0, 0, 0)"
     d="M0"
   />,
   .c0 {
@@ -26,7 +24,6 @@ Array [
   >
     <circle
       className="line-dot c0"
-      color="rgb(0, 0, 0)"
       cx={NaN}
       r={5}
     />
@@ -38,14 +35,12 @@ exports[`render correctly width dates 1`] = `
 Array [
   .c0 {
   fill: none;
-  pointer-events: none;
   stroke: rgb(0,0,0);
   stroke-width: 3;
 }
 
 <path
     className="line-path c0"
-    color="rgb(0, 0, 0)"
     d="M0"
   />,
   .c0 {
@@ -60,7 +55,6 @@ Array [
   >
     <circle
       className="line-dot c0"
-      color="rgb(0, 0, 0)"
       r={5}
     />
   </g>,

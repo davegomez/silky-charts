@@ -2,7 +2,6 @@
 
 exports[`render correctly 1`] = `
 .c0 {
-  fill: rgb(0,0,0);
   height: 10px;
   width: 10px;
 }

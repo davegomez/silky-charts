@@ -13,7 +13,6 @@ exports[`render correctly 1`] = `
 
 <rect
   className="bar c0"
-  color="rgb(0, 0, 0)"
   size={
     Object {
       "height": 10,
@@ -27,8 +26,7 @@ exports[`render correctly 1`] = `
 `;
 
 exports[`render correctly and show the value 1`] = `
-Array [
-  .c0 {
+.c0 {
   fill: rgb(0,0,0);
   height: 10px;
   width: 10px;
@@ -39,35 +37,15 @@ Array [
 }
 
 <rect
-    className="bar c0"
-    color="rgb(0, 0, 0)"
-    size={
-      Object {
-        "height": 10,
-        "width": 10,
-      }
+  className="bar c0"
+  size={
+    Object {
+      "height": 10,
+      "width": 10,
     }
-    value={0}
-    x={0}
-    y={0}
-  />,
-  .c0 {
-  fill: rgb(33,33,33);
-  pointer-events: none;
-}
-
-<text
-    className="value c0"
-    size={
-      Object {
-        "height": 10,
-        "width": 10,
-      }
-    }
-    textAnchor="middle"
-    transform="translate(5, -18)"
-  >
-    0
-  </text>,
-]
+  }
+  value={0}
+  x={0}
+  y={0}
+/>
 `;

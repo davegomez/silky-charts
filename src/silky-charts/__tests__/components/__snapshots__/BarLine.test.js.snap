@@ -8,7 +8,7 @@ exports[`render correctly 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-0"
+  id="silky-charts_bar-line-0"
   size={
     Object {
       "height": 90,
@@ -39,7 +39,7 @@ exports[`render correctly X axis label rotation 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-34"
+  id="silky-charts_bar-line-34"
   size={
     Object {
       "height": 90,
@@ -78,7 +78,7 @@ exports[`render correctly width horizontal grid 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-30"
+  id="silky-charts_bar-line-30"
   size={
     Object {
       "height": 90,
@@ -120,7 +120,7 @@ exports[`render correctly width vertical grid 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-32"
+  id="silky-charts_bar-line-32"
   size={
     Object {
       "height": 90,
@@ -154,7 +154,7 @@ exports[`render correctly with a different line type 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-22"
+  id="silky-charts_bar-line-22"
   size={
     Object {
       "height": 90,
@@ -194,14 +194,12 @@ exports[`render correctly with bars and lines 1`] = `
 
 .c3 {
   fill: none;
-  pointer-events: none;
   stroke: rgb(127,22,42);
   stroke-width: 3;
 }
 
 .c5 {
   fill: none;
-  pointer-events: none;
   stroke: rgb(255,121,147);
   stroke-width: 3;
 }
@@ -233,7 +231,7 @@ exports[`render correctly with bars and lines 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-20"
+  id="silky-charts_bar-line-20"
   size={
     Object {
       "height": 90,
@@ -246,18 +244,10 @@ exports[`render correctly with bars and lines 1`] = `
     transform="translate(50, 40)"
   >
     <g
-      className="axis-x "
-      transform="translate(0, 0)"
-    />
-    <g
-      className="axis-y "
-    />
-    <g
       className="apples-layer"
     >
       <rect
         className="bar c1"
-        color="rgb(44, 98, 122)"
         onClick={[Function]}
         size={
           Object {
@@ -271,7 +261,6 @@ exports[`render correctly with bars and lines 1`] = `
       />
       <rect
         className="bar c1"
-        color="rgb(44, 98, 122)"
         onClick={[Function]}
         size={
           Object {
@@ -285,7 +274,6 @@ exports[`render correctly with bars and lines 1`] = `
       />
       <rect
         className="bar c1"
-        color="rgb(44, 98, 122)"
         onClick={[Function]}
         size={
           Object {
@@ -299,7 +287,6 @@ exports[`render correctly with bars and lines 1`] = `
       />
       <rect
         className="bar c1"
-        color="rgb(44, 98, 122)"
         onClick={[Function]}
         size={
           Object {
@@ -317,7 +304,6 @@ exports[`render correctly with bars and lines 1`] = `
     >
       <rect
         className="bar c2"
-        color="rgb(166, 224, 251)"
         onClick={[Function]}
         size={
           Object {
@@ -331,7 +317,6 @@ exports[`render correctly with bars and lines 1`] = `
       />
       <rect
         className="bar c2"
-        color="rgb(166, 224, 251)"
         onClick={[Function]}
         size={
           Object {
@@ -345,7 +330,6 @@ exports[`render correctly with bars and lines 1`] = `
       />
       <rect
         className="bar c2"
-        color="rgb(166, 224, 251)"
         onClick={[Function]}
         size={
           Object {
@@ -359,7 +343,6 @@ exports[`render correctly with bars and lines 1`] = `
       />
       <rect
         className="bar c2"
-        color="rgb(166, 224, 251)"
         onClick={[Function]}
         size={
           Object {
@@ -373,11 +356,17 @@ exports[`render correctly with bars and lines 1`] = `
       />
     </g>
     <g
+      className="axis-x "
+      transform="translate(0, 0)"
+    />
+    <g
+      className="axis-y "
+    />
+    <g
       className="cherries-layer"
     >
       <path
         className="line-path c3"
-        color="rgb(127, 22, 42)"
         d="M0,0L0,0L0,0L0,0"
       />
       <g
@@ -385,28 +374,24 @@ exports[`render correctly with bars and lines 1`] = `
       >
         <circle
           className="line-dot c4"
-          color="rgb(127, 22, 42)"
           cx={0}
           cy={0}
           r={5}
         />
         <circle
           className="line-dot c4"
-          color="rgb(127, 22, 42)"
           cx={0}
           cy={0}
           r={5}
         />
         <circle
           className="line-dot c4"
-          color="rgb(127, 22, 42)"
           cx={0}
           cy={0}
           r={5}
         />
         <circle
           className="line-dot c4"
-          color="rgb(127, 22, 42)"
           cx={0}
           cy={0}
           r={5}
@@ -418,7 +403,6 @@ exports[`render correctly with bars and lines 1`] = `
     >
       <path
         className="line-path c5"
-        color="rgb(255, 121, 147)"
         d="M0,0L0,0L0,0L0,0"
       />
       <g
@@ -426,28 +410,24 @@ exports[`render correctly with bars and lines 1`] = `
       >
         <circle
           className="line-dot c6"
-          color="rgb(255, 121, 147)"
           cx={0}
           cy={0}
           r={5}
         />
         <circle
           className="line-dot c6"
-          color="rgb(255, 121, 147)"
           cx={0}
           cy={0}
           r={5}
         />
         <circle
           className="line-dot c6"
-          color="rgb(255, 121, 147)"
           cx={0}
           cy={0}
           r={5}
         />
         <circle
           className="line-dot c6"
-          color="rgb(255, 121, 147)"
           cx={0}
           cy={0}
           r={5}
@@ -466,7 +446,7 @@ exports[`render correctly with curveBundle line type 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-24"
+  id="silky-charts_bar-line-24"
   size={
     Object {
       "height": 90,
@@ -497,7 +477,7 @@ exports[`render correctly with curveBundle line type 2`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-26"
+  id="silky-charts_bar-line-26"
   size={
     Object {
       "height": 90,
@@ -528,7 +508,7 @@ exports[`render correctly with curveBundle line type 3`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-28"
+  id="silky-charts_bar-line-28"
   size={
     Object {
       "height": 90,
@@ -559,7 +539,7 @@ exports[`render correctly with dates as name 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-12"
+  id="silky-charts_bar-line-12"
   size={
     Object {
       "height": 90,
@@ -590,7 +570,7 @@ exports[`render correctly with dates as name 2`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-14"
+  id="silky-charts_bar-line-14"
   size={
     Object {
       "height": 90,
@@ -621,7 +601,7 @@ exports[`render correctly with height 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-4"
+  id="silky-charts_bar-line-4"
   size={
     Object {
       "height": 400,
@@ -672,7 +652,7 @@ exports[`render correctly with only bars 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-16"
+  id="silky-charts_bar-line-16"
   size={
     Object {
       "height": 90,
@@ -685,18 +665,10 @@ exports[`render correctly with only bars 1`] = `
     transform="translate(50, 40)"
   >
     <g
-      className="axis-x "
-      transform="translate(0, 0)"
-    />
-    <g
-      className="axis-y "
-    />
-    <g
       className="apples-layer"
     >
       <rect
         className="bar c1"
-        color="rgb(44, 98, 122)"
         onClick={[Function]}
         size={
           Object {
@@ -710,7 +682,6 @@ exports[`render correctly with only bars 1`] = `
       />
       <rect
         className="bar c1"
-        color="rgb(44, 98, 122)"
         onClick={[Function]}
         size={
           Object {
@@ -724,7 +695,6 @@ exports[`render correctly with only bars 1`] = `
       />
       <rect
         className="bar c1"
-        color="rgb(44, 98, 122)"
         onClick={[Function]}
         size={
           Object {
@@ -738,7 +708,6 @@ exports[`render correctly with only bars 1`] = `
       />
       <rect
         className="bar c1"
-        color="rgb(44, 98, 122)"
         onClick={[Function]}
         size={
           Object {
@@ -756,7 +725,6 @@ exports[`render correctly with only bars 1`] = `
     >
       <rect
         className="bar c2"
-        color="rgb(166, 224, 251)"
         onClick={[Function]}
         size={
           Object {
@@ -770,7 +738,6 @@ exports[`render correctly with only bars 1`] = `
       />
       <rect
         className="bar c2"
-        color="rgb(166, 224, 251)"
         onClick={[Function]}
         size={
           Object {
@@ -784,7 +751,6 @@ exports[`render correctly with only bars 1`] = `
       />
       <rect
         className="bar c2"
-        color="rgb(166, 224, 251)"
         onClick={[Function]}
         size={
           Object {
@@ -798,7 +764,6 @@ exports[`render correctly with only bars 1`] = `
       />
       <rect
         className="bar c2"
-        color="rgb(166, 224, 251)"
         onClick={[Function]}
         size={
           Object {
@@ -811,6 +776,13 @@ exports[`render correctly with only bars 1`] = `
         y={0}
       />
     </g>
+    <g
+      className="axis-x "
+      transform="translate(0, 0)"
+    />
+    <g
+      className="axis-y "
+    />
   </g>
 </svg>
 `;
@@ -832,14 +804,12 @@ exports[`render correctly with only lines 1`] = `
 
 .c1 {
   fill: none;
-  pointer-events: none;
   stroke: rgb(127,22,42);
   stroke-width: 3;
 }
 
 .c3 {
   fill: none;
-  pointer-events: none;
   stroke: rgb(255,121,147);
   stroke-width: 3;
 }
@@ -851,7 +821,7 @@ exports[`render correctly with only lines 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-18"
+  id="silky-charts_bar-line-18"
   size={
     Object {
       "height": 90,
@@ -875,7 +845,6 @@ exports[`render correctly with only lines 1`] = `
     >
       <path
         className="line-path c1"
-        color="rgb(127, 22, 42)"
         d="M0,0L0,0L0,0L0,0"
       />
       <g
@@ -883,28 +852,24 @@ exports[`render correctly with only lines 1`] = `
       >
         <circle
           className="line-dot c2"
-          color="rgb(127, 22, 42)"
           cx={0}
           cy={0}
           r={5}
         />
         <circle
           className="line-dot c2"
-          color="rgb(127, 22, 42)"
           cx={0}
           cy={0}
           r={5}
         />
         <circle
           className="line-dot c2"
-          color="rgb(127, 22, 42)"
           cx={0}
           cy={0}
           r={5}
         />
         <circle
           className="line-dot c2"
-          color="rgb(127, 22, 42)"
           cx={0}
           cy={0}
           r={5}
@@ -916,7 +881,6 @@ exports[`render correctly with only lines 1`] = `
     >
       <path
         className="line-path c3"
-        color="rgb(255, 121, 147)"
         d="M0,0L0,0L0,0L0,0"
       />
       <g
@@ -924,28 +888,24 @@ exports[`render correctly with only lines 1`] = `
       >
         <circle
           className="line-dot c4"
-          color="rgb(255, 121, 147)"
           cx={0}
           cy={0}
           r={5}
         />
         <circle
           className="line-dot c4"
-          color="rgb(255, 121, 147)"
           cx={0}
           cy={0}
           r={5}
         />
         <circle
           className="line-dot c4"
-          color="rgb(255, 121, 147)"
           cx={0}
           cy={0}
           r={5}
         />
         <circle
           className="line-dot c4"
-          color="rgb(255, 121, 147)"
           cx={0}
           cy={0}
           r={5}
@@ -964,7 +924,7 @@ exports[`render correctly with width 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-2"
+  id="silky-charts_bar-line-2"
   size={
     Object {
       "height": 90,
@@ -995,7 +955,7 @@ exports[`render correctly with width and height 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-6"
+  id="silky-charts_bar-line-6"
   size={
     Object {
       "height": 300,
@@ -1030,7 +990,7 @@ exports[`render correctly with x axis label 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-8"
+  id="silky-charts_bar-line-8"
   size={
     Object {
       "height": 90,
@@ -1077,7 +1037,7 @@ exports[`render correctly with y axis label 1`] = `
 
 <svg
   className="silky-charts c0"
-  id="silky-charts-bar-line-10"
+  id="silky-charts_bar-line-10"
   size={
     Object {
       "height": 90,
