@@ -7,7 +7,8 @@ const LineDatum = ({
   d,
   data,
   onClick,
-  onMouseOver,
+  onMouseEnter,
+  onMouseLeave,
   xScale,
   yScale,
   isDates,
@@ -18,13 +19,14 @@ const LineDatum = ({
       {data.map(({ name, value }, idx) => (
         <Circle
           key={idx}
-          className="line-dot"
+          chart="bar-line"
           strokeColor={color}
           cx={isDates ? xScale(name) : xScale(name) + xScale.bandwidth() / 2}
           cy={yScale(value)}
-          onClick={onClick}
-          onMouseOver={onMouseOver}
           r={5}
+          onClick={onClick}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
         />
       ))}
     </g>

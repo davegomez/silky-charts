@@ -7,10 +7,18 @@ exports[`render correctly 1`] = `
   stroke-width: 3;
 }
 
+.c1:hover {
+  fill: hsl(198.5,47%,26%);
+}
+
 .c2 {
   fill: rgb(166,224,251);
   stroke: none;
   stroke-width: 3;
+}
+
+.c2:hover {
+  fill: hsl(199.10000000000002,91.4%,65.4%);
 }
 
 .c3 {
@@ -19,10 +27,18 @@ exports[`render correctly 1`] = `
   stroke-width: 3;
 }
 
+.c3:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
 .c4 {
   fill: rgb(81,109,122);
   stroke: none;
   stroke-width: 3;
+}
+
+.c4:hover {
+  fill: hsl(199,20.2%,31.8%);
 }
 
 .c0 {
@@ -110,10 +126,18 @@ exports[`render correctly X axis label rotation 1`] = `
   stroke-width: 3;
 }
 
+.c1:hover {
+  fill: hsl(198.5,47%,26%);
+}
+
 .c2 {
   fill: rgb(166,224,251);
   stroke: none;
   stroke-width: 3;
+}
+
+.c2:hover {
+  fill: hsl(199.10000000000002,91.4%,65.4%);
 }
 
 .c3 {
@@ -122,10 +146,18 @@ exports[`render correctly X axis label rotation 1`] = `
   stroke-width: 3;
 }
 
+.c3:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
 .c4 {
   fill: rgb(81,109,122);
   stroke: none;
   stroke-width: 3;
+}
+
+.c4:hover {
+  fill: hsl(199,20.2%,31.8%);
 }
 
 .c0 {
@@ -221,10 +253,18 @@ exports[`render correctly width horizontal grid 1`] = `
   stroke-width: 3;
 }
 
+.c2:hover {
+  fill: hsl(198.5,47%,26%);
+}
+
 .c3 {
   fill: rgb(166,224,251);
   stroke: none;
   stroke-width: 3;
+}
+
+.c3:hover {
+  fill: hsl(199.10000000000002,91.4%,65.4%);
 }
 
 .c4 {
@@ -233,10 +273,18 @@ exports[`render correctly width horizontal grid 1`] = `
   stroke-width: 3;
 }
 
+.c4:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
 .c5 {
   fill: rgb(81,109,122);
   stroke: none;
   stroke-width: 3;
+}
+
+.c5:hover {
+  fill: hsl(199,20.2%,31.8%);
 }
 
 .c0 {
@@ -335,10 +383,18 @@ exports[`render correctly width vertical grid 1`] = `
   stroke-width: 3;
 }
 
+.c2:hover {
+  fill: hsl(198.5,47%,26%);
+}
+
 .c3 {
   fill: rgb(166,224,251);
   stroke: none;
   stroke-width: 3;
+}
+
+.c3:hover {
+  fill: hsl(199.10000000000002,91.4%,65.4%);
 }
 
 .c4 {
@@ -347,10 +403,18 @@ exports[`render correctly width vertical grid 1`] = `
   stroke-width: 3;
 }
 
+.c4:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
 .c5 {
   fill: rgb(81,109,122);
   stroke: none;
   stroke-width: 3;
+}
+
+.c5:hover {
+  fill: hsl(199,20.2%,31.8%);
 }
 
 .c0 {
@@ -441,10 +505,18 @@ exports[`render correctly with dates as name 1`] = `
   stroke-width: 3;
 }
 
+.c1:hover {
+  fill: hsl(198.5,47%,26%);
+}
+
 .c2 {
   fill: rgb(166,224,251);
   stroke: none;
   stroke-width: 3;
+}
+
+.c2:hover {
+  fill: hsl(199.10000000000002,91.4%,65.4%);
 }
 
 .c3 {
@@ -453,10 +525,18 @@ exports[`render correctly with dates as name 1`] = `
   stroke-width: 3;
 }
 
+.c3:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
 .c4 {
   fill: rgb(81,109,122);
   stroke: none;
   stroke-width: 3;
+}
+
+.c4:hover {
+  fill: hsl(199,20.2%,31.8%);
 }
 
 .c0 {
@@ -544,10 +624,18 @@ exports[`render correctly with height 1`] = `
   stroke-width: 3;
 }
 
+.c1:hover {
+  fill: hsl(198.5,47%,26%);
+}
+
 .c2 {
   fill: rgb(166,224,251);
   stroke: none;
   stroke-width: 3;
+}
+
+.c2:hover {
+  fill: hsl(199.10000000000002,91.4%,65.4%);
 }
 
 .c3 {
@@ -556,10 +644,18 @@ exports[`render correctly with height 1`] = `
   stroke-width: 3;
 }
 
+.c3:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
 .c4 {
   fill: rgb(81,109,122);
   stroke: none;
   stroke-width: 3;
+}
+
+.c4:hover {
+  fill: hsl(199,20.2%,31.8%);
 }
 
 .c0 {
@@ -647,10 +743,18 @@ exports[`render correctly with width 1`] = `
   stroke-width: 3;
 }
 
+.c1:hover {
+  fill: hsl(198.5,47%,26%);
+}
+
 .c2 {
   fill: rgb(166,224,251);
   stroke: none;
   stroke-width: 3;
+}
+
+.c2:hover {
+  fill: hsl(199.10000000000002,91.4%,65.4%);
 }
 
 .c3 {
@@ -659,10 +763,18 @@ exports[`render correctly with width 1`] = `
   stroke-width: 3;
 }
 
+.c3:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
 .c4 {
   fill: rgb(81,109,122);
   stroke: none;
   stroke-width: 3;
+}
+
+.c4:hover {
+  fill: hsl(199,20.2%,31.8%);
 }
 
 .c0 {
@@ -750,10 +862,18 @@ exports[`render correctly with width and height 1`] = `
   stroke-width: 3;
 }
 
+.c1:hover {
+  fill: hsl(198.5,47%,26%);
+}
+
 .c2 {
   fill: rgb(166,224,251);
   stroke: none;
   stroke-width: 3;
+}
+
+.c2:hover {
+  fill: hsl(199.10000000000002,91.4%,65.4%);
 }
 
 .c3 {
@@ -762,10 +882,18 @@ exports[`render correctly with width and height 1`] = `
   stroke-width: 3;
 }
 
+.c3:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
 .c4 {
   fill: rgb(81,109,122);
   stroke: none;
   stroke-width: 3;
+}
+
+.c4:hover {
+  fill: hsl(199,20.2%,31.8%);
 }
 
 .c0 {
@@ -857,10 +985,18 @@ exports[`render correctly with x axis label 1`] = `
   stroke-width: 3;
 }
 
+.c2:hover {
+  fill: hsl(198.5,47%,26%);
+}
+
 .c3 {
   fill: rgb(166,224,251);
   stroke: none;
   stroke-width: 3;
+}
+
+.c3:hover {
+  fill: hsl(199.10000000000002,91.4%,65.4%);
 }
 
 .c4 {
@@ -869,10 +1005,18 @@ exports[`render correctly with x axis label 1`] = `
   stroke-width: 3;
 }
 
+.c4:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
 .c5 {
   fill: rgb(81,109,122);
   stroke: none;
   stroke-width: 3;
+}
+
+.c5:hover {
+  fill: hsl(199,20.2%,31.8%);
 }
 
 .c0 {
@@ -976,10 +1120,18 @@ exports[`render correctly with y axis label 1`] = `
   stroke-width: 3;
 }
 
+.c2:hover {
+  fill: hsl(198.5,47%,26%);
+}
+
 .c3 {
   fill: rgb(166,224,251);
   stroke: none;
   stroke-width: 3;
+}
+
+.c3:hover {
+  fill: hsl(199.10000000000002,91.4%,65.4%);
 }
 
 .c4 {
@@ -988,10 +1140,18 @@ exports[`render correctly with y axis label 1`] = `
   stroke-width: 3;
 }
 
+.c4:hover {
+  fill: hsl(198.79999999999995,94.1%,53.3%);
+}
+
 .c5 {
   fill: rgb(81,109,122);
   stroke: none;
   stroke-width: 3;
+}
+
+.c5:hover {
+  fill: hsl(199,20.2%,31.8%);
 }
 
 .c0 {

@@ -8,6 +8,8 @@ const StackedBarDatum = ({
   data,
   series,
   onClick,
+  onMouseEnter,
+  onMouseLeave,
   isDates,
   theme,
   x,
@@ -37,6 +39,8 @@ const StackedBarDatum = ({
             height={height - y(value)}
             color={palette.themes[theme].base[layer.index]}
             onClick={onClick}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
           />
         );
       })}

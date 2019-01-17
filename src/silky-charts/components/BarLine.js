@@ -163,6 +163,8 @@ const BarLine = ({
           width={width}
           height={height}
           onClick={onClick}
+          onMouseEnter={onMouseEnter}
+          onMouseLeave={onMouseLeave}
         />
 
         <Axis
@@ -189,6 +191,9 @@ const BarLine = ({
               d={line(datum)}
               xScale={xScale}
               yScale={yScale}
+              onClick={onClick}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
             />
           </g>
         ))}

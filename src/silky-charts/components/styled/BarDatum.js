@@ -15,13 +15,13 @@ const BarDatum = ({
   <Fragment>
     <Rect
       chart="bar"
-      onClick={onClick}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
       position={{ x, y }}
       size={{ width, height }}
       fillColor={color}
       value={value}
+      onClick={onClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     />
   </Fragment>
 );

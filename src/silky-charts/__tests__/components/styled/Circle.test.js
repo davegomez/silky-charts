@@ -24,12 +24,22 @@ test('call the event handler onClick', () => {
   expect(handleOnClick).toHaveBeenCalled();
 });
 
-test('call the event handler onMouseOver', () => {
-  const handleOnMouseOver = jest.fn();
+test('call the event handler onMouseEnter', () => {
+  const handleOnMouseEnter = jest.fn();
   const tree = create(
-    <Circle onMouseOver={handleOnMouseOver} {...props} />
+    <Circle onMouseEnter={handleOnMouseEnter} {...props} />
   ).toJSON();
 
-  tree.props.onMouseOver();
-  expect(handleOnMouseOver).toHaveBeenCalled();
+  tree.props.onMouseEnter();
+  expect(handleOnMouseEnter).toHaveBeenCalled();
+});
+
+test('call the event handler onMouseLeave', () => {
+  const handleOnMouseLeave = jest.fn();
+  const tree = create(
+    <Circle onMouseLeave={handleOnMouseLeave} {...props} />
+  ).toJSON();
+
+  tree.props.onMouseLeave();
+  expect(handleOnMouseLeave).toHaveBeenCalled();
 });

@@ -11,9 +11,7 @@ const Rect = styled.rect.attrs(({ chart, position: { x, y } }) => ({
   width: ${({ size }) => size.width}px;
 
   &:hover {
-    fill: ${({ fillColor }) => {
-      return getHoverColor(fillColor);
-    }};
+    fill: ${({ fillColor }) => getHoverColor(fillColor)};
   }
 `;
 

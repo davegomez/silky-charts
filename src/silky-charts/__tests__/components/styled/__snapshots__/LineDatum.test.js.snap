@@ -13,7 +13,6 @@ Array [
     d="M0"
   />,
   .c0 {
-  cursor: pointer;
   fill: rgb(255,255,255);
   stroke: rgb(0,0,0);
   stroke-width: 3;
@@ -23,7 +22,7 @@ Array [
     className="line-dot-group"
   >
     <circle
-      className="line-dot c0"
+      className="bar-line c0"
       cx={NaN}
       r={5}
     />
@@ -44,7 +43,6 @@ Array [
     d="M0"
   />,
   .c0 {
-  cursor: pointer;
   fill: rgb(255,255,255);
   stroke: rgb(0,0,0);
   stroke-width: 3;
@@ -54,7 +52,7 @@ Array [
     className="line-dot-group"
   >
     <circle
-      className="line-dot c0"
+      className="bar-line c0"
       r={5}
     />
   </g>,
