@@ -1,4 +1,10 @@
 import all from 'ramda/src/all';
-import { isValid } from 'date-fns';
+import compose from 'ramda/src/compose';
+import { isValid, parseISO } from 'date-fns';
 
-export default all(isValid);
+export default all(
+  compose(
+    isValid,
+    parseISO
+  )
+);

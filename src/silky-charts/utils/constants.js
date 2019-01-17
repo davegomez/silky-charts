@@ -34,7 +34,7 @@ export const SIZE = {
 };
 export const TICKS = 5;
 export const WIDTH = 640;
-export const DEBOUNCE = 500;
+export const DEBOUNCE = 200;
 
 // Themes
 export const THEME = 'tealBlue';

@@ -5,7 +5,7 @@ export default prefix => {
     return null;
   }
 
-  const id = `silky-charts-${prefix}-${innerId}`;
+  const id = `silky-charts_${prefix}-${innerId}`;
   innerId += 1;
   return id;
 };
