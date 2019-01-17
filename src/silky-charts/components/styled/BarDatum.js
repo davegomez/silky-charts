@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Rect, BarValue } from './';
+import { Rect } from './';
 
 const BarDatum = ({
   color,
@@ -11,7 +11,6 @@ const BarDatum = ({
   onClick,
   onMouseEnter,
   onMouseLeave,
-  showValue,
 }) => (
   <Fragment>
     <Rect
@@ -21,14 +20,9 @@ const BarDatum = ({
       onMouseLeave={onMouseLeave}
       position={{ x, y }}
       size={{ width, height }}
-      color={color}
+      fillColor={color}
       value={value}
     />
-    {showValue && (
-      <BarValue position={{ x, y }} size={{ width, height }}>
-        {value}
-      </BarValue>
-    )}
   </Fragment>
 );
 

@@ -6,13 +6,13 @@ const Rect = styled.rect.attrs(({ chart, position: { x, y } }) => ({
   y,
   className: chart,
 }))`
-  fill: ${({ color }) => color};
+  fill: ${({ fillColor }) => fillColor};
   height: ${({ size }) => size.height}px;
   width: ${({ size }) => size.width}px;
 
   &:hover {
-    fill: ${({ color }) => {
-      return getHoverColor(color);
+    fill: ${({ fillColor }) => {
+      return getHoverColor(fillColor);
     }};
   }
 `;

@@ -58,7 +58,7 @@ test('render correctly width horizontal grid', () => {
 });
 
 test('render correctly width vertical grid', () => {
-  const tree = create(<Bar data={data} grid horizontal />, {
+  const tree = create(<Bar data={data} grid isHorizontal />, {
     createNodeMock,
   }).toJSON();
   expect(tree).toMatchSnapshot();
@@ -71,54 +71,26 @@ test('render correctly X axis label rotation', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('render correctly showing the value on bars', () => {
-  const tree = create(<Bar data={data} showValue />, {
+test('call onMouseEnter', () => {
+  const onMouseEnter = jest.fn();
+  const renderer = create(<Bar data={data} onMouseEnter={onMouseEnter} />, {
     createNodeMock,
-  }).toJSON();
-  expect(tree).toMatchSnapshot();
-});
-
-test('render correctly showing the value and divergence on bars', () => {
-  const tree = create(<Bar data={data} showValue showDivergence />, {
-    createNodeMock,
-  }).toJSON();
-  expect(tree).toMatchSnapshot();
-});
-
-test('call onMouseEnter and update divergence on bars', () => {
-  const handleOnMouseEnter = jest.fn();
-  const renderer = create(
-    <Bar
-      data={data}
-      onMouseEnter={handleOnMouseEnter}
-      showValue
-      showDivergence
-    />,
-    {
-      createNodeMock,
-    }
-  );
+  });
   const instance = renderer.root;
   const bar = instance.findByProps({ className: 'data' }).children[0];
 
-  bar.props.onMouseEnter({ target: { getAttribute: jest.fn(x => 1) } });
-  expect(handleOnMouseEnter).toHaveBeenCalled();
-
-  const tree = renderer.toJSON();
-  expect(tree).toMatchSnapshot();
+  bar.props.onMouseEnter();
+  expect(onMouseEnter).toHaveBeenCalled();
 });
 
 test('call onMouseLeave', () => {
-  const handleOnMouseLeave = jest.fn();
-  const renderer = create(
-    <Bar data={data} onMouseLeave={handleOnMouseLeave} />,
-    {
-      createNodeMock,
-    }
-  );
+  const onMouseLeave = jest.fn();
+  const renderer = create(<Bar data={data} onMouseLeave={onMouseLeave} />, {
+    createNodeMock,
+  });
   const instance = renderer.root;
   const bar = instance.findByProps({ className: 'data' }).children[0];
 
   bar.props.onMouseLeave();
-  expect(handleOnMouseLeave).toHaveBeenCalled();
+  expect(onMouseLeave).toHaveBeenCalled();
 });

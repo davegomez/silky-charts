@@ -12,8 +12,8 @@ import {
   drawGrid,
   extendXPath,
   getId,
-  getLineDataForKeys,
-  getMaximumValues,
+  getLineDataForSeries,
+  getMaxValues,
   getSize,
   getXScale,
   getYScale,
@@ -21,6 +21,8 @@ import {
   rotateXLabels,
   setLineType,
   setupData,
+  toStackedForm,
+  toSingleForm,
 } from '../utils';
 import {
   ASPECT_RATIO,
@@ -41,8 +43,8 @@ const BarLine = ({
   data: chartData,
   grid,
   height: svgHeight = undefined,
-  horizontal,
-  lineKeys = [],
+  isHorizontal,
+  lineSeries = [],
   lineType = LINE_TYPE,
   lineTypeOption = null,
   margin = MARGIN,
@@ -51,7 +53,7 @@ const BarLine = ({
   onMouseLeave = identity,
   responsive = false,
   secondaryTheme = SECONDARY_THEME,
-  stackedKeys = [],
+  stackedSeries = [],
   theme = THEME,
   ticks = TICKS,
   width: svgWidth = undefined,
@@ -61,9 +63,13 @@ const BarLine = ({
   yAxisLabel,
 }) => {
   const svgRef = useRef();
+  const [id] = useState(getId('bar-line'));
   const [{ width, height, isSizeSet }, setSize] = useState(SIZE);
   const [isDates, data] = useMemo(() => setupData(chartData), chartData);
-  const [id] = useState(getId('bar-line'));
+  const stack = useMemo(
+    () => buildStack(stackedSeries)(toStackedForm(data)),
+    data
+  );
 
   const xScale = getXScale(
     isDates ? SCALE_TIME : SCALE_BAND,
@@ -73,19 +79,18 @@ const BarLine = ({
   );
   const yScale = getYScale(
     SCALE_LINEAR,
-    d3Max(getMaximumValues(stackedKeys, data)),
+    d3Max(getMaxValues(data, stackedSeries)),
     height
   );
 
-  const stack = buildStack(stackedKeys);
   const line = d3Line()
+    .curve(setLineType(lineType, lineTypeOption))
     .x(({ name }) =>
       isDates ? xScale(name) : xScale(name) + xScale.bandwidth() / 2
     )
-    .y(({ value }) => yScale(value))
-    .curve(setLineType(lineType, lineTypeOption));
+    .y(({ value }) => yScale(value));
 
-  const lineData = getLineDataForKeys(lineKeys, data);
+  const lineData = getLineDataForSeries(lineSeries, data);
 
   const handleSize = () => {
     const offsetWidth = svgRef.current.parentElement.offsetWidth;
@@ -130,7 +135,7 @@ const BarLine = ({
           <Grid
             ref={node =>
               d3Select(node).call(
-                drawGrid(horizontal, xScale, height, yScale, width, ticks)
+                drawGrid(isHorizontal, xScale, height, yScale, width, ticks)
               )
             }
           />
@@ -148,6 +153,18 @@ const BarLine = ({
           </Label>
         )}
 
+        <StackedBarDatum
+          data={data}
+          series={stack}
+          isDates={isDates}
+          theme={theme}
+          x={xScale}
+          y={yScale}
+          width={width}
+          height={height}
+          onClick={onClick}
+        />
+
         <Axis
           axis="x"
           position={{ x: 0, y: height }}
@@ -162,20 +179,8 @@ const BarLine = ({
           ref={node => d3Select(node).call(d3AxisLeft(yScale).ticks(ticks))}
         />
 
-        <StackedBarDatum
-          data={data}
-          series={stack(data)}
-          isDates={isDates}
-          theme={theme}
-          x={xScale}
-          y={yScale}
-          width={width}
-          height={height}
-          onClick={onClick}
-        />
-
         {lineData.map((datum, idx) => (
-          <g className={`${head(datum)['key']}-layer`} key={idx}>
+          <g className={`${head(datum)['series']}-layer`} key={idx}>
             <LineDatum
               data={datum}
               isDates={isDates}

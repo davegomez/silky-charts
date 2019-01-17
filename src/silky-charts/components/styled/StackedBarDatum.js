@@ -2,7 +2,7 @@ import React from 'react';
 import head from 'ramda/src/head';
 import last from 'ramda/src/last';
 import BarDatum from './BarDatum';
-import { palette, valueFor } from '../../utils';
+import { palette, valueFor, getLength } from '../../utils';
 
 const StackedBarDatum = ({
   data,
@@ -25,13 +25,14 @@ const StackedBarDatum = ({
             datum={{ value }}
             x={
               isDates
-                ? x(new Date(datum.data.name)) -
-                  valueFor('x', width, data.length)
+                ? x(datum.data.name) - valueFor('x', width, getLength(data))
                 : x(datum.data.name)
             }
             y={y(last(datum))}
             width={
-              isDates ? valueFor('width', width, data.length) : x.bandwidth()
+              isDates
+                ? valueFor('width', width, getLength(data))
+                : x.bandwidth()
             }
             height={height - y(value)}
             color={palette.themes[theme].base[layer.index]}

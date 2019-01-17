@@ -64,7 +64,7 @@ test('render correctly with dates as name', () => {
 
 test('render correctly with only bars', () => {
   const tree = create(
-    <BarLine data={data} stackedKeys={['apples', 'bananas']} />,
+    <BarLine data={data} stackedSeries={['apples', 'bananas']} />,
     {
       createNodeMock,
     }
@@ -75,7 +75,7 @@ test('render correctly with only bars', () => {
 
 test('render correctly with only lines', () => {
   const tree = create(
-    <BarLine data={data} lineKeys={['cherries', 'dates']} />,
+    <BarLine data={data} lineSeries={['cherries', 'dates']} />,
     {
       createNodeMock,
     }
@@ -88,8 +88,8 @@ test('render correctly with bars and lines', () => {
   const tree = create(
     <BarLine
       data={dataWidthDates}
-      stackedKeys={['apples', 'bananas']}
-      lineKeys={['cherries', 'dates']}
+      stackedSeries={['apples', 'bananas']}
+      lineSeries={['cherries', 'dates']}
     />,
     {
       createNodeMock,
@@ -152,7 +152,7 @@ test('render correctly width horizontal grid', () => {
 });
 
 test('render correctly width vertical grid', () => {
-  const tree = create(<BarLine data={data} grid horizontal />, {
+  const tree = create(<BarLine data={data} grid isHorizontal />, {
     createNodeMock,
   }).toJSON();
   expect(tree).toMatchSnapshot();

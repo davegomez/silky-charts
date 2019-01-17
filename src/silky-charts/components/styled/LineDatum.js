@@ -12,18 +12,14 @@ const LineDatum = ({
   isDates,
 }) => (
   <Fragment>
-    <Path d={d} className="line-path" color={color} />
+    <Path d={d} className="line-path" strokeColor={color} />
     <g className="line-dot-group">
       {data.map(({ name, value }, idx) => (
         <Circle
           key={idx}
           className="line-dot"
-          color={color}
-          cx={
-            isDates
-              ? xScale(new Date(name))
-              : xScale(name) + xScale.bandwidth() / 2
-          }
+          strokeColor={color}
+          cx={isDates ? xScale(name) : xScale(name) + xScale.bandwidth() / 2}
           cy={yScale(value)}
           onClick={onClick}
           onMouseOver={onMouseOver}

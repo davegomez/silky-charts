@@ -9,7 +9,6 @@ import {
   drawGrid,
   extendXPath,
   getBaseColor,
-  getDivergence,
   getId,
   getSize,
   getXScale,
@@ -35,14 +34,12 @@ const Bar = ({
   data: chartData,
   grid,
   height: svgHeight = undefined,
-  horizontal,
+  isHorizontal,
   margin = MARGIN,
   onClick = identity,
   onMouseEnter = identity,
   onMouseLeave = identity,
   responsive = false,
-  showDivergence,
-  showValue,
   theme = THEME,
   ticks = TICKS,
   width: svgWidth = undefined,
@@ -52,10 +49,9 @@ const Bar = ({
   yAxisLabel,
 }) => {
   const svgRef = useRef();
-  const [{ width, height, isSizeSet }, setSize] = useState(SIZE);
-  const [currentValue, setCurrentValue] = useState(null);
-  const [isDates, data] = useMemo(() => setupData(chartData), chartData);
   const [id] = useState(getId('bar'));
+  const [{ width, height, isSizeSet }, setSize] = useState(SIZE);
+  const [isDates, data] = useMemo(() => setupData(chartData), chartData);
 
   const xScale = getXScale(
     isDates ? SCALE_TIME : SCALE_BAND,
@@ -68,16 +64,6 @@ const Bar = ({
     d3Max(data, ({ value }) => value),
     height
   );
-
-  const handleOnMouseEnter = event => {
-    setCurrentValue(event.target.getAttribute('value'));
-    onMouseEnter(event);
-  };
-
-  const handleOnMouseLeave = event => {
-    setCurrentValue(null);
-    onMouseLeave(event);
-  };
 
   const handleSize = () => {
     const offsetWidth = svgRef.current.parentElement.offsetWidth;
@@ -122,7 +108,7 @@ const Bar = ({
           <Grid
             ref={node =>
               d3Select(node).call(
-                drawGrid(horizontal, xScale, height, yScale, width, ticks)
+                drawGrid(isHorizontal, xScale, height, yScale, width, ticks)
               )
             }
           />
@@ -140,33 +126,15 @@ const Bar = ({
           </Label>
         )}
 
-        <Axis
-          axis="x"
-          position={{ x: 0, y: height }}
-          ref={node => {
-            d3Select(node).call(d3AxisBottom(xScale));
-            isDates && extendXPath(id, width);
-            xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
-          }}
-        />
-        <Axis
-          axis="y"
-          ref={node => d3Select(node).call(d3AxisLeft(yScale).ticks(ticks))}
-        />
-
         <g className="data">
           {data.map(({ name, value }, idx) => (
             <BarDatum
               key={idx}
               datum={{
                 name,
-                value:
-                  showValue && showDivergence && currentValue
-                    ? getDivergence(value, currentValue)
-                    : value,
+                value,
               }}
               color={getBaseColor(theme)}
-              showValue={showValue}
               x={
                 isDates
                   ? xScale(name) - valueFor('x', width, data.length)
@@ -180,11 +148,25 @@ const Bar = ({
               }
               height={height - yScale(value)}
               onClick={onClick}
-              onMouseEnter={handleOnMouseEnter}
-              onMouseLeave={handleOnMouseLeave}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
             />
           ))}
         </g>
+
+        <Axis
+          axis="x"
+          position={{ x: 0, y: height }}
+          ref={node => {
+            d3Select(node).call(d3AxisBottom(xScale));
+            isDates && extendXPath(id, width);
+            xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
+          }}
+        />
+        <Axis
+          axis="y"
+          ref={node => d3Select(node).call(d3AxisLeft(yScale).ticks(ticks))}
+        />
       </g>
     </SVG>
   );

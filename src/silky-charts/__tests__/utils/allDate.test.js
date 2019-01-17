@@ -1,15 +1,15 @@
 import { allDate } from '../../utils';
 
 const withDate = [
-  { foo: '2018-02-20T05:00:00.000Z', bar: 1 },
-  { foo: '2018-03-20T05:00:00.000Z', bar: 2 },
-  { foo: '2018-04-20T05:00:00.000Z', bar: 3 },
+  { foo: '2018-02-20', bar: 1 },
+  { foo: '2018-03-20', bar: 2 },
+  { foo: '2018-04-20', bar: 3 },
 ];
 
 const withoutDate = [
   { foo: 'foo', bar: 1 },
-  { foo: '2018-03-20T05:00:00.000Z', bar: 2 },
-  { foo: '2018-04-20T05:00:00.000Z', bar: 3 },
+  { foo: '2018-03-20', bar: 2 },
+  { foo: '2018-04-20', bar: 3 },
 ];
 
 test('be true if all values in array are instance of Date', () => {

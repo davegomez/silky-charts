@@ -37,7 +37,7 @@ test('render correctly with date', () => {
   const tree = create(
     <StackedBarDatum
       series={seriesWithDate}
-      data={[{ name: '2019-01-01T05:00:00.000Z', value: 0 }]}
+      data={[{ name: '2019-01-01', value: 0 }]}
       {...props}
     />
   ).toJSON();

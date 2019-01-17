@@ -5,7 +5,7 @@ import { LINE_STROKE_WIDTH } from '../../utils/constants';
 const Circle = styled.circle.attrs(({ cx, cy, r }) => ({ cx, cy, r }))`
   cursor: pointer;
   fill: ${white};
-  stroke: ${({ color }) => color};
+  stroke: ${({ strokeColor }) => strokeColor};
   stroke-width: ${LINE_STROKE_WIDTH};
 `;
 
