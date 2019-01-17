@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { Circle, Path } from './';
 
 const LineDatum = ({
+  chart,
   color,
   d,
   data,
@@ -12,7 +13,7 @@ const LineDatum = ({
   isDates,
 }) => (
   <Fragment>
-    <Path d={d} className="line-path" strokeColor={color} />
+    <Path chart={chart} d={d} className="line-path" strokeColor={color} />
     <g className="line-dot-group">
       {data.map(({ name, value }, idx) => (
         <Circle

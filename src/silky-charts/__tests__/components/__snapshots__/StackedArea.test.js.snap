@@ -1,0 +1,1082 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render correctly 1`] = `
+.c1 {
+  fill: rgb(44,98,122);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c2 {
+  fill: rgb(166,224,251);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c3 {
+  fill: rgb(90,200,250);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c4 {
+  fill: rgb(81,109,122);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c0 {
+  height: 90px;
+  width: 100px;
+}
+
+<svg
+  className="silky-charts c0"
+  id="silky-charts_stacked-area-0"
+  size={
+    Object {
+      "height": 90,
+      "width": 100,
+    }
+  }
+>
+  <g
+    className="silky-charts-container"
+    transform="translate(50, 40)"
+  >
+    <g
+      className="apples-layer"
+    >
+      <path
+        className="stacked-area c1"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="bananas-layer"
+    >
+      <path
+        className="stacked-area c2"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="cherries-layer"
+    >
+      <path
+        className="stacked-area c3"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="dates-layer"
+    >
+      <path
+        className="stacked-area c4"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="axis-x "
+      transform="translate(0, 0)"
+    />
+    <g
+      className="axis-y "
+    />
+  </g>
+</svg>
+`;
+
+exports[`render correctly X axis label rotation 1`] = `
+.c1 {
+  fill: rgb(44,98,122);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c2 {
+  fill: rgb(166,224,251);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c3 {
+  fill: rgb(90,200,250);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c4 {
+  fill: rgb(81,109,122);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c0 {
+  height: 90px;
+  width: 100px;
+}
+
+<svg
+  className="silky-charts c0"
+  id="silky-charts_stacked-area-18"
+  size={
+    Object {
+      "height": 90,
+      "width": 100,
+    }
+  }
+>
+  <g
+    className="silky-charts-container"
+    transform="translate(50, 40)"
+  >
+    <g
+      className="apples-layer"
+    >
+      <path
+        className="stacked-area c1"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="bananas-layer"
+    >
+      <path
+        className="stacked-area c2"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="cherries-layer"
+    >
+      <path
+        className="stacked-area c3"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="dates-layer"
+    >
+      <path
+        className="stacked-area c4"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="axis-x "
+      transform="translate(0, 0)"
+    />
+    <g
+      className="axis-y "
+    />
+  </g>
+</svg>
+`;
+
+exports[`render correctly width horizontal grid 1`] = `
+.c1 path {
+  stroke: transparent;
+}
+
+.c1 line {
+  stroke: rgb(220,220,220);
+}
+
+.c2 {
+  fill: rgb(44,98,122);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c3 {
+  fill: rgb(166,224,251);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c4 {
+  fill: rgb(90,200,250);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c5 {
+  fill: rgb(81,109,122);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c0 {
+  height: 90px;
+  width: 100px;
+}
+
+<svg
+  className="silky-charts c0"
+  id="silky-charts_stacked-area-14"
+  size={
+    Object {
+      "height": 90,
+      "width": 100,
+    }
+  }
+>
+  <g
+    className="silky-charts-container"
+    transform="translate(50, 40)"
+  >
+    <g
+      className="grid c1"
+    />
+    <g
+      className="apples-layer"
+    >
+      <path
+        className="stacked-area c2"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="bananas-layer"
+    >
+      <path
+        className="stacked-area c3"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="cherries-layer"
+    >
+      <path
+        className="stacked-area c4"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="dates-layer"
+    >
+      <path
+        className="stacked-area c5"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="axis-x "
+      transform="translate(0, 0)"
+    />
+    <g
+      className="axis-y "
+    />
+  </g>
+</svg>
+`;
+
+exports[`render correctly width vertical grid 1`] = `
+.c1 path {
+  stroke: transparent;
+}
+
+.c1 line {
+  stroke: rgb(220,220,220);
+}
+
+.c2 {
+  fill: rgb(44,98,122);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c3 {
+  fill: rgb(166,224,251);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c4 {
+  fill: rgb(90,200,250);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c5 {
+  fill: rgb(81,109,122);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c0 {
+  height: 90px;
+  width: 100px;
+}
+
+<svg
+  className="silky-charts c0"
+  id="silky-charts_stacked-area-16"
+  size={
+    Object {
+      "height": 90,
+      "width": 100,
+    }
+  }
+>
+  <g
+    className="silky-charts-container"
+    transform="translate(50, 40)"
+  >
+    <g
+      className="grid c1"
+    />
+    <g
+      className="apples-layer"
+    >
+      <path
+        className="stacked-area c2"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="bananas-layer"
+    >
+      <path
+        className="stacked-area c3"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="cherries-layer"
+    >
+      <path
+        className="stacked-area c4"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="dates-layer"
+    >
+      <path
+        className="stacked-area c5"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="axis-x "
+      transform="translate(0, 0)"
+    />
+    <g
+      className="axis-y "
+    />
+  </g>
+</svg>
+`;
+
+exports[`render correctly with dates as name 1`] = `
+.c1 {
+  fill: rgb(44,98,122);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c2 {
+  fill: rgb(166,224,251);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c3 {
+  fill: rgb(90,200,250);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c4 {
+  fill: rgb(81,109,122);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c0 {
+  height: 90px;
+  width: 100px;
+}
+
+<svg
+  className="silky-charts c0"
+  id="silky-charts_stacked-area-12"
+  size={
+    Object {
+      "height": 90,
+      "width": 100,
+    }
+  }
+>
+  <g
+    className="silky-charts-container"
+    transform="translate(50, 40)"
+  >
+    <g
+      className="apples-layer"
+    >
+      <path
+        className="stacked-area c1"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="bananas-layer"
+    >
+      <path
+        className="stacked-area c2"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="cherries-layer"
+    >
+      <path
+        className="stacked-area c3"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="dates-layer"
+    >
+      <path
+        className="stacked-area c4"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="axis-x "
+      transform="translate(0, 0)"
+    />
+    <g
+      className="axis-y "
+    />
+  </g>
+</svg>
+`;
+
+exports[`render correctly with height 1`] = `
+.c1 {
+  fill: rgb(44,98,122);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c2 {
+  fill: rgb(166,224,251);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c3 {
+  fill: rgb(90,200,250);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c4 {
+  fill: rgb(81,109,122);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c0 {
+  height: 400px;
+  width: 100px;
+}
+
+<svg
+  className="silky-charts c0"
+  id="silky-charts_stacked-area-4"
+  size={
+    Object {
+      "height": 400,
+      "width": 100,
+    }
+  }
+>
+  <g
+    className="silky-charts-container"
+    transform="translate(50, 40)"
+  >
+    <g
+      className="apples-layer"
+    >
+      <path
+        className="stacked-area c1"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="bananas-layer"
+    >
+      <path
+        className="stacked-area c2"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="cherries-layer"
+    >
+      <path
+        className="stacked-area c3"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="dates-layer"
+    >
+      <path
+        className="stacked-area c4"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="axis-x "
+      transform="translate(0, 0)"
+    />
+    <g
+      className="axis-y "
+    />
+  </g>
+</svg>
+`;
+
+exports[`render correctly with width 1`] = `
+.c1 {
+  fill: rgb(44,98,122);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c2 {
+  fill: rgb(166,224,251);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c3 {
+  fill: rgb(90,200,250);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c4 {
+  fill: rgb(81,109,122);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c0 {
+  height: 90px;
+  width: 400px;
+}
+
+<svg
+  className="silky-charts c0"
+  id="silky-charts_stacked-area-2"
+  size={
+    Object {
+      "height": 90,
+      "width": 400,
+    }
+  }
+>
+  <g
+    className="silky-charts-container"
+    transform="translate(50, 40)"
+  >
+    <g
+      className="apples-layer"
+    >
+      <path
+        className="stacked-area c1"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="bananas-layer"
+    >
+      <path
+        className="stacked-area c2"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="cherries-layer"
+    >
+      <path
+        className="stacked-area c3"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="dates-layer"
+    >
+      <path
+        className="stacked-area c4"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="axis-x "
+      transform="translate(0, 0)"
+    />
+    <g
+      className="axis-y "
+    />
+  </g>
+</svg>
+`;
+
+exports[`render correctly with width and height 1`] = `
+.c1 {
+  fill: rgb(44,98,122);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c2 {
+  fill: rgb(166,224,251);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c3 {
+  fill: rgb(90,200,250);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c4 {
+  fill: rgb(81,109,122);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c0 {
+  height: 300px;
+  width: 400px;
+}
+
+<svg
+  className="silky-charts c0"
+  id="silky-charts_stacked-area-6"
+  size={
+    Object {
+      "height": 300,
+      "width": 400,
+    }
+  }
+>
+  <g
+    className="silky-charts-container"
+    transform="translate(50, 40)"
+  >
+    <g
+      className="apples-layer"
+    >
+      <path
+        className="stacked-area c1"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="bananas-layer"
+    >
+      <path
+        className="stacked-area c2"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="cherries-layer"
+    >
+      <path
+        className="stacked-area c3"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="dates-layer"
+    >
+      <path
+        className="stacked-area c4"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="axis-x "
+      transform="translate(0, 0)"
+    />
+    <g
+      className="axis-y "
+    />
+  </g>
+</svg>
+`;
+
+exports[`render correctly with x axis label 1`] = `
+.c1 {
+  text-anchor: middle;
+}
+
+.c2 {
+  fill: rgb(44,98,122);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c3 {
+  fill: rgb(166,224,251);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c4 {
+  fill: rgb(90,200,250);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c5 {
+  fill: rgb(81,109,122);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c0 {
+  height: 90px;
+  width: 100px;
+}
+
+<svg
+  className="silky-charts c0"
+  id="silky-charts_stacked-area-8"
+  size={
+    Object {
+      "height": 90,
+      "width": 100,
+    }
+  }
+>
+  <g
+    className="silky-charts-container"
+    transform="translate(50, 40)"
+  >
+    <text
+      className="x-axis-label c1"
+      height={0}
+      width={0}
+      x={0}
+      y={33.333333333333336}
+    >
+      foo
+    </text>
+    <g
+      className="apples-layer"
+    >
+      <path
+        className="stacked-area c2"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="bananas-layer"
+    >
+      <path
+        className="stacked-area c3"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="cherries-layer"
+    >
+      <path
+        className="stacked-area c4"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="dates-layer"
+    >
+      <path
+        className="stacked-area c5"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="axis-x "
+      transform="translate(0, 0)"
+    />
+    <g
+      className="axis-y "
+    />
+  </g>
+</svg>
+`;
+
+exports[`render correctly with y axis label 1`] = `
+.c1 {
+  text-anchor: middle;
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+.c2 {
+  fill: rgb(44,98,122);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c3 {
+  fill: rgb(166,224,251);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c4 {
+  fill: rgb(90,200,250);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c5 {
+  fill: rgb(81,109,122);
+  stroke: none;
+  stroke-width: 3;
+}
+
+.c0 {
+  height: 90px;
+  width: 100px;
+}
+
+<svg
+  className="silky-charts c0"
+  id="silky-charts_stacked-area-10"
+  size={
+    Object {
+      "height": 90,
+      "width": 100,
+    }
+  }
+>
+  <g
+    className="silky-charts-container"
+    transform="translate(50, 40)"
+  >
+    <text
+      className="y-axis-label c1"
+      height={0}
+      width={0}
+      x={-0}
+      y={-33.333333333333336}
+    >
+      foo
+    </text>
+    <g
+      className="apples-layer"
+    >
+      <path
+        className="stacked-area c2"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="bananas-layer"
+    >
+      <path
+        className="stacked-area c3"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="cherries-layer"
+    >
+      <path
+        className="stacked-area c4"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="dates-layer"
+    >
+      <path
+        className="stacked-area c5"
+        d="M0,0L0,0L0,0L0,0L0,0L0,0L0,0L0,0Z"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        strokeWidth={0}
+      />
+    </g>
+    <g
+      className="axis-x "
+      transform="translate(0, 0)"
+    />
+    <g
+      className="axis-y "
+    />
+  </g>
+</svg>
+`;

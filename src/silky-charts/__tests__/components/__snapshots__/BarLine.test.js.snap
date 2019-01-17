@@ -366,7 +366,7 @@ exports[`render correctly with bars and lines 1`] = `
       className="cherries-layer"
     >
       <path
-        className="line-path c3"
+        className="line-path bar-line c3"
         d="M0,0L0,0L0,0L0,0"
       />
       <g
@@ -402,7 +402,7 @@ exports[`render correctly with bars and lines 1`] = `
       className="dates-layer"
     >
       <path
-        className="line-path c5"
+        className="line-path bar-line c5"
         d="M0,0L0,0L0,0L0,0"
       />
       <g
@@ -844,7 +844,7 @@ exports[`render correctly with only lines 1`] = `
       className="cherries-layer"
     >
       <path
-        className="line-path c1"
+        className="line-path bar-line c1"
         d="M0,0L0,0L0,0L0,0"
       />
       <g
@@ -880,7 +880,7 @@ exports[`render correctly with only lines 1`] = `
       className="dates-layer"
     >
       <path
-        className="line-path c3"
+        className="line-path bar-line c3"
         d="M0,0L0,0L0,0L0,0"
       />
       <g

@@ -1,19 +1,20 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import head from 'ramda/src/head';
 import identity from 'ramda/src/identity';
 import { max as d3Max } from 'd3-array';
 import { axisBottom as d3AxisBottom, axisLeft as d3AxisLeft } from 'd3-axis';
 import { select as d3Select } from 'd3-selection';
-import { line as d3Line } from 'd3-shape';
-import { Axis, Grid, Label, LineDatum, StackedBarDatum, SVG } from './styled';
+import { area as d3Area } from 'd3-shape';
+import { Axis, Grid, Label, Path, SVG } from './styled';
 import {
+  appendStackedValues,
   buildStack,
+  bySeries,
+  classify,
   debounce,
   drawGrid,
-  extendXPath,
   getId,
-  getLineDataForSeries,
   getMaxValues,
+  getSeries,
   getSize,
   getXScale,
   getYScale,
@@ -22,7 +23,6 @@ import {
   setLineType,
   setupData,
   toStackedForm,
-  toSingleForm,
 } from '../utils';
 import {
   ASPECT_RATIO,
@@ -32,13 +32,12 @@ import {
   SCALE_BAND,
   SCALE_LINEAR,
   SCALE_TIME,
-  SECONDARY_THEME,
   SIZE,
   THEME,
   TICKS,
 } from '../utils/constants';
 
-const BarLine = ({
+const StackedArea = ({
   aspectRatio = ASPECT_RATIO,
   data: chartData,
   grid,
@@ -52,8 +51,6 @@ const BarLine = ({
   onMouseEnter = identity,
   onMouseLeave = identity,
   responsive = false,
-  secondaryTheme = SECONDARY_THEME,
-  stackedSeries = [],
   theme = THEME,
   ticks = TICKS,
   width: svgWidth = undefined,
@@ -63,34 +60,26 @@ const BarLine = ({
   yAxisLabel,
 }) => {
   const svgRef = useRef();
-  const [id] = useState(getId('bar-line'));
+  const [id] = useState(getId('stacked-area'));
   const [{ width, height, isSizeSet }, setSize] = useState(SIZE);
-  const [isDates, data] = useMemo(() => setupData(chartData), chartData);
-  const stack = useMemo(
-    () => buildStack(stackedSeries)(toStackedForm(data)),
+  let [isDates, data] = useMemo(() => setupData(chartData), chartData);
+  data = useMemo(
+    () =>
+      appendStackedValues(
+        buildStack(getSeries(data))(toStackedForm(data)),
+        data
+      ),
     data
   );
 
-  const xScale = getXScale(
-    isDates ? SCALE_TIME : SCALE_BAND,
-    data,
-    width,
-    true
-  );
-  const yScale = getYScale(
-    SCALE_LINEAR,
-    d3Max(getMaxValues(data, stackedSeries)),
-    height
-  );
+  const xScale = getXScale(isDates ? SCALE_TIME : SCALE_BAND, data, width);
+  const yScale = getYScale(SCALE_LINEAR, d3Max(getMaxValues(data)), height);
 
-  const line = d3Line()
+  const area = d3Area()
     .curve(setLineType(lineType, lineTypeOption))
-    .x(({ name }) =>
-      isDates ? xScale(name) : xScale(name) + xScale.bandwidth() / 2
-    )
-    .y(({ value }) => yScale(value));
-
-  const lineData = getLineDataForSeries(lineSeries, data);
+    .x(({ name }) => xScale(name))
+    .y0(({ stackedValues }) => yScale(stackedValues[0]))
+    .y1(({ stackedValues }) => yScale(stackedValues[1]));
 
   const handleSize = () => {
     const offsetWidth = svgRef.current.parentElement.offsetWidth;
@@ -153,24 +142,25 @@ const BarLine = ({
           </Label>
         )}
 
-        <StackedBarDatum
-          data={data}
-          series={stack}
-          isDates={isDates}
-          theme={theme}
-          x={xScale}
-          y={yScale}
-          width={width}
-          height={height}
-          onClick={onClick}
-        />
+        {bySeries(data).map(([series, datum], idx) => (
+          <g className={`${classify(series)}-layer`} key={idx}>
+            <Path
+              chart="stacked-area"
+              fillColor={palette.themes[theme].base[idx]}
+              d={area(datum)}
+              strokeWidth={0}
+              onClick={onClick}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+            />
+          </g>
+        ))}
 
         <Axis
           axis="x"
           position={{ x: 0, y: height }}
           ref={node => {
             d3Select(node).call(d3AxisBottom(xScale));
-            isDates && extendXPath(id, width);
             xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
           }}
         />
@@ -178,23 +168,9 @@ const BarLine = ({
           axis="y"
           ref={node => d3Select(node).call(d3AxisLeft(yScale).ticks(ticks))}
         />
-
-        {lineData.map((datum, idx) => (
-          <g className={`${head(datum)['series']}-layer`} key={idx}>
-            <LineDatum
-              chart="bar-line"
-              data={datum}
-              isDates={isDates}
-              color={palette.themes[secondaryTheme].base[idx]}
-              d={line(datum)}
-              xScale={xScale}
-              yScale={yScale}
-            />
-          </g>
-        ))}
       </g>
     </SVG>
   );
 };
 
-export default BarLine;
+export default StackedArea;
