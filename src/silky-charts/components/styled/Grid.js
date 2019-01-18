@@ -9,7 +9,7 @@ const Grid = styled.g.attrs(() => ({
   }
 
   line {
-    stroke: ${palette.grid};
+    stroke: ${palette.grey};
   }
 `;
 

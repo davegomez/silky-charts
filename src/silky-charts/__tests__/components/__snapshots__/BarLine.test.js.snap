@@ -194,12 +194,14 @@ exports[`render correctly with bars and lines 1`] = `
   fill: none;
   stroke: rgb(127,22,42);
   stroke-width: 3;
+  pointer-events: none;
 }
 
 .c5 {
   fill: none;
   stroke: rgb(255,121,147);
   stroke-width: 3;
+  pointer-events: none;
 }
 
 .c1 {
@@ -249,13 +251,13 @@ exports[`render correctly with bars and lines 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={18}
         x={0}
         y={0}
       />
@@ -264,13 +266,13 @@ exports[`render correctly with bars and lines 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={14}
         x={0}
         y={0}
       />
@@ -279,13 +281,13 @@ exports[`render correctly with bars and lines 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={17}
         x={0}
         y={0}
       />
@@ -294,13 +296,13 @@ exports[`render correctly with bars and lines 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={14}
         x={0}
         y={0}
       />
@@ -313,13 +315,13 @@ exports[`render correctly with bars and lines 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={16}
         x={0}
         y={0}
       />
@@ -328,13 +330,13 @@ exports[`render correctly with bars and lines 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={14}
         x={0}
         y={0}
       />
@@ -343,13 +345,13 @@ exports[`render correctly with bars and lines 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={13}
         x={0}
         y={0}
       />
@@ -358,13 +360,13 @@ exports[`render correctly with bars and lines 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={13}
         x={0}
         y={0}
       />
@@ -393,6 +395,7 @@ exports[`render correctly with bars and lines 1`] = `
           onClick={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseMove={[Function]}
           r={5}
         />
         <circle
@@ -402,6 +405,7 @@ exports[`render correctly with bars and lines 1`] = `
           onClick={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseMove={[Function]}
           r={5}
         />
         <circle
@@ -411,6 +415,7 @@ exports[`render correctly with bars and lines 1`] = `
           onClick={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseMove={[Function]}
           r={5}
         />
         <circle
@@ -420,6 +425,7 @@ exports[`render correctly with bars and lines 1`] = `
           onClick={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseMove={[Function]}
           r={5}
         />
       </g>
@@ -441,6 +447,7 @@ exports[`render correctly with bars and lines 1`] = `
           onClick={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseMove={[Function]}
           r={5}
         />
         <circle
@@ -450,6 +457,7 @@ exports[`render correctly with bars and lines 1`] = `
           onClick={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseMove={[Function]}
           r={5}
         />
         <circle
@@ -459,6 +467,7 @@ exports[`render correctly with bars and lines 1`] = `
           onClick={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseMove={[Function]}
           r={5}
         />
         <circle
@@ -468,6 +477,7 @@ exports[`render correctly with bars and lines 1`] = `
           onClick={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseMove={[Function]}
           r={5}
         />
       </g>
@@ -710,13 +720,13 @@ exports[`render correctly with only bars 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={18}
         x={0}
         y={0}
       />
@@ -725,13 +735,13 @@ exports[`render correctly with only bars 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={14}
         x={0}
         y={0}
       />
@@ -740,13 +750,13 @@ exports[`render correctly with only bars 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={17}
         x={0}
         y={0}
       />
@@ -755,13 +765,13 @@ exports[`render correctly with only bars 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={14}
         x={0}
         y={0}
       />
@@ -774,13 +784,13 @@ exports[`render correctly with only bars 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={16}
         x={0}
         y={0}
       />
@@ -789,13 +799,13 @@ exports[`render correctly with only bars 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={14}
         x={0}
         y={0}
       />
@@ -804,13 +814,13 @@ exports[`render correctly with only bars 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={13}
         x={0}
         y={0}
       />
@@ -819,13 +829,13 @@ exports[`render correctly with only bars 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={13}
         x={0}
         y={0}
       />
@@ -858,12 +868,14 @@ exports[`render correctly with only lines 1`] = `
   fill: none;
   stroke: rgb(127,22,42);
   stroke-width: 3;
+  pointer-events: none;
 }
 
 .c3 {
   fill: none;
   stroke: rgb(255,121,147);
   stroke-width: 3;
+  pointer-events: none;
 }
 
 .c0 {
@@ -909,6 +921,7 @@ exports[`render correctly with only lines 1`] = `
           onClick={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseMove={[Function]}
           r={5}
         />
         <circle
@@ -918,6 +931,7 @@ exports[`render correctly with only lines 1`] = `
           onClick={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseMove={[Function]}
           r={5}
         />
         <circle
@@ -927,6 +941,7 @@ exports[`render correctly with only lines 1`] = `
           onClick={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseMove={[Function]}
           r={5}
         />
         <circle
@@ -936,6 +951,7 @@ exports[`render correctly with only lines 1`] = `
           onClick={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseMove={[Function]}
           r={5}
         />
       </g>
@@ -957,6 +973,7 @@ exports[`render correctly with only lines 1`] = `
           onClick={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseMove={[Function]}
           r={5}
         />
         <circle
@@ -966,6 +983,7 @@ exports[`render correctly with only lines 1`] = `
           onClick={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseMove={[Function]}
           r={5}
         />
         <circle
@@ -975,6 +993,7 @@ exports[`render correctly with only lines 1`] = `
           onClick={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseMove={[Function]}
           r={5}
         />
         <circle
@@ -984,6 +1003,7 @@ exports[`render correctly with only lines 1`] = `
           onClick={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
+          onMouseMove={[Function]}
           r={5}
         />
       </g>

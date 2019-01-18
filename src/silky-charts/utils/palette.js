@@ -1,6 +1,6 @@
 export const white = 'rgb(255, 255, 255)'; // #FFFFFF
 export const black = 'rgb(33, 33, 33)'; // #212121
-export const grid = 'rgb(220, 220, 220)'; // #DCDCDC
+export const grey = 'rgb(220, 220, 220)'; // #DCDCDC
 
 export const themes = {
   red: {
@@ -88,6 +88,6 @@ export const themes = {
 export default {
   white,
   black,
-  grid,
+  grey,
   themes,
 };

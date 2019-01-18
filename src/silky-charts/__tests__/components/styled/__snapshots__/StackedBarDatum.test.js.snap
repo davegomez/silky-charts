@@ -17,23 +17,27 @@ Array [
   >
     <rect
       className="bar c0"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseMove={[Function]}
       size={
         Object {
           "height": NaN,
           "width": undefined,
         }
       }
-      value={1}
     />
     <rect
       className="bar c0"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseMove={[Function]}
       size={
         Object {
           "height": NaN,
           "width": undefined,
         }
       }
-      value={5}
     />
   </g>,
   .c0 {
@@ -51,23 +55,27 @@ Array [
   >
     <rect
       className="bar c0"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseMove={[Function]}
       size={
         Object {
           "height": NaN,
           "width": undefined,
         }
       }
-      value={2}
     />
     <rect
       className="bar c0"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseMove={[Function]}
       size={
         Object {
           "height": NaN,
           "width": undefined,
         }
       }
-      value={6}
     />
   </g>,
 ]
@@ -90,23 +98,27 @@ Array [
   >
     <rect
       className="bar c0"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseMove={[Function]}
       size={
         Object {
           "height": NaN,
           "width": undefined,
         }
       }
-      value={1}
     />
     <rect
       className="bar c0"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseMove={[Function]}
       size={
         Object {
           "height": NaN,
           "width": undefined,
         }
       }
-      value={5}
     />
   </g>,
   .c0 {
@@ -124,23 +136,27 @@ Array [
   >
     <rect
       className="bar c0"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseMove={[Function]}
       size={
         Object {
           "height": NaN,
           "width": undefined,
         }
       }
-      value={2}
     />
     <rect
       className="bar c0"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseMove={[Function]}
       size={
         Object {
           "height": NaN,
           "width": undefined,
         }
       }
-      value={6}
     />
   </g>,
 ]

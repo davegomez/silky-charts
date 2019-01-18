@@ -13,13 +13,15 @@ exports[`render correctly 1`] = `
 
 <rect
   className="bar c0"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseMove={[Function]}
   size={
     Object {
       "height": 10,
       "width": 10,
     }
   }
-  value={0}
   x={0}
   y={0}
 />
@@ -38,13 +40,15 @@ exports[`render correctly and show the value 1`] = `
 
 <rect
   className="bar c0"
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseMove={[Function]}
   size={
     Object {
       "height": 10,
       "width": 10,
     }
   }
-  value={0}
   x={0}
   y={0}
 />

@@ -38,13 +38,13 @@ exports[`render correctly 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={19}
         x={0}
         y={0}
       />
@@ -53,13 +53,13 @@ exports[`render correctly 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={70}
         x={0}
         y={0}
       />
@@ -68,13 +68,13 @@ exports[`render correctly 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={93}
         x={0}
         y={0}
       />
@@ -83,13 +83,13 @@ exports[`render correctly 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={80}
         x={0}
         y={0}
       />
@@ -143,13 +143,13 @@ exports[`render correctly X axis label rotation 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={19}
         x={0}
         y={0}
       />
@@ -158,13 +158,13 @@ exports[`render correctly X axis label rotation 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={70}
         x={0}
         y={0}
       />
@@ -173,13 +173,13 @@ exports[`render correctly X axis label rotation 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={93}
         x={0}
         y={0}
       />
@@ -188,13 +188,13 @@ exports[`render correctly X axis label rotation 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={80}
         x={0}
         y={0}
       />
@@ -259,13 +259,13 @@ exports[`render correctly width horizontal grid 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={19}
         x={0}
         y={0}
       />
@@ -274,13 +274,13 @@ exports[`render correctly width horizontal grid 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={70}
         x={0}
         y={0}
       />
@@ -289,13 +289,13 @@ exports[`render correctly width horizontal grid 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={93}
         x={0}
         y={0}
       />
@@ -304,13 +304,13 @@ exports[`render correctly width horizontal grid 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={80}
         x={0}
         y={0}
       />
@@ -375,13 +375,13 @@ exports[`render correctly width vertical grid 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={19}
         x={0}
         y={0}
       />
@@ -390,13 +390,13 @@ exports[`render correctly width vertical grid 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={70}
         x={0}
         y={0}
       />
@@ -405,13 +405,13 @@ exports[`render correctly width vertical grid 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={93}
         x={0}
         y={0}
       />
@@ -420,13 +420,13 @@ exports[`render correctly width vertical grid 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={80}
         x={0}
         y={0}
       />
@@ -480,13 +480,13 @@ exports[`render correctly with dates as name 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={19}
         x={0}
         y={0}
       />
@@ -495,13 +495,13 @@ exports[`render correctly with dates as name 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={70}
         x={0}
         y={0}
       />
@@ -510,13 +510,13 @@ exports[`render correctly with dates as name 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={93}
         x={0}
         y={0}
       />
@@ -525,13 +525,13 @@ exports[`render correctly with dates as name 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={80}
         x={0}
         y={0}
       />
@@ -585,13 +585,13 @@ exports[`render correctly with height 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={19}
         x={0}
         y={0}
       />
@@ -600,13 +600,13 @@ exports[`render correctly with height 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={70}
         x={0}
         y={0}
       />
@@ -615,13 +615,13 @@ exports[`render correctly with height 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={93}
         x={0}
         y={0}
       />
@@ -630,13 +630,13 @@ exports[`render correctly with height 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={80}
         x={0}
         y={0}
       />
@@ -690,13 +690,13 @@ exports[`render correctly with width 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={19}
         x={0}
         y={0}
       />
@@ -705,13 +705,13 @@ exports[`render correctly with width 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={70}
         x={0}
         y={0}
       />
@@ -720,13 +720,13 @@ exports[`render correctly with width 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={93}
         x={0}
         y={0}
       />
@@ -735,13 +735,13 @@ exports[`render correctly with width 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={80}
         x={0}
         y={0}
       />
@@ -795,13 +795,13 @@ exports[`render correctly with width and height 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={19}
         x={0}
         y={0}
       />
@@ -810,13 +810,13 @@ exports[`render correctly with width and height 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={70}
         x={0}
         y={0}
       />
@@ -825,13 +825,13 @@ exports[`render correctly with width and height 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={93}
         x={0}
         y={0}
       />
@@ -840,13 +840,13 @@ exports[`render correctly with width and height 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={80}
         x={0}
         y={0}
       />
@@ -913,13 +913,13 @@ exports[`render correctly with x axis label 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={19}
         x={0}
         y={0}
       />
@@ -928,13 +928,13 @@ exports[`render correctly with x axis label 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={70}
         x={0}
         y={0}
       />
@@ -943,13 +943,13 @@ exports[`render correctly with x axis label 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={93}
         x={0}
         y={0}
       />
@@ -958,13 +958,13 @@ exports[`render correctly with x axis label 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={80}
         x={0}
         y={0}
       />
@@ -1034,13 +1034,13 @@ exports[`render correctly with y axis label 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={19}
         x={0}
         y={0}
       />
@@ -1049,13 +1049,13 @@ exports[`render correctly with y axis label 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={70}
         x={0}
         y={0}
       />
@@ -1064,13 +1064,13 @@ exports[`render correctly with y axis label 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={93}
         x={0}
         y={0}
       />
@@ -1079,13 +1079,13 @@ exports[`render correctly with y axis label 1`] = `
         onClick={[Function]}
         onMouseEnter={[Function]}
         onMouseLeave={[Function]}
+        onMouseMove={[Function]}
         size={
           Object {
             "height": 0,
             "width": 0,
           }
         }
-        value={80}
         x={0}
         y={0}
       />

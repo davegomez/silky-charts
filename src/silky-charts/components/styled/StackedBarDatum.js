@@ -21,14 +21,15 @@ const StackedBarDatum = ({
     <g key={layer.index} className={`${layer.key}-layer`}>
       {layer.map((datum, idx) => {
         const value = last(datum) - head(datum);
+        const name = datum.data.name;
         return (
           <BarDatum
             key={idx}
-            datum={{ value }}
+            datum={{ name, value }}
             x={
               isDates
-                ? x(datum.data.name) - valueFor('x', width, getLength(data))
-                : x(datum.data.name)
+                ? x(name) - valueFor('x', width, getLength(data))
+                : x(name)
             }
             y={y(last(datum))}
             width={

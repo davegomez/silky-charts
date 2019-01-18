@@ -1,5 +1,7 @@
+jest.mock('react-dom');
+
 import React from 'react';
-import { BarDatum } from '../../../components/styled';
+import { BarDatum, Tooltip } from '../../../components/styled';
 import { create } from 'react-test-renderer';
 import 'jest-styled-components';
 

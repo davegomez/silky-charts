@@ -24,6 +24,9 @@ Array [
     <circle
       className="bar-line c0"
       cx={NaN}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseMove={[Function]}
       r={5}
     />
   </g>,
@@ -53,6 +56,9 @@ Array [
   >
     <circle
       className="bar-line c0"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseMove={[Function]}
       r={5}
     />
   </g>,

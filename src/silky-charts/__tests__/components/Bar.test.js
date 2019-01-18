@@ -70,27 +70,3 @@ test('render correctly X axis label rotation', () => {
   }).toJSON();
   expect(tree).toMatchSnapshot();
 });
-
-test('call onMouseEnter', () => {
-  const onMouseEnter = jest.fn();
-  const renderer = create(<Bar data={data} onMouseEnter={onMouseEnter} />, {
-    createNodeMock,
-  });
-  const instance = renderer.root;
-  const bar = instance.findByProps({ className: 'data' }).children[0];
-
-  bar.props.onMouseEnter();
-  expect(onMouseEnter).toHaveBeenCalled();
-});
-
-test('call onMouseLeave', () => {
-  const onMouseLeave = jest.fn();
-  const renderer = create(<Bar data={data} onMouseLeave={onMouseLeave} />, {
-    createNodeMock,
-  });
-  const instance = renderer.root;
-  const bar = instance.findByProps({ className: 'data' }).children[0];
-
-  bar.props.onMouseLeave();
-  expect(onMouseLeave).toHaveBeenCalled();
-});
