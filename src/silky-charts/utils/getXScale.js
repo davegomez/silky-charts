@@ -9,7 +9,7 @@ import { getLength } from './';
 import { SCALE_TIME, SCALE_BAND } from './constants';
 
 const timeScale = (data, width, barChart = false) => {
-  const dataLength = getLength(data);
+  const dataLength = getLength(data); // TODO: fix this fucking length
   const rangeWidth = width / dataLength / 1.8;
 
   return d3ScaleTime()
@@ -21,7 +21,7 @@ const bandScale = (data, width) =>
   d3ScaleBand()
     .domain(data.map(({ name }) => name))
     .range([0, width])
-    .padding(0.16);
+    .padding(0.1);
 
 /**
  * Depending on the type of data we are using to represent the X axis ticks we
