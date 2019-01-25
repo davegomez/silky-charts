@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import type from 'ramda/src/type';
 import { isValid, format } from 'date-fns';
-import { isDate } from '../../utils/allDate';
+import { isISODate } from '../../utils';
 import { grey } from '../../utils/palette';
+import { TOOLTIP_DATE_FORMAT } from '../../utils/constants';
 
 const Container = styled.div`
   display: flex;
@@ -28,12 +30,19 @@ const Value = styled.span`
   font-size: 1.2em;
 `;
 
-const TooltipItem = ({ color, dateFormat = 'MMM d, y', name, value }) => (
+const TooltipItem = ({
+  color,
+  dateFormat = TOOLTIP_DATE_FORMAT,
+  name,
+  value,
+}) => (
   <Container>
     <Swatch swatchColor={color} />
     <Data>
       <Name>
-        {isDate(name) || isValid(name) ? format(name, dateFormat) : name}
+        {type(name) === 'Date' && isValid(name)
+          ? format(name, dateFormat)
+          : name}
       </Name>
       <Value>{value}</Value>
     </Data>

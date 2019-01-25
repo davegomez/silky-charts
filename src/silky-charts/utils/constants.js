@@ -31,6 +31,7 @@ export const SIZE = {
 };
 export const TICKS = 5;
 export const TIME_FORMAT = '%a %d';
+export const TOOLTIP_DATE_FORMAT = 'MMM d, y';
 export const WIDTH = 640;
 
 // Scales

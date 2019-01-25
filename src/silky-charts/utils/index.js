@@ -18,6 +18,7 @@ export { default as getSeries } from './getSeries';
 export { default as getSize } from './getSize';
 export { default as getXScale } from './getXScale';
 export { default as getYScale } from './getYScale';
+export { default as isISODate } from './isISODate';
 export { default as palette } from './palette';
 export { default as rotateXLabels } from './rotateXLabels';
 export { default as setLineType } from './setLineType';
