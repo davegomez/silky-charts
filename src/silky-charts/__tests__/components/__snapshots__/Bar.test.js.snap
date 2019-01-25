@@ -27,11 +27,11 @@ exports[`render correctly 1`] = `
   }
 >
   <g
-    className="silky-charts-container"
+    className="silky-charts-container "
     transform="translate(50, 40)"
   >
     <g
-      className="data"
+      className="dataviz-layer "
     >
       <rect
         className="bar c1"
@@ -132,11 +132,11 @@ exports[`render correctly X axis label rotation 1`] = `
   }
 >
   <g
-    className="silky-charts-container"
+    className="silky-charts-container "
     transform="translate(50, 40)"
   >
     <g
-      className="data"
+      className="dataviz-layer "
     >
       <rect
         className="bar c1"
@@ -245,14 +245,14 @@ exports[`render correctly width horizontal grid 1`] = `
   }
 >
   <g
-    className="silky-charts-container"
+    className="silky-charts-container "
     transform="translate(50, 40)"
   >
     <g
       className="grid c1"
     />
     <g
-      className="data"
+      className="dataviz-layer "
     >
       <rect
         className="bar c2"
@@ -361,14 +361,14 @@ exports[`render correctly width vertical grid 1`] = `
   }
 >
   <g
-    className="silky-charts-container"
+    className="silky-charts-container "
     transform="translate(50, 40)"
   >
     <g
       className="grid c1"
     />
     <g
-      className="data"
+      className="dataviz-layer "
     >
       <rect
         className="bar c2"
@@ -469,11 +469,11 @@ exports[`render correctly with dates as name 1`] = `
   }
 >
   <g
-    className="silky-charts-container"
+    className="silky-charts-container "
     transform="translate(50, 40)"
   >
     <g
-      className="data"
+      className="dataviz-layer "
     >
       <rect
         className="bar c1"
@@ -574,11 +574,11 @@ exports[`render correctly with height 1`] = `
   }
 >
   <g
-    className="silky-charts-container"
+    className="silky-charts-container "
     transform="translate(50, 40)"
   >
     <g
-      className="data"
+      className="dataviz-layer "
     >
       <rect
         className="bar c1"
@@ -679,11 +679,11 @@ exports[`render correctly with width 1`] = `
   }
 >
   <g
-    className="silky-charts-container"
+    className="silky-charts-container "
     transform="translate(50, 40)"
   >
     <g
-      className="data"
+      className="dataviz-layer "
     >
       <rect
         className="bar c1"
@@ -784,11 +784,11 @@ exports[`render correctly with width and height 1`] = `
   }
 >
   <g
-    className="silky-charts-container"
+    className="silky-charts-container "
     transform="translate(50, 40)"
   >
     <g
-      className="data"
+      className="dataviz-layer "
     >
       <rect
         className="bar c1"
@@ -893,7 +893,7 @@ exports[`render correctly with x axis label 1`] = `
   }
 >
   <g
-    className="silky-charts-container"
+    className="silky-charts-container "
     transform="translate(50, 40)"
   >
     <text
@@ -906,7 +906,7 @@ exports[`render correctly with x axis label 1`] = `
       foo
     </text>
     <g
-      className="data"
+      className="dataviz-layer "
     >
       <rect
         className="bar c2"
@@ -1014,7 +1014,7 @@ exports[`render correctly with y axis label 1`] = `
   }
 >
   <g
-    className="silky-charts-container"
+    className="silky-charts-container "
     transform="translate(50, 40)"
   >
     <text
@@ -1027,7 +1027,7 @@ exports[`render correctly with y axis label 1`] = `
       foo
     </text>
     <g
-      className="data"
+      className="dataviz-layer "
     >
       <rect
         className="bar c2"

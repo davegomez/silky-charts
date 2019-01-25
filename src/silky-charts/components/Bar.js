@@ -1,37 +1,46 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import identity from 'ramda/src/identity';
-import { max as d3Max } from 'd3-array';
 import { axisBottom as d3AxisBottom, axisLeft as d3AxisLeft } from 'd3-axis';
+import {
+  scaleBand as d3ScaleBand,
+  scaleLinear as d3ScaleLinear,
+} from 'd3-scale';
 import { select as d3Select } from 'd3-selection';
-import { Axis, BarDatum, Grid, Label, SVG } from './styled';
+import { timeFormat as d3TimeFormat } from 'd3-time-format';
+import {
+  Axis,
+  BarDatum,
+  DataGroup,
+  Grid,
+  MainGroup,
+  Label,
+  SVG,
+} from './styled';
 import {
   debounce,
   drawGrid,
-  extendXPath,
   getBaseColor,
   getId,
+  getMax,
   getSize,
-  getXScale,
-  getYScale,
   rotateXLabels,
   setupData,
-  valueFor,
 } from '../utils';
 import {
   ASPECT_RATIO,
   MARGIN,
-  SCALE_BAND,
-  SCALE_LINEAR,
-  SCALE_TIME,
+  ROTATION,
+  SCALE_PADDING,
   SIZE,
   THEME,
   TICKS,
-  ROTATION,
+  TIME_FORMAT,
 } from '../utils/constants';
 
 const Bar = ({
   aspectRatio = ASPECT_RATIO,
   data: chartData,
+  dateFormat = TIME_FORMAT,
   grid,
   height: svgHeight = undefined,
   isHorizontal,
@@ -41,29 +50,29 @@ const Bar = ({
   onMouseLeave = identity,
   responsive = false,
   theme = THEME,
-  ticks = TICKS,
   width: svgWidth = undefined,
+  xAxisLabel,
   xAxisLabelRotation,
   xAxisLabelRotationValue = ROTATION,
-  xAxisLabel,
+  xAxisTicks = TICKS,
+  xScalePadding = SCALE_PADDING,
   yAxisLabel,
+  yAxisTicks = TICKS,
 }) => {
   const svgRef = useRef();
   const [id] = useState(getId('bar'));
+  const timeFormat = d3TimeFormat(dateFormat);
   const [{ width, height, isSizeSet }, setSize] = useState(SIZE);
-  const [isDates, data] = useMemo(() => setupData(chartData), chartData);
+  const [isDates, data] = setupData(chartData);
 
-  const xScale = getXScale(
-    isDates ? SCALE_TIME : SCALE_BAND,
-    data,
-    width,
-    true
-  );
-  const yScale = getYScale(
-    SCALE_LINEAR,
-    d3Max(data, ({ value }) => value),
-    height
-  );
+  const xScale = d3ScaleBand()
+    .domain(data.map(({ name }) => name))
+    .range([0, width])
+    .padding(xScalePadding);
+
+  const yScale = d3ScaleLinear()
+    .domain([0, getMax(data.map(({ value }) => value))])
+    .range([height, 0]);
 
   const handleSize = () => {
     const offsetWidth = svgRef.current.parentElement.offsetWidth;
@@ -100,15 +109,20 @@ const Bar = ({
       }}
       ref={svgRef}
     >
-      <g
-        className="silky-charts-container"
-        transform={`translate(${margin.left}, ${margin.top})`}
-      >
+      <MainGroup margin={margin}>
         {grid && (
           <Grid
             ref={node =>
               d3Select(node).call(
-                drawGrid(isHorizontal, xScale, height, yScale, width, ticks)
+                drawGrid(
+                  isHorizontal,
+                  xScale,
+                  height,
+                  yScale,
+                  width,
+                  xAxisTicks,
+                  yAxisTicks
+                )
               )
             }
           />
@@ -126,7 +140,7 @@ const Bar = ({
           </Label>
         )}
 
-        <g className="data">
+        <DataGroup>
           {data.map(({ name, value }, idx) => (
             <BarDatum
               key={idx}
@@ -135,39 +149,36 @@ const Bar = ({
                 value,
               }}
               color={getBaseColor(theme)}
-              x={
-                isDates
-                  ? xScale(name) - valueFor('x', width, data.length)
-                  : xScale(name)
-              }
+              x={xScale(name)}
               y={yScale(value)}
-              width={
-                isDates
-                  ? valueFor('width', width, data.length)
-                  : xScale.bandwidth()
-              }
+              width={xScale.bandwidth()}
               height={height - yScale(value)}
               onClick={onClick}
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
             />
           ))}
-        </g>
+        </DataGroup>
 
         <Axis
           axis="x"
           position={{ x: 0, y: height }}
           ref={node => {
-            d3Select(node).call(d3AxisBottom(xScale));
-            isDates && extendXPath(id, width);
+            d3Select(node).call(
+              d3AxisBottom(xScale)
+                .ticks(yAxisTicks)
+                .tickFormat(isDates ? timeFormat : null)
+            );
             xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
           }}
         />
         <Axis
           axis="y"
-          ref={node => d3Select(node).call(d3AxisLeft(yScale).ticks(ticks))}
+          ref={node =>
+            d3Select(node).call(d3AxisLeft(yScale).ticks(yAxisTicks))
+          }
         />
-      </g>
+      </MainGroup>
     </SVG>
   );
 };

@@ -18,7 +18,7 @@ const Container = styled.div`
 export default () => (
   <App>
     <Container>
-      {/* <Bar
+      <Bar
         data={barData}
         grid
         referenceLine
@@ -30,9 +30,9 @@ export default () => (
         // responsive
         // xAxisLabelRotation
         // xAxisLabelRotationValue={-50}
-      /> */}
+      />
 
-      <Bar
+      {/* <Bar
         data={barDates}
         referenceLine
         theme="green"
@@ -43,7 +43,7 @@ export default () => (
         // yAxisLabel="Subscribers"
         // xAxisLabelRotation
         // xAxisLabelRotationValue={-50}
-      />
+      /> */}
 
       {/* <BarLine
         data={barLineData}
@@ -59,7 +59,7 @@ export default () => (
         // xAxisLabelRotationValue={-50}
       /> */}
 
-      <BarLine
+      {/* <BarLine
         data={barLineDates}
         grid
         stackedSeries={['apples', 'cherries']}
@@ -73,9 +73,9 @@ export default () => (
         // yAxisLabel="Subscribers"
         // xAxisLabelRotation
         // xAxisLabelRotationValue={-50}
-      />
+      /> */}
 
-      <StackedArea data={stackedAreaDates} responsive />
+      {/* <StackedArea data={stackedAreaDates} responsive /> */}
     </Container>
   </App>
 );

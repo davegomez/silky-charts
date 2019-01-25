@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import identity from 'ramda/src/identity';
-import { max as d3Max } from 'd3-array';
 import { axisBottom as d3AxisBottom, axisLeft as d3AxisLeft } from 'd3-axis';
 import { select as d3Select } from 'd3-selection';
 import { area as d3Area } from 'd3-shape';
@@ -13,7 +12,8 @@ import {
   debounce,
   drawGrid,
   getId,
-  getMaxValues,
+  getMax,
+  getStackedMax,
   getSeries,
   getSize,
   getXScale,
@@ -73,7 +73,7 @@ const StackedArea = ({
   );
 
   const xScale = getXScale(isDates ? SCALE_TIME : SCALE_BAND, data, width);
-  const yScale = getYScale(SCALE_LINEAR, d3Max(getMaxValues(data)), height);
+  const yScale = getYScale(SCALE_LINEAR, getMax(getStackedMax(data)), height);
 
   const area = d3Area()
     .curve(setLineType(lineType, lineTypeOption))

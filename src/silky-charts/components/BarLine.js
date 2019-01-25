@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import head from 'ramda/src/head';
 import identity from 'ramda/src/identity';
-import { max as d3Max } from 'd3-array';
 import { axisBottom as d3AxisBottom, axisLeft as d3AxisLeft } from 'd3-axis';
 import { select as d3Select } from 'd3-selection';
 import { line as d3Line } from 'd3-shape';
@@ -13,7 +12,8 @@ import {
   extendXPath,
   getId,
   getLineDataForSeries,
-  getMaxValues,
+  getMax,
+  getStackedMax,
   getSize,
   getXScale,
   getYScale,
@@ -79,7 +79,7 @@ const BarLine = ({
   );
   const yScale = getYScale(
     SCALE_LINEAR,
-    d3Max(getMaxValues(data, stackedSeries)),
+    getMax(getStackedMax(data, stackedSeries)),
     height
   );
 
