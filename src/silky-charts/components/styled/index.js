@@ -1,9 +1,11 @@
 export { default as Axis } from './Axis';
 export { default as BarDatum } from './BarDatum';
 export { default as Circle } from './Circle';
+export { default as DataGroup } from './DataGroup';
 export { default as Grid } from './Grid';
 export { default as Label } from './Label';
 export { default as LineDatum } from './LineDatum';
+export { default as MainGroup } from './MainGroup';
 export { default as Path } from './Path';
 export { default as Rect } from './Rect';
 export { default as StackedBarDatum } from './StackedBarDatum';

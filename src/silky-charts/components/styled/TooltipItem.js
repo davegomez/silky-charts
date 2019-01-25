@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { isValid, format } from 'date-fns';
+import { isDate } from '../../utils/allDate';
 import { grey } from '../../utils/palette';
 
 const Container = styled.div`
@@ -31,7 +32,9 @@ const TooltipItem = ({ color, dateFormat = 'MMM d, y', name, value }) => (
   <Container>
     <Swatch swatchColor={color} />
     <Data>
-      <Name>{isValid(name) ? format(name, dateFormat) : name}</Name>
+      <Name>
+        {isDate(name) || isValid(name) ? format(name, dateFormat) : name}
+      </Name>
       <Value>{value}</Value>
     </Data>
   </Container>
