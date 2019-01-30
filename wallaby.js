@@ -11,11 +11,11 @@ module.exports = function(wallaby) {
 
   return {
     files: [
-      'src/silky-charts/**/*.+(js|jsx|json|snap|css|less|sass|scss|jpg|jpeg|gif|png|svg)',
-      '!src/silky-charts/**/*.test.js?(x)',
+      'src/**/*.+(js|jsx|json|snap|css|less|sass|scss|jpg|jpeg|gif|png|svg)',
+      '__mocks__/**/*.js?(x)',
     ],
 
-    tests: ['src/**/*.test.js?(x)'],
+    tests: ['__tests__/**/*.test.js?(x)'],
 
     env: {
       type: 'node',
