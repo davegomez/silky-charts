@@ -4,3 +4,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 <a name="0.0.1"></a>
 ## 0.0.1 (2019-02-01)
+
+<a name="0.0.2"></a>
+## 0.0.2 (2019-02-01)
