@@ -1,63 +1,68 @@
-import { readdirSync } from 'fs';
-import path from 'path';
 import babel from 'rollup-plugin-babel';
-import commonjs from 'rollup-plugin-commonjs';
-import external from 'rollup-plugin-peer-deps-external';
-import replace from 'rollup-plugin-replace';
 import resolve from 'rollup-plugin-node-resolve';
+import replace from 'rollup-plugin-replace';
+import commonjs from 'rollup-plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
+import ignore from 'rollup-plugin-ignore';
+import pkg from './package.json';
 
-const CODES = [
-  'THIS_IS_UNDEFINED',
-  'MISSING_GLOBAL_NAME',
-  'CIRCULAR_DEPENDENCY',
-];
+const external = Object.keys(pkg.peerDependencies || {});
+const allExternal = [...external, Object.keys(pkg.dependencies || {})];
+const extensions = ['.ts', '.tsx', '.js', '.jsx', '.json'];
 
-const getChunks = URI =>
-  readdirSync(path.resolve(URI))
-    .filter(x => x.includes('.js'))
-    .reduce((a, c) => ({ ...a, [c.replace('.js', '')]: `src/${c}` }), {});
-
-const discardWarning = warning => {
-  if (CODES.includes(warning.code)) {
-    return;
-  }
-
-  console.error(warning);
-};
-
-const env = process.env.NODE_ENV;
-
-const plugins = [
-  external(),
+const createCommonPlugins = () => [
   babel({
+    extensions,
     exclude: 'node_modules/**',
   }),
-  resolve(),
-  replace({ 'process.env.NODE_ENV': JSON.stringify(env) }),
-  commonjs(),
-  env === 'production' && terser(),
+  commonjs({
+    include: /node_modules/,
+  }),
 ];
 
-export default [
-  {
-    onwarn: discardWarning,
-    input: 'src/index.js',
-    output: {
-      esModule: false,
-      file: 'umd/silky-charts.js',
-      format: 'umd',
-      name: 'silkyCharts',
+const main = {
+  input: 'src/index.js',
+  output: [
+    {
+      file: pkg.main,
+      format: 'cjs',
+      exports: 'named',
     },
-    plugins,
+    {
+      file: pkg.module,
+      format: 'es',
+    },
+  ],
+  external: allExternal,
+  plugins: [...createCommonPlugins(), resolve({ extensions })],
+};
+
+const unpkg = {
+  input: 'src/index.js',
+  output: {
+    name: pkg.name,
+    file: pkg.unpkg,
+    format: 'umd',
+    exports: 'named',
+    globals: {
+      react: 'React',
+      'react-dom': 'ReactDOM',
+      'styled-components': 'styled',
+    },
   },
-  {
-    onwarn: discardWarning,
-    input: getChunks('src'),
-    output: [
-      { dir: 'esm', format: 'esm', sourcemap: true },
-      { dir: 'cjs', format: 'cjs', sourcemap: true },
-    ],
-    plugins,
-  },
-];
+  external,
+  plugins: [
+    ...createCommonPlugins(),
+    ignore(['stream']),
+    terser(),
+    replace({
+      'process.env.NODE_ENV': JSON.stringify('production'),
+    }),
+    resolve({
+      extensions,
+      preferBuiltins: false,
+    }),
+  ],
+};
+
+export default [main, unpkg];
