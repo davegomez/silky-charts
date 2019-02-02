@@ -14,7 +14,6 @@ const CODES = [
 ];
 
 const EXTENSIONS = ['.ts', '.tsx', '.js', '.jsx', '.json'];
-const extensions = ['.ts', '.tsx', '.js', '.jsx', '.json'];
 
 const external = Object.keys(pkg.peerDependencies || {});
 const allExternal = [...external, Object.keys(pkg.dependencies || {})];
