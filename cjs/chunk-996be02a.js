@@ -1,7 +1,5 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
-
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 var React = require('react');
@@ -2885,7 +2883,6 @@ function formatUnixTimestampSeconds(d) {
 }
 
 var locale$1;
-var timeFormat;
 var timeParse;
 var utcFormat;
 var utcParse;
@@ -2903,7 +2900,7 @@ defaultLocale$1({
 
 function defaultLocale$1(definition) {
   locale$1 = formatLocale$1(definition);
-  timeFormat = locale$1.format;
+  exports.timeFormat = locale$1.format;
   timeParse = locale$1.parse;
   utcFormat = locale$1.utcFormat;
   utcParse = locale$1.utcParse;
@@ -3054,7 +3051,7 @@ function calendar(year$$1, month$$1, week, day$$1, hour$$1, minute$$1, second$$1
 }
 
 function d3ScaleTime() {
-  return initRange.apply(calendar(year, month, sunday, day, hour, minute, second, millisecond, timeFormat).domain([new Date(2000, 0, 1), new Date(2000, 0, 2)]), arguments);
+  return initRange.apply(calendar(year, month, sunday, day, hour, minute, second, millisecond, exports.timeFormat).domain([new Date(2000, 0, 1), new Date(2000, 0, 2)]), arguments);
 }
 
 var xhtml = "http://www.w3.org/1999/xhtml";
@@ -13349,471 +13346,59 @@ var TooltipItem = function TooltipItem(_ref2) {
   }), React__default.createElement(Data, null, React__default.createElement(Name, null, type_1(name) === 'Date' && isValid(name) ? format$1(name, dateFormat) : name), React__default.createElement(Value, null, value)));
 };
 
-var Bar = function Bar(_ref) {
-  var _ref$aspectRatio = _ref.aspectRatio,
-      aspectRatio = _ref$aspectRatio === void 0 ? ASPECT_RATIO : _ref$aspectRatio,
-      chartData = _ref.data,
-      _ref$dateFormat = _ref.dateFormat,
-      dateFormat = _ref$dateFormat === void 0 ? TIME_FORMAT : _ref$dateFormat,
-      grid = _ref.grid,
-      _ref$height = _ref.height,
-      svgHeight = _ref$height === void 0 ? undefined : _ref$height,
-      isHorizontal = _ref.isHorizontal,
-      _ref$margin = _ref.margin,
-      margin = _ref$margin === void 0 ? MARGIN : _ref$margin,
-      _ref$onClick = _ref.onClick,
-      onClick = _ref$onClick === void 0 ? identity_1 : _ref$onClick,
-      _ref$onMouseEnter = _ref.onMouseEnter,
-      onMouseEnter = _ref$onMouseEnter === void 0 ? identity_1 : _ref$onMouseEnter,
-      _ref$onMouseLeave = _ref.onMouseLeave,
-      onMouseLeave = _ref$onMouseLeave === void 0 ? identity_1 : _ref$onMouseLeave,
-      _ref$responsive = _ref.responsive,
-      responsive = _ref$responsive === void 0 ? false : _ref$responsive,
-      _ref$theme = _ref.theme,
-      theme = _ref$theme === void 0 ? THEME : _ref$theme,
-      _ref$width = _ref.width,
-      svgWidth = _ref$width === void 0 ? undefined : _ref$width,
-      xAxisLabel = _ref.xAxisLabel,
-      xAxisLabelRotation = _ref.xAxisLabelRotation,
-      _ref$xAxisLabelRotati = _ref.xAxisLabelRotationValue,
-      xAxisLabelRotationValue = _ref$xAxisLabelRotati === void 0 ? ROTATION : _ref$xAxisLabelRotati,
-      _ref$xAxisTicks = _ref.xAxisTicks,
-      xAxisTicks = _ref$xAxisTicks === void 0 ? TICKS : _ref$xAxisTicks,
-      _ref$xScalePadding = _ref.xScalePadding,
-      xScalePadding = _ref$xScalePadding === void 0 ? SCALE_PADDING : _ref$xScalePadding,
-      yAxisLabel = _ref.yAxisLabel,
-      _ref$yAxisTicks = _ref.yAxisTicks,
-      yAxisTicks = _ref$yAxisTicks === void 0 ? TICKS : _ref$yAxisTicks;
-  var svgRef = React.useRef();
-
-  var _useState = React.useState(getId('bar')),
-      _useState2 = _slicedToArray(_useState, 1),
-      id = _useState2[0];
-
-  var timeFormat$$1 = timeFormat(dateFormat);
-
-  var _useState3 = React.useState(SIZE),
-      _useState4 = _slicedToArray(_useState3, 2),
-      _useState4$ = _useState4[0],
-      width = _useState4$.width,
-      height = _useState4$.height,
-      isSizeSet = _useState4$.isSizeSet,
-      setSize = _useState4[1];
-
-  var _setupData = setupData(chartData),
-      _setupData2 = _slicedToArray(_setupData, 2),
-      isDates = _setupData2[0],
-      data = _setupData2[1];
-
-  var xScale = band().domain(data.map(function (_ref2) {
-    var name = _ref2.name;
-    return name;
-  })).range([0, width]).padding(xScalePadding);
-  var yScale = linear$1().domain([0, getMax(data.map(function (_ref3) {
-    var value = _ref3.value;
-    return value;
-  }))]).range([height, 0]);
-
-  var handleSize = function handleSize() {
-    var offsetWidth = svgRef.current.parentElement.offsetWidth;
-
-    if ((svgWidth || svgHeight) && !isSizeSet) {
-      setSize(_objectSpread({}, getSize(svgWidth, svgHeight, margin, aspectRatio), {
-        isSizeSet: true
-      }));
-    } else if (offsetWidth !== svgWidth - (margin.left + margin.right)) {
-      setSize(_objectSpread({}, getSize(offsetWidth, undefined, margin, aspectRatio), {
-        isSizeSet: true
-      }));
-    }
-  };
-
-  var handleResize = debounce$1(handleSize)();
-  React.useEffect(function () {
-    handleSize();
-    responsive && window.addEventListener('resize', handleResize);
-    return function () {
-      responsive && window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-  return React__default.createElement(SVG, {
-    identifier: id,
-    size: {
-      width: svgWidth || width + margin.left + margin.right,
-      height: svgHeight || height + margin.top + margin.bottom
-    },
-    ref: svgRef
-  }, React__default.createElement(MainGroup, {
-    margin: margin
-  }, grid && React__default.createElement(Grid, {
-    ref: function ref(node) {
-      return select(node).call(drawGrid(isHorizontal, xScale, height, yScale, width, xAxisTicks, yAxisTicks));
-    }
-  }), xAxisLabel && React__default.createElement(Label, {
-    axis: "x",
-    margin: margin,
-    width: width,
-    height: height
-  }, xAxisLabel), yAxisLabel && React__default.createElement(Label, {
-    axis: "y",
-    margin: margin,
-    width: width,
-    height: height
-  }, yAxisLabel), React__default.createElement(DataGroup, null, data.map(function (_ref4, idx) {
-    var name = _ref4.name,
-        value = _ref4.value;
-    return React__default.createElement(BarDatum$$1, {
-      key: idx,
-      datum: {
-        name: name,
-        value: value
-      },
-      color: getBaseColor(theme),
-      x: xScale(name),
-      y: yScale(value),
-      width: xScale.bandwidth(),
-      height: height - yScale(value),
-      onClick: onClick,
-      onMouseEnter: onMouseEnter,
-      onMouseLeave: onMouseLeave
-    });
-  })), React__default.createElement(Axis, {
-    axis: "x",
-    position: {
-      x: 0,
-      y: height
-    },
-    ref: function ref(node) {
-      select(node).call(axisBottom(xScale).ticks(yAxisTicks).tickFormat(isDates ? timeFormat$$1 : null));
-      xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
-    }
-  }), React__default.createElement(Axis, {
-    axis: "y",
-    ref: function ref(node) {
-      return select(node).call(axisLeft(yScale).ticks(yAxisTicks));
-    }
-  })));
-};
-
-var BarLine = function BarLine(_ref) {
-  var _ref$aspectRatio = _ref.aspectRatio,
-      aspectRatio = _ref$aspectRatio === void 0 ? ASPECT_RATIO : _ref$aspectRatio,
-      chartData = _ref.data,
-      grid = _ref.grid,
-      _ref$height = _ref.height,
-      svgHeight = _ref$height === void 0 ? undefined : _ref$height,
-      isHorizontal = _ref.isHorizontal,
-      _ref$lineSeries = _ref.lineSeries,
-      lineSeries = _ref$lineSeries === void 0 ? [] : _ref$lineSeries,
-      _ref$lineType = _ref.lineType,
-      lineType = _ref$lineType === void 0 ? LINE_TYPE : _ref$lineType,
-      _ref$lineTypeOption = _ref.lineTypeOption,
-      lineTypeOption = _ref$lineTypeOption === void 0 ? null : _ref$lineTypeOption,
-      _ref$margin = _ref.margin,
-      margin = _ref$margin === void 0 ? MARGIN : _ref$margin,
-      _ref$onClick = _ref.onClick,
-      onClick = _ref$onClick === void 0 ? identity_1 : _ref$onClick,
-      _ref$onMouseEnter = _ref.onMouseEnter,
-      onMouseEnter = _ref$onMouseEnter === void 0 ? identity_1 : _ref$onMouseEnter,
-      _ref$onMouseLeave = _ref.onMouseLeave,
-      onMouseLeave = _ref$onMouseLeave === void 0 ? identity_1 : _ref$onMouseLeave,
-      _ref$responsive = _ref.responsive,
-      responsive = _ref$responsive === void 0 ? false : _ref$responsive,
-      _ref$secondaryTheme = _ref.secondaryTheme,
-      secondaryTheme = _ref$secondaryTheme === void 0 ? SECONDARY_THEME : _ref$secondaryTheme,
-      _ref$stackedSeries = _ref.stackedSeries,
-      stackedSeries = _ref$stackedSeries === void 0 ? [] : _ref$stackedSeries,
-      _ref$theme = _ref.theme,
-      theme = _ref$theme === void 0 ? THEME : _ref$theme,
-      _ref$ticks = _ref.ticks,
-      ticks = _ref$ticks === void 0 ? TICKS : _ref$ticks,
-      _ref$width = _ref.width,
-      svgWidth = _ref$width === void 0 ? undefined : _ref$width,
-      xAxisLabel = _ref.xAxisLabel,
-      xAxisLabelRotation = _ref.xAxisLabelRotation,
-      _ref$xAxisLabelRotati = _ref.xAxisLabelRotationValue,
-      xAxisLabelRotationValue = _ref$xAxisLabelRotati === void 0 ? ROTATION : _ref$xAxisLabelRotati,
-      yAxisLabel = _ref.yAxisLabel;
-  var svgRef = React.useRef();
-
-  var _useState = React.useState(getId('bar-line')),
-      _useState2 = _slicedToArray(_useState, 1),
-      id = _useState2[0];
-
-  var _useState3 = React.useState(SIZE),
-      _useState4 = _slicedToArray(_useState3, 2),
-      _useState4$ = _useState4[0],
-      width = _useState4$.width,
-      height = _useState4$.height,
-      isSizeSet = _useState4$.isSizeSet,
-      setSize = _useState4[1];
-
-  var _useMemo = React.useMemo(function () {
-    return setupData(chartData);
-  }, chartData),
-      _useMemo2 = _slicedToArray(_useMemo, 2),
-      isDates = _useMemo2[0],
-      data = _useMemo2[1];
-
-  var stack = React.useMemo(function () {
-    return buildStack(stackedSeries)(toStackedForm(data));
-  }, data);
-  var xScale = getXScale(isDates ? SCALE_TIME : SCALE_BAND, data, width, true);
-  var yScale = getYScale(SCALE_LINEAR, getMax(getStackedMax(data, stackedSeries)), height);
-  var line$$1 = line().curve(setLineType(lineType, lineTypeOption)).x(function (_ref2) {
-    var name = _ref2.name;
-    return isDates ? xScale(name) : xScale(name) + xScale.bandwidth() / 2;
-  }).y(function (_ref3) {
-    var value = _ref3.value;
-    return yScale(value);
-  });
-  var lineData = getLineDataForSeries(lineSeries, data);
-
-  var handleSize = function handleSize() {
-    var offsetWidth = svgRef.current.parentElement.offsetWidth;
-
-    if ((svgWidth || svgHeight) && !isSizeSet) {
-      setSize(_objectSpread({}, getSize(svgWidth, svgHeight, margin, aspectRatio), {
-        isSizeSet: true
-      }));
-    } else if (offsetWidth !== svgWidth - (margin.left + margin.right)) {
-      setSize(_objectSpread({}, getSize(offsetWidth, undefined, margin, aspectRatio), {
-        isSizeSet: true
-      }));
-    }
-  };
-
-  var handleResize = debounce$1(handleSize)();
-  React.useEffect(function () {
-    handleSize();
-    responsive && window.addEventListener('resize', handleResize);
-    return function () {
-      responsive && window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-  return React__default.createElement(SVG, {
-    identifier: id,
-    size: {
-      width: svgWidth || width + margin.left + margin.right,
-      height: svgHeight || height + margin.top + margin.bottom
-    },
-    ref: svgRef
-  }, React__default.createElement("g", {
-    className: "silky-charts-container",
-    transform: "translate(".concat(margin.left, ", ").concat(margin.top, ")")
-  }, grid && React__default.createElement(Grid, {
-    ref: function ref(node) {
-      return select(node).call(drawGrid(isHorizontal, xScale, height, yScale, width, ticks));
-    }
-  }), xAxisLabel && React__default.createElement(Label, {
-    axis: "x",
-    margin: margin,
-    width: width,
-    height: height
-  }, xAxisLabel), yAxisLabel && React__default.createElement(Label, {
-    axis: "y",
-    margin: margin,
-    width: width,
-    height: height
-  }, yAxisLabel), React__default.createElement(StackedBarDatum, {
-    data: data,
-    series: stack,
-    isDates: isDates,
-    theme: theme,
-    x: xScale,
-    y: yScale,
-    width: width,
-    height: height,
-    onClick: onClick,
-    onMouseEnter: onMouseEnter,
-    onMouseLeave: onMouseLeave
-  }), React__default.createElement(Axis, {
-    axis: "x",
-    position: {
-      x: 0,
-      y: height
-    },
-    ref: function ref(node) {
-      select(node).call(axisBottom(xScale));
-      isDates && extendXPath(id, width);
-      xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
-    }
-  }), React__default.createElement(Axis, {
-    axis: "y",
-    ref: function ref(node) {
-      return select(node).call(axisLeft(yScale).ticks(ticks));
-    }
-  }), lineData.map(function (datum, idx) {
-    return React__default.createElement("g", {
-      className: "".concat(head_1(datum)['series'], "-layer"),
-      key: idx
-    }, React__default.createElement(LineDatum$$1, {
-      chart: "bar-line",
-      data: datum,
-      isDates: isDates,
-      color: palette.themes[secondaryTheme].base[idx],
-      d: line$$1(datum),
-      xScale: xScale,
-      yScale: yScale,
-      onClick: onClick,
-      onMouseEnter: onMouseEnter,
-      onMouseLeave: onMouseLeave
-    }));
-  })));
-};
-
-var StackedArea = function StackedArea(_ref) {
-  var _ref$aspectRatio = _ref.aspectRatio,
-      aspectRatio = _ref$aspectRatio === void 0 ? ASPECT_RATIO : _ref$aspectRatio,
-      chartData = _ref.data,
-      grid = _ref.grid,
-      _ref$height = _ref.height,
-      svgHeight = _ref$height === void 0 ? undefined : _ref$height,
-      isHorizontal = _ref.isHorizontal,
-      _ref$lineSeries = _ref.lineSeries,
-      _ref$lineType = _ref.lineType,
-      lineType = _ref$lineType === void 0 ? LINE_TYPE : _ref$lineType,
-      _ref$lineTypeOption = _ref.lineTypeOption,
-      lineTypeOption = _ref$lineTypeOption === void 0 ? null : _ref$lineTypeOption,
-      _ref$margin = _ref.margin,
-      margin = _ref$margin === void 0 ? MARGIN : _ref$margin,
-      _ref$onClick = _ref.onClick,
-      onClick = _ref$onClick === void 0 ? identity_1 : _ref$onClick,
-      _ref$onMouseEnter = _ref.onMouseEnter,
-      onMouseEnter = _ref$onMouseEnter === void 0 ? identity_1 : _ref$onMouseEnter,
-      _ref$onMouseLeave = _ref.onMouseLeave,
-      onMouseLeave = _ref$onMouseLeave === void 0 ? identity_1 : _ref$onMouseLeave,
-      _ref$responsive = _ref.responsive,
-      responsive = _ref$responsive === void 0 ? false : _ref$responsive,
-      _ref$theme = _ref.theme,
-      theme = _ref$theme === void 0 ? THEME : _ref$theme,
-      _ref$ticks = _ref.ticks,
-      ticks = _ref$ticks === void 0 ? TICKS : _ref$ticks,
-      _ref$width = _ref.width,
-      svgWidth = _ref$width === void 0 ? undefined : _ref$width,
-      xAxisLabel = _ref.xAxisLabel,
-      xAxisLabelRotation = _ref.xAxisLabelRotation,
-      _ref$xAxisLabelRotati = _ref.xAxisLabelRotationValue,
-      xAxisLabelRotationValue = _ref$xAxisLabelRotati === void 0 ? ROTATION : _ref$xAxisLabelRotati,
-      yAxisLabel = _ref.yAxisLabel;
-  var svgRef = React.useRef();
-
-  var _useState = React.useState(getId('stacked-area')),
-      _useState2 = _slicedToArray(_useState, 1),
-      id = _useState2[0];
-
-  var _useState3 = React.useState(SIZE),
-      _useState4 = _slicedToArray(_useState3, 2),
-      _useState4$ = _useState4[0],
-      width = _useState4$.width,
-      height = _useState4$.height,
-      isSizeSet = _useState4$.isSizeSet,
-      setSize = _useState4[1];
-
-  var _useMemo = React.useMemo(function () {
-    return setupData(chartData);
-  }, chartData),
-      _useMemo2 = _slicedToArray(_useMemo, 2),
-      isDates = _useMemo2[0],
-      data = _useMemo2[1];
-
-  data = React.useMemo(function () {
-    return appendStackedValues(buildStack(getSeries(data))(toStackedForm(data)), data);
-  }, data);
-  var xScale = getXScale(isDates ? SCALE_TIME : SCALE_BAND, data, width);
-  var yScale = getYScale(SCALE_LINEAR, getMax(getStackedMax(data)), height);
-  var area$$1 = area().curve(setLineType(lineType, lineTypeOption)).x(function (_ref2) {
-    var name = _ref2.name;
-    return xScale(name);
-  }).y0(function (_ref3) {
-    var stackedValues = _ref3.stackedValues;
-    return yScale(stackedValues[0]);
-  }).y1(function (_ref4) {
-    var stackedValues = _ref4.stackedValues;
-    return yScale(stackedValues[1]);
-  });
-
-  var handleSize = function handleSize() {
-    var offsetWidth = svgRef.current.parentElement.offsetWidth;
-
-    if ((svgWidth || svgHeight) && !isSizeSet) {
-      setSize(_objectSpread({}, getSize(svgWidth, svgHeight, margin, aspectRatio), {
-        isSizeSet: true
-      }));
-    } else if (offsetWidth !== svgWidth - (margin.left + margin.right)) {
-      setSize(_objectSpread({}, getSize(offsetWidth, undefined, margin, aspectRatio), {
-        isSizeSet: true
-      }));
-    }
-  };
-
-  var handleResize = debounce$1(handleSize)();
-  React.useEffect(function () {
-    handleSize();
-    responsive && window.addEventListener('resize', handleResize);
-    return function () {
-      responsive && window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-  return React__default.createElement(SVG, {
-    identifier: id,
-    size: {
-      width: svgWidth || width + margin.left + margin.right,
-      height: svgHeight || height + margin.top + margin.bottom
-    },
-    ref: svgRef
-  }, React__default.createElement("g", {
-    className: "silky-charts-container",
-    transform: "translate(".concat(margin.left, ", ").concat(margin.top, ")")
-  }, grid && React__default.createElement(Grid, {
-    ref: function ref(node) {
-      return select(node).call(drawGrid(isHorizontal, xScale, height, yScale, width, ticks));
-    }
-  }), xAxisLabel && React__default.createElement(Label, {
-    axis: "x",
-    margin: margin,
-    width: width,
-    height: height
-  }, xAxisLabel), yAxisLabel && React__default.createElement(Label, {
-    axis: "y",
-    margin: margin,
-    width: width,
-    height: height
-  }, yAxisLabel), bySeries(data).map(function (_ref5, idx) {
-    var _ref6 = _slicedToArray(_ref5, 2),
-        series = _ref6[0],
-        datum = _ref6[1];
-
-    return React__default.createElement("g", {
-      className: "".concat(classify(series), "-layer"),
-      key: idx
-    }, React__default.createElement(Path$1, {
-      chart: "stacked-area",
-      fillColor: palette.themes[theme].base[idx],
-      d: area$$1(datum),
-      strokeWidth: 0,
-      onClick: onClick,
-      onMouseEnter: onMouseEnter,
-      onMouseLeave: onMouseLeave
-    }));
-  }), React__default.createElement(Axis, {
-    axis: "x",
-    position: {
-      x: 0,
-      y: height
-    },
-    ref: function ref(node) {
-      select(node).call(axisBottom(xScale));
-      xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
-    }
-  }), React__default.createElement(Axis, {
-    axis: "y",
-    ref: function ref(node) {
-      return select(node).call(axisLeft(yScale).ticks(ticks));
-    }
-  })));
-};
-
-exports.Bar = Bar;
-exports.BarLine = BarLine;
-exports.StackedArea = StackedArea;
+exports.getId = getId;
+exports._slicedToArray = _slicedToArray;
+exports.SIZE = SIZE;
+exports.setupData = setupData;
+exports.band = band;
+exports.linear = linear$1;
+exports.getMax = getMax;
+exports.debounce = debounce$1;
+exports.SVG = SVG;
+exports.MainGroup = MainGroup;
+exports.Grid = Grid;
+exports.select = select;
+exports.drawGrid = drawGrid;
+exports.Label = Label;
+exports.DataGroup = DataGroup;
+exports.BarDatum = BarDatum$$1;
+exports.getBaseColor = getBaseColor;
+exports.Axis = Axis;
+exports.axisBottom = axisBottom;
+exports.rotateXLabels = rotateXLabels;
+exports.axisLeft = axisLeft;
+exports.TIME_FORMAT = TIME_FORMAT;
+exports.MARGIN = MARGIN;
+exports.identity = identity_1;
+exports.THEME = THEME;
+exports.ROTATION = ROTATION;
+exports.TICKS = TICKS;
+exports.SCALE_PADDING = SCALE_PADDING;
+exports._objectSpread = _objectSpread;
+exports.getSize = getSize;
+exports.ASPECT_RATIO = ASPECT_RATIO;
+exports.buildStack = buildStack;
+exports.toStackedForm = toStackedForm;
+exports.getXScale = getXScale;
+exports.SCALE_TIME = SCALE_TIME;
+exports.SCALE_BAND = SCALE_BAND;
+exports.getYScale = getYScale;
+exports.SCALE_LINEAR = SCALE_LINEAR;
+exports.getStackedMax = getStackedMax;
+exports.line = line;
+exports.setLineType = setLineType;
+exports.getLineDataForSeries = getLineDataForSeries;
+exports.StackedBarDatum = StackedBarDatum;
+exports.extendXPath = extendXPath;
+exports.head = head_1;
+exports.LineDatum = LineDatum$$1;
+exports.palette = palette;
+exports.LINE_TYPE = LINE_TYPE;
+exports.SECONDARY_THEME = SECONDARY_THEME;
+exports.appendStackedValues = appendStackedValues;
+exports.getSeries = getSeries;
+exports.area = area;
+exports.bySeries = bySeries;
+exports.classify = classify;
+exports.Path = Path$1;
+//# sourceMappingURL=chunk-996be02a.js.map
