@@ -1,7 +1,41 @@
-import { a as getId, b as _slicedToArray, d as SIZE, e as setupData, G as buildStack, H as toStackedForm, I as getXScale, J as SCALE_TIME, K as SCALE_BAND, L as getYScale, M as SCALE_LINEAR, h as getMax, N as getStackedMax, O as line, P as setLineType, Q as getLineDataForSeries, i as debounce, j as SVG, l as Grid, m as select, n as drawGrid, o as Label, R as StackedBarDatum, s as Axis, t as axisBottom, S as extendXPath, u as rotateXLabels, v as axisLeft, T as head, U as LineDatum, V as palette, W as LINE_TYPE, x as MARGIN, y as identity, X as SECONDARY_THEME, z as THEME, B as TICKS, A as ROTATION, D as _objectSpread, E as getSize, F as ASPECT_RATIO } from './chunk-501b9e58.js';
+import { a as getId, b as _slicedToArray, c as SIZE, d as setupData, z as buildStack, A as toStackedForm, B as getXScale, C as SCALE_TIME, D as SCALE_BAND, E as getYScale, F as SCALE_LINEAR, e as getMax, G as getStackedMax, H as setLineType, I as getLineDataForSeries, f as debounce, g as SVG, i as Grid, j as drawGrid, k as Label, J as StackedBarDatum, o as Axis, K as extendXPath, p as rotateXLabels, L as LineDatum, M as palette, N as LINE_TYPE, r as MARGIN, O as SECONDARY_THEME, s as THEME, u as TICKS, t as ROTATION, w as _objectSpread, x as getSize, y as ASPECT_RATIO } from './chunk-23988b07.js';
 import React, { useRef, useState, useMemo, useEffect } from 'react';
+import identity from 'ramda/src/identity';
+import { axisBottom, axisLeft } from 'd3-axis';
+import 'd3-scale';
+import { select } from 'd3-selection';
 import 'styled-components';
 import 'react-dom';
+import { line } from 'd3-shape';
+import 'ramda/src/all';
+import 'ramda/src/compose';
+import 'date-fns';
+import 'ramda/src/groupBy';
+import 'ramda/src/prop';
+import 'ramda/src/toPairs';
+import 'ramda/src/apply';
+import 'ramda/src/curry';
+import 'color';
+import 'ramda/src/length';
+import 'ramda/src/uniq';
+import 'ramda/src/map';
+import 'ramda/src/max';
+import 'ramda/src/filter';
+import 'ramda/src/sum';
+import 'ramda/src/reduce';
+import 'ramda/src/values';
+import 'ramda/src/always';
+import 'ramda/src/cond';
+import 'ramda/src/equals';
+import 'ramda/src/T';
+import 'd3-array';
+import 'ramda/src/flatten';
+import 'ramda/src/omit';
+import 'ramda/src/mergeAll';
+import 'ramda/src/splitEvery';
+import head from 'ramda/src/head';
+import 'ramda/src/last';
+import 'ramda/src/type';
 
 var BarLine = function BarLine(_ref) {
   var _ref$aspectRatio = _ref.aspectRatio,

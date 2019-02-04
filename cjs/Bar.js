@@ -4,11 +4,46 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var __chunk_1 = require('./chunk-996be02a.js');
+var __chunk_1 = require('./chunk-dd9ab4d6.js');
 var React = require('react');
 var React__default = _interopDefault(React);
+var identity = _interopDefault(require('ramda/src/identity'));
+var d3Axis = require('d3-axis');
+var d3Scale = require('d3-scale');
+var d3Selection = require('d3-selection');
+var d3TimeFormat = require('d3-time-format');
 require('styled-components');
 require('react-dom');
+require('d3-shape');
+require('ramda/src/all');
+require('ramda/src/compose');
+require('date-fns');
+require('ramda/src/groupBy');
+require('ramda/src/prop');
+require('ramda/src/toPairs');
+require('ramda/src/apply');
+require('ramda/src/curry');
+require('color');
+require('ramda/src/length');
+require('ramda/src/uniq');
+require('ramda/src/map');
+require('ramda/src/max');
+require('ramda/src/filter');
+require('ramda/src/sum');
+require('ramda/src/reduce');
+require('ramda/src/values');
+require('ramda/src/always');
+require('ramda/src/cond');
+require('ramda/src/equals');
+require('ramda/src/T');
+require('d3-array');
+require('ramda/src/flatten');
+require('ramda/src/omit');
+require('ramda/src/mergeAll');
+require('ramda/src/splitEvery');
+require('ramda/src/head');
+require('ramda/src/last');
+require('ramda/src/type');
 
 var Bar = function Bar(_ref) {
   var _ref$aspectRatio = _ref.aspectRatio,
@@ -23,11 +58,11 @@ var Bar = function Bar(_ref) {
       _ref$margin = _ref.margin,
       margin = _ref$margin === void 0 ? __chunk_1.MARGIN : _ref$margin,
       _ref$onClick = _ref.onClick,
-      onClick = _ref$onClick === void 0 ? __chunk_1.identity : _ref$onClick,
+      onClick = _ref$onClick === void 0 ? identity : _ref$onClick,
       _ref$onMouseEnter = _ref.onMouseEnter,
-      onMouseEnter = _ref$onMouseEnter === void 0 ? __chunk_1.identity : _ref$onMouseEnter,
+      onMouseEnter = _ref$onMouseEnter === void 0 ? identity : _ref$onMouseEnter,
       _ref$onMouseLeave = _ref.onMouseLeave,
-      onMouseLeave = _ref$onMouseLeave === void 0 ? __chunk_1.identity : _ref$onMouseLeave,
+      onMouseLeave = _ref$onMouseLeave === void 0 ? identity : _ref$onMouseLeave,
       _ref$responsive = _ref.responsive,
       responsive = _ref$responsive === void 0 ? false : _ref$responsive,
       _ref$theme = _ref.theme,
@@ -51,7 +86,7 @@ var Bar = function Bar(_ref) {
       _useState2 = __chunk_1._slicedToArray(_useState, 1),
       id = _useState2[0];
 
-  var timeFormat = __chunk_1.timeFormat(dateFormat);
+  var timeFormat = d3TimeFormat.timeFormat(dateFormat);
 
   var _useState3 = React.useState(__chunk_1.SIZE),
       _useState4 = __chunk_1._slicedToArray(_useState3, 2),
@@ -66,11 +101,11 @@ var Bar = function Bar(_ref) {
       isDates = _setupData2[0],
       data = _setupData2[1];
 
-  var xScale = __chunk_1.band().domain(data.map(function (_ref2) {
+  var xScale = d3Scale.scaleBand().domain(data.map(function (_ref2) {
     var name = _ref2.name;
     return name;
   })).range([0, width]).padding(xScalePadding);
-  var yScale = __chunk_1.linear().domain([0, __chunk_1.getMax(data.map(function (_ref3) {
+  var yScale = d3Scale.scaleLinear().domain([0, __chunk_1.getMax(data.map(function (_ref3) {
     var value = _ref3.value;
     return value;
   }))]).range([height, 0]);
@@ -108,7 +143,7 @@ var Bar = function Bar(_ref) {
     margin: margin
   }, grid && React__default.createElement(__chunk_1.Grid, {
     ref: function ref(node) {
-      return __chunk_1.select(node).call(__chunk_1.drawGrid(isHorizontal, xScale, height, yScale, width, xAxisTicks, yAxisTicks));
+      return d3Selection.select(node).call(__chunk_1.drawGrid(isHorizontal, xScale, height, yScale, width, xAxisTicks, yAxisTicks));
     }
   }), xAxisLabel && React__default.createElement(__chunk_1.Label, {
     axis: "x",
@@ -145,13 +180,13 @@ var Bar = function Bar(_ref) {
       y: height
     },
     ref: function ref(node) {
-      __chunk_1.select(node).call(__chunk_1.axisBottom(xScale).ticks(yAxisTicks).tickFormat(isDates ? timeFormat : null));
+      d3Selection.select(node).call(d3Axis.axisBottom(xScale).ticks(yAxisTicks).tickFormat(isDates ? timeFormat : null));
       xAxisLabelRotation && __chunk_1.rotateXLabels(id, xAxisLabelRotationValue);
     }
   }), React__default.createElement(__chunk_1.Axis, {
     axis: "y",
     ref: function ref(node) {
-      return __chunk_1.select(node).call(__chunk_1.axisLeft(yScale).ticks(yAxisTicks));
+      return d3Selection.select(node).call(d3Axis.axisLeft(yScale).ticks(yAxisTicks));
     }
   })));
 };

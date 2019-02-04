@@ -1,7 +1,42 @@
-import { a as getId, b as _slicedToArray, c as timeFormat, d as SIZE, e as setupData, f as band, g as linear, h as getMax, i as debounce, j as SVG, k as MainGroup, l as Grid, m as select, n as drawGrid, o as Label, p as DataGroup, q as BarDatum, r as getBaseColor, s as Axis, t as axisBottom, u as rotateXLabels, v as axisLeft, w as TIME_FORMAT, x as MARGIN, y as identity, z as THEME, A as ROTATION, B as TICKS, C as SCALE_PADDING, D as _objectSpread, E as getSize, F as ASPECT_RATIO } from './chunk-501b9e58.js';
+import { a as getId, b as _slicedToArray, c as SIZE, d as setupData, e as getMax, f as debounce, g as SVG, h as MainGroup, i as Grid, j as drawGrid, k as Label, l as DataGroup, m as BarDatum, n as getBaseColor, o as Axis, p as rotateXLabels, q as TIME_FORMAT, r as MARGIN, s as THEME, t as ROTATION, u as TICKS, v as SCALE_PADDING, w as _objectSpread, x as getSize, y as ASPECT_RATIO } from './chunk-23988b07.js';
 import React, { useRef, useState, useEffect } from 'react';
+import identity from 'ramda/src/identity';
+import { axisBottom, axisLeft } from 'd3-axis';
+import { scaleBand, scaleLinear } from 'd3-scale';
+import { select } from 'd3-selection';
+import { timeFormat } from 'd3-time-format';
 import 'styled-components';
 import 'react-dom';
+import 'd3-shape';
+import 'ramda/src/all';
+import 'ramda/src/compose';
+import 'date-fns';
+import 'ramda/src/groupBy';
+import 'ramda/src/prop';
+import 'ramda/src/toPairs';
+import 'ramda/src/apply';
+import 'ramda/src/curry';
+import 'color';
+import 'ramda/src/length';
+import 'ramda/src/uniq';
+import 'ramda/src/map';
+import 'ramda/src/max';
+import 'ramda/src/filter';
+import 'ramda/src/sum';
+import 'ramda/src/reduce';
+import 'ramda/src/values';
+import 'ramda/src/always';
+import 'ramda/src/cond';
+import 'ramda/src/equals';
+import 'ramda/src/T';
+import 'd3-array';
+import 'ramda/src/flatten';
+import 'ramda/src/omit';
+import 'ramda/src/mergeAll';
+import 'ramda/src/splitEvery';
+import 'ramda/src/head';
+import 'ramda/src/last';
+import 'ramda/src/type';
 
 var Bar = function Bar(_ref) {
   var _ref$aspectRatio = _ref.aspectRatio,
@@ -59,11 +94,11 @@ var Bar = function Bar(_ref) {
       isDates = _setupData2[0],
       data = _setupData2[1];
 
-  var xScale = band().domain(data.map(function (_ref2) {
+  var xScale = scaleBand().domain(data.map(function (_ref2) {
     var name = _ref2.name;
     return name;
   })).range([0, width]).padding(xScalePadding);
-  var yScale = linear().domain([0, getMax(data.map(function (_ref3) {
+  var yScale = scaleLinear().domain([0, getMax(data.map(function (_ref3) {
     var value = _ref3.value;
     return value;
   }))]).range([height, 0]);

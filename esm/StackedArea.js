@@ -1,7 +1,41 @@
-import { a as getId, b as _slicedToArray, d as SIZE, e as setupData, Y as appendStackedValues, G as buildStack, Z as getSeries, H as toStackedForm, I as getXScale, J as SCALE_TIME, K as SCALE_BAND, L as getYScale, M as SCALE_LINEAR, h as getMax, N as getStackedMax, _ as area, P as setLineType, i as debounce, j as SVG, l as Grid, m as select, n as drawGrid, o as Label, $ as bySeries, a0 as classify, a1 as Path, V as palette, s as Axis, t as axisBottom, u as rotateXLabels, v as axisLeft, W as LINE_TYPE, x as MARGIN, y as identity, z as THEME, B as TICKS, A as ROTATION, D as _objectSpread, E as getSize, F as ASPECT_RATIO } from './chunk-501b9e58.js';
+import { a as getId, b as _slicedToArray, c as SIZE, d as setupData, P as appendStackedValues, z as buildStack, Q as getSeries, A as toStackedForm, B as getXScale, C as SCALE_TIME, D as SCALE_BAND, E as getYScale, F as SCALE_LINEAR, e as getMax, G as getStackedMax, H as setLineType, f as debounce, g as SVG, i as Grid, j as drawGrid, k as Label, R as bySeries, S as classify, T as Path, M as palette, o as Axis, p as rotateXLabels, N as LINE_TYPE, r as MARGIN, s as THEME, u as TICKS, t as ROTATION, w as _objectSpread, x as getSize, y as ASPECT_RATIO } from './chunk-23988b07.js';
 import React, { useRef, useState, useMemo, useEffect } from 'react';
+import identity from 'ramda/src/identity';
+import { axisBottom, axisLeft } from 'd3-axis';
+import 'd3-scale';
+import { select } from 'd3-selection';
 import 'styled-components';
 import 'react-dom';
+import { area } from 'd3-shape';
+import 'ramda/src/all';
+import 'ramda/src/compose';
+import 'date-fns';
+import 'ramda/src/groupBy';
+import 'ramda/src/prop';
+import 'ramda/src/toPairs';
+import 'ramda/src/apply';
+import 'ramda/src/curry';
+import 'color';
+import 'ramda/src/length';
+import 'ramda/src/uniq';
+import 'ramda/src/map';
+import 'ramda/src/max';
+import 'ramda/src/filter';
+import 'ramda/src/sum';
+import 'ramda/src/reduce';
+import 'ramda/src/values';
+import 'ramda/src/always';
+import 'ramda/src/cond';
+import 'ramda/src/equals';
+import 'ramda/src/T';
+import 'd3-array';
+import 'ramda/src/flatten';
+import 'ramda/src/omit';
+import 'ramda/src/mergeAll';
+import 'ramda/src/splitEvery';
+import 'ramda/src/head';
+import 'ramda/src/last';
+import 'ramda/src/type';
 
 var StackedArea = function StackedArea(_ref) {
   var _ref$aspectRatio = _ref.aspectRatio,
