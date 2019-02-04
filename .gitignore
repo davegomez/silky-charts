@@ -2,10 +2,13 @@
 
 # dependencies
 /node_modules
-/examples/node_modules
 /.pnp
-/examples/.pnp
 .pnp.js
+/examples/node_modules
+/examples/dist
+/examples/.cache
+/examples/.pnp
+/examples/.pnp.js
 
 # testing
 /coverage
