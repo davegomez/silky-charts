@@ -2,21 +2,18 @@ import { readdirSync } from 'fs';
 import path from 'path';
 import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
+import external from 'rollup-plugin-peer-deps-external';
+import pkg from './package.json';
 import replace from 'rollup-plugin-replace';
 import resolve from 'rollup-plugin-node-resolve';
 import { terser } from 'rollup-plugin-terser';
-import pkg from './package.json';
 
+const EXTENSIONS = ['.ts', '.tsx', '.js', '.jsx', '.json'];
 const CODES = [
   'THIS_IS_UNDEFINED',
   'MISSING_GLOBAL_NAME',
   'CIRCULAR_DEPENDENCY',
 ];
-
-const EXTENSIONS = ['.ts', '.tsx', '.js', '.jsx', '.json'];
-
-const external = Object.keys(pkg.peerDependencies || {});
-const allExternal = [...external, Object.keys(pkg.dependencies || {})];
 
 const getChunks = URI =>
   readdirSync(path.resolve(URI))
@@ -34,6 +31,9 @@ const discardWarning = warning => {
 const env = process.env.NODE_ENV;
 
 const commonPlugins = () => [
+  external({
+    includeDependencies: true,
+  }),
   babel({
     extensions: EXTENSIONS,
     exclude: 'node_modules/**',
@@ -43,7 +43,7 @@ const commonPlugins = () => [
   }),
   replace({ 'process.env.NODE_ENV': JSON.stringify(env) }),
   resolve({
-    extensions,
+    extensions: EXTENSIONS,
     preferBuiltins: false,
   }),
 ];
@@ -64,7 +64,6 @@ export default [
         'styled-components': 'styled',
       },
     },
-    external: allExternal,
     plugins: [...commonPlugins(), env === 'production' && terser()],
   },
   {
@@ -74,7 +73,6 @@ export default [
       { dir: 'esm', format: 'esm', sourcemap: true },
       { dir: 'cjs', format: 'cjs', exports: 'named', sourcemap: true },
     ],
-    external: allExternal,
     plugins: commonPlugins(),
   },
 ];
