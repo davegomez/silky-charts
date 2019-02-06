@@ -632,7 +632,7 @@
     "@babel/plugin-transform-react-jsx-self" "^7.0.0"
     "@babel/plugin-transform-react-jsx-source" "^7.0.0"
 
-"@babel/runtime@^7.0.0":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.2.0":
   version "7.3.1"
   resolved "http://artifactory.aweber.io:80/api/npm/npm/@babel/runtime/-/runtime-7.3.1.tgz#574b03e8e8a9898eaf4a872a92ea20b7846f6f2a"
   integrity sha1-V0sD6OipiY6vSocqkuogt4Rvbyo=
@@ -694,6 +694,58 @@
   resolved "http://artifactory.aweber.io:80/api/npm/npm/@iarna/toml/-/toml-2.2.1.tgz#82d0993d8882bb05e0645fbb4731d9e939e895b3"
   integrity sha1-gtCZPYiCuwXgZF+7RzHZ6TnolbM=
 
+"@material-ui/core@^3.9.2":
+  version "3.9.2"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/@material-ui/core/-/core-3.9.2.tgz#41ed1a470e981d199829eb5d9317a671c66a6f7d"
+  integrity sha1-Qe0aRw6YHRmYKetdkxemccZqb30=
+  dependencies:
+    "@babel/runtime" "^7.2.0"
+    "@material-ui/system" "^3.0.0-alpha.0"
+    "@material-ui/utils" "^3.0.0-alpha.2"
+    "@types/jss" "^9.5.6"
+    "@types/react-transition-group" "^2.0.8"
+    brcast "^3.0.1"
+    classnames "^2.2.5"
+    csstype "^2.5.2"
+    debounce "^1.1.0"
+    deepmerge "^3.0.0"
+    dom-helpers "^3.2.1"
+    hoist-non-react-statics "^3.2.1"
+    is-plain-object "^2.0.4"
+    jss "^9.8.7"
+    jss-camel-case "^6.0.0"
+    jss-default-unit "^8.0.2"
+    jss-global "^3.0.0"
+    jss-nested "^6.0.1"
+    jss-props-sort "^6.0.0"
+    jss-vendor-prefixer "^7.0.0"
+    normalize-scroll-left "^0.1.2"
+    popper.js "^1.14.1"
+    prop-types "^15.6.0"
+    react-event-listener "^0.6.2"
+    react-transition-group "^2.2.1"
+    recompose "0.28.0 - 0.30.0"
+    warning "^4.0.1"
+
+"@material-ui/system@^3.0.0-alpha.0":
+  version "3.0.0-alpha.2"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/@material-ui/system/-/system-3.0.0-alpha.2.tgz#096e80c8bb0f70aea435b9e38ea7749ee77b4e46"
+  integrity sha1-CW6AyLsPcK6kNbnjjqd0nud7TkY=
+  dependencies:
+    "@babel/runtime" "^7.2.0"
+    deepmerge "^3.0.0"
+    prop-types "^15.6.0"
+    warning "^4.0.1"
+
+"@material-ui/utils@^3.0.0-alpha.2":
+  version "3.0.0-alpha.3"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/@material-ui/utils/-/utils-3.0.0-alpha.3.tgz#836c62ea46f5ffc6f0b5ea05ab814704a86908b1"
+  integrity sha1-g2xi6kb1/8bwteoFq4FHBKhpCLE=
+  dependencies:
+    "@babel/runtime" "^7.2.0"
+    prop-types "^15.6.0"
+    react-is "^16.6.3"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "http://artifactory.aweber.io:80/api/npm/npm/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -748,15 +800,43 @@
     "@parcel/utils" "^1.11.0"
     physical-cpu-count "^2.0.0"
 
+"@types/jss@^9.5.6":
+  version "9.5.7"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/@types/jss/-/jss-9.5.7.tgz#fa57a6d0b38a3abef8a425e3eb6a53495cb9d5a0"
+  integrity sha1-+lem0LOKOr74pCXj62pTSVy51aA=
+  dependencies:
+    csstype "^2.0.0"
+    indefinite-observable "^1.0.1"
+
 "@types/node@^10.11.7":
   version "10.12.21"
   resolved "http://artifactory.aweber.io:80/api/npm/npm/@types/node/-/node-10.12.21.tgz#7e8a0c34cf29f4e17a36e9bd0ea72d45ba03908e"
   integrity sha1-fooMNM8p9OF6Num9DqctRboDkI4=
 
+"@types/prop-types@*":
+  version "15.5.8"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/@types/prop-types/-/prop-types-15.5.8.tgz#8ae4e0ea205fe95c3901a5a1df7f66495e3a56ce"
+  integrity sha1-iuTg6iBf6Vw5AaWh339mSV46Vs4=
+
 "@types/q@^1.5.1":
   version "1.5.1"
   resolved "http://artifactory.aweber.io:80/api/npm/npm/@types/q/-/q-1.5.1.tgz#48fd98c1561fe718b61733daed46ff115b496e18"
   integrity sha1-SP2YwVYf5xi2FzPa7Ub/EVtJbhg=
+
+"@types/react-transition-group@^2.0.8":
+  version "2.0.15"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/@types/react-transition-group/-/react-transition-group-2.0.15.tgz#e5ee3fe558832e141cc6041bdd54caea7b787af8"
+  integrity sha1-5e4/5ViDLhQcxgQb3VTK6nt4evg=
+  dependencies:
+    "@types/react" "*"
+
+"@types/react@*":
+  version "16.8.1"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/@types/react/-/react-16.8.1.tgz#b431b104ecc6febda170b718caa9f50be66a6750"
+  integrity sha1-tDGxBOzG/r2hcLcYyqn1C+ZqZ1A=
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^2.2.0"
 
 "@types/semver@^5.5.0":
   version "5.5.0"
@@ -1022,6 +1102,11 @@ braces@^2.3.0, braces@^2.3.1:
     split-string "^3.0.2"
     to-regex "^3.0.1"
 
+brcast@^3.0.1:
+  version "3.0.1"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/brcast/-/brcast-3.0.1.tgz#6256a8349b20de9eed44257a9b24d71493cd48dd"
+  integrity sha1-YlaoNJsg3p7tRCV6myTXFJPNSN0=
+
 brfs@^1.2.0:
   version "1.6.1"
   resolved "http://artifactory.aweber.io:80/api/npm/npm/brfs/-/brfs-1.6.1.tgz#b78ce2336d818e25eea04a0947cba6d4fb8849c3"
@@ -1236,6 +1321,11 @@ chalk@^2.0.0, chalk@^2.0.1, chalk@^2.1.0, chalk@^2.3.1, chalk@^2.4.1, chalk@^2.4
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
+change-emitter@^0.1.2:
+  version "0.1.6"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/change-emitter/-/change-emitter-0.1.6.tgz#e8b2fe3d7f1ab7d69a32199aff91ea6931409515"
+  integrity sha1-6LL+PX8at9aaMhma/5HqaTFAlRU=
+
 chokidar@^2.0.3:
   version "2.0.4"
   resolved "http://artifactory.aweber.io:80/api/npm/npm/chokidar/-/chokidar-2.0.4.tgz#356ff4e2b0e8e43e322d18a372460bbcf3accd26"
@@ -1285,6 +1375,11 @@ class-utils@^0.3.5:
     define-property "^0.2.5"
     isobject "^3.0.0"
     static-extend "^0.1.1"
+
+classnames@^2.2.5:
+  version "2.2.6"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
+  integrity sha1-Q5Nb/90pHzJtrQogUwmzjQD2UM4=
 
 cli-cursor@^2.1.0:
   version "2.1.0"
@@ -1653,6 +1748,13 @@ css-url-regex@^1.1.0:
   resolved "http://artifactory.aweber.io:80/api/npm/npm/css-url-regex/-/css-url-regex-1.1.0.tgz#83834230cc9f74c457de59eebd1543feeb83b7ec"
   integrity sha1-g4NCMMyfdMRX3lnuvRVD/uuDt+w=
 
+css-vendor@^0.3.8:
+  version "0.3.8"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/css-vendor/-/css-vendor-0.3.8.tgz#6421cfd3034ce664fe7673972fd0119fc28941fa"
+  integrity sha1-ZCHP0wNM5mT+dnOXL9ARn8KJQfo=
+  dependencies:
+    is-in-browser "^1.0.2"
+
 css-what@^2.1.2:
   version "2.1.2"
   resolved "http://artifactory.aweber.io:80/api/npm/npm/css-what/-/css-what-2.1.2.tgz#c0876d9d0480927d7d4920dcd72af3595649554d"
@@ -1784,6 +1886,11 @@ csso@~2.3.1:
     clap "^1.0.9"
     source-map "^0.5.3"
 
+csstype@^2.0.0, csstype@^2.2.0, csstype@^2.5.2:
+  version "2.6.2"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/csstype/-/csstype-2.6.2.tgz#3043d5e065454579afc7478a18de41909c8a2f01"
+  integrity sha1-MEPV4GVFRXmvx0eKGN5BkJyKLwE=
+
 d3-array@^1.2.0:
   version "1.2.4"
   resolved "http://artifactory.aweber.io:80/api/npm/npm/d3-array/-/d3-array-1.2.4.tgz#635ce4d5eea759f6f605863dbcfc30edc737f71f"
@@ -1907,6 +2014,11 @@ deasync@^0.1.14:
     bindings "~1.2.1"
     node-addon-api "^1.6.0"
 
+debounce@^1.1.0:
+  version "1.2.0"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/debounce/-/debounce-1.2.0.tgz#44a540abc0ea9943018dc0eaa95cce87f65cd131"
+  integrity sha1-RKVAq8DqmUMBjcDqqVzOh/Zc0TE=
+
 debug@2.6.9, debug@^2.1.2, debug@^2.2.0, debug@^2.3.3:
   version "2.6.9"
   resolved "http://artifactory.aweber.io:80/api/npm/npm/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
@@ -1940,6 +2052,11 @@ deep-is@~0.1.3:
   version "0.1.3"
   resolved "http://artifactory.aweber.io:80/api/npm/npm/deep-is/-/deep-is-0.1.3.tgz#b369d6fb5dbc13eecf524f91b070feedc357cf34"
   integrity sha1-s2nW+128E+7PUk+RsHD+7cNXzzQ=
+
+deepmerge@^3.0.0:
+  version "3.1.0"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/deepmerge/-/deepmerge-3.1.0.tgz#a612626ce4803da410d77554bfd80361599c034d"
+  integrity sha1-phJibOSAPaQQ13VUv9gDYVmcA00=
 
 defaults@^1.0.3:
   version "1.0.3"
@@ -2018,6 +2135,13 @@ diffie-hellman@^5.0.0:
     bn.js "^4.1.0"
     miller-rabin "^4.0.0"
     randombytes "^2.0.0"
+
+dom-helpers@^3.2.1, dom-helpers@^3.3.1:
+  version "3.4.0"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/dom-helpers/-/dom-helpers-3.4.0.tgz#e9b369700f959f62ecde5a6babde4bccd9169af8"
+  integrity sha1-6bNpcA+Vn2Ls3lprq95LzNkWmvg=
+  dependencies:
+    "@babel/runtime" "^7.1.2"
 
 dom-serializer@0:
   version "0.1.0"
@@ -2327,7 +2451,7 @@ fast-levenshtein@~2.0.4:
   resolved "http://artifactory.aweber.io:80/api/npm/npm/fast-levenshtein/-/fast-levenshtein-2.0.6.tgz#3d8a5c66883a16a30ca8643e851f19baa7797917"
   integrity sha1-PYpcZog6FqMMqGQ+hR8Zuqd5eRc=
 
-fbjs@^0.8.5:
+fbjs@^0.8.1, fbjs@^0.8.5:
   version "0.8.17"
   resolved "http://artifactory.aweber.io:80/api/npm/npm/fbjs/-/fbjs-0.8.17.tgz#c4d598ead6949112653d6588b01a5cdcd9f90fdd"
   integrity sha1-xNWY6taUkRJlPWWIsBpc3Nn5D90=
@@ -2588,6 +2712,18 @@ hmac-drbg@^1.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
 
+hoist-non-react-statics@^2.3.1:
+  version "2.5.5"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
+  integrity sha1-xZA89AnA39kI84jmGdhrnBF0y0c=
+
+hoist-non-react-statics@^3.2.1:
+  version "3.3.0"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/hoist-non-react-statics/-/hoist-non-react-statics-3.3.0.tgz#b09178f0122184fb95acf525daaecb4d8f45958b"
+  integrity sha1-sJF48BIhhPuVrPUl2q7LTY9FlYs=
+  dependencies:
+    react-is "^16.7.0"
+
 hsl-regex@^1.0.0:
   version "1.0.0"
   resolved "http://artifactory.aweber.io:80/api/npm/npm/hsl-regex/-/hsl-regex-1.0.0.tgz#d49330c789ed819e276a4c0d272dffa30b18fe6e"
@@ -2642,6 +2778,11 @@ https-browserify@^1.0.0:
   resolved "http://artifactory.aweber.io:80/api/npm/npm/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
   integrity sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=
 
+hyphenate-style-name@^1.0.2:
+  version "1.0.3"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/hyphenate-style-name/-/hyphenate-style-name-1.0.3.tgz#097bb7fa0b8f1a9cf0bd5c734cf95899981a9b48"
+  integrity sha1-CXu3+guPGpzwvVxzTPlYmZgam0g=
+
 iconv-lite@^0.4.4, iconv-lite@~0.4.13:
   version "0.4.24"
   resolved "http://artifactory.aweber.io:80/api/npm/npm/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"
@@ -2668,6 +2809,13 @@ import-fresh@^2.0.0:
   dependencies:
     caller-path "^2.0.0"
     resolve-from "^3.0.0"
+
+indefinite-observable@^1.0.1:
+  version "1.0.2"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/indefinite-observable/-/indefinite-observable-1.0.2.tgz#0a328793ab2385d4b9dca23eaab4afe6936a73f8"
+  integrity sha1-CjKHk6sjhdS53KI+qrSv5pNqc/g=
+  dependencies:
+    symbol-observable "1.2.0"
 
 indexes-of@^1.0.1:
   version "1.0.1"
@@ -2857,6 +3005,11 @@ is-glob@^4.0.0:
   dependencies:
     is-extglob "^2.1.1"
 
+is-in-browser@^1.0.2, is-in-browser@^1.1.3:
+  version "1.1.3"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/is-in-browser/-/is-in-browser-1.1.3.tgz#56ff4db683a078c6082eb95dad7dc62e1d04f835"
+  integrity sha1-Vv9NtoOgeMYILrldrX3GLh0E+DU=
+
 is-number@^3.0.0:
   version "3.0.0"
   resolved "http://artifactory.aweber.io:80/api/npm/npm/is-number/-/is-number-3.0.0.tgz#24fd6201a4782cf50561c810276afc7d12d71195"
@@ -3040,6 +3193,51 @@ json5@^2.1.0:
   dependencies:
     minimist "^1.2.0"
 
+jss-camel-case@^6.0.0:
+  version "6.1.0"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/jss-camel-case/-/jss-camel-case-6.1.0.tgz#ccb1ff8d6c701c02a1fed6fb6fb6b7896e11ce44"
+  integrity sha1-zLH/jWxwHAKh/tb7b7a3iW4RzkQ=
+  dependencies:
+    hyphenate-style-name "^1.0.2"
+
+jss-default-unit@^8.0.2:
+  version "8.0.2"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/jss-default-unit/-/jss-default-unit-8.0.2.tgz#cc1e889bae4c0b9419327b314ab1c8e2826890e6"
+  integrity sha1-zB6Im65MC5QZMnsxSrHI4oJokOY=
+
+jss-global@^3.0.0:
+  version "3.0.0"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/jss-global/-/jss-global-3.0.0.tgz#e19e5c91ab2b96353c227e30aa2cbd938cdaafa2"
+  integrity sha1-4Z5ckasrljU8In4wqiy9k4zar6I=
+
+jss-nested@^6.0.1:
+  version "6.0.1"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/jss-nested/-/jss-nested-6.0.1.tgz#ef992b79d6e8f63d939c4397b9d99b5cbbe824ca"
+  integrity sha1-75kredbo9j2TnEOXudmbXLvoJMo=
+  dependencies:
+    warning "^3.0.0"
+
+jss-props-sort@^6.0.0:
+  version "6.0.0"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/jss-props-sort/-/jss-props-sort-6.0.0.tgz#9105101a3b5071fab61e2d85ea74cc22e9b16323"
+  integrity sha1-kQUQGjtQcfq2Hi2F6nTMIumxYyM=
+
+jss-vendor-prefixer@^7.0.0:
+  version "7.0.0"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/jss-vendor-prefixer/-/jss-vendor-prefixer-7.0.0.tgz#0166729650015ef19d9f02437c73667231605c71"
+  integrity sha1-AWZyllABXvGdnwJDfHNmcjFgXHE=
+  dependencies:
+    css-vendor "^0.3.8"
+
+jss@^9.8.7:
+  version "9.8.7"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/jss/-/jss-9.8.7.tgz#ed9763fc0f2f0260fc8260dac657af61e622ce05"
+  integrity sha1-7Zdj/A8vAmD8gmDaxlevYeYizgU=
+  dependencies:
+    is-in-browser "^1.1.3"
+    symbol-observable "^1.1.0"
+    warning "^3.0.0"
+
 kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
   version "3.2.2"
   resolved "http://artifactory.aweber.io:80/api/npm/npm/kind-of/-/kind-of-3.2.2.tgz#31ea21a734bab9bbb0f32466d893aea51e4a3c64"
@@ -3119,7 +3317,7 @@ log-symbols@^2.2.0:
   dependencies:
     chalk "^2.0.1"
 
-loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1:
+loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1, loose-envify@^1.4.0:
   version "1.4.0"
   resolved "http://artifactory.aweber.io:80/api/npm/npm/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
   integrity sha1-ce5R+nvkyuwaY4OffmgtgTLTDK8=
@@ -3434,6 +3632,11 @@ normalize-range@^0.1.2:
   version "0.1.2"
   resolved "http://artifactory.aweber.io:80/api/npm/npm/normalize-range/-/normalize-range-0.1.2.tgz#2d10c06bdfd312ea9777695a4d28439456b75942"
   integrity sha1-LRDAa9/TEuqXd2laTShDlFa3WUI=
+
+normalize-scroll-left@^0.1.2:
+  version "0.1.2"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/normalize-scroll-left/-/normalize-scroll-left-0.1.2.tgz#6b79691ba79eb5fb107fa5edfbdc06b55caee2aa"
+  integrity sha1-a3lpG6eetfsQf6Xt+9wGtVyu4qo=
 
 normalize-url@^1.4.0:
   version "1.9.1"
@@ -3823,6 +4026,11 @@ physical-cpu-count@^2.0.0:
   version "2.0.0"
   resolved "http://artifactory.aweber.io:80/api/npm/npm/physical-cpu-count/-/physical-cpu-count-2.0.0.tgz#18de2f97e4bf7a9551ad7511942b5496f7aba660"
   integrity sha1-GN4vl+S/epVRrXURlCtUlverpmA=
+
+popper.js@^1.14.1:
+  version "1.14.7"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/popper.js/-/popper.js-1.14.7.tgz#e31ec06cfac6a97a53280c3e55e4e0c860e7738e"
+  integrity sha1-4x7AbPrGqXpTKAw+VeTgyGDnc44=
 
 posix-character-classes@^0.1.0:
   version "0.1.1"
@@ -4406,7 +4614,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.4, prop-types@^15.6.2:
+prop-types@^15.5.4, prop-types@^15.6.0, prop-types@^15.6.2:
   version "15.6.2"
   resolved "http://artifactory.aweber.io:80/api/npm/npm/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
   integrity sha1-BdXKd7RFPphdYPx/+MhZCUpJcQI=
@@ -4521,30 +4729,54 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-dom@^16.8.0-alpha.1:
-  version "16.8.0-alpha.1"
-  resolved "http://artifactory.aweber.io:80/api/npm/npm/react-dom/-/react-dom-16.8.0-alpha.1.tgz#dab73b8354ba2e498e3127d18e29d4546cea889e"
-  integrity sha1-2rc7g1S6LkmOMSfRjinUVGzqiJ4=
+react-dom@^16.8.0:
+  version "16.8.0"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/react-dom/-/react-dom-16.8.0.tgz#18f28d4be3571ed206672a267c66dd083145a9c4"
+  integrity sha1-GPKNS+NXHtIGZyomfGbdCDFFqcQ=
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.13.0-alpha.1"
+    scheduler "^0.13.0"
 
-react-is@^16.6.0:
+react-event-listener@^0.6.2:
+  version "0.6.6"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/react-event-listener/-/react-event-listener-0.6.6.tgz#758f7b991cad9086dd39fd29fad72127e1d8962a"
+  integrity sha1-dY97mRytkIbdOf0p+tchJ+HYlio=
+  dependencies:
+    "@babel/runtime" "^7.2.0"
+    prop-types "^15.6.0"
+    warning "^4.0.1"
+
+react-is@^16.6.0, react-is@^16.6.3, react-is@^16.7.0:
   version "16.7.0"
   resolved "http://artifactory.aweber.io:80/api/npm/npm/react-is/-/react-is-16.7.0.tgz#c1bd21c64f1f1364c6f70695ec02d69392f41bfa"
   integrity sha1-wb0hxk8fE2TG9waV7ALWk5L0G/o=
 
-react@^16.8.0-alpha.1:
-  version "16.8.0-alpha.1"
-  resolved "http://artifactory.aweber.io:80/api/npm/npm/react/-/react-16.8.0-alpha.1.tgz#c2b32689f3b466d3ce85a634dd9035f789d2cd97"
-  integrity sha1-wrMmifO0ZtPOhaY03ZA194nSzZc=
+react-lifecycles-compat@^3.0.2, react-lifecycles-compat@^3.0.4:
+  version "3.0.4"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
+  integrity sha1-TxonOv38jzSIqMUWv9p4+HI1I2I=
+
+react-transition-group@^2.2.1:
+  version "2.5.3"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/react-transition-group/-/react-transition-group-2.5.3.tgz#26de363cab19e5c88ae5dbae105c706cf953bb92"
+  integrity sha1-Jt42PKsZ5ciK5duuEFxwbPlTu5I=
+  dependencies:
+    dom-helpers "^3.3.1"
+    loose-envify "^1.4.0"
+    prop-types "^15.6.2"
+    react-lifecycles-compat "^3.0.4"
+
+react@^16.8.0:
+  version "16.8.0"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/react/-/react-16.8.0.tgz#8533f0e4af818f448a276eae71681d09e8dd970a"
+  integrity sha1-hTPw5K+Bj0SKJ26ucWgdCejdlwo=
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.13.0-alpha.1"
+    scheduler "^0.13.0"
 
 readable-stream@^2.0.2, readable-stream@^2.0.6, readable-stream@^2.2.2, readable-stream@^2.3.3, readable-stream@^2.3.6, readable-stream@~2.3.3, readable-stream@~2.3.6:
   version "2.3.6"
@@ -4576,6 +4808,18 @@ readdirp@^2.0.0:
     graceful-fs "^4.1.11"
     micromatch "^3.1.10"
     readable-stream "^2.0.2"
+
+"recompose@0.28.0 - 0.30.0":
+  version "0.30.0"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/recompose/-/recompose-0.30.0.tgz#82773641b3927e8c7d24a0d87d65aeeba18aabd0"
+  integrity sha1-gnc2QbOSfox9JKDYfWWu66GKq9A=
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    change-emitter "^0.1.2"
+    fbjs "^0.8.1"
+    hoist-non-react-statics "^2.3.1"
+    react-lifecycles-compat "^3.0.2"
+    symbol-observable "^1.0.4"
 
 reduce-css-calc@^1.2.6:
   version "1.3.0"
@@ -4772,10 +5016,10 @@ sax@^1.2.4, sax@~1.2.1, sax@~1.2.4:
   resolved "http://artifactory.aweber.io:80/api/npm/npm/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
   integrity sha1-KBYjTiN4vdxOU1T6tcqold9xANk=
 
-scheduler@^0.13.0-alpha.1:
-  version "0.13.0-alpha.1"
-  resolved "http://artifactory.aweber.io:80/api/npm/npm/scheduler/-/scheduler-0.13.0-alpha.1.tgz#753977fb4fb35d8cdd559868a11e46b640955556"
-  integrity sha1-dTl3+0+zXYzdVZhooR5GtkCVVVY=
+scheduler@^0.13.0:
+  version "0.13.0"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/scheduler/-/scheduler-0.13.0.tgz#e701f62e1b3e78d2bbb264046d4e7260f12184dd"
+  integrity sha1-5wH2Lhs+eNK7smQEbU5yYPEhhN0=
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -5223,6 +5467,11 @@ svgo@^1.0.0, svgo@^1.0.5:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
+symbol-observable@1.2.0, symbol-observable@^1.0.4, symbol-observable@^1.1.0:
+  version "1.2.0"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
+  integrity sha1-wiaIrtTqs83C3+rLtWFmBWCgCAQ=
+
 tar@^4:
   version "4.4.8"
   resolved "http://artifactory.aweber.io:80/api/npm/npm/tar/-/tar-4.4.8.tgz#b19eec3fde2a96e64666df9fdb40c5ca1bc3747d"
@@ -5472,6 +5721,20 @@ vm-browserify@0.0.4:
   integrity sha1-XX6kW7755Kb/ZflUOOCofDV9WnM=
   dependencies:
     indexof "0.0.1"
+
+warning@^3.0.0:
+  version "3.0.0"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/warning/-/warning-3.0.0.tgz#32e5377cb572de4ab04753bdf8821c01ed605b7c"
+  integrity sha1-MuU3fLVy3kqwR1O9+IIcAe1gW3w=
+  dependencies:
+    loose-envify "^1.0.0"
+
+warning@^4.0.1:
+  version "4.0.2"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/warning/-/warning-4.0.2.tgz#aa6876480872116fa3e11d434b0d0d8d91e44607"
+  integrity sha1-qmh2SAhyEW+j4R1DSw0NjZHkRgc=
+  dependencies:
+    loose-envify "^1.0.0"
 
 wcwidth@^1.0.1:
   version "1.0.1"

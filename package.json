@@ -41,7 +41,7 @@
     "@babel/preset-react": "^7.0.0",
     "cross-env": "^5.2.0",
     "jest-styled-components": "^6.3.1",
-    "react-test-renderer": "^16.8.0-alpha.1",
+    "react-test-renderer": "^16.8.0",
     "rimraf": "^2.6.3",
     "rollup": "^1.1.2",
     "rollup-plugin-babel": "^4.3.2",
@@ -53,8 +53,8 @@
     "standard-version": "^4.4.0"
   },
   "peerDependencies": {
-    "react": "^16.8.0-alpha.1",
-    "react-dom": "^16.8.0-alpha.1",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
     "styled-components": "^4.1.3"
   },
   "repository": {

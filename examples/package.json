@@ -9,9 +9,10 @@
     "build": "parcel build src/index.html"
   },
   "dependencies": {
+    "@material-ui/core": "^3.9.2",
     "normalize.css": "^8.0.1",
-    "react": "^16.8.0-alpha.1",
-    "react-dom": "^16.8.0-alpha.1",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
     "silky-charts": "Link..",
     "styled-components": "^4.1.3"
   },
