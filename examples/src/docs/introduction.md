@@ -4,7 +4,7 @@ A silky smooth D3/React chart library
 
 ### Features
 
-- Full React (not a wrapper)
+- Full React implementation (not a wrapper)
 - Tree shaking and code splitting support
 - Small and fast
 - Customizable and easy to style
