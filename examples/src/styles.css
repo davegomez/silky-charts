@@ -1,4 +1,7 @@
 :root {
+  --color-black: rgb(0, 0, 0);
+  --color-white: rgb(255, 255, 255);
+
   --color-red: rgb(255, 59, 48);
   --color-red-alpha: rgba(255, 59, 48, 0.1);
   --color-orange: rgb(255, 149, 0);
@@ -34,19 +37,14 @@ html {
 body {
   color: var(--primary-text);
   font-family: Roboto, Helvetica, Arial, 'sans-serif';
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 h1,
 h2,
 h3 {
   font-weight: 500;
-}
-
-a,
-a:visited,
-a:hover,
-a:active {
-  color: inherit;
 }
 
 code,

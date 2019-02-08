@@ -1,7 +1,3 @@
-## Getting Started with Silky Charts
-
-A silky smooth D3/React chart library
-
 ### Features
 
 - Full React implementation (not a wrapper)

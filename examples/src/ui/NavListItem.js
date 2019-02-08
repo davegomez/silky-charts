@@ -3,14 +3,14 @@ import styled from 'styled-components';
 const ListItem = styled.li`
   background-color: ${({ isActive }) => (isActive ? 'rgba(0, 122, 255)' : '')};
   color: var(--complement-text);
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 300;
-  padding: 16px 10px 16px 20px;
+  padding: 10px 10px 10px 20px;
   width: 100%;
 
   :hover {
     background-color: ${({ isActive }) =>
-      !isActive ? 'rgb(88, 86, 214)' : ''};
+      !isActive ? 'var(--color-blue)' : ''};
     cursor: ${({ isActive }) => (!isActive ? 'pointer' : '')};
   }
 `;
