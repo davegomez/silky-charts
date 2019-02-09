@@ -152,7 +152,7 @@ test('render correctly width horizontal grid', () => {
 });
 
 test('render correctly width vertical grid', () => {
-  const tree = create(<BarLine data={data} grid isHorizontal />, {
+  const tree = create(<BarLine data={data} grid horizontal />, {
     createNodeMock,
   }).toJSON();
   expect(tree).toMatchSnapshot();

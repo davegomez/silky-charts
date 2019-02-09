@@ -61,7 +61,7 @@ test('render correctly width horizontal grid', () => {
 });
 
 test('render correctly width vertical grid', () => {
-  const tree = create(<StackedArea data={data} grid isHorizontal />, {
+  const tree = create(<StackedArea data={data} grid horizontal />, {
     createNodeMock,
   }).toJSON();
   expect(tree).toMatchSnapshot();

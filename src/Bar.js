@@ -43,7 +43,7 @@ const Bar = ({
   dateFormat = TIME_FORMAT,
   grid,
   height: svgHeight = undefined,
-  isHorizontal,
+  horizontal,
   margin = MARGIN,
   onClick = identity,
   onMouseEnter = identity,
@@ -115,7 +115,7 @@ const Bar = ({
             ref={node =>
               d3Select(node).call(
                 drawGrid(
-                  isHorizontal,
+                  horizontal,
                   xScale,
                   height,
                   yScale,

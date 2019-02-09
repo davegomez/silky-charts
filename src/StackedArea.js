@@ -42,7 +42,7 @@ const StackedArea = ({
   data: chartData,
   grid,
   height: svgHeight = undefined,
-  isHorizontal,
+  horizontal,
   lineSeries = [],
   lineType = LINE_TYPE,
   lineTypeOption = null,
@@ -124,7 +124,7 @@ const StackedArea = ({
           <Grid
             ref={node =>
               d3Select(node).call(
-                drawGrid(isHorizontal, xScale, height, yScale, width, ticks)
+                drawGrid(horizontal, xScale, height, yScale, width, ticks)
               )
             }
           />
