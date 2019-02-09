@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Introduction from '../docs/introduction.md';
-import { InlineCode, Pre } from '../ui';
+import Introduction from '../markdown/introduction.md';
+import { InlineCode, Pre } from '../ui/code';
 
 const Title = styled.h2`
   margin-bottom: 0;

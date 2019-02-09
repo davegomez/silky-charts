@@ -2,11 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import pkg from '../../../package.json';
 
-const borderColor = 'rgba(0, 0, 0, 0.1)';
-
 const Container = styled.div`
   align-items: center;
-  border-bottom: 1px solid ${borderColor};
+  border-bottom: 1px solid var(--color-border);
   display: flex;
   grid-area: header;
   justify-content: space-between;
@@ -43,7 +41,7 @@ const Icon = styled.i.attrs({
 `;
 
 const Version = styled.span`
-  border: 1px solid ${borderColor};
+  border: 1px solid var(--color-border);
   border-radius: 4px;
   color: var(--secondary-text);
   font-size: 14px;
