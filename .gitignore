@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 /docs/node_modules
+/docs/dist
 /docs/.cache
 /docs/.pnp
 /docs/.pnp.js

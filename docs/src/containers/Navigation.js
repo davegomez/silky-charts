@@ -31,17 +31,17 @@ const ListItem = styled.li`
   }
 `;
 
-const Navigation = ({ items, initialPath }) => {
-  const [active, setActive] = useState(initialPath);
+const Navigation = ({ items, baseURL, initial }) => {
+  const [active, setActive] = useState(initial);
 
   return (
     <Container>
       <List>
-        {items.map(({ title, pathname }, idx) => (
-          <Link key={idx} to={pathname}>
+        {items.map(({ title, path }, idx) => (
+          <Link key={idx} to={`${baseURL}${path}`}>
             <ListItem
-              isActive={active === pathname}
-              onClick={() => setActive(pathname)}
+              isActive={active === path}
+              onClick={() => setActive(path)}
             >
               {title}
             </ListItem>

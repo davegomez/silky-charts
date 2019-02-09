@@ -12,13 +12,15 @@ import 'normalize.css';
 import './styles.css';
 
 const App = () => {
+  const baseURL = '/silky-charts';
   const pathname = window.location.pathname;
-  const defaultPath = '/';
-  const currentPath =
-    pathname !== defaultPath ? pathname.replace(defaultPath, '') : pathname;
-  const isInvalidPath = !pages
-    .map(({ pathname }) => pathname)
-    .includes(currentPath);
+  const currentPath = pathname.includes(baseURL)
+    ? pathname.replace(baseURL, '')
+    : '/';
+  const isValidPathname =
+    currentPath && pages.map(({ path }) => path).includes(currentPath);
+
+  console.log(currentPath);
 
   const contentComponents = {
     Introduction,
@@ -30,25 +32,20 @@ const App = () => {
       <Header />
       <Navigation
         items={pages}
-        initialPath={isInvalidPath ? defaultPath : currentPath}
+        baseURL={baseURL}
+        initial={isValidPathname ? currentPath : '/'}
       />
-      <Content>
-        <Router>
-          {isInvalidPath && (
-            <Redirect from={currentPath} to={defaultPath} noThrow />
-          )}
-          {pages.map(({ component, pathname }, idx) => {
+      <Router primary={false}>
+        {currentPath === '/' && (
+          <Redirect from={currentPath} to={baseURL} noThrow />
+        )}
+        <Content path={baseURL}>
+          {pages.map(({ component, path }, idx) => {
             const Component = contentComponents[component];
-            return (
-              <Component
-                key={idx}
-                path={pathname}
-                default={pathname === defaultPath}
-              />
-            );
+            return <Component key={idx} path={path} default={path === '/'} />;
           })}
-        </Router>
-      </Content>
+        </Content>
+      </Router>
     </Layout>
   );
 };

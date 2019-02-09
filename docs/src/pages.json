@@ -1,12 +1,12 @@
 [
   {
     "title": "Getting Started",
-    "pathname": "/",
+    "path": "/",
     "component": "Introduction"
   },
   {
     "title": "Bar",
-    "pathname": "bar",
+    "path": "/bar",
     "component": "BarChart"
   }
 ]
