@@ -4,10 +4,10 @@
 /node_modules
 /.pnp
 .pnp.js
-/documentation/node_modules
-/documentation/.cache
-/documentation/.pnp
-/documentation/.pnp.js
+/docs/node_modules
+/docs/.cache
+/docs/.pnp
+/docs/.pnp.js
 
 # testing
 /coverage
