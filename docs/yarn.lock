@@ -5362,10 +5362,10 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   resolved "http://artifactory.aweber.io:80/api/npm/npm/signal-exit/-/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
   integrity sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0=
 
-silky-charts@Link..:
-  version "0.0.3-alpha.0"
-  resolved "http://artifactory.aweber.io:80/api/npm/npm/silky-charts/-/silky-charts-0.0.3-alpha.0.tgz#3502d2b00a255825f18a7786357b93e0f663532c"
-  integrity sha1-NQLSsAolWCXxineGNXuT4PZjUyw=
+silky-charts@^0.0.3:
+  version "0.0.3"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/silky-charts/-/silky-charts-0.0.3.tgz#fd1ac7bbc165e88c674efe733bb67c3100e96c71"
+  integrity sha1-/RrHu8Fl6IxnTv5zO7Z8MQDpbHE=
   dependencies:
     color "^3.1.0"
     d3-array "^2.0.3"
