@@ -20,8 +20,6 @@ const App = () => {
   const isValidPathname =
     currentPath && pages.map(({ path }) => path).includes(currentPath);
 
-  console.log(currentPath);
-
   const contentComponents = {
     Introduction,
     BarChart,
