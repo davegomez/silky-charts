@@ -5,10 +5,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "parcel build src/index.html",
-    "deploy": "gh-pages -d dist",
-    "predeploy": "rimraf dist && parcel build src/index.html --public-url silky-charts",
-    "start": "parcel src/index.html --no-cache"
+    "deploy": "gh-pages -d ../docs",
+    "predeploy": "rimraf dist && parcel build src/index.html --out-dir ../docs --public-url ./",
+    "start": "parcel src/index.html --no-cache --open"
   },
   "dependencies": {
     "@mdx-js/tag": "^0.16.8",
