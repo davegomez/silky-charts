@@ -51,12 +51,12 @@ const Bar = ({
   responsive = false,
   theme = THEME,
   width: svgWidth = undefined,
-  xAxisLabel,
+  xAxisChartLabel,
   xAxisLabelRotation,
   xAxisLabelRotationValue = ROTATION,
   xAxisTicks = TICKS,
   xScalePadding = SCALE_PADDING,
-  yAxisLabel,
+  yAxisChartLabel,
   yAxisTicks = TICKS,
 }) => {
   const svgRef = useRef();
@@ -128,15 +128,15 @@ const Bar = ({
           />
         )}
 
-        {xAxisLabel && (
+        {xAxisChartLabel && (
           <Label axis="x" margin={margin} width={width} height={height}>
-            {xAxisLabel}
+            {xAxisChartLabel}
           </Label>
         )}
 
-        {yAxisLabel && (
+        {yAxisChartLabel && (
           <Label axis="y" margin={margin} width={width} height={height}>
-            {yAxisLabel}
+            {yAxisChartLabel}
           </Label>
         )}
 
