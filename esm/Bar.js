@@ -1,4 +1,4 @@
-import { a as getId, b as _slicedToArray, c as SIZE, d as setupData, e as getMax, f as debounce, g as SVG, h as MainGroup, i as Grid, j as drawGrid, k as Label, l as DataGroup, m as BarDatum, n as getBaseColor, o as Axis, p as rotateXLabels, q as TIME_FORMAT, r as MARGIN, s as THEME, t as ROTATION, u as TICKS, v as SCALE_PADDING, w as _objectSpread, x as getSize, y as ASPECT_RATIO } from './chunk-23988b07.js';
+import { a as getId, b as _slicedToArray, c as SIZE, d as setupData, e as getMax, f as debounce, g as SVG, h as MainGroup, i as Grid, j as drawGrid, k as Label, l as DataGroup, m as BarDatum, n as getBaseColor, o as Axis, p as rotateXLabels, q as TIME_FORMAT, r as MARGIN, s as THEME, t as ROTATION, u as TICKS, v as SCALE_PADDING, w as _objectSpread, x as getSize, y as ASPECT_RATIO } from './chunk-e3caabd4.js';
 import React, { useRef, useState, useEffect } from 'react';
 import identity from 'ramda/src/identity';
 import { axisBottom, axisLeft } from 'd3-axis';
@@ -47,7 +47,7 @@ var Bar = function Bar(_ref) {
       grid = _ref.grid,
       _ref$height = _ref.height,
       svgHeight = _ref$height === void 0 ? undefined : _ref$height,
-      isHorizontal = _ref.isHorizontal,
+      horizontal = _ref.horizontal,
       _ref$margin = _ref.margin,
       margin = _ref$margin === void 0 ? MARGIN : _ref$margin,
       _ref$onClick = _ref.onClick,
@@ -60,17 +60,18 @@ var Bar = function Bar(_ref) {
       responsive = _ref$responsive === void 0 ? false : _ref$responsive,
       _ref$theme = _ref.theme,
       theme = _ref$theme === void 0 ? THEME : _ref$theme,
+      tooltip = _ref.tooltip,
       _ref$width = _ref.width,
       svgWidth = _ref$width === void 0 ? undefined : _ref$width,
-      xAxisLabel = _ref.xAxisLabel,
+      xAxisChartLabel = _ref.xAxisChartLabel,
       xAxisLabelRotation = _ref.xAxisLabelRotation,
       _ref$xAxisLabelRotati = _ref.xAxisLabelRotationValue,
       xAxisLabelRotationValue = _ref$xAxisLabelRotati === void 0 ? ROTATION : _ref$xAxisLabelRotati,
       _ref$xAxisTicks = _ref.xAxisTicks,
       xAxisTicks = _ref$xAxisTicks === void 0 ? TICKS : _ref$xAxisTicks,
-      _ref$xScalePadding = _ref.xScalePadding,
-      xScalePadding = _ref$xScalePadding === void 0 ? SCALE_PADDING : _ref$xScalePadding,
-      yAxisLabel = _ref.yAxisLabel,
+      _ref$padding = _ref.padding,
+      xScalePadding = _ref$padding === void 0 ? SCALE_PADDING : _ref$padding,
+      yAxisChartLabel = _ref.yAxisChartLabel,
       _ref$yAxisTicks = _ref.yAxisTicks,
       yAxisTicks = _ref$yAxisTicks === void 0 ? TICKS : _ref$yAxisTicks;
   var svgRef = useRef();
@@ -136,19 +137,19 @@ var Bar = function Bar(_ref) {
     margin: margin
   }, grid && React.createElement(Grid, {
     ref: function ref(node) {
-      return select(node).call(drawGrid(isHorizontal, xScale, height, yScale, width, xAxisTicks, yAxisTicks));
+      return select(node).call(drawGrid(horizontal, xScale, height, yScale, width, xAxisTicks, yAxisTicks));
     }
-  }), xAxisLabel && React.createElement(Label, {
+  }), xAxisChartLabel && React.createElement(Label, {
     axis: "x",
     margin: margin,
     width: width,
     height: height
-  }, xAxisLabel), yAxisLabel && React.createElement(Label, {
+  }, xAxisChartLabel), yAxisChartLabel && React.createElement(Label, {
     axis: "y",
     margin: margin,
     width: width,
     height: height
-  }, yAxisLabel), React.createElement(DataGroup, null, data.map(function (_ref4, idx) {
+  }, yAxisChartLabel), React.createElement(DataGroup, null, data.map(function (_ref4, idx) {
     var name = _ref4.name,
         value = _ref4.value;
     return React.createElement(BarDatum, {
@@ -164,7 +165,8 @@ var Bar = function Bar(_ref) {
       height: height - yScale(value),
       onClick: onClick,
       onMouseEnter: onMouseEnter,
-      onMouseLeave: onMouseLeave
+      onMouseLeave: onMouseLeave,
+      tooltip: tooltip
     });
   })), React.createElement(Axis, {
     axis: "x",

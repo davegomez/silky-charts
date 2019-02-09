@@ -185,7 +185,8 @@ var BarDatum$$1 = function BarDatum$$1(_ref) {
       height = _ref.height,
       onClick = _ref.onClick,
       _onMouseEnter = _ref.onMouseEnter,
-      _onMouseLeave = _ref.onMouseLeave;
+      _onMouseLeave = _ref.onMouseLeave,
+      withTooltip = _ref.tooltip;
 
   var _useState = useState({
     pageX: null,
@@ -237,7 +238,7 @@ var BarDatum$$1 = function BarDatum$$1(_ref) {
         });
       });
     }
-  }), tooltip.show && createPortal(React.createElement(Tooltip, {
+  }), withTooltip && tooltip.show && createPortal(React.createElement(Tooltip, {
     pageX: tooltip.pageX,
     pageY: tooltip.pageY
   }, React.createElement(TooltipItem, _extends({
@@ -293,7 +294,7 @@ var palette = {
 };
 
 var ASPECT_RATIO = '16:9';
-var DEBOUNCE = 200;
+var DEBOUNCE = 100;
 var MARGIN = {
   top: 40,
   right: 50,
@@ -456,8 +457,8 @@ var debounce = debounce_(false);
 var debounce$1 = debounce(DEBOUNCE);
 var debounceImmediate$1 = debounceImmediate(DEBOUNCE);
 
-var drawGrid = (function (isHorizontal, xScale, height, yScale, width, xAxisTicks, yAxisTicks) {
-  return isHorizontal ? axisBottom().scale(xScale).tickSize(height, 0, 0).ticks(xAxisTicks).tickFormat('') : axisLeft().scale(yScale).tickSize(-width, 0, 0).ticks(yAxisTicks).tickFormat('');
+var drawGrid = (function (horizontal, xScale, height, yScale, width, xAxisTicks, yAxisTicks) {
+  return horizontal ? axisBottom().scale(xScale).tickSize(height, 0, 0).ticks(xAxisTicks).tickFormat('') : axisLeft().scale(yScale).tickSize(-width, 0, 0).ticks(yAxisTicks).tickFormat('');
 });
 
 /**
@@ -1067,4 +1068,4 @@ var TooltipItem = function TooltipItem(_ref2) {
 };
 
 export { getId as a, _slicedToArray as b, SIZE as c, setupData as d, getMax as e, debounce$1 as f, SVG as g, MainGroup as h, Grid as i, drawGrid as j, Label as k, DataGroup as l, BarDatum$$1 as m, getBaseColor as n, Axis as o, rotateXLabels as p, TIME_FORMAT as q, MARGIN as r, THEME as s, ROTATION as t, TICKS as u, SCALE_PADDING as v, _objectSpread as w, getSize as x, ASPECT_RATIO as y, buildStack as z, toStackedForm as A, getXScale as B, SCALE_TIME as C, SCALE_BAND as D, getYScale as E, SCALE_LINEAR as F, getStackedMax as G, setLineType as H, getLineDataForSeries as I, StackedBarDatum as J, extendXPath as K, LineDatum$$1 as L, palette as M, LINE_TYPE as N, SECONDARY_THEME as O, appendStackedValues as P, getSeries as Q, bySeries as R, classify as S, Path as T };
-//# sourceMappingURL=chunk-23988b07.js.map
+//# sourceMappingURL=chunk-e3caabd4.js.map

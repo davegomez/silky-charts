@@ -1,4 +1,4 @@
-import { a as getId, b as _slicedToArray, c as SIZE, d as setupData, P as appendStackedValues, z as buildStack, Q as getSeries, A as toStackedForm, B as getXScale, C as SCALE_TIME, D as SCALE_BAND, E as getYScale, F as SCALE_LINEAR, e as getMax, G as getStackedMax, H as setLineType, f as debounce, g as SVG, i as Grid, j as drawGrid, k as Label, R as bySeries, S as classify, T as Path, M as palette, o as Axis, p as rotateXLabels, N as LINE_TYPE, r as MARGIN, s as THEME, u as TICKS, t as ROTATION, w as _objectSpread, x as getSize, y as ASPECT_RATIO } from './chunk-23988b07.js';
+import { a as getId, b as _slicedToArray, c as SIZE, d as setupData, P as appendStackedValues, z as buildStack, Q as getSeries, A as toStackedForm, B as getXScale, C as SCALE_TIME, D as SCALE_BAND, E as getYScale, F as SCALE_LINEAR, e as getMax, G as getStackedMax, H as setLineType, f as debounce, g as SVG, i as Grid, j as drawGrid, k as Label, R as bySeries, S as classify, T as Path, M as palette, o as Axis, p as rotateXLabels, N as LINE_TYPE, r as MARGIN, s as THEME, u as TICKS, t as ROTATION, w as _objectSpread, x as getSize, y as ASPECT_RATIO } from './chunk-e3caabd4.js';
 import React, { useRef, useState, useMemo, useEffect } from 'react';
 import identity from 'ramda/src/identity';
 import { axisBottom, axisLeft } from 'd3-axis';
@@ -44,7 +44,7 @@ var StackedArea = function StackedArea(_ref) {
       grid = _ref.grid,
       _ref$height = _ref.height,
       svgHeight = _ref$height === void 0 ? undefined : _ref$height,
-      isHorizontal = _ref.isHorizontal,
+      horizontal = _ref.horizontal,
       _ref$lineSeries = _ref.lineSeries,
       _ref$lineType = _ref.lineType,
       lineType = _ref$lineType === void 0 ? LINE_TYPE : _ref$lineType,
@@ -66,11 +66,11 @@ var StackedArea = function StackedArea(_ref) {
       ticks = _ref$ticks === void 0 ? TICKS : _ref$ticks,
       _ref$width = _ref.width,
       svgWidth = _ref$width === void 0 ? undefined : _ref$width,
-      xAxisLabel = _ref.xAxisLabel,
+      xAxisChartLabel = _ref.xAxisChartLabel,
       xAxisLabelRotation = _ref.xAxisLabelRotation,
       _ref$xAxisLabelRotati = _ref.xAxisLabelRotationValue,
       xAxisLabelRotationValue = _ref$xAxisLabelRotati === void 0 ? ROTATION : _ref$xAxisLabelRotati,
-      yAxisLabel = _ref.yAxisLabel;
+      yAxisChartLabel = _ref.yAxisChartLabel;
   var svgRef = useRef();
 
   var _useState = useState(getId('stacked-area')),
@@ -142,19 +142,19 @@ var StackedArea = function StackedArea(_ref) {
     transform: "translate(".concat(margin.left, ", ").concat(margin.top, ")")
   }, grid && React.createElement(Grid, {
     ref: function ref(node) {
-      return select(node).call(drawGrid(isHorizontal, xScale, height, yScale, width, ticks));
+      return select(node).call(drawGrid(horizontal, xScale, height, yScale, width, ticks));
     }
-  }), xAxisLabel && React.createElement(Label, {
+  }), xAxisChartLabel && React.createElement(Label, {
     axis: "x",
     margin: margin,
     width: width,
     height: height
-  }, xAxisLabel), yAxisLabel && React.createElement(Label, {
+  }, xAxisChartLabel), yAxisChartLabel && React.createElement(Label, {
     axis: "y",
     margin: margin,
     width: width,
     height: height
-  }, yAxisLabel), bySeries(data).map(function (_ref5, idx) {
+  }, yAxisChartLabel), bySeries(data).map(function (_ref5, idx) {
     var _ref6 = _slicedToArray(_ref5, 2),
         series = _ref6[0],
         datum = _ref6[1];

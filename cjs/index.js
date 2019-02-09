@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-require('./chunk-dd9ab4d6.js');
+require('./chunk-6e8eba9c.js');
 require('react');
 require('ramda/src/identity');
 require('d3-axis');

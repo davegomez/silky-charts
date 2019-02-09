@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var __chunk_1 = require('./chunk-dd9ab4d6.js');
+var __chunk_1 = require('./chunk-6e8eba9c.js');
 var React = require('react');
 var React__default = _interopDefault(React);
 var identity = _interopDefault(require('ramda/src/identity'));
@@ -51,7 +51,7 @@ var StackedArea = function StackedArea(_ref) {
       grid = _ref.grid,
       _ref$height = _ref.height,
       svgHeight = _ref$height === void 0 ? undefined : _ref$height,
-      isHorizontal = _ref.isHorizontal,
+      horizontal = _ref.horizontal,
       _ref$lineSeries = _ref.lineSeries,
       _ref$lineType = _ref.lineType,
       lineType = _ref$lineType === void 0 ? __chunk_1.LINE_TYPE : _ref$lineType,
@@ -73,11 +73,11 @@ var StackedArea = function StackedArea(_ref) {
       ticks = _ref$ticks === void 0 ? __chunk_1.TICKS : _ref$ticks,
       _ref$width = _ref.width,
       svgWidth = _ref$width === void 0 ? undefined : _ref$width,
-      xAxisLabel = _ref.xAxisLabel,
+      xAxisChartLabel = _ref.xAxisChartLabel,
       xAxisLabelRotation = _ref.xAxisLabelRotation,
       _ref$xAxisLabelRotati = _ref.xAxisLabelRotationValue,
       xAxisLabelRotationValue = _ref$xAxisLabelRotati === void 0 ? __chunk_1.ROTATION : _ref$xAxisLabelRotati,
-      yAxisLabel = _ref.yAxisLabel;
+      yAxisChartLabel = _ref.yAxisChartLabel;
   var svgRef = React.useRef();
 
   var _useState = React.useState(__chunk_1.getId('stacked-area')),
@@ -149,19 +149,19 @@ var StackedArea = function StackedArea(_ref) {
     transform: "translate(".concat(margin.left, ", ").concat(margin.top, ")")
   }, grid && React__default.createElement(__chunk_1.Grid, {
     ref: function ref(node) {
-      return d3Selection.select(node).call(__chunk_1.drawGrid(isHorizontal, xScale, height, yScale, width, ticks));
+      return d3Selection.select(node).call(__chunk_1.drawGrid(horizontal, xScale, height, yScale, width, ticks));
     }
-  }), xAxisLabel && React__default.createElement(__chunk_1.Label, {
+  }), xAxisChartLabel && React__default.createElement(__chunk_1.Label, {
     axis: "x",
     margin: margin,
     width: width,
     height: height
-  }, xAxisLabel), yAxisLabel && React__default.createElement(__chunk_1.Label, {
+  }, xAxisChartLabel), yAxisChartLabel && React__default.createElement(__chunk_1.Label, {
     axis: "y",
     margin: margin,
     width: width,
     height: height
-  }, yAxisLabel), __chunk_1.bySeries(data).map(function (_ref5, idx) {
+  }, yAxisChartLabel), __chunk_1.bySeries(data).map(function (_ref5, idx) {
     var _ref6 = __chunk_1._slicedToArray(_ref5, 2),
         series = _ref6[0],
         datum = _ref6[1];

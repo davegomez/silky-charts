@@ -1,4 +1,4 @@
-import { a as getId, b as _slicedToArray, c as SIZE, d as setupData, z as buildStack, A as toStackedForm, B as getXScale, C as SCALE_TIME, D as SCALE_BAND, E as getYScale, F as SCALE_LINEAR, e as getMax, G as getStackedMax, H as setLineType, I as getLineDataForSeries, f as debounce, g as SVG, i as Grid, j as drawGrid, k as Label, J as StackedBarDatum, o as Axis, K as extendXPath, p as rotateXLabels, L as LineDatum, M as palette, N as LINE_TYPE, r as MARGIN, O as SECONDARY_THEME, s as THEME, u as TICKS, t as ROTATION, w as _objectSpread, x as getSize, y as ASPECT_RATIO } from './chunk-23988b07.js';
+import { a as getId, b as _slicedToArray, c as SIZE, d as setupData, z as buildStack, A as toStackedForm, B as getXScale, C as SCALE_TIME, D as SCALE_BAND, E as getYScale, F as SCALE_LINEAR, e as getMax, G as getStackedMax, H as setLineType, I as getLineDataForSeries, f as debounce, g as SVG, i as Grid, j as drawGrid, k as Label, J as StackedBarDatum, o as Axis, K as extendXPath, p as rotateXLabels, L as LineDatum, M as palette, N as LINE_TYPE, r as MARGIN, O as SECONDARY_THEME, s as THEME, u as TICKS, t as ROTATION, w as _objectSpread, x as getSize, y as ASPECT_RATIO } from './chunk-e3caabd4.js';
 import React, { useRef, useState, useMemo, useEffect } from 'react';
 import identity from 'ramda/src/identity';
 import { axisBottom, axisLeft } from 'd3-axis';
@@ -44,7 +44,7 @@ var BarLine = function BarLine(_ref) {
       grid = _ref.grid,
       _ref$height = _ref.height,
       svgHeight = _ref$height === void 0 ? undefined : _ref$height,
-      isHorizontal = _ref.isHorizontal,
+      horizontal = _ref.horizontal,
       _ref$lineSeries = _ref.lineSeries,
       lineSeries = _ref$lineSeries === void 0 ? [] : _ref$lineSeries,
       _ref$lineType = _ref.lineType,
@@ -71,11 +71,11 @@ var BarLine = function BarLine(_ref) {
       ticks = _ref$ticks === void 0 ? TICKS : _ref$ticks,
       _ref$width = _ref.width,
       svgWidth = _ref$width === void 0 ? undefined : _ref$width,
-      xAxisLabel = _ref.xAxisLabel,
+      xAxisChartLabel = _ref.xAxisChartLabel,
       xAxisLabelRotation = _ref.xAxisLabelRotation,
       _ref$xAxisLabelRotati = _ref.xAxisLabelRotationValue,
       xAxisLabelRotationValue = _ref$xAxisLabelRotati === void 0 ? ROTATION : _ref$xAxisLabelRotati,
-      yAxisLabel = _ref.yAxisLabel;
+      yAxisChartLabel = _ref.yAxisChartLabel;
   var svgRef = useRef();
 
   var _useState = useState(getId('bar-line')),
@@ -145,19 +145,19 @@ var BarLine = function BarLine(_ref) {
     transform: "translate(".concat(margin.left, ", ").concat(margin.top, ")")
   }, grid && React.createElement(Grid, {
     ref: function ref(node) {
-      return select(node).call(drawGrid(isHorizontal, xScale, height, yScale, width, ticks));
+      return select(node).call(drawGrid(horizontal, xScale, height, yScale, width, ticks));
     }
-  }), xAxisLabel && React.createElement(Label, {
+  }), xAxisChartLabel && React.createElement(Label, {
     axis: "x",
     margin: margin,
     width: width,
     height: height
-  }, xAxisLabel), yAxisLabel && React.createElement(Label, {
+  }, xAxisChartLabel), yAxisChartLabel && React.createElement(Label, {
     axis: "y",
     margin: margin,
     width: width,
     height: height
-  }, yAxisLabel), React.createElement(StackedBarDatum, {
+  }, yAxisChartLabel), React.createElement(StackedBarDatum, {
     data: data,
     series: stack,
     isDates: isDates,

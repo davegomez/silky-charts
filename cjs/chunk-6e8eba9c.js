@@ -190,7 +190,8 @@ var BarDatum$$1 = function BarDatum$$1(_ref) {
       height = _ref.height,
       onClick = _ref.onClick,
       _onMouseEnter = _ref.onMouseEnter,
-      _onMouseLeave = _ref.onMouseLeave;
+      _onMouseLeave = _ref.onMouseLeave,
+      withTooltip = _ref.tooltip;
 
   var _useState = React.useState({
     pageX: null,
@@ -242,7 +243,7 @@ var BarDatum$$1 = function BarDatum$$1(_ref) {
         });
       });
     }
-  }), tooltip.show && reactDom.createPortal(React__default.createElement(Tooltip, {
+  }), withTooltip && tooltip.show && reactDom.createPortal(React__default.createElement(Tooltip, {
     pageX: tooltip.pageX,
     pageY: tooltip.pageY
   }, React__default.createElement(TooltipItem, _extends({
@@ -298,7 +299,7 @@ var palette = {
 };
 
 var ASPECT_RATIO = '16:9';
-var DEBOUNCE = 200;
+var DEBOUNCE = 100;
 var MARGIN = {
   top: 40,
   right: 50,
@@ -461,8 +462,8 @@ var debounce = debounce_(false);
 var debounce$1 = debounce(DEBOUNCE);
 var debounceImmediate$1 = debounceImmediate(DEBOUNCE);
 
-var drawGrid = (function (isHorizontal, xScale, height, yScale, width, xAxisTicks, yAxisTicks) {
-  return isHorizontal ? d3Axis.axisBottom().scale(xScale).tickSize(height, 0, 0).ticks(xAxisTicks).tickFormat('') : d3Axis.axisLeft().scale(yScale).tickSize(-width, 0, 0).ticks(yAxisTicks).tickFormat('');
+var drawGrid = (function (horizontal, xScale, height, yScale, width, xAxisTicks, yAxisTicks) {
+  return horizontal ? d3Axis.axisBottom().scale(xScale).tickSize(height, 0, 0).ticks(xAxisTicks).tickFormat('') : d3Axis.axisLeft().scale(yScale).tickSize(-width, 0, 0).ticks(yAxisTicks).tickFormat('');
 });
 
 /**
@@ -1117,4 +1118,4 @@ exports.getSeries = getSeries;
 exports.bySeries = bySeries;
 exports.classify = classify;
 exports.Path = Path;
-//# sourceMappingURL=chunk-dd9ab4d6.js.map
+//# sourceMappingURL=chunk-6e8eba9c.js.map

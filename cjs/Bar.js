@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var __chunk_1 = require('./chunk-dd9ab4d6.js');
+var __chunk_1 = require('./chunk-6e8eba9c.js');
 var React = require('react');
 var React__default = _interopDefault(React);
 var identity = _interopDefault(require('ramda/src/identity'));
@@ -54,7 +54,7 @@ var Bar = function Bar(_ref) {
       grid = _ref.grid,
       _ref$height = _ref.height,
       svgHeight = _ref$height === void 0 ? undefined : _ref$height,
-      isHorizontal = _ref.isHorizontal,
+      horizontal = _ref.horizontal,
       _ref$margin = _ref.margin,
       margin = _ref$margin === void 0 ? __chunk_1.MARGIN : _ref$margin,
       _ref$onClick = _ref.onClick,
@@ -67,17 +67,18 @@ var Bar = function Bar(_ref) {
       responsive = _ref$responsive === void 0 ? false : _ref$responsive,
       _ref$theme = _ref.theme,
       theme = _ref$theme === void 0 ? __chunk_1.THEME : _ref$theme,
+      tooltip = _ref.tooltip,
       _ref$width = _ref.width,
       svgWidth = _ref$width === void 0 ? undefined : _ref$width,
-      xAxisLabel = _ref.xAxisLabel,
+      xAxisChartLabel = _ref.xAxisChartLabel,
       xAxisLabelRotation = _ref.xAxisLabelRotation,
       _ref$xAxisLabelRotati = _ref.xAxisLabelRotationValue,
       xAxisLabelRotationValue = _ref$xAxisLabelRotati === void 0 ? __chunk_1.ROTATION : _ref$xAxisLabelRotati,
       _ref$xAxisTicks = _ref.xAxisTicks,
       xAxisTicks = _ref$xAxisTicks === void 0 ? __chunk_1.TICKS : _ref$xAxisTicks,
-      _ref$xScalePadding = _ref.xScalePadding,
-      xScalePadding = _ref$xScalePadding === void 0 ? __chunk_1.SCALE_PADDING : _ref$xScalePadding,
-      yAxisLabel = _ref.yAxisLabel,
+      _ref$padding = _ref.padding,
+      xScalePadding = _ref$padding === void 0 ? __chunk_1.SCALE_PADDING : _ref$padding,
+      yAxisChartLabel = _ref.yAxisChartLabel,
       _ref$yAxisTicks = _ref.yAxisTicks,
       yAxisTicks = _ref$yAxisTicks === void 0 ? __chunk_1.TICKS : _ref$yAxisTicks;
   var svgRef = React.useRef();
@@ -143,19 +144,19 @@ var Bar = function Bar(_ref) {
     margin: margin
   }, grid && React__default.createElement(__chunk_1.Grid, {
     ref: function ref(node) {
-      return d3Selection.select(node).call(__chunk_1.drawGrid(isHorizontal, xScale, height, yScale, width, xAxisTicks, yAxisTicks));
+      return d3Selection.select(node).call(__chunk_1.drawGrid(horizontal, xScale, height, yScale, width, xAxisTicks, yAxisTicks));
     }
-  }), xAxisLabel && React__default.createElement(__chunk_1.Label, {
+  }), xAxisChartLabel && React__default.createElement(__chunk_1.Label, {
     axis: "x",
     margin: margin,
     width: width,
     height: height
-  }, xAxisLabel), yAxisLabel && React__default.createElement(__chunk_1.Label, {
+  }, xAxisChartLabel), yAxisChartLabel && React__default.createElement(__chunk_1.Label, {
     axis: "y",
     margin: margin,
     width: width,
     height: height
-  }, yAxisLabel), React__default.createElement(__chunk_1.DataGroup, null, data.map(function (_ref4, idx) {
+  }, yAxisChartLabel), React__default.createElement(__chunk_1.DataGroup, null, data.map(function (_ref4, idx) {
     var name = _ref4.name,
         value = _ref4.value;
     return React__default.createElement(__chunk_1.BarDatum, {
@@ -171,7 +172,8 @@ var Bar = function Bar(_ref) {
       height: height - yScale(value),
       onClick: onClick,
       onMouseEnter: onMouseEnter,
-      onMouseLeave: onMouseLeave
+      onMouseLeave: onMouseLeave,
+      tooltip: tooltip
     });
   })), React__default.createElement(__chunk_1.Axis, {
     axis: "x",
