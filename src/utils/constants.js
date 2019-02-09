@@ -21,7 +21,7 @@ import {
 
 // Base values
 export const ASPECT_RATIO = '16:9';
-export const DEBOUNCE = 200;
+export const DEBOUNCE = 100;
 export const MARGIN = { top: 40, right: 50, bottom: 50, left: 50 };
 export const ROTATION = -50;
 export const SIZE = {

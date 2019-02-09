@@ -50,12 +50,13 @@ const Bar = ({
   onMouseLeave = identity,
   responsive = false,
   theme = THEME,
+  tooltip,
   width: svgWidth = undefined,
   xAxisChartLabel,
   xAxisLabelRotation,
   xAxisLabelRotationValue = ROTATION,
   xAxisTicks = TICKS,
-  xScalePadding = SCALE_PADDING,
+  padding: xScalePadding = SCALE_PADDING,
   yAxisChartLabel,
   yAxisTicks = TICKS,
 }) => {
@@ -156,6 +157,7 @@ const Bar = ({
               onClick={onClick}
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
+              tooltip={tooltip}
             />
           ))}
         </DataGroup>
