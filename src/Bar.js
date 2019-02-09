@@ -43,20 +43,21 @@ const Bar = ({
   dateFormat = TIME_FORMAT,
   grid,
   height: svgHeight = undefined,
-  isHorizontal,
+  horizontal,
   margin = MARGIN,
   onClick = identity,
   onMouseEnter = identity,
   onMouseLeave = identity,
   responsive = false,
   theme = THEME,
+  tooltip,
   width: svgWidth = undefined,
-  xAxisLabel,
+  xAxisChartLabel,
   xAxisLabelRotation,
   xAxisLabelRotationValue = ROTATION,
   xAxisTicks = TICKS,
-  xScalePadding = SCALE_PADDING,
-  yAxisLabel,
+  padding: xScalePadding = SCALE_PADDING,
+  yAxisChartLabel,
   yAxisTicks = TICKS,
 }) => {
   const svgRef = useRef();
@@ -115,7 +116,7 @@ const Bar = ({
             ref={node =>
               d3Select(node).call(
                 drawGrid(
-                  isHorizontal,
+                  horizontal,
                   xScale,
                   height,
                   yScale,
@@ -128,15 +129,15 @@ const Bar = ({
           />
         )}
 
-        {xAxisLabel && (
+        {xAxisChartLabel && (
           <Label axis="x" margin={margin} width={width} height={height}>
-            {xAxisLabel}
+            {xAxisChartLabel}
           </Label>
         )}
 
-        {yAxisLabel && (
+        {yAxisChartLabel && (
           <Label axis="y" margin={margin} width={width} height={height}>
-            {yAxisLabel}
+            {yAxisChartLabel}
           </Label>
         )}
 
@@ -156,6 +157,7 @@ const Bar = ({
               onClick={onClick}
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
+              tooltip={tooltip}
             />
           ))}
         </DataGroup>

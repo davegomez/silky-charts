@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Getting Started",
+    "pathname": "/",
+    "component": "Introduction"
+  },
+  {
+    "title": "Bar",
+    "pathname": "bar",
+    "component": "BarChart"
+  }
+]

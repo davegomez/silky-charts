@@ -50,7 +50,7 @@ const BarLine = ({
   data: chartData,
   grid,
   height: svgHeight = undefined,
-  isHorizontal,
+  horizontal,
   lineSeries = [],
   lineType = LINE_TYPE,
   lineTypeOption = null,
@@ -64,10 +64,10 @@ const BarLine = ({
   theme = THEME,
   ticks = TICKS,
   width: svgWidth = undefined,
-  xAxisLabel,
+  xAxisChartLabel,
   xAxisLabelRotation,
   xAxisLabelRotationValue = ROTATION,
-  yAxisLabel,
+  yAxisChartLabel,
 }) => {
   const svgRef = useRef();
   const [id] = useState(getId('bar-line'));
@@ -142,21 +142,21 @@ const BarLine = ({
           <Grid
             ref={node =>
               d3Select(node).call(
-                drawGrid(isHorizontal, xScale, height, yScale, width, ticks)
+                drawGrid(horizontal, xScale, height, yScale, width, ticks)
               )
             }
           />
         )}
 
-        {xAxisLabel && (
+        {xAxisChartLabel && (
           <Label axis="x" margin={margin} width={width} height={height}>
-            {xAxisLabel}
+            {xAxisChartLabel}
           </Label>
         )}
 
-        {yAxisLabel && (
+        {yAxisChartLabel && (
           <Label axis="y" margin={margin} width={width} height={height}>
-            {yAxisLabel}
+            {yAxisChartLabel}
           </Label>
         )}
 

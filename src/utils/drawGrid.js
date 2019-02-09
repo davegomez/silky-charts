@@ -1,7 +1,7 @@
 import { axisBottom as d3AxisBottom, axisLeft as d3AxisLeft } from 'd3-axis';
 
 export default (
-  isHorizontal,
+  horizontal,
   xScale,
   height,
   yScale,
@@ -9,7 +9,7 @@ export default (
   xAxisTicks,
   yAxisTicks
 ) =>
-  isHorizontal
+  horizontal
     ? d3AxisBottom()
         .scale(xScale)
         .tickSize(height, 0, 0)

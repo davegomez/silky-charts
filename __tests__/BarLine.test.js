@@ -35,14 +35,14 @@ test('render correctly with width and height', () => {
 });
 
 test('render correctly with x axis label', () => {
-  const tree = create(<BarLine data={data} xAxisLabel="foo" />, {
+  const tree = create(<BarLine data={data} xAxisChartLabel="foo" />, {
     createNodeMock,
   }).toJSON();
   expect(tree).toMatchSnapshot();
 });
 
 test('render correctly with y axis label', () => {
-  const tree = create(<BarLine data={data} yAxisLabel="foo" />, {
+  const tree = create(<BarLine data={data} yAxisChartLabel="foo" />, {
     createNodeMock,
   }).toJSON();
   expect(tree).toMatchSnapshot();
@@ -152,7 +152,7 @@ test('render correctly width horizontal grid', () => {
 });
 
 test('render correctly width vertical grid', () => {
-  const tree = create(<BarLine data={data} grid isHorizontal />, {
+  const tree = create(<BarLine data={data} grid horizontal />, {
     createNodeMock,
   }).toJSON();
   expect(tree).toMatchSnapshot();

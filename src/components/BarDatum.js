@@ -12,6 +12,7 @@ const BarDatum = ({
   onClick,
   onMouseEnter,
   onMouseLeave,
+  tooltip: withTooltip,
 }) => {
   const [tooltip, setTooltip] = useState({
     pageX: null,
@@ -41,7 +42,8 @@ const BarDatum = ({
           setTooltip(state => ({ ...state, pageX, pageY }));
         }}
       />
-      {tooltip.show &&
+      {withTooltip &&
+        tooltip.show &&
         createPortal(
           <Tooltip pageX={tooltip.pageX} pageY={tooltip.pageY}>
             <TooltipItem color={color} {...datum} />
