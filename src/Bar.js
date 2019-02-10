@@ -168,7 +168,7 @@ const Bar = ({
           ref={node => {
             d3Select(node).call(
               d3AxisBottom(xScale)
-                .ticks(yAxisTicks)
+                .ticks(xAxisTicks)
                 .tickFormat(isDates ? timeFormat : null)
             );
             xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);

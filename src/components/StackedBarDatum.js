@@ -10,7 +10,6 @@ const StackedBarDatum = ({
   onClick,
   onMouseEnter,
   onMouseLeave,
-  isDates,
   theme,
   tooltip,
   x,
@@ -28,17 +27,9 @@ const StackedBarDatum = ({
           <BarDatum
             key={idx}
             datum={{ name, value }}
-            x={
-              isDates
-                ? x(name) - valueFor('x', width, getLength(data))
-                : x(name)
-            }
+            x={x(name)}
             y={y(last(datum))}
-            width={
-              isDates
-                ? valueFor('width', width, getLength(data))
-                : x.bandwidth()
-            }
+            width={x.bandwidth()}
             height={height - y(value)}
             color={palette.themes[theme].base[layer.index]}
             onClick={onClick}
