@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Redirect } from '@reach/router';
+import getCurrentPath from './utils/getCurrentPath';
 import Layout from './containers/Layout';
 import Header from './containers/Header';
 import Navigation from './containers/Navigation';
@@ -14,11 +15,7 @@ import './styles.css';
 const App = () => {
   const baseURL = '/silky-charts';
   const pathname = window.location.pathname;
-  const currentPath = pathname.includes(baseURL)
-    ? pathname.replace(baseURL, '')
-    : '/';
-  const isValidPathname =
-    currentPath && pages.map(({ path }) => path).includes(currentPath);
+  const currentPath = getCurrentPath(baseURL, pathname);
 
   const contentComponents = {
     Introduction,
@@ -31,12 +28,9 @@ const App = () => {
       <Navigation
         items={pages}
         baseURL={baseURL}
-        initial={isValidPathname ? currentPath : '/'}
+        initial={pathname !== currentPath ? currentPath : null}
       />
       <Router primary={false}>
-        {currentPath === '/' && (
-          <Redirect from={currentPath} to={baseURL} noThrow />
-        )}
         <Content path={baseURL}>
           {pages.map(({ component, path }, idx) => {
             const Component = contentComponents[component];

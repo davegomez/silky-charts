@@ -38,7 +38,10 @@ const Navigation = ({ items, baseURL, initial }) => {
     <Container>
       <List>
         {items.map(({ title, path }, idx) => (
-          <Link key={idx} to={`${baseURL}${path}`}>
+          <Link
+            key={idx}
+            to={`${baseURL}${path.includes('/') ? path : `/${path}`}`}
+          >
             <ListItem
               isActive={active === path}
               onClick={() => setActive(path)}

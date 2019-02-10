@@ -6,7 +6,7 @@
   },
   {
     "title": "Bar",
-    "path": "/bar",
+    "path": "bar",
     "component": "BarChart"
   }
 ]
