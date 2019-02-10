@@ -13,6 +13,7 @@ const LineDatum = ({
   xScale,
   yScale,
   isDates,
+  tooltip: withTooltip,
 }) => {
   const [tooltip, setTooltip] = useState({
     pageX: null,
@@ -49,7 +50,8 @@ const LineDatum = ({
           />
         ))}
       </g>
-      {tooltip.show &&
+      {withTooltip &&
+        tooltip.show &&
         createPortal(
           <Tooltip pageX={tooltip.pageX} pageY={tooltip.pageY}>
             <TooltipItem

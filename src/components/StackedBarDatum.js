@@ -12,6 +12,7 @@ const StackedBarDatum = ({
   onMouseLeave,
   isDates,
   theme,
+  tooltip,
   x,
   y,
   width,
@@ -22,6 +23,7 @@ const StackedBarDatum = ({
       {layer.map((datum, idx) => {
         const value = last(datum) - head(datum);
         const name = datum.data.name;
+
         return (
           <BarDatum
             key={idx}
@@ -42,6 +44,7 @@ const StackedBarDatum = ({
             onClick={onClick}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
+            tooltip={tooltip}
           />
         );
       })}

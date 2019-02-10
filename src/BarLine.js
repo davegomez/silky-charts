@@ -63,6 +63,7 @@ const BarLine = ({
   stackedSeries = [],
   theme = THEME,
   ticks = TICKS,
+  tooltip,
   width: svgWidth = undefined,
   xAxisChartLabel,
   xAxisLabelRotation,
@@ -172,6 +173,7 @@ const BarLine = ({
           onClick={onClick}
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
+          tooltip={tooltip}
         />
 
         <Axis
@@ -201,6 +203,7 @@ const BarLine = ({
               onClick={onClick}
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
+              tooltip={tooltip}
             />
           </g>
         ))}
