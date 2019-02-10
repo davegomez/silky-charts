@@ -32,7 +32,7 @@ const LineDatum = ({
             strokeColor={color}
             cx={isDates ? xScale(name) : xScale(name) + xScale.bandwidth() / 2}
             cy={yScale(value)}
-            r={5}
+            r={4}
             onClick={onClick}
             onMouseEnter={event => {
               setTooltip(state => ({ ...state, show: true }));
