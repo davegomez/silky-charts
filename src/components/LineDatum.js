@@ -10,10 +10,9 @@ const LineDatum = ({
   onClick,
   onMouseEnter,
   onMouseLeave,
+  tooltip: withTooltip,
   xScale,
   yScale,
-  isDates,
-  tooltip: withTooltip,
 }) => {
   const [tooltip, setTooltip] = useState({
     pageX: null,
@@ -30,7 +29,7 @@ const LineDatum = ({
             key={idx}
             chart="bar-line"
             strokeColor={color}
-            cx={isDates ? xScale(name) : xScale(name) + xScale.bandwidth() / 2}
+            cx={xScale(name) + xScale.bandwidth() / 2}
             cy={yScale(value)}
             r={4}
             onClick={onClick}

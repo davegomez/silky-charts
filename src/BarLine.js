@@ -1,42 +1,23 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
-import head from 'ramda/src/head';
-import identity from 'ramda/src/identity';
+import React, { useEffect, useRef, useState } from 'react';
 import { axisBottom as d3AxisBottom, axisLeft as d3AxisLeft } from 'd3-axis';
 import {
   scaleBand as d3ScaleBand,
   scaleLinear as d3ScaleLinear,
 } from 'd3-scale';
 import { select as d3Select } from 'd3-selection';
-import { timeFormat as d3TimeFormat } from 'd3-time-format';
 import { line as d3Line } from 'd3-shape';
+import { timeFormat as d3TimeFormat } from 'd3-time-format';
+import head from 'ramda/src/head';
+import identity from 'ramda/src/identity';
 import {
   Axis,
   Grid,
   Label,
-  MainGroup,
   LineDatum,
+  MainGroup,
   StackedBarDatum,
   SVG,
 } from './components';
-import {
-  buildStack,
-  debounce,
-  drawGrid,
-  extendXPath,
-  getId,
-  getLineDataForSeries,
-  getMax,
-  getStackedMax,
-  getSize,
-  getXScale,
-  getYScale,
-  palette,
-  rotateXLabels,
-  setLineType,
-  setupData,
-  toStackedForm,
-  toSingleForm,
-} from './utils';
 import {
   ASPECT_RATIO,
   LINE_TYPE,
@@ -49,6 +30,21 @@ import {
   TICKS,
   TIME_FORMAT,
 } from './utils/constants';
+import {
+  buildStack,
+  debounce,
+  drawGrid,
+  getId,
+  getLineDataForSeries,
+  getMax,
+  getStackedMax,
+  getSize,
+  palette,
+  rotateXLabels,
+  setLineType,
+  setupData,
+  toStackedForm,
+} from './utils';
 
 const BarLine = ({
   aspectRatio = ASPECT_RATIO,
@@ -65,18 +61,18 @@ const BarLine = ({
   onMouseEnter = identity,
   onMouseLeave = identity,
   padding: xScalePadding = SCALE_PADDING,
-  responsive = false,
+  responsive,
   secondaryTheme = SECONDARY_THEME,
   stackedSeries = [],
   theme = THEME,
-  xAxisTicks = TICKS,
-  yAxisTicks = TICKS,
   tooltip,
   width: svgWidth = undefined,
   xAxisChartLabel,
   xAxisLabelRotation,
   xAxisLabelRotationValue = ROTATION,
+  xAxisTicks = TICKS,
   yAxisChartLabel,
+  yAxisTicks = TICKS,
 }) => {
   const svgRef = useRef();
   const [id] = useState(getId('bar-line'));
@@ -205,7 +201,6 @@ const BarLine = ({
             <LineDatum
               chart="bar-line"
               data={datum}
-              isDates={isDates}
               color={palette.themes[secondaryTheme].base[idx]}
               d={line(datum)}
               xScale={xScale}

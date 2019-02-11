@@ -5,14 +5,14 @@ import { Rect, Tooltip, TooltipItem } from './';
 const BarDatum = ({
   color,
   datum,
-  x,
-  y,
-  width,
   height,
   onClick,
   onMouseEnter,
   onMouseLeave,
   tooltip: withTooltip,
+  width,
+  x,
+  y,
 }) => {
   const [tooltip, setTooltip] = useState({
     pageX: null,
@@ -24,8 +24,6 @@ const BarDatum = ({
     <Fragment>
       <Rect
         chart="bar"
-        position={{ x, y }}
-        size={{ width, height }}
         fillColor={color}
         onClick={onClick}
         onMouseEnter={event => {
@@ -41,6 +39,8 @@ const BarDatum = ({
           const { pageX, pageY } = event;
           setTooltip(state => ({ ...state, pageX, pageY }));
         }}
+        position={{ x, y }}
+        size={{ width, height }}
       />
       {withTooltip &&
         tooltip.show &&

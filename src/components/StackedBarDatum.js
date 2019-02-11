@@ -6,16 +6,16 @@ import { palette, valueFor, getLength } from '../utils';
 
 const StackedBarDatum = ({
   data,
-  series,
+  height,
   onClick,
   onMouseEnter,
   onMouseLeave,
+  series,
   theme,
   tooltip,
+  width,
   x,
   y,
-  width,
-  height,
 }) =>
   series.map(layer => (
     <g key={layer.index} className={`${layer.key}-layer`}>
@@ -26,16 +26,16 @@ const StackedBarDatum = ({
         return (
           <BarDatum
             key={idx}
-            datum={{ name, value }}
-            x={x(name)}
-            y={y(last(datum))}
-            width={x.bandwidth()}
-            height={height - y(value)}
             color={palette.themes[theme].base[layer.index]}
+            datum={{ name, value }}
+            height={height - y(value)}
             onClick={onClick}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
             tooltip={tooltip}
+            width={x.bandwidth()}
+            x={x(name)}
+            y={y(last(datum))}
           />
         );
       })}

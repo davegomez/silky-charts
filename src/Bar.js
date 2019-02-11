@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import identity from 'ramda/src/identity';
 import { axisBottom as d3AxisBottom, axisLeft as d3AxisLeft } from 'd3-axis';
 import {
   scaleBand as d3ScaleBand,
@@ -7,25 +6,16 @@ import {
 } from 'd3-scale';
 import { select as d3Select } from 'd3-selection';
 import { timeFormat as d3TimeFormat } from 'd3-time-format';
+import identity from 'ramda/src/identity';
 import {
   Axis,
   BarDatum,
   DataGroup,
   Grid,
-  MainGroup,
   Label,
+  MainGroup,
   SVG,
 } from './components';
-import {
-  debounce,
-  drawGrid,
-  getBaseColor,
-  getId,
-  getMax,
-  getSize,
-  rotateXLabels,
-  setupData,
-} from './utils';
 import {
   ASPECT_RATIO,
   MARGIN,
@@ -36,6 +26,16 @@ import {
   TICKS,
   TIME_FORMAT,
 } from './utils/constants';
+import {
+  debounce,
+  drawGrid,
+  getBaseColor,
+  getId,
+  getMax,
+  getSize,
+  rotateXLabels,
+  setupData,
+} from './utils';
 
 const Bar = ({
   aspectRatio = ASPECT_RATIO,
@@ -48,7 +48,7 @@ const Bar = ({
   onClick = identity,
   onMouseEnter = identity,
   onMouseLeave = identity,
-  responsive = false,
+  responsive,
   theme = THEME,
   tooltip,
   width: svgWidth = undefined,
