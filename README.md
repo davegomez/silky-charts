@@ -75,10 +75,10 @@ Most props and options are present indistinguishable in all charts.
 | ---- | :----: | :----: | ---- |
 | aspectRatio | `String` | `"16:9"` | Sets the shape and size of the chart using the parent element width as a guide. Is overriden setting a `width` or `height` props. |
 | data | `Array` |    | Chart data. |
-| dateFormat | `String` | `"%a %d"` | If the name value in the data object is a date this will be formatted using [D3's date formatting rules](https://github.com/d3/d3-time-format). |
+| dateFormat | `String` | `"%a %d"` | Name values as ISO stringdates will be formatted using [D3's date formatting rules](https://github.com/d3/d3-time-format). |
 | grid | `Boolean` | `false` | Display the chart's grid. |
 | height | `Number` |    | Sets the chart's height (breaks responsiveness). |
-| margin | `{ Number }` |    | Sets the margin sizes around the chart from an object with `top`, `right`, `bottom`, and `left` key-values `[1]`. |
+| margin | `{Number}` |    | Sets the margin sizes around the chart from an object with `top`, `right`, `bottom`, and `left` key-values `[1]`. |
 | onClick | `Function` |    | Callback function to call during the onClick event. |
 | onMouseEnter | `Function` |    | Callback function to call during the onMouseEnter event. |
 | onMouseLeave | `Function` |    | Callback function to call during the OnMouseLeave event. |
@@ -134,8 +134,8 @@ Most props and options are present indistinguishable in all charts.
 
 | Name | Type | Default | Description |
 | ---- | :----: | :----: | ---- |
-| lineSeries | `[ String ]` |    | Series names of the datasets you want to appear as lines in the chart. |
+| lineSeries | `[String]` |    | Series names of the datasets you want to appear as lines in the chart. |
 | lineType | `String` | `"curveLinear"` | Define the line style to use based on [D3 Curves](https://github.com/d3/d3-shape#curves) options. |
 | lineTypeOption | `String` |    | If the line style accepts options you can set it using this prop. |
 | secondaryTheme | `String` | `"pink"` | Color theme for the chart lines. Hint: opposite colors have better contrast. |
-| stackedSeries | `[ String ]` |    | Series names of the datasets you want to appear as stacked bars in the chart. |
+| stackedSeries | `[String]` |    | Series names of the datasets you want to appear as stacked bars in the chart. |
