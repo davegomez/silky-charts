@@ -833,7 +833,7 @@ var Path = styled.path.attrs(function (_ref) {
 });
 
 function _templateObject$7() {
-  var data = _taggedTemplateLiteral(["\n  fill: ", ";\n  height: ", "px;\n  width: ", "px;\n\n  &:hover {\n    fill: ", ";\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  fill: ", ";\n\n  &:hover {\n    fill: ", ";\n  }\n"]);
 
   _templateObject$7 = function _templateObject() {
     return data;
@@ -845,23 +845,22 @@ var Rect = styled.rect.attrs(function (_ref) {
   var chart = _ref.chart,
       _ref$position = _ref.position,
       x = _ref$position.x,
-      y = _ref$position.y;
+      y = _ref$position.y,
+      _ref$size = _ref.size,
+      height = _ref$size.height,
+      width = _ref$size.width;
   return {
+    className: chart,
+    height: height,
+    width: width,
     x: x,
-    y: y,
-    className: chart
+    y: y
   };
 })(_templateObject$7(), function (_ref2) {
   var fillColor = _ref2.fillColor;
   return fillColor;
 }, function (_ref3) {
-  var size = _ref3.size;
-  return size.height;
-}, function (_ref4) {
-  var size = _ref4.size;
-  return size.width;
-}, function (_ref5) {
-  var fillColor = _ref5.fillColor;
+  var fillColor = _ref3.fillColor;
   return getHoverColor(fillColor);
 });
 
@@ -1130,4 +1129,4 @@ exports.SCALE_LINEAR = SCALE_LINEAR;
 exports.bySeries = bySeries;
 exports.classify = classify;
 exports.Path = Path;
-//# sourceMappingURL=chunk-7fc9ede4.js.map
+//# sourceMappingURL=chunk-aff92de4.js.map

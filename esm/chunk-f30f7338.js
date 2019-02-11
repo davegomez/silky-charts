@@ -828,7 +828,7 @@ var Path = styled.path.attrs(function (_ref) {
 });
 
 function _templateObject$7() {
-  var data = _taggedTemplateLiteral(["\n  fill: ", ";\n  height: ", "px;\n  width: ", "px;\n\n  &:hover {\n    fill: ", ";\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  fill: ", ";\n\n  &:hover {\n    fill: ", ";\n  }\n"]);
 
   _templateObject$7 = function _templateObject() {
     return data;
@@ -840,23 +840,22 @@ var Rect = styled.rect.attrs(function (_ref) {
   var chart = _ref.chart,
       _ref$position = _ref.position,
       x = _ref$position.x,
-      y = _ref$position.y;
+      y = _ref$position.y,
+      _ref$size = _ref.size,
+      height = _ref$size.height,
+      width = _ref$size.width;
   return {
+    className: chart,
+    height: height,
+    width: width,
     x: x,
-    y: y,
-    className: chart
+    y: y
   };
 })(_templateObject$7(), function (_ref2) {
   var fillColor = _ref2.fillColor;
   return fillColor;
 }, function (_ref3) {
-  var size = _ref3.size;
-  return size.height;
-}, function (_ref4) {
-  var size = _ref4.size;
-  return size.width;
-}, function (_ref5) {
-  var fillColor = _ref5.fillColor;
+  var fillColor = _ref3.fillColor;
   return getHoverColor(fillColor);
 });
 
@@ -1079,4 +1078,4 @@ var TooltipItem = function TooltipItem(_ref2) {
 };
 
 export { getId as a, _slicedToArray as b, SIZE as c, setupData as d, getMax as e, debounce$1 as f, SVG as g, MainGroup as h, Grid as i, drawGrid as j, Title as k, Label as l, Source as m, DataGroup as n, BarDatum$$1 as o, getBaseColor as p, Axis as q, rotateXLabels as r, TIME_FORMAT as s, MARGIN as t, THEME as u, ROTATION as v, TICKS as w, SCALE_PADDING as x, _objectSpread as y, getSize as z, ASPECT_RATIO as A, buildStack as B, toStackedForm as C, getStackedMax as D, setLineType as E, getLineDataForSeries as F, StackedBarDatum as G, LineDatum$$1 as H, palette as I, LINE_TYPE as J, SECONDARY_THEME as K, appendStackedValues as L, getSeries as M, getXScale as N, SCALE_TIME as O, SCALE_BAND as P, getYScale as Q, SCALE_LINEAR as R, bySeries as S, classify as T, Path as U };
-//# sourceMappingURL=chunk-67548fd7.js.map
+//# sourceMappingURL=chunk-f30f7338.js.map
