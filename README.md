@@ -71,7 +71,7 @@ import { Bar } from 'silky-charts';
 
 Most props and options are present indistinguishable in all charts.
 
-| Name | Type | Default Value | Description |
+| Name | Type | Default | Description |
 | ---- | :----: | :----: | ---- |
 | aspectRatio | `String` | `"16:9"` | Sets the shape and size of the chart using the parent element width as a guide. Is overriden setting a `width` or `height` props. |
 | data | `Array` |    | Chart data. |
