@@ -14,7 +14,9 @@ import {
   Grid,
   Label,
   MainGroup,
+  Source,
   SVG,
+  Title,
 } from './components';
 import {
   ASPECT_RATIO,
@@ -39,6 +41,7 @@ import {
 
 const Bar = ({
   aspectRatio = ASPECT_RATIO,
+  title,
   data: chartData,
   dateFormat = TIME_FORMAT,
   grid,
@@ -51,6 +54,7 @@ const Bar = ({
   responsive,
   theme = THEME,
   tooltip,
+  sourceLabel,
   width: svgWidth = undefined,
   xAxisChartLabel,
   xAxisLabelRotation,
@@ -129,6 +133,12 @@ const Bar = ({
           />
         )}
 
+        {title && (
+          <Title margin={margin} width={width} height={height}>
+            {title}
+          </Title>
+        )}
+
         {xAxisChartLabel && (
           <Label axis="x" margin={margin} width={width} height={height}>
             {xAxisChartLabel}
@@ -139,6 +149,12 @@ const Bar = ({
           <Label axis="y" margin={margin} width={width} height={height}>
             {yAxisChartLabel}
           </Label>
+        )}
+
+        {sourceLabel && (
+          <Source margin={margin} width={width} height={height}>
+            {sourceLabel}
+          </Source>
         )}
 
         <DataGroup>

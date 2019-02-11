@@ -15,8 +15,10 @@ import {
   Label,
   LineDatum,
   MainGroup,
+  Source,
   StackedBarDatum,
   SVG,
+  Title,
 } from './components';
 import {
   ASPECT_RATIO,
@@ -48,6 +50,7 @@ import {
 
 const BarLine = ({
   aspectRatio = ASPECT_RATIO,
+  title,
   data: chartData,
   dateFormat = TIME_FORMAT,
   grid,
@@ -66,6 +69,7 @@ const BarLine = ({
   stackedSeries = [],
   theme = THEME,
   tooltip,
+  sourceLabel,
   width: svgWidth = undefined,
   xAxisChartLabel,
   xAxisLabelRotation,
@@ -151,6 +155,12 @@ const BarLine = ({
           />
         )}
 
+        {title && (
+          <Title margin={margin} width={width}>
+            {title}
+          </Title>
+        )}
+
         {xAxisChartLabel && (
           <Label axis="x" margin={margin} width={width} height={height}>
             {xAxisChartLabel}
@@ -161,6 +171,12 @@ const BarLine = ({
           <Label axis="y" margin={margin} width={width} height={height}>
             {yAxisChartLabel}
           </Label>
+        )}
+
+        {sourceLabel && (
+          <Source margin={margin} width={width} height={height}>
+            {sourceLabel}
+          </Source>
         )}
 
         <StackedBarDatum
