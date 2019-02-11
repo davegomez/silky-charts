@@ -2,13 +2,13 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-require('./chunk-6e8eba9c.js');
+require('./chunk-7fc9ede4.js');
 require('react');
-require('ramda/src/identity');
 require('d3-axis');
 require('d3-scale');
 require('d3-selection');
 require('d3-time-format');
+require('ramda/src/identity');
 require('styled-components');
 require('react-dom');
 require('d3-shape');

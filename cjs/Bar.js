@@ -4,14 +4,14 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var __chunk_1 = require('./chunk-6e8eba9c.js');
+var __chunk_1 = require('./chunk-7fc9ede4.js');
 var React = require('react');
 var React__default = _interopDefault(React);
-var identity = _interopDefault(require('ramda/src/identity'));
 var d3Axis = require('d3-axis');
 var d3Scale = require('d3-scale');
 var d3Selection = require('d3-selection');
 var d3TimeFormat = require('d3-time-format');
+var identity = _interopDefault(require('ramda/src/identity'));
 require('styled-components');
 require('react-dom');
 require('d3-shape');
@@ -48,6 +48,7 @@ require('ramda/src/type');
 var Bar = function Bar(_ref) {
   var _ref$aspectRatio = _ref.aspectRatio,
       aspectRatio = _ref$aspectRatio === void 0 ? __chunk_1.ASPECT_RATIO : _ref$aspectRatio,
+      title = _ref.title,
       chartData = _ref.data,
       _ref$dateFormat = _ref.dateFormat,
       dateFormat = _ref$dateFormat === void 0 ? __chunk_1.TIME_FORMAT : _ref$dateFormat,
@@ -63,11 +64,11 @@ var Bar = function Bar(_ref) {
       onMouseEnter = _ref$onMouseEnter === void 0 ? identity : _ref$onMouseEnter,
       _ref$onMouseLeave = _ref.onMouseLeave,
       onMouseLeave = _ref$onMouseLeave === void 0 ? identity : _ref$onMouseLeave,
-      _ref$responsive = _ref.responsive,
-      responsive = _ref$responsive === void 0 ? false : _ref$responsive,
+      responsive = _ref.responsive,
       _ref$theme = _ref.theme,
       theme = _ref$theme === void 0 ? __chunk_1.THEME : _ref$theme,
       tooltip = _ref.tooltip,
+      sourceLabel = _ref.sourceLabel,
       _ref$width = _ref.width,
       svgWidth = _ref$width === void 0 ? undefined : _ref$width,
       xAxisChartLabel = _ref.xAxisChartLabel,
@@ -146,7 +147,11 @@ var Bar = function Bar(_ref) {
     ref: function ref(node) {
       return d3Selection.select(node).call(__chunk_1.drawGrid(horizontal, xScale, height, yScale, width, xAxisTicks, yAxisTicks));
     }
-  }), xAxisChartLabel && React__default.createElement(__chunk_1.Label, {
+  }), title && React__default.createElement(__chunk_1.Title, {
+    margin: margin,
+    width: width,
+    height: height
+  }, title), xAxisChartLabel && React__default.createElement(__chunk_1.Label, {
     axis: "x",
     margin: margin,
     width: width,
@@ -156,7 +161,11 @@ var Bar = function Bar(_ref) {
     margin: margin,
     width: width,
     height: height
-  }, yAxisChartLabel), React__default.createElement(__chunk_1.DataGroup, null, data.map(function (_ref4, idx) {
+  }, yAxisChartLabel), sourceLabel && React__default.createElement(__chunk_1.Source, {
+    margin: margin,
+    width: width,
+    height: height
+  }, sourceLabel), React__default.createElement(__chunk_1.DataGroup, null, data.map(function (_ref4, idx) {
     var name = _ref4.name,
         value = _ref4.value;
     return React__default.createElement(__chunk_1.BarDatum, {
@@ -182,7 +191,7 @@ var Bar = function Bar(_ref) {
       y: height
     },
     ref: function ref(node) {
-      d3Selection.select(node).call(d3Axis.axisBottom(xScale).ticks(yAxisTicks).tickFormat(isDates ? timeFormat : null));
+      d3Selection.select(node).call(d3Axis.axisBottom(xScale).ticks(xAxisTicks).tickFormat(isDates ? timeFormat : null));
       xAxisLabelRotation && __chunk_1.rotateXLabels(id, xAxisLabelRotationValue);
     }
   }), React__default.createElement(__chunk_1.Axis, {

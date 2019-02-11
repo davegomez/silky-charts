@@ -4,13 +4,14 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var __chunk_1 = require('./chunk-6e8eba9c.js');
+var __chunk_1 = require('./chunk-7fc9ede4.js');
 var React = require('react');
 var React__default = _interopDefault(React);
-var identity = _interopDefault(require('ramda/src/identity'));
 var d3Axis = require('d3-axis');
-require('d3-scale');
+var d3Scale = require('d3-scale');
 var d3Selection = require('d3-selection');
+var d3TimeFormat = require('d3-time-format');
+var identity = _interopDefault(require('ramda/src/identity'));
 require('styled-components');
 require('react-dom');
 var d3Shape = require('d3-shape');
@@ -47,7 +48,10 @@ require('ramda/src/type');
 var BarLine = function BarLine(_ref) {
   var _ref$aspectRatio = _ref.aspectRatio,
       aspectRatio = _ref$aspectRatio === void 0 ? __chunk_1.ASPECT_RATIO : _ref$aspectRatio,
+      title = _ref.title,
       chartData = _ref.data,
+      _ref$dateFormat = _ref.dateFormat,
+      dateFormat = _ref$dateFormat === void 0 ? __chunk_1.TIME_FORMAT : _ref$dateFormat,
       grid = _ref.grid,
       _ref$height = _ref.height,
       svgHeight = _ref$height === void 0 ? undefined : _ref$height,
@@ -66,28 +70,35 @@ var BarLine = function BarLine(_ref) {
       onMouseEnter = _ref$onMouseEnter === void 0 ? identity : _ref$onMouseEnter,
       _ref$onMouseLeave = _ref.onMouseLeave,
       onMouseLeave = _ref$onMouseLeave === void 0 ? identity : _ref$onMouseLeave,
-      _ref$responsive = _ref.responsive,
-      responsive = _ref$responsive === void 0 ? false : _ref$responsive,
+      _ref$padding = _ref.padding,
+      xScalePadding = _ref$padding === void 0 ? __chunk_1.SCALE_PADDING : _ref$padding,
+      responsive = _ref.responsive,
       _ref$secondaryTheme = _ref.secondaryTheme,
       secondaryTheme = _ref$secondaryTheme === void 0 ? __chunk_1.SECONDARY_THEME : _ref$secondaryTheme,
       _ref$stackedSeries = _ref.stackedSeries,
       stackedSeries = _ref$stackedSeries === void 0 ? [] : _ref$stackedSeries,
       _ref$theme = _ref.theme,
       theme = _ref$theme === void 0 ? __chunk_1.THEME : _ref$theme,
-      _ref$ticks = _ref.ticks,
-      ticks = _ref$ticks === void 0 ? __chunk_1.TICKS : _ref$ticks,
+      tooltip = _ref.tooltip,
+      sourceLabel = _ref.sourceLabel,
       _ref$width = _ref.width,
       svgWidth = _ref$width === void 0 ? undefined : _ref$width,
       xAxisChartLabel = _ref.xAxisChartLabel,
       xAxisLabelRotation = _ref.xAxisLabelRotation,
       _ref$xAxisLabelRotati = _ref.xAxisLabelRotationValue,
       xAxisLabelRotationValue = _ref$xAxisLabelRotati === void 0 ? __chunk_1.ROTATION : _ref$xAxisLabelRotati,
-      yAxisChartLabel = _ref.yAxisChartLabel;
+      _ref$xAxisTicks = _ref.xAxisTicks,
+      xAxisTicks = _ref$xAxisTicks === void 0 ? __chunk_1.TICKS : _ref$xAxisTicks,
+      yAxisChartLabel = _ref.yAxisChartLabel,
+      _ref$yAxisTicks = _ref.yAxisTicks,
+      yAxisTicks = _ref$yAxisTicks === void 0 ? __chunk_1.TICKS : _ref$yAxisTicks;
   var svgRef = React.useRef();
 
   var _useState = React.useState(__chunk_1.getId('bar-line')),
       _useState2 = __chunk_1._slicedToArray(_useState, 1),
       id = _useState2[0];
+
+  var timeFormat = d3TimeFormat.timeFormat(dateFormat);
 
   var _useState3 = React.useState(__chunk_1.SIZE),
       _useState4 = __chunk_1._slicedToArray(_useState3, 2),
@@ -97,23 +108,22 @@ var BarLine = function BarLine(_ref) {
       isSizeSet = _useState4$.isSizeSet,
       setSize = _useState4[1];
 
-  var _useMemo = React.useMemo(function () {
-    return __chunk_1.setupData(chartData);
-  }, chartData),
-      _useMemo2 = __chunk_1._slicedToArray(_useMemo, 2),
-      isDates = _useMemo2[0],
-      data = _useMemo2[1];
+  var _setupData = __chunk_1.setupData(chartData),
+      _setupData2 = __chunk_1._slicedToArray(_setupData, 2),
+      isDates = _setupData2[0],
+      data = _setupData2[1];
 
-  var stack = React.useMemo(function () {
-    return __chunk_1.buildStack(stackedSeries)(__chunk_1.toStackedForm(data));
-  }, data);
-  var xScale = __chunk_1.getXScale(isDates ? __chunk_1.SCALE_TIME : __chunk_1.SCALE_BAND, data, width, true);
-  var yScale = __chunk_1.getYScale(__chunk_1.SCALE_LINEAR, __chunk_1.getMax(__chunk_1.getStackedMax(data, stackedSeries)), height);
-  var line = d3Shape.line().curve(__chunk_1.setLineType(lineType, lineTypeOption)).x(function (_ref2) {
+  var stack = __chunk_1.buildStack(stackedSeries)(__chunk_1.toStackedForm(data));
+  var xScale = d3Scale.scaleBand().domain(data.map(function (_ref2) {
     var name = _ref2.name;
-    return isDates ? xScale(name) : xScale(name) + xScale.bandwidth() / 2;
-  }).y(function (_ref3) {
-    var value = _ref3.value;
+    return name;
+  })).range([0, width]).padding(xScalePadding);
+  var yScale = d3Scale.scaleLinear().domain([0, __chunk_1.getMax(__chunk_1.getStackedMax(data, stackedSeries))]).range([height, 0]);
+  var line = d3Shape.line().curve(__chunk_1.setLineType(lineType, lineTypeOption)).x(function (_ref3) {
+    var name = _ref3.name;
+    return xScale(name) + xScale.bandwidth() / 2;
+  }).y(function (_ref4) {
+    var value = _ref4.value;
     return yScale(value);
   });
   var lineData = __chunk_1.getLineDataForSeries(lineSeries, data);
@@ -147,14 +157,16 @@ var BarLine = function BarLine(_ref) {
       height: svgHeight || height + margin.top + margin.bottom
     },
     ref: svgRef
-  }, React__default.createElement("g", {
-    className: "silky-charts-container",
-    transform: "translate(".concat(margin.left, ", ").concat(margin.top, ")")
+  }, React__default.createElement(__chunk_1.MainGroup, {
+    margin: margin
   }, grid && React__default.createElement(__chunk_1.Grid, {
     ref: function ref(node) {
-      return d3Selection.select(node).call(__chunk_1.drawGrid(horizontal, xScale, height, yScale, width, ticks));
+      return d3Selection.select(node).call(__chunk_1.drawGrid(horizontal, xScale, height, yScale, width, xAxisTicks, yAxisTicks));
     }
-  }), xAxisChartLabel && React__default.createElement(__chunk_1.Label, {
+  }), title && React__default.createElement(__chunk_1.Title, {
+    margin: margin,
+    width: width
+  }, title), xAxisChartLabel && React__default.createElement(__chunk_1.Label, {
     axis: "x",
     margin: margin,
     width: width,
@@ -164,10 +176,13 @@ var BarLine = function BarLine(_ref) {
     margin: margin,
     width: width,
     height: height
-  }, yAxisChartLabel), React__default.createElement(__chunk_1.StackedBarDatum, {
+  }, yAxisChartLabel), sourceLabel && React__default.createElement(__chunk_1.Source, {
+    margin: margin,
+    width: width,
+    height: height
+  }, sourceLabel), React__default.createElement(__chunk_1.StackedBarDatum, {
     data: data,
     series: stack,
-    isDates: isDates,
     theme: theme,
     x: xScale,
     y: yScale,
@@ -175,7 +190,8 @@ var BarLine = function BarLine(_ref) {
     height: height,
     onClick: onClick,
     onMouseEnter: onMouseEnter,
-    onMouseLeave: onMouseLeave
+    onMouseLeave: onMouseLeave,
+    tooltip: tooltip
   }), React__default.createElement(__chunk_1.Axis, {
     axis: "x",
     position: {
@@ -183,14 +199,13 @@ var BarLine = function BarLine(_ref) {
       y: height
     },
     ref: function ref(node) {
-      d3Selection.select(node).call(d3Axis.axisBottom(xScale));
-      isDates && __chunk_1.extendXPath(id, width);
+      d3Selection.select(node).call(d3Axis.axisBottom(xScale).ticks(xAxisTicks).tickFormat(isDates ? timeFormat : null));
       xAxisLabelRotation && __chunk_1.rotateXLabels(id, xAxisLabelRotationValue);
     }
   }), React__default.createElement(__chunk_1.Axis, {
     axis: "y",
     ref: function ref(node) {
-      return d3Selection.select(node).call(d3Axis.axisLeft(yScale).ticks(ticks));
+      return d3Selection.select(node).call(d3Axis.axisLeft(yScale).ticks(yAxisTicks));
     }
   }), lineData.map(function (datum, idx) {
     return React__default.createElement("g", {
@@ -199,14 +214,14 @@ var BarLine = function BarLine(_ref) {
     }, React__default.createElement(__chunk_1.LineDatum, {
       chart: "bar-line",
       data: datum,
-      isDates: isDates,
       color: __chunk_1.palette.themes[secondaryTheme].base[idx],
       d: line(datum),
       xScale: xScale,
       yScale: yScale,
       onClick: onClick,
       onMouseEnter: onMouseEnter,
-      onMouseLeave: onMouseLeave
+      onMouseLeave: onMouseLeave,
+      tooltip: tooltip
     }));
   })));
 };

@@ -1,10 +1,10 @@
-import './chunk-e3caabd4.js';
+import './chunk-67548fd7.js';
 import 'react';
-import 'ramda/src/identity';
 import 'd3-axis';
 import 'd3-scale';
 import 'd3-selection';
 import 'd3-time-format';
+import 'ramda/src/identity';
 import 'styled-components';
 import 'react-dom';
 import 'd3-shape';

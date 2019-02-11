@@ -1,8 +1,8 @@
 import React, { useState, Fragment, useRef, useEffect } from 'react';
-import identity from 'ramda/src/identity';
 import { axisBottom, axisLeft } from 'd3-axis';
 import { scaleTime, scaleBand, scaleLinear } from 'd3-scale';
-import { select, selectAll } from 'd3-selection';
+import { selectAll } from 'd3-selection';
+import identity from 'ramda/src/identity';
 import styled from 'styled-components';
 import { createPortal } from 'react-dom';
 import { curveBasis, curveBasisClosed, curveBasisOpen, curveBundle, curveCardinal, curveCardinalClosed, curveCardinalOpen, curveCatmullRom, curveCatmullRomClosed, curveCatmullRomOpen, curveLinear, curveLinearClosed, curveMonotoneX, curveMonotoneY, curveNatural, curveStep, curveStepAfter, curveStepBefore, stack, stackOrderNone, stackOffsetNone } from 'd3-shape';
@@ -179,14 +179,14 @@ var Axis = styled.g.attrs(function (_ref) {
 var BarDatum$$1 = function BarDatum$$1(_ref) {
   var color$$1 = _ref.color,
       datum = _ref.datum,
-      x = _ref.x,
-      y = _ref.y,
-      width = _ref.width,
       height = _ref.height,
       onClick = _ref.onClick,
       _onMouseEnter = _ref.onMouseEnter,
       _onMouseLeave = _ref.onMouseLeave,
-      withTooltip = _ref.tooltip;
+      withTooltip = _ref.tooltip,
+      width = _ref.width,
+      x = _ref.x,
+      y = _ref.y;
 
   var _useState = useState({
     pageX: null,
@@ -199,14 +199,6 @@ var BarDatum$$1 = function BarDatum$$1(_ref) {
 
   return React.createElement(Fragment, null, React.createElement(Rect, {
     chart: "bar",
-    position: {
-      x: x,
-      y: y
-    },
-    size: {
-      width: width,
-      height: height
-    },
     fillColor: color$$1,
     onClick: onClick,
     onMouseEnter: function onMouseEnter(event) {
@@ -237,6 +229,14 @@ var BarDatum$$1 = function BarDatum$$1(_ref) {
           pageY: pageY
         });
       });
+    },
+    position: {
+      x: x,
+      y: y
+    },
+    size: {
+      width: width,
+      height: height
     }
   }), withTooltip && tooltip.show && createPortal(React.createElement(Tooltip, {
     pageX: tooltip.pageX,
@@ -461,19 +461,6 @@ var drawGrid = (function (horizontal, xScale, height, yScale, width, xAxisTicks,
   return horizontal ? axisBottom().scale(xScale).tickSize(height, 0, 0).ticks(xAxisTicks).tickFormat('') : axisLeft().scale(yScale).tickSize(-width, 0, 0).ticks(yAxisTicks).tickFormat('');
 });
 
-/**
- * Extend the x axis path length if all the name values are instance of Date
- *
- * @param {String} id Unique chart id
- * @param {Number} width Chart width
- */
-
-var extendXPath = (function (id, width) {
-  return select("#".concat(id, " .axis-x path.domain")).attr('d', function () {
-    return "M0,0.6V0.5H".concat(width);
-  });
-});
-
 var getBaseColor = (function (theme) {
   return themes[theme].base[2];
 });
@@ -672,22 +659,6 @@ var toStackedForm = (function (data) {
   }))(data);
 });
 
-/**
- * Use this utility function when you need a value calculation based on the
- * chart width and the data length so you don't have to repeat the code in
- * several places
- *
- * @param {String} option Option to get the value for
- * @param {Number} width Chart width
- * @param {Number} length Data length
- *
- * @return {Number} Calculated number
- */
-
-var valueFor = (function (option, width, length$$1) {
-  return cond([[equals('x'), always(width / length$$1 / 2.4)], [equals('width'), always(width / (length$$1 * 1.1973))], [T, identity]])(option);
-});
-
 function _templateObject$3() {
   var data = _taggedTemplateLiteral(["\n  path {\n    stroke: transparent;\n  }\n\n  line {\n    stroke: ", ";\n  }\n"]);
 
@@ -735,9 +706,9 @@ var LineDatum$$1 = function LineDatum$$1(_ref) {
       onClick = _ref.onClick,
       _onMouseEnter = _ref.onMouseEnter,
       _onMouseLeave = _ref.onMouseLeave,
+      withTooltip = _ref.tooltip,
       xScale = _ref.xScale,
-      yScale = _ref.yScale,
-      isDates = _ref.isDates;
+      yScale = _ref.yScale;
 
   var _useState = useState({
     pageX: null,
@@ -762,9 +733,9 @@ var LineDatum$$1 = function LineDatum$$1(_ref) {
       key: idx,
       chart: "bar-line",
       strokeColor: color$$1,
-      cx: isDates ? xScale(name) : xScale(name) + xScale.bandwidth() / 2,
+      cx: xScale(name) + xScale.bandwidth() / 2,
       cy: yScale(value),
-      r: 5,
+      r: 4,
       onClick: onClick,
       onMouseEnter: function onMouseEnter(event) {
         setTooltip(function (state) {
@@ -798,7 +769,7 @@ var LineDatum$$1 = function LineDatum$$1(_ref) {
         });
       }
     });
-  })), tooltip.show && createPortal(React.createElement(Tooltip, {
+  })), withTooltip && tooltip.show && createPortal(React.createElement(Tooltip, {
     pageX: tooltip.pageX,
     pageY: tooltip.pageY
   }, React.createElement(TooltipItem, {
@@ -889,18 +860,38 @@ var Rect = styled.rect.attrs(function (_ref) {
   return getHoverColor(fillColor);
 });
 
+function _templateObject$8() {
+  var data = _taggedTemplateLiteral(["\n  font-size: 12px;\n  font-style: italic;\n  text-anchor: end;\n"]);
+
+  _templateObject$8 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Source = styled.text.attrs(function (_ref) {
+  var height = _ref.height,
+      margin = _ref.margin,
+      width = _ref.width;
+  return {
+    className: "chart-source",
+    x: width,
+    y: height + margin.bottom / 2
+  };
+})(_templateObject$8());
+
 var StackedBarDatum = function StackedBarDatum(_ref) {
   var data = _ref.data,
-      series = _ref.series,
+      height = _ref.height,
       onClick = _ref.onClick,
       onMouseEnter = _ref.onMouseEnter,
       onMouseLeave = _ref.onMouseLeave,
-      isDates = _ref.isDates,
+      series = _ref.series,
       theme = _ref.theme,
-      x = _ref.x,
-      y = _ref.y,
+      tooltip = _ref.tooltip,
       width = _ref.width,
-      height = _ref.height;
+      x = _ref.x,
+      y = _ref.y;
   return series.map(function (layer) {
     return React.createElement("g", {
       key: layer.index,
@@ -910,27 +901,28 @@ var StackedBarDatum = function StackedBarDatum(_ref) {
       var name = datum.data.name;
       return React.createElement(BarDatum$$1, {
         key: idx,
+        color: palette.themes[theme].base[layer.index],
         datum: {
           name: name,
           value: value
         },
-        x: isDates ? x(name) - valueFor('x', width, getLength(data)) : x(name),
-        y: y(last(datum)),
-        width: isDates ? valueFor('width', width, getLength(data)) : x.bandwidth(),
         height: height - y(value),
-        color: palette.themes[theme].base[layer.index],
         onClick: onClick,
         onMouseEnter: onMouseEnter,
-        onMouseLeave: onMouseLeave
+        onMouseLeave: onMouseLeave,
+        tooltip: tooltip,
+        width: x.bandwidth(),
+        x: x(name),
+        y: y(last(datum))
       });
     }));
   });
 };
 
-function _templateObject$8() {
+function _templateObject$9() {
   var data = _taggedTemplateLiteral(["\n  height: ", "px;\n  width: ", "px;\n"]);
 
-  _templateObject$8 = function _templateObject() {
+  _templateObject$9 = function _templateObject() {
     return data;
   };
 
@@ -942,7 +934,7 @@ var SVG = styled.svg.attrs(function (_ref) {
     id: identifier,
     className: 'silky-charts'
   };
-})(_templateObject$8(), function (_ref2) {
+})(_templateObject$9(), function (_ref2) {
   var size = _ref2.size;
   return size.height;
 }, function (_ref3) {
@@ -950,10 +942,29 @@ var SVG = styled.svg.attrs(function (_ref) {
   return size.width;
 });
 
-function _templateObject$9() {
+function _templateObject$a() {
+  var data = _taggedTemplateLiteral(["\n  font-size: 24px;\n  text-anchor: middle;\n"]);
+
+  _templateObject$a = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Title = styled.text.attrs(function (_ref) {
+  var margin = _ref.margin,
+      width = _ref.width;
+  return {
+    className: "chart-title",
+    x: width / 2,
+    y: -margin.top / 2
+  };
+})(_templateObject$a());
+
+function _templateObject$b() {
   var data = _taggedTemplateLiteral(["\n  background-color: ", ";\n  border: 1px solid ", ";\n  border-radius: 4px;\n  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.75);\n  padding: 10px;\n  pointer-events: none;\n  position: absolute;\n  text-align: center;\n  left: 0;\n  top: 0;\n  z-index: 10;\n"]);
 
-  _templateObject$9 = function _templateObject() {
+  _templateObject$b = function _templateObject() {
     return data;
   };
 
@@ -971,7 +982,7 @@ var Container = styled.div.attrs(function (_ref) {
       top: "".concat(pageY - height - 10, "px")
     }
   };
-})(_templateObject$9(), white, grey);
+})(_templateObject$b(), white, grey);
 
 var Tooltip = function Tooltip(props) {
   var tooltipRef = useRef();
@@ -1038,16 +1049,16 @@ function _templateObject2() {
   return data;
 }
 
-function _templateObject$a() {
+function _templateObject$c() {
   var data = _taggedTemplateLiteral(["\n  display: flex;\n"]);
 
-  _templateObject$a = function _templateObject() {
+  _templateObject$c = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Container$1 = styled.div(_templateObject$a());
+var Container$1 = styled.div(_templateObject$c());
 var Swatch = styled.span(_templateObject2(), function (_ref) {
   var swatchColor = _ref.swatchColor;
   return swatchColor || grey;
@@ -1067,5 +1078,5 @@ var TooltipItem = function TooltipItem(_ref2) {
   }), React.createElement(Data, null, React.createElement(Name, null, type(name) === 'Date' && isValid(name) ? format(name, dateFormat) : name), React.createElement(Value, null, value)));
 };
 
-export { getId as a, _slicedToArray as b, SIZE as c, setupData as d, getMax as e, debounce$1 as f, SVG as g, MainGroup as h, Grid as i, drawGrid as j, Label as k, DataGroup as l, BarDatum$$1 as m, getBaseColor as n, Axis as o, rotateXLabels as p, TIME_FORMAT as q, MARGIN as r, THEME as s, ROTATION as t, TICKS as u, SCALE_PADDING as v, _objectSpread as w, getSize as x, ASPECT_RATIO as y, buildStack as z, toStackedForm as A, getXScale as B, SCALE_TIME as C, SCALE_BAND as D, getYScale as E, SCALE_LINEAR as F, getStackedMax as G, setLineType as H, getLineDataForSeries as I, StackedBarDatum as J, extendXPath as K, LineDatum$$1 as L, palette as M, LINE_TYPE as N, SECONDARY_THEME as O, appendStackedValues as P, getSeries as Q, bySeries as R, classify as S, Path as T };
-//# sourceMappingURL=chunk-e3caabd4.js.map
+export { getId as a, _slicedToArray as b, SIZE as c, setupData as d, getMax as e, debounce$1 as f, SVG as g, MainGroup as h, Grid as i, drawGrid as j, Title as k, Label as l, Source as m, DataGroup as n, BarDatum$$1 as o, getBaseColor as p, Axis as q, rotateXLabels as r, TIME_FORMAT as s, MARGIN as t, THEME as u, ROTATION as v, TICKS as w, SCALE_PADDING as x, _objectSpread as y, getSize as z, ASPECT_RATIO as A, buildStack as B, toStackedForm as C, getStackedMax as D, setLineType as E, getLineDataForSeries as F, StackedBarDatum as G, LineDatum$$1 as H, palette as I, LINE_TYPE as J, SECONDARY_THEME as K, appendStackedValues as L, getSeries as M, getXScale as N, SCALE_TIME as O, SCALE_BAND as P, getYScale as Q, SCALE_LINEAR as R, bySeries as S, classify as T, Path as U };
+//# sourceMappingURL=chunk-67548fd7.js.map

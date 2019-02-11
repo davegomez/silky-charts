@@ -4,13 +4,13 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var __chunk_1 = require('./chunk-6e8eba9c.js');
+var __chunk_1 = require('./chunk-7fc9ede4.js');
 var React = require('react');
 var React__default = _interopDefault(React);
-var identity = _interopDefault(require('ramda/src/identity'));
 var d3Axis = require('d3-axis');
 require('d3-scale');
 var d3Selection = require('d3-selection');
+var identity = _interopDefault(require('ramda/src/identity'));
 require('styled-components');
 require('react-dom');
 var d3Shape = require('d3-shape');

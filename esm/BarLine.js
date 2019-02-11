@@ -1,9 +1,10 @@
-import { a as getId, b as _slicedToArray, c as SIZE, d as setupData, z as buildStack, A as toStackedForm, B as getXScale, C as SCALE_TIME, D as SCALE_BAND, E as getYScale, F as SCALE_LINEAR, e as getMax, G as getStackedMax, H as setLineType, I as getLineDataForSeries, f as debounce, g as SVG, i as Grid, j as drawGrid, k as Label, J as StackedBarDatum, o as Axis, K as extendXPath, p as rotateXLabels, L as LineDatum, M as palette, N as LINE_TYPE, r as MARGIN, O as SECONDARY_THEME, s as THEME, u as TICKS, t as ROTATION, w as _objectSpread, x as getSize, y as ASPECT_RATIO } from './chunk-e3caabd4.js';
-import React, { useRef, useState, useMemo, useEffect } from 'react';
-import identity from 'ramda/src/identity';
+import { a as getId, b as _slicedToArray, c as SIZE, d as setupData, B as buildStack, C as toStackedForm, e as getMax, D as getStackedMax, E as setLineType, F as getLineDataForSeries, f as debounce, g as SVG, h as MainGroup, i as Grid, j as drawGrid, k as Title, l as Label, m as Source, G as StackedBarDatum, q as Axis, r as rotateXLabels, H as LineDatum, I as palette, s as TIME_FORMAT, J as LINE_TYPE, t as MARGIN, x as SCALE_PADDING, K as SECONDARY_THEME, u as THEME, v as ROTATION, w as TICKS, y as _objectSpread, z as getSize, A as ASPECT_RATIO } from './chunk-67548fd7.js';
+import React, { useRef, useState, useEffect } from 'react';
 import { axisBottom, axisLeft } from 'd3-axis';
-import 'd3-scale';
+import { scaleBand, scaleLinear } from 'd3-scale';
 import { select } from 'd3-selection';
+import { timeFormat } from 'd3-time-format';
+import identity from 'ramda/src/identity';
 import 'styled-components';
 import 'react-dom';
 import { line } from 'd3-shape';
@@ -40,7 +41,10 @@ import 'ramda/src/type';
 var BarLine = function BarLine(_ref) {
   var _ref$aspectRatio = _ref.aspectRatio,
       aspectRatio = _ref$aspectRatio === void 0 ? ASPECT_RATIO : _ref$aspectRatio,
+      title = _ref.title,
       chartData = _ref.data,
+      _ref$dateFormat = _ref.dateFormat,
+      dateFormat = _ref$dateFormat === void 0 ? TIME_FORMAT : _ref$dateFormat,
       grid = _ref.grid,
       _ref$height = _ref.height,
       svgHeight = _ref$height === void 0 ? undefined : _ref$height,
@@ -59,28 +63,35 @@ var BarLine = function BarLine(_ref) {
       onMouseEnter = _ref$onMouseEnter === void 0 ? identity : _ref$onMouseEnter,
       _ref$onMouseLeave = _ref.onMouseLeave,
       onMouseLeave = _ref$onMouseLeave === void 0 ? identity : _ref$onMouseLeave,
-      _ref$responsive = _ref.responsive,
-      responsive = _ref$responsive === void 0 ? false : _ref$responsive,
+      _ref$padding = _ref.padding,
+      xScalePadding = _ref$padding === void 0 ? SCALE_PADDING : _ref$padding,
+      responsive = _ref.responsive,
       _ref$secondaryTheme = _ref.secondaryTheme,
       secondaryTheme = _ref$secondaryTheme === void 0 ? SECONDARY_THEME : _ref$secondaryTheme,
       _ref$stackedSeries = _ref.stackedSeries,
       stackedSeries = _ref$stackedSeries === void 0 ? [] : _ref$stackedSeries,
       _ref$theme = _ref.theme,
       theme = _ref$theme === void 0 ? THEME : _ref$theme,
-      _ref$ticks = _ref.ticks,
-      ticks = _ref$ticks === void 0 ? TICKS : _ref$ticks,
+      tooltip = _ref.tooltip,
+      sourceLabel = _ref.sourceLabel,
       _ref$width = _ref.width,
       svgWidth = _ref$width === void 0 ? undefined : _ref$width,
       xAxisChartLabel = _ref.xAxisChartLabel,
       xAxisLabelRotation = _ref.xAxisLabelRotation,
       _ref$xAxisLabelRotati = _ref.xAxisLabelRotationValue,
       xAxisLabelRotationValue = _ref$xAxisLabelRotati === void 0 ? ROTATION : _ref$xAxisLabelRotati,
-      yAxisChartLabel = _ref.yAxisChartLabel;
+      _ref$xAxisTicks = _ref.xAxisTicks,
+      xAxisTicks = _ref$xAxisTicks === void 0 ? TICKS : _ref$xAxisTicks,
+      yAxisChartLabel = _ref.yAxisChartLabel,
+      _ref$yAxisTicks = _ref.yAxisTicks,
+      yAxisTicks = _ref$yAxisTicks === void 0 ? TICKS : _ref$yAxisTicks;
   var svgRef = useRef();
 
   var _useState = useState(getId('bar-line')),
       _useState2 = _slicedToArray(_useState, 1),
       id = _useState2[0];
+
+  var timeFormat$$1 = timeFormat(dateFormat);
 
   var _useState3 = useState(SIZE),
       _useState4 = _slicedToArray(_useState3, 2),
@@ -90,23 +101,22 @@ var BarLine = function BarLine(_ref) {
       isSizeSet = _useState4$.isSizeSet,
       setSize = _useState4[1];
 
-  var _useMemo = useMemo(function () {
-    return setupData(chartData);
-  }, chartData),
-      _useMemo2 = _slicedToArray(_useMemo, 2),
-      isDates = _useMemo2[0],
-      data = _useMemo2[1];
+  var _setupData = setupData(chartData),
+      _setupData2 = _slicedToArray(_setupData, 2),
+      isDates = _setupData2[0],
+      data = _setupData2[1];
 
-  var stack = useMemo(function () {
-    return buildStack(stackedSeries)(toStackedForm(data));
-  }, data);
-  var xScale = getXScale(isDates ? SCALE_TIME : SCALE_BAND, data, width, true);
-  var yScale = getYScale(SCALE_LINEAR, getMax(getStackedMax(data, stackedSeries)), height);
-  var line$$1 = line().curve(setLineType(lineType, lineTypeOption)).x(function (_ref2) {
+  var stack = buildStack(stackedSeries)(toStackedForm(data));
+  var xScale = scaleBand().domain(data.map(function (_ref2) {
     var name = _ref2.name;
-    return isDates ? xScale(name) : xScale(name) + xScale.bandwidth() / 2;
-  }).y(function (_ref3) {
-    var value = _ref3.value;
+    return name;
+  })).range([0, width]).padding(xScalePadding);
+  var yScale = scaleLinear().domain([0, getMax(getStackedMax(data, stackedSeries))]).range([height, 0]);
+  var line$$1 = line().curve(setLineType(lineType, lineTypeOption)).x(function (_ref3) {
+    var name = _ref3.name;
+    return xScale(name) + xScale.bandwidth() / 2;
+  }).y(function (_ref4) {
+    var value = _ref4.value;
     return yScale(value);
   });
   var lineData = getLineDataForSeries(lineSeries, data);
@@ -140,14 +150,16 @@ var BarLine = function BarLine(_ref) {
       height: svgHeight || height + margin.top + margin.bottom
     },
     ref: svgRef
-  }, React.createElement("g", {
-    className: "silky-charts-container",
-    transform: "translate(".concat(margin.left, ", ").concat(margin.top, ")")
+  }, React.createElement(MainGroup, {
+    margin: margin
   }, grid && React.createElement(Grid, {
     ref: function ref(node) {
-      return select(node).call(drawGrid(horizontal, xScale, height, yScale, width, ticks));
+      return select(node).call(drawGrid(horizontal, xScale, height, yScale, width, xAxisTicks, yAxisTicks));
     }
-  }), xAxisChartLabel && React.createElement(Label, {
+  }), title && React.createElement(Title, {
+    margin: margin,
+    width: width
+  }, title), xAxisChartLabel && React.createElement(Label, {
     axis: "x",
     margin: margin,
     width: width,
@@ -157,10 +169,13 @@ var BarLine = function BarLine(_ref) {
     margin: margin,
     width: width,
     height: height
-  }, yAxisChartLabel), React.createElement(StackedBarDatum, {
+  }, yAxisChartLabel), sourceLabel && React.createElement(Source, {
+    margin: margin,
+    width: width,
+    height: height
+  }, sourceLabel), React.createElement(StackedBarDatum, {
     data: data,
     series: stack,
-    isDates: isDates,
     theme: theme,
     x: xScale,
     y: yScale,
@@ -168,7 +183,8 @@ var BarLine = function BarLine(_ref) {
     height: height,
     onClick: onClick,
     onMouseEnter: onMouseEnter,
-    onMouseLeave: onMouseLeave
+    onMouseLeave: onMouseLeave,
+    tooltip: tooltip
   }), React.createElement(Axis, {
     axis: "x",
     position: {
@@ -176,14 +192,13 @@ var BarLine = function BarLine(_ref) {
       y: height
     },
     ref: function ref(node) {
-      select(node).call(axisBottom(xScale));
-      isDates && extendXPath(id, width);
+      select(node).call(axisBottom(xScale).ticks(xAxisTicks).tickFormat(isDates ? timeFormat$$1 : null));
       xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
     }
   }), React.createElement(Axis, {
     axis: "y",
     ref: function ref(node) {
-      return select(node).call(axisLeft(yScale).ticks(ticks));
+      return select(node).call(axisLeft(yScale).ticks(yAxisTicks));
     }
   }), lineData.map(function (datum, idx) {
     return React.createElement("g", {
@@ -192,14 +207,14 @@ var BarLine = function BarLine(_ref) {
     }, React.createElement(LineDatum, {
       chart: "bar-line",
       data: datum,
-      isDates: isDates,
       color: palette.themes[secondaryTheme].base[idx],
       d: line$$1(datum),
       xScale: xScale,
       yScale: yScale,
       onClick: onClick,
       onMouseEnter: onMouseEnter,
-      onMouseLeave: onMouseLeave
+      onMouseLeave: onMouseLeave,
+      tooltip: tooltip
     }));
   })));
 };

@@ -1,10 +1,10 @@
-import { a as getId, b as _slicedToArray, c as SIZE, d as setupData, e as getMax, f as debounce, g as SVG, h as MainGroup, i as Grid, j as drawGrid, k as Label, l as DataGroup, m as BarDatum, n as getBaseColor, o as Axis, p as rotateXLabels, q as TIME_FORMAT, r as MARGIN, s as THEME, t as ROTATION, u as TICKS, v as SCALE_PADDING, w as _objectSpread, x as getSize, y as ASPECT_RATIO } from './chunk-e3caabd4.js';
+import { a as getId, b as _slicedToArray, c as SIZE, d as setupData, e as getMax, f as debounce, g as SVG, h as MainGroup, i as Grid, j as drawGrid, k as Title, l as Label, m as Source, n as DataGroup, o as BarDatum, p as getBaseColor, q as Axis, r as rotateXLabels, s as TIME_FORMAT, t as MARGIN, u as THEME, v as ROTATION, w as TICKS, x as SCALE_PADDING, y as _objectSpread, z as getSize, A as ASPECT_RATIO } from './chunk-67548fd7.js';
 import React, { useRef, useState, useEffect } from 'react';
-import identity from 'ramda/src/identity';
 import { axisBottom, axisLeft } from 'd3-axis';
 import { scaleBand, scaleLinear } from 'd3-scale';
 import { select } from 'd3-selection';
 import { timeFormat } from 'd3-time-format';
+import identity from 'ramda/src/identity';
 import 'styled-components';
 import 'react-dom';
 import 'd3-shape';
@@ -41,6 +41,7 @@ import 'ramda/src/type';
 var Bar = function Bar(_ref) {
   var _ref$aspectRatio = _ref.aspectRatio,
       aspectRatio = _ref$aspectRatio === void 0 ? ASPECT_RATIO : _ref$aspectRatio,
+      title = _ref.title,
       chartData = _ref.data,
       _ref$dateFormat = _ref.dateFormat,
       dateFormat = _ref$dateFormat === void 0 ? TIME_FORMAT : _ref$dateFormat,
@@ -56,11 +57,11 @@ var Bar = function Bar(_ref) {
       onMouseEnter = _ref$onMouseEnter === void 0 ? identity : _ref$onMouseEnter,
       _ref$onMouseLeave = _ref.onMouseLeave,
       onMouseLeave = _ref$onMouseLeave === void 0 ? identity : _ref$onMouseLeave,
-      _ref$responsive = _ref.responsive,
-      responsive = _ref$responsive === void 0 ? false : _ref$responsive,
+      responsive = _ref.responsive,
       _ref$theme = _ref.theme,
       theme = _ref$theme === void 0 ? THEME : _ref$theme,
       tooltip = _ref.tooltip,
+      sourceLabel = _ref.sourceLabel,
       _ref$width = _ref.width,
       svgWidth = _ref$width === void 0 ? undefined : _ref$width,
       xAxisChartLabel = _ref.xAxisChartLabel,
@@ -139,7 +140,11 @@ var Bar = function Bar(_ref) {
     ref: function ref(node) {
       return select(node).call(drawGrid(horizontal, xScale, height, yScale, width, xAxisTicks, yAxisTicks));
     }
-  }), xAxisChartLabel && React.createElement(Label, {
+  }), title && React.createElement(Title, {
+    margin: margin,
+    width: width,
+    height: height
+  }, title), xAxisChartLabel && React.createElement(Label, {
     axis: "x",
     margin: margin,
     width: width,
@@ -149,7 +154,11 @@ var Bar = function Bar(_ref) {
     margin: margin,
     width: width,
     height: height
-  }, yAxisChartLabel), React.createElement(DataGroup, null, data.map(function (_ref4, idx) {
+  }, yAxisChartLabel), sourceLabel && React.createElement(Source, {
+    margin: margin,
+    width: width,
+    height: height
+  }, sourceLabel), React.createElement(DataGroup, null, data.map(function (_ref4, idx) {
     var name = _ref4.name,
         value = _ref4.value;
     return React.createElement(BarDatum, {
@@ -175,7 +184,7 @@ var Bar = function Bar(_ref) {
       y: height
     },
     ref: function ref(node) {
-      select(node).call(axisBottom(xScale).ticks(yAxisTicks).tickFormat(isDates ? timeFormat$$1 : null));
+      select(node).call(axisBottom(xScale).ticks(xAxisTicks).tickFormat(isDates ? timeFormat$$1 : null));
       xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
     }
   }), React.createElement(Axis, {
