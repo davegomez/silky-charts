@@ -10,9 +10,9 @@ const LineDatum = ({
   onClick,
   onMouseEnter,
   onMouseLeave,
+  tooltip: withTooltip,
   xScale,
   yScale,
-  isDates,
 }) => {
   const [tooltip, setTooltip] = useState({
     pageX: null,
@@ -29,9 +29,9 @@ const LineDatum = ({
             key={idx}
             chart="bar-line"
             strokeColor={color}
-            cx={isDates ? xScale(name) : xScale(name) + xScale.bandwidth() / 2}
+            cx={xScale(name) + xScale.bandwidth() / 2}
             cy={yScale(value)}
-            r={5}
+            r={4}
             onClick={onClick}
             onMouseEnter={event => {
               setTooltip(state => ({ ...state, show: true }));
@@ -49,7 +49,8 @@ const LineDatum = ({
           />
         ))}
       </g>
-      {tooltip.show &&
+      {withTooltip &&
+        tooltip.show &&
         createPortal(
           <Tooltip pageX={tooltip.pageX} pageY={tooltip.pageY}>
             <TooltipItem

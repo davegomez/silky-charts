@@ -1,53 +1,55 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
-import head from 'ramda/src/head';
-import identity from 'ramda/src/identity';
+import React, { useEffect, useRef, useState } from 'react';
 import { axisBottom as d3AxisBottom, axisLeft as d3AxisLeft } from 'd3-axis';
+import {
+  scaleBand as d3ScaleBand,
+  scaleLinear as d3ScaleLinear,
+} from 'd3-scale';
 import { select as d3Select } from 'd3-selection';
 import { line as d3Line } from 'd3-shape';
+import { timeFormat as d3TimeFormat } from 'd3-time-format';
+import head from 'ramda/src/head';
+import identity from 'ramda/src/identity';
 import {
   Axis,
   Grid,
   Label,
   LineDatum,
+  MainGroup,
   StackedBarDatum,
   SVG,
 } from './components';
-import {
-  buildStack,
-  debounce,
-  drawGrid,
-  extendXPath,
-  getId,
-  getLineDataForSeries,
-  getMax,
-  getStackedMax,
-  getSize,
-  getXScale,
-  getYScale,
-  palette,
-  rotateXLabels,
-  setLineType,
-  setupData,
-  toStackedForm,
-  toSingleForm,
-} from './utils';
 import {
   ASPECT_RATIO,
   LINE_TYPE,
   MARGIN,
   ROTATION,
-  SCALE_BAND,
-  SCALE_LINEAR,
-  SCALE_TIME,
+  SCALE_PADDING,
   SECONDARY_THEME,
   SIZE,
   THEME,
   TICKS,
+  TIME_FORMAT,
 } from './utils/constants';
+import {
+  buildStack,
+  debounce,
+  drawGrid,
+  getId,
+  getLineDataForSeries,
+  getMax,
+  getStackedMax,
+  getSize,
+  palette,
+  rotateXLabels,
+  setLineType,
+  setupData,
+  toStackedForm,
+} from './utils';
 
 const BarLine = ({
   aspectRatio = ASPECT_RATIO,
   data: chartData,
+  dateFormat = TIME_FORMAT,
   grid,
   height: svgHeight = undefined,
   horizontal,
@@ -58,43 +60,39 @@ const BarLine = ({
   onClick = identity,
   onMouseEnter = identity,
   onMouseLeave = identity,
-  responsive = false,
+  padding: xScalePadding = SCALE_PADDING,
+  responsive,
   secondaryTheme = SECONDARY_THEME,
   stackedSeries = [],
   theme = THEME,
-  ticks = TICKS,
+  tooltip,
   width: svgWidth = undefined,
   xAxisChartLabel,
   xAxisLabelRotation,
   xAxisLabelRotationValue = ROTATION,
+  xAxisTicks = TICKS,
   yAxisChartLabel,
+  yAxisTicks = TICKS,
 }) => {
   const svgRef = useRef();
   const [id] = useState(getId('bar-line'));
+  const timeFormat = d3TimeFormat(dateFormat);
   const [{ width, height, isSizeSet }, setSize] = useState(SIZE);
-  const [isDates, data] = useMemo(() => setupData(chartData), chartData);
-  const stack = useMemo(
-    () => buildStack(stackedSeries)(toStackedForm(data)),
-    data
-  );
+  const [isDates, data] = setupData(chartData);
+  const stack = buildStack(stackedSeries)(toStackedForm(data));
 
-  const xScale = getXScale(
-    isDates ? SCALE_TIME : SCALE_BAND,
-    data,
-    width,
-    true
-  );
-  const yScale = getYScale(
-    SCALE_LINEAR,
-    getMax(getStackedMax(data, stackedSeries)),
-    height
-  );
+  const xScale = d3ScaleBand()
+    .domain(data.map(({ name }) => name))
+    .range([0, width])
+    .padding(xScalePadding);
+
+  const yScale = d3ScaleLinear()
+    .domain([0, getMax(getStackedMax(data, stackedSeries))])
+    .range([height, 0]);
 
   const line = d3Line()
     .curve(setLineType(lineType, lineTypeOption))
-    .x(({ name }) =>
-      isDates ? xScale(name) : xScale(name) + xScale.bandwidth() / 2
-    )
+    .x(({ name }) => xScale(name) + xScale.bandwidth() / 2)
     .y(({ value }) => yScale(value));
 
   const lineData = getLineDataForSeries(lineSeries, data);
@@ -134,15 +132,20 @@ const BarLine = ({
       }}
       ref={svgRef}
     >
-      <g
-        className="silky-charts-container"
-        transform={`translate(${margin.left}, ${margin.top})`}
-      >
+      <MainGroup margin={margin}>
         {grid && (
           <Grid
             ref={node =>
               d3Select(node).call(
-                drawGrid(horizontal, xScale, height, yScale, width, ticks)
+                drawGrid(
+                  horizontal,
+                  xScale,
+                  height,
+                  yScale,
+                  width,
+                  xAxisTicks,
+                  yAxisTicks
+                )
               )
             }
           />
@@ -163,7 +166,6 @@ const BarLine = ({
         <StackedBarDatum
           data={data}
           series={stack}
-          isDates={isDates}
           theme={theme}
           x={xScale}
           y={yScale}
@@ -172,20 +174,26 @@ const BarLine = ({
           onClick={onClick}
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
+          tooltip={tooltip}
         />
 
         <Axis
           axis="x"
           position={{ x: 0, y: height }}
           ref={node => {
-            d3Select(node).call(d3AxisBottom(xScale));
-            isDates && extendXPath(id, width);
+            d3Select(node).call(
+              d3AxisBottom(xScale)
+                .ticks(xAxisTicks)
+                .tickFormat(isDates ? timeFormat : null)
+            );
             xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
           }}
         />
         <Axis
           axis="y"
-          ref={node => d3Select(node).call(d3AxisLeft(yScale).ticks(ticks))}
+          ref={node =>
+            d3Select(node).call(d3AxisLeft(yScale).ticks(yAxisTicks))
+          }
         />
 
         {lineData.map((datum, idx) => (
@@ -193,7 +201,6 @@ const BarLine = ({
             <LineDatum
               chart="bar-line"
               data={datum}
-              isDates={isDates}
               color={palette.themes[secondaryTheme].base[idx]}
               d={line(datum)}
               xScale={xScale}
@@ -201,10 +208,11 @@ const BarLine = ({
               onClick={onClick}
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
+              tooltip={tooltip}
             />
           </g>
         ))}
-      </g>
+      </MainGroup>
     </SVG>
   );
 };

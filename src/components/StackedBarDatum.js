@@ -6,42 +6,36 @@ import { palette, valueFor, getLength } from '../utils';
 
 const StackedBarDatum = ({
   data,
-  series,
+  height,
   onClick,
   onMouseEnter,
   onMouseLeave,
-  isDates,
+  series,
   theme,
+  tooltip,
+  width,
   x,
   y,
-  width,
-  height,
 }) =>
   series.map(layer => (
     <g key={layer.index} className={`${layer.key}-layer`}>
       {layer.map((datum, idx) => {
         const value = last(datum) - head(datum);
         const name = datum.data.name;
+
         return (
           <BarDatum
             key={idx}
-            datum={{ name, value }}
-            x={
-              isDates
-                ? x(name) - valueFor('x', width, getLength(data))
-                : x(name)
-            }
-            y={y(last(datum))}
-            width={
-              isDates
-                ? valueFor('width', width, getLength(data))
-                : x.bandwidth()
-            }
-            height={height - y(value)}
             color={palette.themes[theme].base[layer.index]}
+            datum={{ name, value }}
+            height={height - y(value)}
             onClick={onClick}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
+            tooltip={tooltip}
+            width={x.bandwidth()}
+            x={x(name)}
+            y={y(last(datum))}
           />
         );
       })}
