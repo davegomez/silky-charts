@@ -1,7 +1,7 @@
 {
   "name": "silky-charts",
   "description": "A silky smooth D3/React library",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "main": "cjs/index.js",
   "module": "esm/index.js",
