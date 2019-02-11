@@ -217,7 +217,7 @@ const BarLine = ({
             <LineDatum
               chart="bar-line"
               data={datum}
-              color={palette.themes[secondaryTheme].base[idx]}
+              color={palette.themes[secondaryTheme][idx]}
               d={line(datum)}
               xScale={xScale}
               yScale={yScale}

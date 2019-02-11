@@ -41,8 +41,8 @@ export const SCALE_PADDING = 0.1;
 export const SCALE_TIME = 'time';
 
 // Themes
-export const THEME = 'tealBlue';
-export const SECONDARY_THEME = 'pink';
+export const THEME = 'monteCarlo';
+export const SECONDARY_THEME = 'vividCerise';
 
 // Line options
 export const LINE_STROKE_WIDTH = 3;
