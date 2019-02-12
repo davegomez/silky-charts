@@ -3,6 +3,8 @@
 A silky smooth D3/React chart library
 
 [![NPM Version](https://img.shields.io/npm/v/silky-charts.svg)](https://www.npmjs.com/package/silky-charts)
+[![Bundlephobia minified](https://badgen.net/bundlephobia/min/silky-charts)](https://bundlephobia.com/result?p=silky-charts)
+[![Bundlephobia minified + gzip](https://badgen.net/bundlephobia/minzip/silky-charts)](https://bundlephobia.com/result?p=silky-charts)
 
 + [Silky Charts](#silky-charts)
   + [Features](#features)
