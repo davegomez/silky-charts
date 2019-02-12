@@ -4,20 +4,20 @@ A silky smooth D3/React chart library
 
 [![NPM Version](https://img.shields.io/npm/v/silky-charts.svg)](https://www.npmjs.com/package/silky-charts)
 
-- [Silky Charts](#silky-charts)
-  - [Features](#features)
-  - [ToDo](#todo)
-  - [Installation](#installation)
-    - [Peer Dependencies](#peer-dependencies)
-  - [Basic Usage](#basic-usage)
-  - [Common Props](#common-props)
-  - [Color Themes](#color-themes)
-  - [Bar Chart](#bar-chart)
-    - [Data Definition](#data-definition)
-    - [Props](#props)
-  - [BarLine Chart](#barline-chart)
-    - [Data Definition](#data-definition-1)
-    - [Props](#props-1)
++ [Silky Charts](#silky-charts)
+  + [Features](#features)
+  + [Roadmap](#roadmap)
+  + [Installation](#installation)
+    + [Peer Dependencies](#peer-dependencies)
+  + [Basic Usage](#basic-usage)
+  + [Common Props](#common-props)
+  + [Color Themes](#color-themes)
+  + [Bar Chart](#bar-chart)
+    + [Data Definition](#data-definition)
+    + [Props](#props)
+  + [BarLine Chart](#barline-chart)
+    + [Data Definition](#data-definition-1)
+    + [Props](#props-1)
 
 ## Features
 
@@ -29,11 +29,11 @@ A silky smooth D3/React chart library
 - Built in tooltips
 - Choropleth color themes
 
-## ToDo
+## Roadmap
 
 - [ ] Custom color themes support
 - [ ] Styled Components themes support
-- [ ] Empty/Loading state
+- [ ] Empty and loading state
 
 ## Installation
 
@@ -94,7 +94,7 @@ Most props and options are present indistinguishable in all charts.
 | onMouseLeave            | `Function` |                | Callback function to call during the OnMouseLeave event.                                                                          |
 | padding                 |  `Number`  |     `0.1`      | Sets the padding between the chart bars.                                                                                          |
 | responsive              | `Boolean`  |    `false`     | Activates the chart responsiveness feature.                                                                                       |
-| theme                   |  `String`  | `"monteCarlo"` | Color theme.                                                                                                                      |
+| theme                   |  `String`  | `"monteCarlo"` | Color theme name. [Color themes](#color-themes)                                                                                   |
 | tooltip                 | `Boolean`  |    `false`     | Activates the built in tooltip.                                                                                                   |
 | width                   |  `Number`  |     `640`      | Sets the chart's width.                                                                                                           |
 | xAxisChartLabel         |  `String`  |                | Sets the Chart's X axis label (you might need to adjust the margin).                                                              |
