@@ -1,4 +1,4 @@
-import { a as getId, b as _slicedToArray, c as SIZE, d as setupData, B as buildStack, C as toStackedForm, e as getMax, D as getStackedMax, E as setLineType, F as getLineDataForSeries, f as debounce, g as SVG, h as MainGroup, i as Grid, j as drawGrid, k as Title, l as Label, m as Source, G as StackedBarDatum, q as Axis, r as rotateXLabels, H as LineDatum, I as palette, s as TIME_FORMAT, J as LINE_TYPE, t as MARGIN, x as SCALE_PADDING, K as SECONDARY_THEME, u as THEME, v as ROTATION, w as TICKS, y as _objectSpread, z as getSize, A as ASPECT_RATIO } from './chunk-f30f7338.js';
+import { a as getId, b as _slicedToArray, c as SIZE, d as setupData, B as buildStack, C as toStackedForm, e as getMax, D as getStackedMax, E as setLineType, F as getLineDataForSeries, f as debounce, g as SVG, h as MainGroup, i as Grid, j as drawGrid, k as Title, l as Label, m as Source, G as StackedBarDatum, q as Axis, r as rotateXLabels, H as LineDatum, I as palette, s as TIME_FORMAT, J as LINE_TYPE, t as MARGIN, x as SCALE_PADDING, K as SECONDARY_THEME, u as THEME, v as ROTATION, w as TICKS, y as _objectSpread, z as getSize, A as ASPECT_RATIO } from './chunk-fb20579c.js';
 import React, { useRef, useState, useEffect } from 'react';
 import { axisBottom, axisLeft } from 'd3-axis';
 import { scaleBand, scaleLinear } from 'd3-scale';
@@ -16,7 +16,6 @@ import 'ramda/src/prop';
 import 'ramda/src/toPairs';
 import 'ramda/src/apply';
 import 'ramda/src/curry';
-import 'color';
 import 'ramda/src/length';
 import 'ramda/src/uniq';
 import 'ramda/src/map';
@@ -207,7 +206,7 @@ var BarLine = function BarLine(_ref) {
     }, React.createElement(LineDatum, {
       chart: "bar-line",
       data: datum,
-      color: palette.themes[secondaryTheme].base[idx],
+      color: palette.themes[secondaryTheme][idx],
       d: line$$1(datum),
       xScale: xScale,
       yScale: yScale,

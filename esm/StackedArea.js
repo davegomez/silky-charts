@@ -1,4 +1,4 @@
-import { a as getId, b as _slicedToArray, c as SIZE, d as setupData, L as appendStackedValues, B as buildStack, M as getSeries, C as toStackedForm, N as getXScale, O as SCALE_TIME, P as SCALE_BAND, Q as getYScale, R as SCALE_LINEAR, e as getMax, D as getStackedMax, E as setLineType, f as debounce, g as SVG, i as Grid, j as drawGrid, l as Label, S as bySeries, T as classify, U as Path, I as palette, q as Axis, r as rotateXLabels, J as LINE_TYPE, t as MARGIN, u as THEME, w as TICKS, v as ROTATION, y as _objectSpread, z as getSize, A as ASPECT_RATIO } from './chunk-f30f7338.js';
+import { a as getId, b as _slicedToArray, c as SIZE, d as setupData, L as appendStackedValues, B as buildStack, M as getSeries, C as toStackedForm, N as getXScale, O as SCALE_TIME, P as SCALE_BAND, Q as getYScale, R as SCALE_LINEAR, e as getMax, D as getStackedMax, E as setLineType, f as debounce, g as SVG, i as Grid, j as drawGrid, l as Label, S as bySeries, T as classify, U as Path, I as palette, q as Axis, r as rotateXLabels, J as LINE_TYPE, t as MARGIN, u as THEME, w as TICKS, v as ROTATION, y as _objectSpread, z as getSize, A as ASPECT_RATIO } from './chunk-fb20579c.js';
 import React, { useRef, useState, useMemo, useEffect } from 'react';
 import { axisBottom, axisLeft } from 'd3-axis';
 import 'd3-scale';
@@ -15,7 +15,6 @@ import 'ramda/src/prop';
 import 'ramda/src/toPairs';
 import 'ramda/src/apply';
 import 'ramda/src/curry';
-import 'color';
 import 'ramda/src/length';
 import 'ramda/src/uniq';
 import 'ramda/src/map';
@@ -164,7 +163,7 @@ var StackedArea = function StackedArea(_ref) {
       key: idx
     }, React.createElement(Path, {
       chart: "stacked-area",
-      fillColor: palette.themes[theme].base[idx],
+      fillColor: palette.themes[theme][idx],
       d: area$$1(datum),
       strokeWidth: 0,
       onClick: onClick,

@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-require('./chunk-aff92de4.js');
+require('./chunk-3ec04cb8.js');
 require('react');
 require('d3-axis');
 require('d3-scale');
@@ -20,7 +20,6 @@ require('ramda/src/prop');
 require('ramda/src/toPairs');
 require('ramda/src/apply');
 require('ramda/src/curry');
-require('color');
 require('ramda/src/length');
 require('ramda/src/uniq');
 require('ramda/src/map');

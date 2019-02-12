@@ -1,4 +1,4 @@
-import './chunk-f30f7338.js';
+import './chunk-fb20579c.js';
 import 'react';
 import 'd3-axis';
 import 'd3-scale';
@@ -16,7 +16,6 @@ import 'ramda/src/prop';
 import 'ramda/src/toPairs';
 import 'ramda/src/apply';
 import 'ramda/src/curry';
-import 'color';
 import 'ramda/src/length';
 import 'ramda/src/uniq';
 import 'ramda/src/map';

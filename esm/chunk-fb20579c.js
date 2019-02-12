@@ -1,45 +1,39 @@
-'use strict';
-
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
-var React = require('react');
-var React__default = _interopDefault(React);
-var d3Axis = require('d3-axis');
-var d3Scale = require('d3-scale');
-var d3Selection = require('d3-selection');
-var identity = _interopDefault(require('ramda/src/identity'));
-var styled = _interopDefault(require('styled-components'));
-var reactDom = require('react-dom');
-var d3Shape = require('d3-shape');
-var all = _interopDefault(require('ramda/src/all'));
-var compose = _interopDefault(require('ramda/src/compose'));
-var dateFns = require('date-fns');
-var groupBy = _interopDefault(require('ramda/src/groupBy'));
-var prop = _interopDefault(require('ramda/src/prop'));
-var toPairs = _interopDefault(require('ramda/src/toPairs'));
-var apply = _interopDefault(require('ramda/src/apply'));
-var curry = _interopDefault(require('ramda/src/curry'));
-var color = _interopDefault(require('color'));
-var length = _interopDefault(require('ramda/src/length'));
-var uniq = _interopDefault(require('ramda/src/uniq'));
-var map = _interopDefault(require('ramda/src/map'));
-var max = _interopDefault(require('ramda/src/max'));
-var filter = _interopDefault(require('ramda/src/filter'));
-var sum = _interopDefault(require('ramda/src/sum'));
-var reduce = _interopDefault(require('ramda/src/reduce'));
-var values = _interopDefault(require('ramda/src/values'));
-var always = _interopDefault(require('ramda/src/always'));
-var cond = _interopDefault(require('ramda/src/cond'));
-var equals = _interopDefault(require('ramda/src/equals'));
-var T = _interopDefault(require('ramda/src/T'));
-var d3Array = require('d3-array');
-var flatten = _interopDefault(require('ramda/src/flatten'));
-var omit = _interopDefault(require('ramda/src/omit'));
-var mergeAll = _interopDefault(require('ramda/src/mergeAll'));
-var splitEvery = _interopDefault(require('ramda/src/splitEvery'));
-var head = _interopDefault(require('ramda/src/head'));
-var last = _interopDefault(require('ramda/src/last'));
-var type = _interopDefault(require('ramda/src/type'));
+import React, { useState, Fragment, useRef, useEffect } from 'react';
+import { axisBottom, axisLeft } from 'd3-axis';
+import { scaleTime, scaleBand, scaleLinear } from 'd3-scale';
+import { selectAll } from 'd3-selection';
+import identity from 'ramda/src/identity';
+import styled from 'styled-components';
+import { createPortal } from 'react-dom';
+import { curveBasis, curveBasisClosed, curveBasisOpen, curveBundle, curveCardinal, curveCardinalClosed, curveCardinalOpen, curveCatmullRom, curveCatmullRomClosed, curveCatmullRomOpen, curveLinear, curveLinearClosed, curveMonotoneX, curveMonotoneY, curveNatural, curveStep, curveStepAfter, curveStepBefore, stack, stackOrderNone, stackOffsetNone } from 'd3-shape';
+import all from 'ramda/src/all';
+import compose from 'ramda/src/compose';
+import { isValid, parseISO, format } from 'date-fns';
+import groupBy from 'ramda/src/groupBy';
+import prop from 'ramda/src/prop';
+import toPairs from 'ramda/src/toPairs';
+import apply from 'ramda/src/apply';
+import curry from 'ramda/src/curry';
+import length from 'ramda/src/length';
+import uniq from 'ramda/src/uniq';
+import map from 'ramda/src/map';
+import max from 'ramda/src/max';
+import filter from 'ramda/src/filter';
+import sum from 'ramda/src/sum';
+import reduce from 'ramda/src/reduce';
+import values from 'ramda/src/values';
+import always from 'ramda/src/always';
+import cond from 'ramda/src/cond';
+import equals from 'ramda/src/equals';
+import T from 'ramda/src/T';
+import { extent } from 'd3-array';
+import flatten from 'ramda/src/flatten';
+import omit from 'ramda/src/omit';
+import mergeAll from 'ramda/src/mergeAll';
+import splitEvery from 'ramda/src/splitEvery';
+import head from 'ramda/src/head';
+import last from 'ramda/src/last';
+import type from 'ramda/src/type';
 
 function _defineProperty(obj, key, value) {
   if (key in obj) {
@@ -182,7 +176,7 @@ var Axis = styled.g.attrs(function (_ref) {
 })(_templateObject());
 
 var BarDatum$$1 = function BarDatum$$1(_ref) {
-  var color$$1 = _ref.color,
+  var color = _ref.color,
       datum = _ref.datum,
       height = _ref.height,
       onClick = _ref.onClick,
@@ -193,7 +187,7 @@ var BarDatum$$1 = function BarDatum$$1(_ref) {
       x = _ref.x,
       y = _ref.y;
 
-  var _useState = React.useState({
+  var _useState = useState({
     pageX: null,
     pageY: null,
     show: false
@@ -202,9 +196,9 @@ var BarDatum$$1 = function BarDatum$$1(_ref) {
       tooltip = _useState2[0],
       setTooltip = _useState2[1];
 
-  return React__default.createElement(React.Fragment, null, React__default.createElement(Rect, {
+  return React.createElement(Fragment, null, React.createElement(Rect, {
     chart: "bar",
-    fillColor: color$$1,
+    fillColor: color,
     onClick: onClick,
     onMouseEnter: function onMouseEnter(event) {
       setTooltip(function (state) {
@@ -243,11 +237,11 @@ var BarDatum$$1 = function BarDatum$$1(_ref) {
       width: width,
       height: height
     }
-  }), withTooltip && tooltip.show && reactDom.createPortal(React__default.createElement(Tooltip, {
+  }), withTooltip && tooltip.show && createPortal(React.createElement(Tooltip, {
     pageX: tooltip.pageX,
     pageY: tooltip.pageY
-  }, React__default.createElement(TooltipItem, _extends({
-    color: color$$1
+  }, React.createElement(TooltipItem, _extends({
+    color: color
   }, datum))), document.body));
 };
 
@@ -258,38 +252,11 @@ var black = 'rgb(33, 33, 33)'; // #212121
 var grey = 'rgb(220, 220, 220)'; // #DCDCDC
 
 var themes = {
-  red: {
-    base: ['rgb(127, 29, 24)', 'rgb(255, 131, 124)', 'rgb(255, 59, 48)', 'rgb(127, 66, 62)', 'rgb(204, 47, 38)'],
-    ref: 'rgb(48, 255, 128)'
-  },
-  orange: {
-    base: ['rgb(127, 74, 0)', 'rgb(255, 181, 76)', 'rgb(255, 149, 0)', 'rgb(127, 90, 38)', 'rgb(204, 119, 0)'],
-    ref: 'rgb(0, 156, 255)'
-  },
-  yellow: {
-    base: ['rgb(127, 102, 0)', 'rgb(255, 219, 76)', 'rgb(255, 204, 0)', 'rgb(127, 110, 38)', 'rgb()'],
-    ref: 'rgb(0, 12, 255)'
-  },
-  green: {
-    base: ['rgb(31, 89, 41)', 'rgb(145, 223, 159)', 'rgb(76, 217, 100)', 'rgb(58, 89, 64)', 'rgb(58, 166, 76)'],
-    ref: 'rgb(217, 76, 104)'
-  },
-  tealBlue: {
-    base: ['rgb(44, 98, 122)', 'rgb(166, 224, 251)', 'rgb(90, 200, 250)', 'rgb(81, 109, 122)', 'rgb(72, 159, 199)'],
-    ref: 'rgb(250, 177, 90)'
-  },
-  blue: {
-    base: ['rgb(0, 61, 127)', 'rgb(76, 162, 255)', 'rgb(0, 122, 255)', 'rgb(38, 81, 127)', 'rgb(0, 98, 204)'],
-    ref: 'rgb(255, 162, 0)'
-  },
-  purple: {
-    base: ['rgb(36, 35, 86)', 'rgb(156, 155, 221)', 'rgb(88, 86, 214)', 'rgb(61, 61, 86)', 'rgb(67, 66, 163)'],
-    ref: 'rgb(214, 198, 86)'
-  },
-  pink: {
-    base: ['rgb(127, 22, 42)', 'rgb(255, 121, 147)', 'rgb(255, 45, 85)', 'rgb(127, 61, 73)', 'rgb(204, 36, 68)'],
-    ref: 'rgb(45, 255, 82)'
-  }
+  monteCarlo: ['rgb(8,104,172)', 'rgb(67,162,202)', 'rgb(123,204,196)', 'rgb(186,228,188)', 'rgb(240,249,232)'],
+  vividCerise: ['rgb(152,0,67)', 'rgb(221,28,119)', 'rgb(223,101,176)', 'rgb(215,181,216)', 'rgb(241,238,246)'],
+  sundown: ['rgb(122,1,119)', 'rgb(197,27,138)', 'rgb(247,104,161)', 'rgb(251,180,185)', 'rgb(254,235,226)'],
+  madang: ['rgb(0,104,55)', 'rgb(49,163,84)', 'rgb(120,198,121)', 'rgb(194,230,153)', 'rgb(255,255,204)'],
+  curiousBlue: ['rgb(37,52,148)', 'rgb(44,127,184)', 'rgb(65,182,196)', 'rgb(161,218,180)', 'rgb(255,255,204)']
 };
 var palette = {
   white: white,
@@ -322,30 +289,30 @@ var SCALE_LINEAR = 'linear';
 var SCALE_PADDING = 0.1;
 var SCALE_TIME = 'time'; // Themes
 
-var THEME = 'tealBlue';
-var SECONDARY_THEME = 'pink'; // Line options
+var THEME = 'monteCarlo';
+var SECONDARY_THEME = 'vividCerise'; // Line options
 
 var LINE_STROKE_WIDTH = 3;
 var LINE_TYPE = 'curveLinear';
 var LINE_TYPES = {
-  curveBasis: d3Shape.curveBasis,
-  curveBasisClosed: d3Shape.curveBasisClosed,
-  curveBasisOpen: d3Shape.curveBasisOpen,
-  curveBundle: d3Shape.curveBundle,
-  curveCardinal: d3Shape.curveCardinal,
-  curveCardinalClosed: d3Shape.curveCardinalClosed,
-  curveCardinalOpen: d3Shape.curveCardinalOpen,
-  curveCatmullRom: d3Shape.curveCatmullRom,
-  curveCatmullRomClosed: d3Shape.curveCatmullRomClosed,
-  curveCatmullRomOpen: d3Shape.curveCatmullRomOpen,
-  curveLinear: d3Shape.curveLinear,
-  curveLinearClosed: d3Shape.curveLinearClosed,
-  curveMonotoneX: d3Shape.curveMonotoneX,
-  curveMonotoneY: d3Shape.curveMonotoneY,
-  curveNatural: d3Shape.curveNatural,
-  curveStep: d3Shape.curveStep,
-  curveStepAfter: d3Shape.curveStepAfter,
-  curveStepBefore: d3Shape.curveStepBefore
+  curveBasis: curveBasis,
+  curveBasisClosed: curveBasisClosed,
+  curveBasisOpen: curveBasisOpen,
+  curveBundle: curveBundle,
+  curveCardinal: curveCardinal,
+  curveCardinalClosed: curveCardinalClosed,
+  curveCardinalOpen: curveCardinalOpen,
+  curveCatmullRom: curveCatmullRom,
+  curveCatmullRomClosed: curveCatmullRomClosed,
+  curveCatmullRomOpen: curveCatmullRomOpen,
+  curveLinear: curveLinear,
+  curveLinearClosed: curveLinearClosed,
+  curveMonotoneX: curveMonotoneX,
+  curveMonotoneY: curveMonotoneY,
+  curveNatural: curveNatural,
+  curveStep: curveStep,
+  curveStepAfter: curveStepAfter,
+  curveStepBefore: curveStepBefore
 };
 
 function _templateObject$1() {
@@ -380,13 +347,13 @@ var DataGroup = styled.g.attrs({
   className: 'dataviz-layer'
 })(_templateObject$2());
 
-var isISODate = compose(dateFns.isValid, dateFns.parseISO);
+var isISODate = compose(isValid, parseISO);
 
 var allDate = all(isISODate);
 
 var idx = 0;
-var appendStackedValues = (function (stack, data) {
-  stack.forEach(function (values$$1) {
+var appendStackedValues = (function (stack$$1, data) {
+  stack$$1.forEach(function (values$$1) {
     data.forEach(function (datum) {
       if (values$$1.key === datum.series) {
         datum.stackedValues = values$$1[idx];
@@ -399,7 +366,7 @@ var appendStackedValues = (function (stack, data) {
 });
 
 var buildStack = (function (keys) {
-  return d3Shape.stack().keys(keys).order(d3Shape.stackOrderNone).offset(d3Shape.stackOffsetNone);
+  return stack().keys(keys).order(stackOrderNone).offset(stackOffsetNone);
 });
 
 var bySeries = compose(toPairs, groupBy(prop('series')));
@@ -463,15 +430,27 @@ var debounce$1 = debounce(DEBOUNCE);
 var debounceImmediate$1 = debounceImmediate(DEBOUNCE);
 
 var drawGrid = (function (horizontal, xScale, height, yScale, width, xAxisTicks, yAxisTicks) {
-  return horizontal ? d3Axis.axisBottom().scale(xScale).tickSize(height, 0, 0).ticks(xAxisTicks).tickFormat('') : d3Axis.axisLeft().scale(yScale).tickSize(-width, 0, 0).ticks(yAxisTicks).tickFormat('');
+  return horizontal ? axisBottom().scale(xScale).tickSize(height, 0, 0).ticks(xAxisTicks).tickFormat('') : axisLeft().scale(yScale).tickSize(-width, 0, 0).ticks(yAxisTicks).tickFormat('');
 });
 
 var getBaseColor = (function (theme) {
-  return themes[theme].base[2];
+  return themes[theme][2];
 });
 
-var getHoverColor = (function (x) {
-  return color(x).darken(0.2).hsl().string();
+var getHoverColor = (function (rgb) {
+  return "rgb(".concat(rgb.split(/\D/).filter(function (x) {
+    return x;
+  }).map(function (x) {
+    var val = parseInt(x) + -20;
+
+    if (val > 255) {
+      val = 255;
+    } else if (val < 0) {
+      val = 0;
+    }
+
+    return val;
+  }).join(', '), ")");
 });
 
 var innerId = 0;
@@ -538,8 +517,8 @@ var getSize = (function (w1, h1, _ref, r) {
       r1 = _r$split2[0],
       r2 = _r$split2[1];
 
-  var w2 = w1 ? w1 : WIDTH;
-  var h2 = h1 ? h1 : w2 / r1 * r2;
+  var w2 = w1 || WIDTH;
+  var h2 = h1 || w2 / r1 * r2;
 
   if (w1 && h1) {
     return {
@@ -561,14 +540,14 @@ var timeScale = function timeScale(data, width) {
   var dataLength = getLength(data); // TODO: fix this fucking length
 
   var rangeWidth = width / dataLength / 1.8;
-  return d3Scale.scaleTime().domain(d3Array.extent(data, function (_ref) {
+  return scaleTime().domain(extent(data, function (_ref) {
     var name = _ref.name;
     return name;
   })).rangeRound(barChart ? [rangeWidth, width - rangeWidth] : [0, width]);
 };
 
 var bandScale = function bandScale(data, width) {
-  return d3Scale.scaleBand().domain(data.map(function (_ref2) {
+  return scaleBand().domain(data.map(function (_ref2) {
     var name = _ref2.name;
     return name;
   })).range([0, width]).padding(0.1);
@@ -592,7 +571,7 @@ var getXScale = (function (type$$1, data, width, barChart) {
 });
 
 var linearScale = function linearScale(max$$1, height) {
-  return d3Scale.scaleLinear().domain([0, max$$1]).range([height, 0]);
+  return scaleLinear().domain([0, max$$1]).range([height, 0]);
 };
 
 var getYScale = (function (type$$1, data, height) {
@@ -608,7 +587,7 @@ var getYScale = (function (type$$1, data, height) {
 
 var rotateXLabels = (function (id, deg) {
   var isNegative = deg < 0;
-  d3Selection.selectAll("#".concat(id, " .axis-x .tick text")).attr('text-anchor', isNegative ? 'end' : 'start').attr('transform', "translate(".concat(isNegative ? -12 : 12, ", 6) rotate(").concat(deg, ")"));
+  selectAll("#".concat(id, " .axis-x .tick text")).attr('text-anchor', isNegative ? 'end' : 'start').attr('transform', "translate(".concat(isNegative ? -12 : 12, ", 6) rotate(").concat(deg, ")"));
 });
 
 var setLineType = (function (type$$1) {
@@ -695,8 +674,8 @@ var Label = styled.text.attrs(function (_ref) {
       height = _ref.height;
   return {
     className: "".concat(axis, "-axis-label"),
-    x: axis === 'x' ? width / 2 : -(height / 2),
-    y: axis === 'x' ? height + margin.bottom / 1.5 : -(margin.left / 1.5)
+    x: axis === 'x' ? width / 2 : 0 - height / 2,
+    y: axis === 'x' ? height + margin.bottom / 1.5 : 0 - margin.left / 1.5
   };
 })(_templateObject$4(), function (_ref2) {
   var axis = _ref2.axis;
@@ -705,7 +684,7 @@ var Label = styled.text.attrs(function (_ref) {
 
 var LineDatum$$1 = function LineDatum$$1(_ref) {
   var chart = _ref.chart,
-      color$$1 = _ref.color,
+      color = _ref.color,
       d = _ref.d,
       data = _ref.data,
       onClick = _ref.onClick,
@@ -715,7 +694,7 @@ var LineDatum$$1 = function LineDatum$$1(_ref) {
       xScale = _ref.xScale,
       yScale = _ref.yScale;
 
-  var _useState = React.useState({
+  var _useState = useState({
     pageX: null,
     pageY: null,
     show: false
@@ -724,20 +703,20 @@ var LineDatum$$1 = function LineDatum$$1(_ref) {
       tooltip = _useState2[0],
       setTooltip = _useState2[1];
 
-  return React__default.createElement(React.Fragment, null, React__default.createElement(Path, {
+  return React.createElement(Fragment, null, React.createElement(Path, {
     chart: chart,
     d: d,
     className: "line-path",
-    strokeColor: color$$1
-  }), React__default.createElement("g", {
+    strokeColor: color
+  }), React.createElement("g", {
     className: "line-dot-group"
   }, data.map(function (_ref2, idx) {
     var name = _ref2.name,
         value = _ref2.value;
-    return React__default.createElement(Circle, {
+    return React.createElement(Circle, {
       key: idx,
       chart: "bar-line",
-      strokeColor: color$$1,
+      strokeColor: color,
       cx: xScale(name) + xScale.bandwidth() / 2,
       cy: yScale(value),
       r: 4,
@@ -774,11 +753,11 @@ var LineDatum$$1 = function LineDatum$$1(_ref) {
         });
       }
     });
-  })), withTooltip && tooltip.show && reactDom.createPortal(React__default.createElement(Tooltip, {
+  })), withTooltip && tooltip.show && createPortal(React.createElement(Tooltip, {
     pageX: tooltip.pageX,
     pageY: tooltip.pageY
-  }, React__default.createElement(TooltipItem, {
-    color: color$$1,
+  }, React.createElement(TooltipItem, {
+    color: color,
     name: tooltip.name,
     value: tooltip.value
   })), document.body));
@@ -897,15 +876,15 @@ var StackedBarDatum = function StackedBarDatum(_ref) {
       x = _ref.x,
       y = _ref.y;
   return series.map(function (layer) {
-    return React__default.createElement("g", {
+    return React.createElement("g", {
       key: layer.index,
       className: "".concat(layer.key, "-layer")
     }, layer.map(function (datum, idx) {
       var value = last(datum) - head(datum);
       var name = datum.data.name;
-      return React__default.createElement(BarDatum$$1, {
+      return React.createElement(BarDatum$$1, {
         key: idx,
-        color: palette.themes[theme].base[layer.index],
+        color: palette.themes[theme][layer.index],
         datum: {
           name: name,
           value: value
@@ -956,12 +935,13 @@ function _templateObject$a() {
   return data;
 }
 var Title = styled.text.attrs(function (_ref) {
-  var margin = _ref.margin,
+  var height = _ref.height,
+      margin = _ref.margin,
       width = _ref.width;
   return {
     className: "chart-title",
     x: width / 2,
-    y: -margin.top / 2
+    y: 0 - margin.top / 1.5
   };
 })(_templateObject$a());
 
@@ -989,9 +969,9 @@ var Container = styled.div.attrs(function (_ref) {
 })(_templateObject$b(), white, grey);
 
 var Tooltip = function Tooltip(props) {
-  var tooltipRef = React.useRef();
+  var tooltipRef = useRef();
 
-  var _useState = React.useState({
+  var _useState = useState({
     width: 0,
     height: 0
   }),
@@ -999,7 +979,7 @@ var Tooltip = function Tooltip(props) {
       size = _useState2[0],
       setSize = _useState2[1];
 
-  React.useEffect(function () {
+  useEffect(function () {
     var _tooltipRef$current = tooltipRef.current,
         offsetWidth = _tooltipRef$current.offsetWidth,
         offsetHeight = _tooltipRef$current.offsetHeight;
@@ -1008,7 +988,7 @@ var Tooltip = function Tooltip(props) {
       height: offsetHeight
     });
   }, []);
-  return React__default.createElement(Container, _extends({
+  return React.createElement(Container, _extends({
     ref: tooltipRef
   }, size, props), props.children);
 };
@@ -1072,61 +1052,15 @@ var Name = styled.span(_templateObject4());
 var Value = styled.span(_templateObject5());
 
 var TooltipItem = function TooltipItem(_ref2) {
-  var color$$1 = _ref2.color,
+  var color = _ref2.color,
       _ref2$dateFormat = _ref2.dateFormat,
       dateFormat = _ref2$dateFormat === void 0 ? TOOLTIP_DATE_FORMAT : _ref2$dateFormat,
       name = _ref2.name,
       value = _ref2.value;
-  return React__default.createElement(Container$1, null, React__default.createElement(Swatch, {
-    swatchColor: color$$1
-  }), React__default.createElement(Data, null, React__default.createElement(Name, null, type(name) === 'Date' && dateFns.isValid(name) ? dateFns.format(name, dateFormat) : name), React__default.createElement(Value, null, value)));
+  return React.createElement(Container$1, null, React.createElement(Swatch, {
+    swatchColor: color
+  }), React.createElement(Data, null, React.createElement(Name, null, type(name) === 'Date' && isValid(name) ? format(name, dateFormat) : name), React.createElement(Value, null, value)));
 };
 
-exports.getId = getId;
-exports._slicedToArray = _slicedToArray;
-exports.SIZE = SIZE;
-exports.setupData = setupData;
-exports.getMax = getMax;
-exports.debounce = debounce$1;
-exports.SVG = SVG;
-exports.MainGroup = MainGroup;
-exports.Grid = Grid;
-exports.drawGrid = drawGrid;
-exports.Title = Title;
-exports.Label = Label;
-exports.Source = Source;
-exports.DataGroup = DataGroup;
-exports.BarDatum = BarDatum$$1;
-exports.getBaseColor = getBaseColor;
-exports.Axis = Axis;
-exports.rotateXLabels = rotateXLabels;
-exports.TIME_FORMAT = TIME_FORMAT;
-exports.MARGIN = MARGIN;
-exports.THEME = THEME;
-exports.ROTATION = ROTATION;
-exports.TICKS = TICKS;
-exports.SCALE_PADDING = SCALE_PADDING;
-exports._objectSpread = _objectSpread;
-exports.getSize = getSize;
-exports.ASPECT_RATIO = ASPECT_RATIO;
-exports.buildStack = buildStack;
-exports.toStackedForm = toStackedForm;
-exports.getStackedMax = getStackedMax;
-exports.setLineType = setLineType;
-exports.getLineDataForSeries = getLineDataForSeries;
-exports.StackedBarDatum = StackedBarDatum;
-exports.LineDatum = LineDatum$$1;
-exports.palette = palette;
-exports.LINE_TYPE = LINE_TYPE;
-exports.SECONDARY_THEME = SECONDARY_THEME;
-exports.appendStackedValues = appendStackedValues;
-exports.getSeries = getSeries;
-exports.getXScale = getXScale;
-exports.SCALE_TIME = SCALE_TIME;
-exports.SCALE_BAND = SCALE_BAND;
-exports.getYScale = getYScale;
-exports.SCALE_LINEAR = SCALE_LINEAR;
-exports.bySeries = bySeries;
-exports.classify = classify;
-exports.Path = Path;
-//# sourceMappingURL=chunk-aff92de4.js.map
+export { getId as a, _slicedToArray as b, SIZE as c, setupData as d, getMax as e, debounce$1 as f, SVG as g, MainGroup as h, Grid as i, drawGrid as j, Title as k, Label as l, Source as m, DataGroup as n, BarDatum$$1 as o, getBaseColor as p, Axis as q, rotateXLabels as r, TIME_FORMAT as s, MARGIN as t, THEME as u, ROTATION as v, TICKS as w, SCALE_PADDING as x, _objectSpread as y, getSize as z, ASPECT_RATIO as A, buildStack as B, toStackedForm as C, getStackedMax as D, setLineType as E, getLineDataForSeries as F, StackedBarDatum as G, LineDatum$$1 as H, palette as I, LINE_TYPE as J, SECONDARY_THEME as K, appendStackedValues as L, getSeries as M, getXScale as N, SCALE_TIME as O, SCALE_BAND as P, getYScale as Q, SCALE_LINEAR as R, bySeries as S, classify as T, Path as U };
+//# sourceMappingURL=chunk-fb20579c.js.map

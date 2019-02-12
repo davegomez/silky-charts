@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var __chunk_1 = require('./chunk-aff92de4.js');
+var __chunk_1 = require('./chunk-3ec04cb8.js');
 var React = require('react');
 var React__default = _interopDefault(React);
 var d3Axis = require('d3-axis');
@@ -23,7 +23,6 @@ require('ramda/src/prop');
 require('ramda/src/toPairs');
 require('ramda/src/apply');
 require('ramda/src/curry');
-require('color');
 require('ramda/src/length');
 require('ramda/src/uniq');
 require('ramda/src/map');
@@ -214,7 +213,7 @@ var BarLine = function BarLine(_ref) {
     }, React__default.createElement(__chunk_1.LineDatum, {
       chart: "bar-line",
       data: datum,
-      color: __chunk_1.palette.themes[secondaryTheme].base[idx],
+      color: __chunk_1.palette.themes[secondaryTheme][idx],
       d: line(datum),
       xScale: xScale,
       yScale: yScale,
