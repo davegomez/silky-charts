@@ -1,58 +1,41 @@
-'use strict';
-
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
-var React = require('react');
-var React__default = _interopDefault(React);
-var d3Axis = require('d3-axis');
-var d3Scale = require('d3-scale');
-var d3Selection = require('d3-selection');
-var identity = _interopDefault(require('ramda/src/identity'));
-var styled = _interopDefault(require('styled-components'));
-var reactDom = require('react-dom');
-var d3Shape = require('d3-shape');
-var all = _interopDefault(require('ramda/src/all'));
-var compose = _interopDefault(require('ramda/src/compose'));
-var complement = _interopDefault(require('ramda/src/complement'));
-var groupBy = _interopDefault(require('ramda/src/groupBy'));
-var prop = _interopDefault(require('ramda/src/prop'));
-var toPairs = _interopDefault(require('ramda/src/toPairs'));
-var apply = _interopDefault(require('ramda/src/apply'));
-var curry = _interopDefault(require('ramda/src/curry'));
-var length = _interopDefault(require('ramda/src/length'));
-var uniq = _interopDefault(require('ramda/src/uniq'));
-var map = _interopDefault(require('ramda/src/map'));
-var max = _interopDefault(require('ramda/src/max'));
-var filter = _interopDefault(require('ramda/src/filter'));
-var sum = _interopDefault(require('ramda/src/sum'));
-var reduce = _interopDefault(require('ramda/src/reduce'));
-var values = _interopDefault(require('ramda/src/values'));
-var always = _interopDefault(require('ramda/src/always'));
-var cond = _interopDefault(require('ramda/src/cond'));
-var equals = _interopDefault(require('ramda/src/equals'));
-var T = _interopDefault(require('ramda/src/T'));
-var d3Array = require('d3-array');
-var flatten = _interopDefault(require('ramda/src/flatten'));
-var omit = _interopDefault(require('ramda/src/omit'));
-var mergeAll = _interopDefault(require('ramda/src/mergeAll'));
-var splitEvery = _interopDefault(require('ramda/src/splitEvery'));
-var head = _interopDefault(require('ramda/src/head'));
-var last = _interopDefault(require('ramda/src/last'));
-var type = _interopDefault(require('ramda/src/type'));
-
-function _typeof(obj) {
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof = function (obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof = function (obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
-
-  return _typeof(obj);
-}
+import React, { useState, Fragment, useRef, useEffect } from 'react';
+import { axisBottom, axisLeft } from 'd3-axis';
+import { scaleTime, scaleBand, scaleLinear } from 'd3-scale';
+import { selectAll } from 'd3-selection';
+import { timeFormat } from 'd3-time-format';
+import identity from 'ramda/src/identity';
+import styled from 'styled-components';
+import { createPortal } from 'react-dom';
+import { curveBasis, curveBasisClosed, curveBasisOpen, curveBundle, curveCardinal, curveCardinalClosed, curveCardinalOpen, curveCatmullRom, curveCatmullRomClosed, curveCatmullRomOpen, curveLinear, curveLinearClosed, curveMonotoneX, curveMonotoneY, curveNatural, curveStep, curveStepAfter, curveStepBefore, stack, stackOrderNone, stackOffsetNone } from 'd3-shape';
+import all from 'ramda/src/all';
+import compose from 'ramda/src/compose';
+import equals from 'ramda/src/equals';
+import or from 'ramda/src/or';
+import type from 'ramda/src/type';
+import complement from 'ramda/src/complement';
+import groupBy from 'ramda/src/groupBy';
+import prop from 'ramda/src/prop';
+import toPairs from 'ramda/src/toPairs';
+import apply from 'ramda/src/apply';
+import curry from 'ramda/src/curry';
+import length from 'ramda/src/length';
+import uniq from 'ramda/src/uniq';
+import map from 'ramda/src/map';
+import max from 'ramda/src/max';
+import filter from 'ramda/src/filter';
+import sum from 'ramda/src/sum';
+import reduce from 'ramda/src/reduce';
+import values from 'ramda/src/values';
+import always from 'ramda/src/always';
+import cond from 'ramda/src/cond';
+import T from 'ramda/src/T';
+import { extent } from 'd3-array';
+import flatten from 'ramda/src/flatten';
+import omit from 'ramda/src/omit';
+import mergeAll from 'ramda/src/mergeAll';
+import splitEvery from 'ramda/src/splitEvery';
+import head from 'ramda/src/head';
+import last from 'ramda/src/last';
 
 function _defineProperty(obj, key, value) {
   if (key in obj) {
@@ -206,7 +189,7 @@ var BarDatum$$1 = function BarDatum$$1(_ref) {
       x = _ref.x,
       y = _ref.y;
 
-  var _useState = React.useState({
+  var _useState = useState({
     pageX: null,
     pageY: null,
     show: false
@@ -215,7 +198,7 @@ var BarDatum$$1 = function BarDatum$$1(_ref) {
       tooltip = _useState2[0],
       setTooltip = _useState2[1];
 
-  return React__default.createElement(React.Fragment, null, React__default.createElement(Rect, {
+  return React.createElement(Fragment, null, React.createElement(Rect, {
     chart: "bar",
     fillColor: color,
     onClick: onClick,
@@ -256,10 +239,10 @@ var BarDatum$$1 = function BarDatum$$1(_ref) {
       width: width,
       height: height
     }
-  }), withTooltip && tooltip.show && reactDom.createPortal(React__default.createElement(Tooltip, {
+  }), withTooltip && tooltip.show && createPortal(React.createElement(Tooltip, {
     pageX: tooltip.pageX,
     pageY: tooltip.pageY
-  }, React__default.createElement(TooltipItem, _extends({
+  }, React.createElement(TooltipItem, _extends({
     color: color
   }, datum))), document.body));
 };
@@ -300,6 +283,7 @@ var SIZE = {
 };
 var TICKS = 5;
 var TIME_FORMAT = '%a %d';
+var TOOLTIP_DATE_FORMAT = '%b %d, %Y';
 var WIDTH = 640; // Scales
 
 var SCALE_BAND = 'band';
@@ -313,24 +297,24 @@ var SECONDARY_THEME = 'vividCerise'; // Line options
 var LINE_STROKE_WIDTH = 3;
 var LINE_TYPE = 'curveLinear';
 var LINE_TYPES = {
-  curveBasis: d3Shape.curveBasis,
-  curveBasisClosed: d3Shape.curveBasisClosed,
-  curveBasisOpen: d3Shape.curveBasisOpen,
-  curveBundle: d3Shape.curveBundle,
-  curveCardinal: d3Shape.curveCardinal,
-  curveCardinalClosed: d3Shape.curveCardinalClosed,
-  curveCardinalOpen: d3Shape.curveCardinalOpen,
-  curveCatmullRom: d3Shape.curveCatmullRom,
-  curveCatmullRomClosed: d3Shape.curveCatmullRomClosed,
-  curveCatmullRomOpen: d3Shape.curveCatmullRomOpen,
-  curveLinear: d3Shape.curveLinear,
-  curveLinearClosed: d3Shape.curveLinearClosed,
-  curveMonotoneX: d3Shape.curveMonotoneX,
-  curveMonotoneY: d3Shape.curveMonotoneY,
-  curveNatural: d3Shape.curveNatural,
-  curveStep: d3Shape.curveStep,
-  curveStepAfter: d3Shape.curveStepAfter,
-  curveStepBefore: d3Shape.curveStepBefore
+  curveBasis: curveBasis,
+  curveBasisClosed: curveBasisClosed,
+  curveBasisOpen: curveBasisOpen,
+  curveBundle: curveBundle,
+  curveCardinal: curveCardinal,
+  curveCardinalClosed: curveCardinalClosed,
+  curveCardinalOpen: curveCardinalOpen,
+  curveCatmullRom: curveCatmullRom,
+  curveCatmullRomClosed: curveCatmullRomClosed,
+  curveCatmullRomOpen: curveCatmullRomOpen,
+  curveLinear: curveLinear,
+  curveLinearClosed: curveLinearClosed,
+  curveMonotoneX: curveMonotoneX,
+  curveMonotoneY: curveMonotoneY,
+  curveNatural: curveNatural,
+  curveStep: curveStep,
+  curveStepAfter: curveStepAfter,
+  curveStepBefore: curveStepBefore
 };
 
 function _templateObject$1() {
@@ -365,296 +349,25 @@ var DataGroup = styled.g.attrs({
   className: 'dataviz-layer'
 })(_templateObject$2());
 
-function toDate(argument) {
-  var argStr = Object.prototype.toString.call(argument); // Clone the date
-
-  if (argument instanceof Date || _typeof(argument) === 'object' && argStr === '[object Date]') {
-    // Prevent the date to lose the milliseconds when passed to new Date() in IE10
-    return new Date(argument.getTime());
-  } else if (typeof argument === 'number' || argStr === '[object Number]') {
-    return new Date(argument);
-  } else {
-    if ((typeof argument === 'string' || argStr === '[object String]') && typeof console !== 'undefined') {
-      console.warn("Starting with v2.0.0-beta.1 date-fns doesn't accept strings as arguments. Please use `parseISO` to parse strings. See: https://git.io/fpAk2");
-      console.warn(new Error().stack);
-    }
-
-    return new Date(NaN);
-  }
-}
-
 var isNotNaN = complement(isNaN);
-var isValid = compose(isNotNaN, toDate);
+var isValidDate = compose(isNotNaN, Date.parse);
 
-var MILLISECONDS_IN_HOUR = 3600000;
-var MILLISECONDS_IN_MINUTE = 60000;
-var DEFAULT_ADDITIONAL_DIGITS = 2;
-var patterns = {
-  dateTimeDelimiter: /[T ]/,
-  timeZoneDelimiter: /[Z ]/i,
-  timezone: /([Z+-].*)$/
-};
-var dateRegex = /^-?(?:(\d{3})|(\d{2})(?:-?(\d{2}))?|W(\d{2})(?:-?(\d{1}))?|)$/;
-var timeRegex = /^(\d{2}(?:[.,]\d*)?)(?::?(\d{2}(?:[.,]\d*)?))?(?::?(\d{2}(?:[.,]\d*)?))?$/;
-var timezoneRegex = /^([+-])(\d{2})(?::?(\d{2}))?$/;
+var isString = equals('String');
+var isDate = equals('Date');
 
-var getTimezoneOffsetInMilliseconds = function getTimezoneOffsetInMilliseconds(dirtyDate) {
-  var date = new Date(dirtyDate.getTime());
-  var baseTimezoneOffset = date.getTimezoneOffset();
-  date.setSeconds(0, 0);
-  var millisecondsPartOfTimezoneOffset = date.getTime() % MILLISECONDS_IN_MINUTE;
-  return baseTimezoneOffset * MILLISECONDS_IN_MINUTE + millisecondsPartOfTimezoneOffset;
+var isStringOrDate = function isStringOrDate(x) {
+  return or(isString(type(x)), isDate(type(x)));
 };
 
-var toInteger = function toInteger(dirtyNumber) {
-  if (dirtyNumber === null || dirtyNumber === true || dirtyNumber === false) {
-    return NaN;
-  }
-
-  var number = Number(dirtyNumber);
-
-  if (isNaN(number)) {
-    return number;
-  }
-
-  return number < 0 ? Math.ceil(number) : Math.floor(number);
-}; // Validation functions
-// February is null to handle the leap year (using ||)
-
-
-var daysInMonths = [31, null, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
-var isLeapYearIndex = function isLeapYearIndex(year) {
-  return year % 400 === 0 || year % 4 === 0 && year % 100;
-};
-
-var validateDate = function validateDate(year, month, date) {
-  return !(month < 0 || month > 11 || date < 1 || date > (daysInMonths[month] || (isLeapYearIndex(year) ? 29 : 28)));
-};
-
-var validateDayOfYearDate = function validateDayOfYearDate(year, dayOfYear) {
-  return !(dayOfYear < 1 || dayOfYear > (isLeapYearIndex(year) ? 366 : 365));
-};
-
-var validateWeekDate = function validateWeekDate(_year, week, day) {
-  return !(week < 0 || week > 52 || day < 0 || day > 6);
-};
-
-var validateTime = function validateTime(hours, minutes, seconds) {
-  return !(seconds < 0 || seconds >= 60 || minutes < 0 || minutes >= 60 || hours < 0 || hours >= 25);
-};
-
-var validateTimezone = function validateTimezone(_hours, minutes) {
-  return !(minutes < 0 || minutes > 59);
-};
-
-var splitDateString = function splitDateString(dateString) {
-  var dateStrings = {};
-  var array = dateString.split(patterns.dateTimeDelimiter);
-  var timeString;
-
-  if (/:/.test(array[0])) {
-    dateStrings.date = null;
-    timeString = array[0];
-  } else {
-    dateStrings.date = array[0];
-    timeString = array[1];
-
-    if (patterns.timeZoneDelimiter.test(dateStrings.date)) {
-      dateStrings.date = dateString.split(patterns.timeZoneDelimiter)[0];
-      timeString = dateString.substr(dateStrings.date.length, dateString.length);
-    }
-  }
-
-  if (timeString) {
-    var token = patterns.timezone.exec(timeString);
-
-    if (token) {
-      dateStrings.time = timeString.replace(token[1], '');
-      dateStrings.timezone = token[1];
-    } else {
-      dateStrings.time = timeString;
-    }
-  }
-
-  return dateStrings;
-};
-
-var parseYear = function parseYear(dateString, additionalDigits) {
-  var regex = new RegExp('^(?:(\\d{4}|[+-]\\d{' + (4 + additionalDigits) + '})|(\\d{2}|[+-]\\d{' + (2 + additionalDigits) + '})$)');
-  var captures = dateString.match(regex); // Invalid ISO-formatted year
-
-  if (!captures) {
-    return {
-      year: null
-    };
-  }
-
-  var year = captures[1] && parseInt(captures[1]);
-  var century = captures[2] && parseInt(captures[2]);
-  return {
-    year: century == null ? year : century * 100,
-    restDateString: dateString.slice((captures[1] || captures[2]).length)
-  };
-};
-
-var parseDate = function parseDate(dateString, year) {
-  // Invalid ISO-formatted year
-  if (year === null) {
-    return null;
-  }
-
-  var captures = dateString.match(dateRegex); // Invalid ISO-formatted string
-
-  if (!captures) {
-    return null;
-  }
-
-  var isWeekDate = !!captures[4];
-  var dayOfYear = parseDateUnit(captures[1]);
-  var month = parseDateUnit(captures[2]) - 1;
-  var day = parseDateUnit(captures[3]);
-  var week = parseDateUnit(captures[4]) - 1;
-  var dayOfWeek = parseDateUnit(captures[5]) - 1;
-
-  if (isWeekDate) {
-    if (!validateWeekDate(year, week, dayOfWeek)) {
-      return new Date(NaN);
-    }
-
-    return dayOfISOWeekYear(year, week, dayOfWeek);
-  } else {
-    var date = new Date(0);
-
-    if (!validateDate(year, month, day) || !validateDayOfYearDate(year, dayOfYear)) {
-      return new Date(NaN);
-    }
-
-    date.setUTCFullYear(year, month, Math.max(dayOfYear, day));
-    return date;
-  }
-};
-
-var parseDateUnit = function parseDateUnit(value) {
-  return value ? parseInt(value) : 1;
-};
-
-var parseTime = function parseTime(timeString) {
-  var captures = timeString.match(timeRegex);
-
-  if (!captures) {
-    return null; // Invalid ISO-formatted time
-  }
-
-  var hours = parseTimeUnit(captures[1]);
-  var minutes = parseTimeUnit(captures[2]);
-  var seconds = parseTimeUnit(captures[3]);
-
-  if (!validateTime(hours, minutes, seconds)) {
-    return NaN;
-  }
-
-  return hours % 24 * MILLISECONDS_IN_HOUR + minutes * MILLISECONDS_IN_MINUTE + seconds * 1000;
-};
-
-var parseTimeUnit = function parseTimeUnit(value) {
-  return value && parseFloat(value.replace(',', '.')) || 0;
-};
-
-var parseTimezone = function parseTimezone(timezoneString) {
-  if (timezoneString === 'Z') return 0;
-  var captures = timezoneString.match(timezoneRegex);
-
-  if (!captures) {
-    return 0;
-  }
-
-  var sign = captures[1] === '+' ? -1 : 1;
-  var hours = parseInt(captures[2]);
-  var minutes = captures[3] && parseInt(captures[3]) || 0;
-
-  if (!validateTimezone(hours, minutes)) {
-    return NaN;
-  }
-
-  return sign * (hours * MILLISECONDS_IN_HOUR + minutes * MILLISECONDS_IN_MINUTE);
-};
-
-var dayOfISOWeekYear = function dayOfISOWeekYear(isoWeekYear, week, day) {
-  var date = new Date(0);
-  date.setUTCFullYear(isoWeekYear, 0, 4);
-  var fourthOfJanuaryDay = date.getUTCDay() || 7;
-  var diff = (week || 0) * 7 + (day || 0) + 1 - fourthOfJanuaryDay;
-  date.setUTCDate(date.getUTCDate() + diff);
-  return date;
-};
-
-var parseISO = (function (argument, dirtyOptions) {
-  var options = dirtyOptions || {};
-  var additionalDigits = options.additionalDigits == null ? DEFAULT_ADDITIONAL_DIGITS : toInteger(options.additionalDigits);
-
-  if (additionalDigits !== 2 && additionalDigits !== 1 && additionalDigits !== 0) {
-    throw new RangeError('additionalDigits must be 0, 1 or 2');
-  }
-
-  if (!(typeof argument === 'string' || Object.prototype.toString.call(argument) === '[object String]')) {
-    return new Date(NaN);
-  }
-
-  var dateStrings = splitDateString(argument);
-  var date;
-
-  if (dateStrings.date) {
-    var parseYearResult = parseYear(dateStrings.date, additionalDigits);
-    date = parseDate(parseYearResult.restDateString, parseYearResult.year);
-  }
-
-  if (isNaN(date) || !date) {
-    return new Date(NaN);
-  }
-
-  var timestamp = date.getTime();
-  var time = 0;
-  var offset;
-
-  if (dateStrings.time) {
-    time = parseTime(dateStrings.time);
-
-    if (isNaN(time)) {
-      return new Date(NaN);
-    }
-  }
-
-  if (dateStrings.timezone) {
-    offset = parseTimezone(dateStrings.timezone);
-
-    if (isNaN(offset)) {
-      return new Date(NaN);
-    }
-  } else {
-    var fullTime = timestamp + time;
-    var fullTimeDate = new Date(fullTime);
-    offset = getTimezoneOffsetInMilliseconds(fullTimeDate); // Adjust time when it's coming from DST
-
-    var fullTimeDateNextDay = new Date(fullTime);
-    fullTimeDateNextDay.setDate(fullTimeDate.getDate() + 1);
-    var offsetDiff = getTimezoneOffsetInMilliseconds(fullTimeDateNextDay) - offset;
-
-    if (offsetDiff > 0) {
-      offset += offsetDiff;
-    }
-  }
-
-  return new Date(timestamp + time + offset);
+var allStringOrDate = all(isStringOrDate);
+var allValidDate = all(isValidDate);
+var allDate = (function (dates) {
+  return allStringOrDate(dates) && allValidDate(dates);
 });
 
-var isISODate = compose(isValid, parseISO);
-
-var allDate = all(isISODate);
-
 var idx = 0;
-var appendStackedValues = (function (stack, data) {
-  stack.forEach(function (values$$1) {
+var appendStackedValues = (function (stack$$1, data) {
+  stack$$1.forEach(function (values$$1) {
     data.forEach(function (datum) {
       if (values$$1.key === datum.series) {
         datum.stackedValues = values$$1[idx];
@@ -667,7 +380,7 @@ var appendStackedValues = (function (stack, data) {
 });
 
 var buildStack = (function (keys) {
-  return d3Shape.stack().keys(keys).order(d3Shape.stackOrderNone).offset(d3Shape.stackOffsetNone);
+  return stack().keys(keys).order(stackOrderNone).offset(stackOffsetNone);
 });
 
 var bySeries = compose(toPairs, groupBy(prop('series')));
@@ -731,7 +444,7 @@ var debounce$1 = debounce(DEBOUNCE);
 var debounceImmediate$1 = debounceImmediate(DEBOUNCE);
 
 var drawGrid = (function (horizontal, xScale, height, yScale, width, xAxisTicks, yAxisTicks) {
-  return horizontal ? d3Axis.axisBottom().scale(xScale).tickSize(height, 0, 0).ticks(xAxisTicks).tickFormat('') : d3Axis.axisLeft().scale(yScale).tickSize(-width, 0, 0).ticks(yAxisTicks).tickFormat('');
+  return horizontal ? axisBottom().scale(xScale).tickSize(height, 0, 0).ticks(xAxisTicks).tickFormat('') : axisLeft().scale(yScale).tickSize(-width, 0, 0).ticks(yAxisTicks).tickFormat('');
 });
 
 var getBaseColor = (function (theme) {
@@ -841,14 +554,14 @@ var timeScale = function timeScale(data, width) {
   var dataLength = getLength(data); // TODO: fix this fucking length
 
   var rangeWidth = width / dataLength / 1.8;
-  return d3Scale.scaleTime().domain(d3Array.extent(data, function (_ref) {
+  return scaleTime().domain(extent(data, function (_ref) {
     var name = _ref.name;
     return name;
   })).rangeRound(barChart ? [rangeWidth, width - rangeWidth] : [0, width]);
 };
 
 var bandScale = function bandScale(data, width) {
-  return d3Scale.scaleBand().domain(data.map(function (_ref2) {
+  return scaleBand().domain(data.map(function (_ref2) {
     var name = _ref2.name;
     return name;
   })).range([0, width]).padding(0.1);
@@ -872,7 +585,7 @@ var getXScale = (function (type$$1, data, width, barChart) {
 });
 
 var linearScale = function linearScale(max$$1, height) {
-  return d3Scale.scaleLinear().domain([0, max$$1]).range([height, 0]);
+  return scaleLinear().domain([0, max$$1]).range([height, 0]);
 };
 
 var getYScale = (function (type$$1, data, height) {
@@ -888,7 +601,7 @@ var getYScale = (function (type$$1, data, height) {
 
 var rotateXLabels = (function (id, deg) {
   var isNegative = deg < 0;
-  d3Selection.selectAll("#".concat(id, " .axis-x .tick text")).attr('text-anchor', isNegative ? 'end' : 'start').attr('transform', "translate(".concat(isNegative ? -12 : 12, ", 6) rotate(").concat(deg, ")"));
+  selectAll("#".concat(id, " .axis-x .tick text")).attr('text-anchor', isNegative ? 'end' : 'start').attr('transform', "translate(".concat(isNegative ? -12 : 12, ", 6) rotate(").concat(deg, ")"));
 });
 
 var setLineType = (function (type$$1) {
@@ -995,7 +708,7 @@ var LineDatum$$1 = function LineDatum$$1(_ref) {
       xScale = _ref.xScale,
       yScale = _ref.yScale;
 
-  var _useState = React.useState({
+  var _useState = useState({
     pageX: null,
     pageY: null,
     show: false
@@ -1004,17 +717,17 @@ var LineDatum$$1 = function LineDatum$$1(_ref) {
       tooltip = _useState2[0],
       setTooltip = _useState2[1];
 
-  return React__default.createElement(React.Fragment, null, React__default.createElement(Path, {
+  return React.createElement(Fragment, null, React.createElement(Path, {
     chart: chart,
     d: d,
     className: "line-path",
     strokeColor: color
-  }), React__default.createElement("g", {
+  }), React.createElement("g", {
     className: "line-dot-group"
   }, data.map(function (_ref2, idx) {
     var name = _ref2.name,
         value = _ref2.value;
-    return React__default.createElement(Circle, {
+    return React.createElement(Circle, {
       key: idx,
       chart: "bar-line",
       strokeColor: color,
@@ -1054,10 +767,10 @@ var LineDatum$$1 = function LineDatum$$1(_ref) {
         });
       }
     });
-  })), withTooltip && tooltip.show && reactDom.createPortal(React__default.createElement(Tooltip, {
+  })), withTooltip && tooltip.show && createPortal(React.createElement(Tooltip, {
     pageX: tooltip.pageX,
     pageY: tooltip.pageY
-  }, React__default.createElement(TooltipItem, {
+  }, React.createElement(TooltipItem, {
     color: color,
     name: tooltip.name,
     value: tooltip.value
@@ -1177,13 +890,13 @@ var StackedBarDatum = function StackedBarDatum(_ref) {
       x = _ref.x,
       y = _ref.y;
   return series.map(function (layer) {
-    return React__default.createElement("g", {
+    return React.createElement("g", {
       key: layer.index,
       className: "".concat(layer.key, "-layer")
     }, layer.map(function (datum, idx) {
       var value = last(datum) - head(datum);
       var name = datum.data.name;
-      return React__default.createElement(BarDatum$$1, {
+      return React.createElement(BarDatum$$1, {
         key: idx,
         color: palette.themes[theme][layer.index],
         datum: {
@@ -1270,9 +983,9 @@ var Container = styled.div.attrs(function (_ref) {
 })(_templateObject$b(), white, grey);
 
 var Tooltip = function Tooltip(props) {
-  var tooltipRef = React.useRef();
+  var tooltipRef = useRef();
 
-  var _useState = React.useState({
+  var _useState = useState({
     width: 0,
     height: 0
   }),
@@ -1280,7 +993,7 @@ var Tooltip = function Tooltip(props) {
       size = _useState2[0],
       setSize = _useState2[1];
 
-  React.useEffect(function () {
+  useEffect(function () {
     var _tooltipRef$current = tooltipRef.current,
         offsetWidth = _tooltipRef$current.offsetWidth,
         offsetHeight = _tooltipRef$current.offsetHeight;
@@ -1289,7 +1002,7 @@ var Tooltip = function Tooltip(props) {
       height: offsetHeight
     });
   }, []);
-  return React__default.createElement(Container, _extends({
+  return React.createElement(Container, _extends({
     ref: tooltipRef
   }, size, props), props.children);
 };
@@ -1355,58 +1068,14 @@ var Value = styled.span(_templateObject5());
 var TooltipItem = function TooltipItem(_ref2) {
   var color = _ref2.color,
       _ref2$dateFormat = _ref2.dateFormat,
+      dateFormat = _ref2$dateFormat === void 0 ? TOOLTIP_DATE_FORMAT : _ref2$dateFormat,
       name = _ref2.name,
       value = _ref2.value;
-  return React__default.createElement(Container$1, null, React__default.createElement(Swatch, {
+  var timeFormat$$1 = timeFormat(dateFormat);
+  return React.createElement(Container$1, null, React.createElement(Swatch, {
     swatchColor: color
-  }), React__default.createElement(Data, null, React__default.createElement(Name, null, type(name) === 'Date' && isValid(name) ? name : name), React__default.createElement(Value, null, value)));
+  }), React.createElement(Data, null, React.createElement(Name, null, isValidDate(name) ? timeFormat$$1(name) : name), React.createElement(Value, null, value)));
 };
 
-exports.getId = getId;
-exports._slicedToArray = _slicedToArray;
-exports.SIZE = SIZE;
-exports.setupData = setupData;
-exports.getMax = getMax;
-exports.debounce = debounce$1;
-exports.SVG = SVG;
-exports.MainGroup = MainGroup;
-exports.Grid = Grid;
-exports.drawGrid = drawGrid;
-exports.Title = Title;
-exports.Label = Label;
-exports.Source = Source;
-exports.DataGroup = DataGroup;
-exports.BarDatum = BarDatum$$1;
-exports.getBaseColor = getBaseColor;
-exports.Axis = Axis;
-exports.rotateXLabels = rotateXLabels;
-exports.TIME_FORMAT = TIME_FORMAT;
-exports.MARGIN = MARGIN;
-exports.THEME = THEME;
-exports.ROTATION = ROTATION;
-exports.TICKS = TICKS;
-exports.SCALE_PADDING = SCALE_PADDING;
-exports._objectSpread = _objectSpread;
-exports.getSize = getSize;
-exports.ASPECT_RATIO = ASPECT_RATIO;
-exports.buildStack = buildStack;
-exports.toStackedForm = toStackedForm;
-exports.getStackedMax = getStackedMax;
-exports.setLineType = setLineType;
-exports.getLineDataForSeries = getLineDataForSeries;
-exports.StackedBarDatum = StackedBarDatum;
-exports.LineDatum = LineDatum$$1;
-exports.palette = palette;
-exports.LINE_TYPE = LINE_TYPE;
-exports.SECONDARY_THEME = SECONDARY_THEME;
-exports.appendStackedValues = appendStackedValues;
-exports.getSeries = getSeries;
-exports.getXScale = getXScale;
-exports.SCALE_TIME = SCALE_TIME;
-exports.SCALE_BAND = SCALE_BAND;
-exports.getYScale = getYScale;
-exports.SCALE_LINEAR = SCALE_LINEAR;
-exports.bySeries = bySeries;
-exports.classify = classify;
-exports.Path = Path;
-//# sourceMappingURL=chunk-7c4d8f21.js.map
+export { getId as a, _slicedToArray as b, SIZE as c, setupData as d, getMax as e, debounce$1 as f, SVG as g, MainGroup as h, Grid as i, drawGrid as j, Title as k, Label as l, Source as m, DataGroup as n, BarDatum$$1 as o, getBaseColor as p, Axis as q, rotateXLabels as r, TIME_FORMAT as s, MARGIN as t, THEME as u, ROTATION as v, TICKS as w, SCALE_PADDING as x, _objectSpread as y, getSize as z, ASPECT_RATIO as A, buildStack as B, toStackedForm as C, getStackedMax as D, setLineType as E, getLineDataForSeries as F, StackedBarDatum as G, LineDatum$$1 as H, palette as I, LINE_TYPE as J, SECONDARY_THEME as K, appendStackedValues as L, getSeries as M, getXScale as N, SCALE_TIME as O, SCALE_BAND as P, getYScale as Q, SCALE_LINEAR as R, bySeries as S, classify as T, Path as U };
+//# sourceMappingURL=chunk-490699cc.js.map

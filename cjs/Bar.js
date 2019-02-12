@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var __chunk_1 = require('./chunk-7c4d8f21.js');
+var __chunk_1 = require('./chunk-dd5768a0.js');
 var React = require('react');
 var React__default = _interopDefault(React);
 var d3Axis = require('d3-axis');
@@ -17,6 +17,9 @@ require('react-dom');
 require('d3-shape');
 require('ramda/src/all');
 require('ramda/src/compose');
+require('ramda/src/equals');
+require('ramda/src/or');
+require('ramda/src/type');
 require('ramda/src/complement');
 require('ramda/src/groupBy');
 require('ramda/src/prop');
@@ -33,7 +36,6 @@ require('ramda/src/reduce');
 require('ramda/src/values');
 require('ramda/src/always');
 require('ramda/src/cond');
-require('ramda/src/equals');
 require('ramda/src/T');
 require('d3-array');
 require('ramda/src/flatten');
@@ -42,7 +44,6 @@ require('ramda/src/mergeAll');
 require('ramda/src/splitEvery');
 require('ramda/src/head');
 require('ramda/src/last');
-require('ramda/src/type');
 
 var Bar = function Bar(_ref) {
   var _ref$aspectRatio = _ref.aspectRatio,

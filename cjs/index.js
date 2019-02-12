@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-require('./chunk-7c4d8f21.js');
+require('./chunk-dd5768a0.js');
 require('react');
 require('d3-axis');
 require('d3-scale');
@@ -14,6 +14,9 @@ require('react-dom');
 require('d3-shape');
 require('ramda/src/all');
 require('ramda/src/compose');
+require('ramda/src/equals');
+require('ramda/src/or');
+require('ramda/src/type');
 require('ramda/src/complement');
 require('ramda/src/groupBy');
 require('ramda/src/prop');
@@ -30,7 +33,6 @@ require('ramda/src/reduce');
 require('ramda/src/values');
 require('ramda/src/always');
 require('ramda/src/cond');
-require('ramda/src/equals');
 require('ramda/src/T');
 require('d3-array');
 require('ramda/src/flatten');
@@ -39,7 +41,6 @@ require('ramda/src/mergeAll');
 require('ramda/src/splitEvery');
 require('ramda/src/head');
 require('ramda/src/last');
-require('ramda/src/type');
 var Bar = require('./Bar.js');
 var BarLine = require('./BarLine.js');
 var StackedArea = require('./StackedArea.js');

@@ -1,4 +1,4 @@
-import { a as getId, b as _slicedToArray, c as SIZE, d as setupData, B as buildStack, C as toStackedForm, e as getMax, D as getStackedMax, E as setLineType, F as getLineDataForSeries, f as debounce, g as SVG, h as MainGroup, i as Grid, j as drawGrid, k as Title, l as Label, m as Source, G as StackedBarDatum, q as Axis, r as rotateXLabels, H as LineDatum, I as palette, s as TIME_FORMAT, J as LINE_TYPE, t as MARGIN, x as SCALE_PADDING, K as SECONDARY_THEME, u as THEME, v as ROTATION, w as TICKS, y as _objectSpread, z as getSize, A as ASPECT_RATIO } from './chunk-a1b42dab.js';
+import { a as getId, b as _slicedToArray, c as SIZE, d as setupData, B as buildStack, C as toStackedForm, e as getMax, D as getStackedMax, E as setLineType, F as getLineDataForSeries, f as debounce, g as SVG, h as MainGroup, i as Grid, j as drawGrid, k as Title, l as Label, m as Source, G as StackedBarDatum, q as Axis, r as rotateXLabels, H as LineDatum, I as palette, s as TIME_FORMAT, J as LINE_TYPE, t as MARGIN, x as SCALE_PADDING, K as SECONDARY_THEME, u as THEME, v as ROTATION, w as TICKS, y as _objectSpread, z as getSize, A as ASPECT_RATIO } from './chunk-490699cc.js';
 import React, { useRef, useState, useEffect } from 'react';
 import { axisBottom, axisLeft } from 'd3-axis';
 import { scaleBand, scaleLinear } from 'd3-scale';
@@ -10,6 +10,9 @@ import 'react-dom';
 import { line } from 'd3-shape';
 import 'ramda/src/all';
 import 'ramda/src/compose';
+import 'ramda/src/equals';
+import 'ramda/src/or';
+import 'ramda/src/type';
 import 'ramda/src/complement';
 import 'ramda/src/groupBy';
 import 'ramda/src/prop';
@@ -26,7 +29,6 @@ import 'ramda/src/reduce';
 import 'ramda/src/values';
 import 'ramda/src/always';
 import 'ramda/src/cond';
-import 'ramda/src/equals';
 import 'ramda/src/T';
 import 'd3-array';
 import 'ramda/src/flatten';
@@ -35,7 +37,6 @@ import 'ramda/src/mergeAll';
 import 'ramda/src/splitEvery';
 import head from 'ramda/src/head';
 import 'ramda/src/last';
-import 'ramda/src/type';
 
 var BarLine = function BarLine(_ref) {
   var _ref$aspectRatio = _ref.aspectRatio,
