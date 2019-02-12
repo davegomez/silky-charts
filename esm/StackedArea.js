@@ -1,4 +1,4 @@
-import { a as getId, b as _slicedToArray, c as SIZE, d as setupData, L as appendStackedValues, B as buildStack, M as getSeries, C as toStackedForm, N as getXScale, O as SCALE_TIME, P as SCALE_BAND, Q as getYScale, R as SCALE_LINEAR, e as getMax, D as getStackedMax, E as setLineType, f as debounce, g as SVG, i as Grid, j as drawGrid, l as Label, S as bySeries, T as classify, U as Path, I as palette, q as Axis, r as rotateXLabels, J as LINE_TYPE, t as MARGIN, u as THEME, w as TICKS, v as ROTATION, y as _objectSpread, z as getSize, A as ASPECT_RATIO } from './chunk-fb20579c.js';
+import { a as getId, b as _slicedToArray, c as SIZE, d as setupData, L as appendStackedValues, B as buildStack, M as getSeries, C as toStackedForm, N as getXScale, O as SCALE_TIME, P as SCALE_BAND, Q as getYScale, R as SCALE_LINEAR, e as getMax, D as getStackedMax, E as setLineType, f as debounce, g as SVG, i as Grid, j as drawGrid, l as Label, S as bySeries, T as classify, U as Path, I as palette, q as Axis, r as rotateXLabels, J as LINE_TYPE, t as MARGIN, u as THEME, w as TICKS, v as ROTATION, y as _objectSpread, z as getSize, A as ASPECT_RATIO } from './chunk-a1b42dab.js';
 import React, { useRef, useState, useMemo, useEffect } from 'react';
 import { axisBottom, axisLeft } from 'd3-axis';
 import 'd3-scale';
@@ -9,7 +9,7 @@ import 'react-dom';
 import { area } from 'd3-shape';
 import 'ramda/src/all';
 import 'ramda/src/compose';
-import 'date-fns';
+import 'ramda/src/complement';
 import 'ramda/src/groupBy';
 import 'ramda/src/prop';
 import 'ramda/src/toPairs';

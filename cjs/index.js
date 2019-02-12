@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-require('./chunk-3ec04cb8.js');
+require('./chunk-7c4d8f21.js');
 require('react');
 require('d3-axis');
 require('d3-scale');
@@ -14,7 +14,7 @@ require('react-dom');
 require('d3-shape');
 require('ramda/src/all');
 require('ramda/src/compose');
-require('date-fns');
+require('ramda/src/complement');
 require('ramda/src/groupBy');
 require('ramda/src/prop');
 require('ramda/src/toPairs');

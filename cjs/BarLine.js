@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var __chunk_1 = require('./chunk-3ec04cb8.js');
+var __chunk_1 = require('./chunk-7c4d8f21.js');
 var React = require('react');
 var React__default = _interopDefault(React);
 var d3Axis = require('d3-axis');
@@ -17,7 +17,7 @@ require('react-dom');
 var d3Shape = require('d3-shape');
 require('ramda/src/all');
 require('ramda/src/compose');
-require('date-fns');
+require('ramda/src/complement');
 require('ramda/src/groupBy');
 require('ramda/src/prop');
 require('ramda/src/toPairs');

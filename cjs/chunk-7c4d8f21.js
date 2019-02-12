@@ -13,7 +13,7 @@ var reactDom = require('react-dom');
 var d3Shape = require('d3-shape');
 var all = _interopDefault(require('ramda/src/all'));
 var compose = _interopDefault(require('ramda/src/compose'));
-var dateFns = require('date-fns');
+var complement = _interopDefault(require('ramda/src/complement'));
 var groupBy = _interopDefault(require('ramda/src/groupBy'));
 var prop = _interopDefault(require('ramda/src/prop'));
 var toPairs = _interopDefault(require('ramda/src/toPairs'));
@@ -39,6 +39,20 @@ var splitEvery = _interopDefault(require('ramda/src/splitEvery'));
 var head = _interopDefault(require('ramda/src/head'));
 var last = _interopDefault(require('ramda/src/last'));
 var type = _interopDefault(require('ramda/src/type'));
+
+function _typeof(obj) {
+  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
+    _typeof = function (obj) {
+      return typeof obj;
+    };
+  } else {
+    _typeof = function (obj) {
+      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+    };
+  }
+
+  return _typeof(obj);
+}
 
 function _defineProperty(obj, key, value) {
   if (key in obj) {
@@ -286,7 +300,6 @@ var SIZE = {
 };
 var TICKS = 5;
 var TIME_FORMAT = '%a %d';
-var TOOLTIP_DATE_FORMAT = 'MMM d, y';
 var WIDTH = 640; // Scales
 
 var SCALE_BAND = 'band';
@@ -352,7 +365,290 @@ var DataGroup = styled.g.attrs({
   className: 'dataviz-layer'
 })(_templateObject$2());
 
-var isISODate = compose(dateFns.isValid, dateFns.parseISO);
+function toDate(argument) {
+  var argStr = Object.prototype.toString.call(argument); // Clone the date
+
+  if (argument instanceof Date || _typeof(argument) === 'object' && argStr === '[object Date]') {
+    // Prevent the date to lose the milliseconds when passed to new Date() in IE10
+    return new Date(argument.getTime());
+  } else if (typeof argument === 'number' || argStr === '[object Number]') {
+    return new Date(argument);
+  } else {
+    if ((typeof argument === 'string' || argStr === '[object String]') && typeof console !== 'undefined') {
+      console.warn("Starting with v2.0.0-beta.1 date-fns doesn't accept strings as arguments. Please use `parseISO` to parse strings. See: https://git.io/fpAk2");
+      console.warn(new Error().stack);
+    }
+
+    return new Date(NaN);
+  }
+}
+
+var isNotNaN = complement(isNaN);
+var isValid = compose(isNotNaN, toDate);
+
+var MILLISECONDS_IN_HOUR = 3600000;
+var MILLISECONDS_IN_MINUTE = 60000;
+var DEFAULT_ADDITIONAL_DIGITS = 2;
+var patterns = {
+  dateTimeDelimiter: /[T ]/,
+  timeZoneDelimiter: /[Z ]/i,
+  timezone: /([Z+-].*)$/
+};
+var dateRegex = /^-?(?:(\d{3})|(\d{2})(?:-?(\d{2}))?|W(\d{2})(?:-?(\d{1}))?|)$/;
+var timeRegex = /^(\d{2}(?:[.,]\d*)?)(?::?(\d{2}(?:[.,]\d*)?))?(?::?(\d{2}(?:[.,]\d*)?))?$/;
+var timezoneRegex = /^([+-])(\d{2})(?::?(\d{2}))?$/;
+
+var getTimezoneOffsetInMilliseconds = function getTimezoneOffsetInMilliseconds(dirtyDate) {
+  var date = new Date(dirtyDate.getTime());
+  var baseTimezoneOffset = date.getTimezoneOffset();
+  date.setSeconds(0, 0);
+  var millisecondsPartOfTimezoneOffset = date.getTime() % MILLISECONDS_IN_MINUTE;
+  return baseTimezoneOffset * MILLISECONDS_IN_MINUTE + millisecondsPartOfTimezoneOffset;
+};
+
+var toInteger = function toInteger(dirtyNumber) {
+  if (dirtyNumber === null || dirtyNumber === true || dirtyNumber === false) {
+    return NaN;
+  }
+
+  var number = Number(dirtyNumber);
+
+  if (isNaN(number)) {
+    return number;
+  }
+
+  return number < 0 ? Math.ceil(number) : Math.floor(number);
+}; // Validation functions
+// February is null to handle the leap year (using ||)
+
+
+var daysInMonths = [31, null, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+var isLeapYearIndex = function isLeapYearIndex(year) {
+  return year % 400 === 0 || year % 4 === 0 && year % 100;
+};
+
+var validateDate = function validateDate(year, month, date) {
+  return !(month < 0 || month > 11 || date < 1 || date > (daysInMonths[month] || (isLeapYearIndex(year) ? 29 : 28)));
+};
+
+var validateDayOfYearDate = function validateDayOfYearDate(year, dayOfYear) {
+  return !(dayOfYear < 1 || dayOfYear > (isLeapYearIndex(year) ? 366 : 365));
+};
+
+var validateWeekDate = function validateWeekDate(_year, week, day) {
+  return !(week < 0 || week > 52 || day < 0 || day > 6);
+};
+
+var validateTime = function validateTime(hours, minutes, seconds) {
+  return !(seconds < 0 || seconds >= 60 || minutes < 0 || minutes >= 60 || hours < 0 || hours >= 25);
+};
+
+var validateTimezone = function validateTimezone(_hours, minutes) {
+  return !(minutes < 0 || minutes > 59);
+};
+
+var splitDateString = function splitDateString(dateString) {
+  var dateStrings = {};
+  var array = dateString.split(patterns.dateTimeDelimiter);
+  var timeString;
+
+  if (/:/.test(array[0])) {
+    dateStrings.date = null;
+    timeString = array[0];
+  } else {
+    dateStrings.date = array[0];
+    timeString = array[1];
+
+    if (patterns.timeZoneDelimiter.test(dateStrings.date)) {
+      dateStrings.date = dateString.split(patterns.timeZoneDelimiter)[0];
+      timeString = dateString.substr(dateStrings.date.length, dateString.length);
+    }
+  }
+
+  if (timeString) {
+    var token = patterns.timezone.exec(timeString);
+
+    if (token) {
+      dateStrings.time = timeString.replace(token[1], '');
+      dateStrings.timezone = token[1];
+    } else {
+      dateStrings.time = timeString;
+    }
+  }
+
+  return dateStrings;
+};
+
+var parseYear = function parseYear(dateString, additionalDigits) {
+  var regex = new RegExp('^(?:(\\d{4}|[+-]\\d{' + (4 + additionalDigits) + '})|(\\d{2}|[+-]\\d{' + (2 + additionalDigits) + '})$)');
+  var captures = dateString.match(regex); // Invalid ISO-formatted year
+
+  if (!captures) {
+    return {
+      year: null
+    };
+  }
+
+  var year = captures[1] && parseInt(captures[1]);
+  var century = captures[2] && parseInt(captures[2]);
+  return {
+    year: century == null ? year : century * 100,
+    restDateString: dateString.slice((captures[1] || captures[2]).length)
+  };
+};
+
+var parseDate = function parseDate(dateString, year) {
+  // Invalid ISO-formatted year
+  if (year === null) {
+    return null;
+  }
+
+  var captures = dateString.match(dateRegex); // Invalid ISO-formatted string
+
+  if (!captures) {
+    return null;
+  }
+
+  var isWeekDate = !!captures[4];
+  var dayOfYear = parseDateUnit(captures[1]);
+  var month = parseDateUnit(captures[2]) - 1;
+  var day = parseDateUnit(captures[3]);
+  var week = parseDateUnit(captures[4]) - 1;
+  var dayOfWeek = parseDateUnit(captures[5]) - 1;
+
+  if (isWeekDate) {
+    if (!validateWeekDate(year, week, dayOfWeek)) {
+      return new Date(NaN);
+    }
+
+    return dayOfISOWeekYear(year, week, dayOfWeek);
+  } else {
+    var date = new Date(0);
+
+    if (!validateDate(year, month, day) || !validateDayOfYearDate(year, dayOfYear)) {
+      return new Date(NaN);
+    }
+
+    date.setUTCFullYear(year, month, Math.max(dayOfYear, day));
+    return date;
+  }
+};
+
+var parseDateUnit = function parseDateUnit(value) {
+  return value ? parseInt(value) : 1;
+};
+
+var parseTime = function parseTime(timeString) {
+  var captures = timeString.match(timeRegex);
+
+  if (!captures) {
+    return null; // Invalid ISO-formatted time
+  }
+
+  var hours = parseTimeUnit(captures[1]);
+  var minutes = parseTimeUnit(captures[2]);
+  var seconds = parseTimeUnit(captures[3]);
+
+  if (!validateTime(hours, minutes, seconds)) {
+    return NaN;
+  }
+
+  return hours % 24 * MILLISECONDS_IN_HOUR + minutes * MILLISECONDS_IN_MINUTE + seconds * 1000;
+};
+
+var parseTimeUnit = function parseTimeUnit(value) {
+  return value && parseFloat(value.replace(',', '.')) || 0;
+};
+
+var parseTimezone = function parseTimezone(timezoneString) {
+  if (timezoneString === 'Z') return 0;
+  var captures = timezoneString.match(timezoneRegex);
+
+  if (!captures) {
+    return 0;
+  }
+
+  var sign = captures[1] === '+' ? -1 : 1;
+  var hours = parseInt(captures[2]);
+  var minutes = captures[3] && parseInt(captures[3]) || 0;
+
+  if (!validateTimezone(hours, minutes)) {
+    return NaN;
+  }
+
+  return sign * (hours * MILLISECONDS_IN_HOUR + minutes * MILLISECONDS_IN_MINUTE);
+};
+
+var dayOfISOWeekYear = function dayOfISOWeekYear(isoWeekYear, week, day) {
+  var date = new Date(0);
+  date.setUTCFullYear(isoWeekYear, 0, 4);
+  var fourthOfJanuaryDay = date.getUTCDay() || 7;
+  var diff = (week || 0) * 7 + (day || 0) + 1 - fourthOfJanuaryDay;
+  date.setUTCDate(date.getUTCDate() + diff);
+  return date;
+};
+
+var parseISO = (function (argument, dirtyOptions) {
+  var options = dirtyOptions || {};
+  var additionalDigits = options.additionalDigits == null ? DEFAULT_ADDITIONAL_DIGITS : toInteger(options.additionalDigits);
+
+  if (additionalDigits !== 2 && additionalDigits !== 1 && additionalDigits !== 0) {
+    throw new RangeError('additionalDigits must be 0, 1 or 2');
+  }
+
+  if (!(typeof argument === 'string' || Object.prototype.toString.call(argument) === '[object String]')) {
+    return new Date(NaN);
+  }
+
+  var dateStrings = splitDateString(argument);
+  var date;
+
+  if (dateStrings.date) {
+    var parseYearResult = parseYear(dateStrings.date, additionalDigits);
+    date = parseDate(parseYearResult.restDateString, parseYearResult.year);
+  }
+
+  if (isNaN(date) || !date) {
+    return new Date(NaN);
+  }
+
+  var timestamp = date.getTime();
+  var time = 0;
+  var offset;
+
+  if (dateStrings.time) {
+    time = parseTime(dateStrings.time);
+
+    if (isNaN(time)) {
+      return new Date(NaN);
+    }
+  }
+
+  if (dateStrings.timezone) {
+    offset = parseTimezone(dateStrings.timezone);
+
+    if (isNaN(offset)) {
+      return new Date(NaN);
+    }
+  } else {
+    var fullTime = timestamp + time;
+    var fullTimeDate = new Date(fullTime);
+    offset = getTimezoneOffsetInMilliseconds(fullTimeDate); // Adjust time when it's coming from DST
+
+    var fullTimeDateNextDay = new Date(fullTime);
+    fullTimeDateNextDay.setDate(fullTimeDate.getDate() + 1);
+    var offsetDiff = getTimezoneOffsetInMilliseconds(fullTimeDateNextDay) - offset;
+
+    if (offsetDiff > 0) {
+      offset += offsetDiff;
+    }
+  }
+
+  return new Date(timestamp + time + offset);
+});
+
+var isISODate = compose(isValid, parseISO);
 
 var allDate = all(isISODate);
 
@@ -680,7 +976,7 @@ var Label = styled.text.attrs(function (_ref) {
   return {
     className: "".concat(axis, "-axis-label"),
     x: axis === 'x' ? width / 2 : 0 - height / 2,
-    y: axis === 'x' ? height + margin.bottom / 1.5 : 0 - margin.left / 1.5
+    y: axis === 'x' ? height + margin.bottom : 0 - margin.left / 1.5
   };
 })(_templateObject$4(), function (_ref2) {
   var axis = _ref2.axis;
@@ -849,7 +1145,7 @@ var Rect = styled.rect.attrs(function (_ref) {
 });
 
 function _templateObject$8() {
-  var data = _taggedTemplateLiteral(["\n  font-size: 12px;\n  font-style: italic;\n  text-anchor: end;\n"]);
+  var data = _taggedTemplateLiteral(["\n  font-size: 0.8em;\n  font-style: italic;\n  text-anchor: end;\n"]);
 
   _templateObject$8 = function _templateObject() {
     return data;
@@ -864,7 +1160,7 @@ var Source = styled.text.attrs(function (_ref) {
   return {
     className: "chart-source",
     x: width,
-    y: height + margin.bottom / 2
+    y: height + margin.bottom / 1.5
   };
 })(_templateObject$8());
 
@@ -931,7 +1227,7 @@ var SVG = styled.svg.attrs(function (_ref) {
 });
 
 function _templateObject$a() {
-  var data = _taggedTemplateLiteral(["\n  font-size: 24px;\n  text-anchor: middle;\n"]);
+  var data = _taggedTemplateLiteral(["\n  font-size: 1.5em;\n  text-anchor: middle;\n"]);
 
   _templateObject$a = function _templateObject() {
     return data;
@@ -946,7 +1242,7 @@ var Title = styled.text.attrs(function (_ref) {
   return {
     className: "chart-title",
     x: width / 2,
-    y: 0 - margin.top / 1.5
+    y: 0 - margin.top / 2
   };
 })(_templateObject$a());
 
@@ -1059,12 +1355,11 @@ var Value = styled.span(_templateObject5());
 var TooltipItem = function TooltipItem(_ref2) {
   var color = _ref2.color,
       _ref2$dateFormat = _ref2.dateFormat,
-      dateFormat = _ref2$dateFormat === void 0 ? TOOLTIP_DATE_FORMAT : _ref2$dateFormat,
       name = _ref2.name,
       value = _ref2.value;
   return React__default.createElement(Container$1, null, React__default.createElement(Swatch, {
     swatchColor: color
-  }), React__default.createElement(Data, null, React__default.createElement(Name, null, type(name) === 'Date' && dateFns.isValid(name) ? dateFns.format(name, dateFormat) : name), React__default.createElement(Value, null, value)));
+  }), React__default.createElement(Data, null, React__default.createElement(Name, null, type(name) === 'Date' && isValid(name) ? name : name), React__default.createElement(Value, null, value)));
 };
 
 exports.getId = getId;
@@ -1114,4 +1409,4 @@ exports.SCALE_LINEAR = SCALE_LINEAR;
 exports.bySeries = bySeries;
 exports.classify = classify;
 exports.Path = Path;
-//# sourceMappingURL=chunk-3ec04cb8.js.map
+//# sourceMappingURL=chunk-7c4d8f21.js.map
