@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import type from 'ramda/src/type';
-import { isValid } from '../utils';
+import { timeFormat as d3TimeFormat } from 'd3-time-format';
+import { isValidDate } from '../utils';
 import { grey } from '../utils/palette';
 import { TOOLTIP_DATE_FORMAT } from '../utils/constants';
 
@@ -34,14 +34,17 @@ const TooltipItem = ({
   dateFormat = TOOLTIP_DATE_FORMAT,
   name,
   value,
-}) => (
-  <Container>
-    <Swatch swatchColor={color} />
-    <Data>
-      <Name>{type(name) === 'Date' && isValid(name) ? name : name}</Name>
-      <Value>{value}</Value>
-    </Data>
-  </Container>
-);
+}) => {
+  const timeFormat = d3TimeFormat(dateFormat);
+  return (
+    <Container>
+      <Swatch swatchColor={color} />
+      <Data>
+        <Name>{isValidDate(name) ? timeFormat(name) : name}</Name>
+        <Value>{value}</Value>
+      </Data>
+    </Container>
+  );
+};
 
 export default TooltipItem;
