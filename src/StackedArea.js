@@ -146,7 +146,7 @@ const StackedArea = ({
           <g className={`${classify(series)}-layer`} key={idx}>
             <Path
               chart="stacked-area"
-              fillColor={palette.themes[theme].base[idx]}
+              fillColor={palette.themes[theme][idx]}
               d={area(datum)}
               strokeWidth={0}
               onClick={onClick}

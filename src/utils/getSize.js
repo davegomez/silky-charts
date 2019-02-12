@@ -2,8 +2,8 @@ import { WIDTH } from './constants';
 
 export default (w1, h1, { top, right, bottom, left }, r) => {
   const [r1, r2] = r.split(':');
-  const w2 = w1 ? w1 : WIDTH;
-  const h2 = h1 ? h1 : (w2 / r1) * r2;
+  const w2 = w1 || WIDTH;
+  const h2 = h1 || (w2 / r1) * r2;
 
   if (w1 && h1) {
     return {

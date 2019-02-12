@@ -2,18 +2,22 @@
 
 A silky smooth D3/React chart library
 
-- [Silky Charts](#silky-charts)
-  - [Features](#features)
-  - [Installation](#installation)
-    - [Peer Dependencies](#peer-dependencies)
-  - [Basic Usage](#basic-usage)
-  - [Common Props](#common-props)
-  - [Bar Chart](#bar-chart)
-    - [Data Definition](#data-definition)
-    - [Props](#props)
-  - [BarLine Chart](#barline-chart)
-    - [Data Definition](#data-definition-1)
-    - [Props](#props-1)
+[![NPM Version](https://img.shields.io/npm/v/silky-charts.svg)](https://www.npmjs.com/package/silky-charts)
+
++ [Silky Charts](#silky-charts)
+  + [Features](#features)
+  + [Roadmap](#roadmap)
+  + [Installation](#installation)
+    + [Peer Dependencies](#peer-dependencies)
+  + [Basic Usage](#basic-usage)
+  + [Common Props](#common-props)
+  + [Color Themes](#color-themes)
+  + [Bar Chart](#bar-chart)
+    + [Data Definition](#data-definition)
+    + [Props](#props)
+  + [BarLine Chart](#barline-chart)
+    + [Data Definition](#data-definition-1)
+    + [Props](#props-1)
 
 ## Features
 
@@ -23,7 +27,13 @@ A silky smooth D3/React chart library
 - Customizable and easy to style
 - Fully responsive
 - Built in tooltips
-- Choropleth color schemes
+- Choropleth color themes
+
+## Roadmap
+
+- [ ] Custom color themes support
+- [ ] Styled Components themes support
+- [ ] Empty and loading state
 
 ## Installation
 
@@ -71,33 +81,38 @@ import { Bar } from 'silky-charts';
 
 Most props and options are present indistinguishable in all charts.
 
-| Name                    |    Type    | Defaults  | Description                                                                                                                       |
-| ----------------------- | :--------: | :-------: | --------------------------------------------------------------------------------------------------------------------------------- |
-| aspectRatio             |  `String`  | `"16:9"`  | Sets the shape and size of the chart using the parent element width as a guide. Is overriden setting a `width` or `height` props. |
-| data                    |  `Array`   |           | Chart data.                                                                                                                       |
-| dateFormat              |  `String`  | `"%a %d"` | Name values as ISO dates will be formatted as dates. `[1]`                                                                        |
-| grid                    | `Boolean`  |  `false`  | Display the chart's grid.                                                                                                         |
-| height                  |  `Number`  |           | Sets the chart's height (breaks responsiveness).                                                                                  |
-| margin                  | `{Number}` |           | Sets the margin sizes around the chart from an object with `top`, `right`, `bottom`, and `left` key-values `[2]`.                 |
-| onClick                 | `Function` |           | Callback function to call during the onClick event.                                                                               |
-| onMouseEnter            | `Function` |           | Callback function to call during the onMouseEnter event.                                                                          |
-| onMouseLeave            | `Function` |           | Callback function to call during the OnMouseLeave event.                                                                          |
-| padding                 |  `Number`  |   `0.1`   | Sets the padding between the chart bars.                                                                                          |
-| responsive              | `Boolean`  |  `false`  | Activates the chart responsiveness feature.                                                                                       |
-| tooltip                 | `Boolean`  |  `false`  | Activates the built in tooltip.                                                                                                   |
-| width                   |  `Number`  |   `640`   | Sets the chart's width.                                                                                                           |
-| xAxisChartLabel         |  `String`  |           | Sets the Chart's X axis label (you might need to adjust the margin).                                                              |
-| xAxisLabelRotation      | `Boolean`  |  `false`  | Rotates the X axis labels when these are to long to fit horizontally.                                                             |
-| xAxisLabelRotationValue |  `Number`  |   `-50`   | Overrides the default X axis label rotation value.                                                                                |
-| xAxisTicks              |  `Number`  |    `5`    | Sets the number of ticks of the x axis on the chart. `[3]`                                                                        |
-| yAxisChartLabel         |  `String`  |           | Sets the Chart's Y axis label (you might need to adjust the margin).                                                              |
-| yAxisTicks              |  `Number`  |    `5`    | Sets the number of ticks of the y axis on the chart. `[3]`                                                                        |
+| Name                    |    Type    |    Defaults    | Description                                                                                                                       |
+| ----------------------- | :--------: | :------------: | --------------------------------------------------------------------------------------------------------------------------------- |
+| aspectRatio             |  `String`  |    `"16:9"`    | Sets the shape and size of the chart using the parent element width as a guide. Is overriden setting a `width` or `height` props. |
+| data                    |  `Array`   |                | Chart data.                                                                                                                       |
+| dateFormat              |  `String`  |   `"%a %d"`    | Name values as ISO dates will be formatted as dates. `[1]`                                                                        |
+| grid                    | `Boolean`  |    `false`     | Display the chart's grid.                                                                                                         |
+| height                  |  `Number`  |                | Sets the chart's height (breaks responsiveness).                                                                                  |
+| margin                  | `{Number}` |                | Sets the margin sizes around the chart from an object with `top`, `right`, `bottom`, and `left` key-values `[2]`.                 |
+| onClick                 | `Function` |                | Callback function to call during the onClick event.                                                                               |
+| onMouseEnter            | `Function` |                | Callback function to call during the onMouseEnter event.                                                                          |
+| onMouseLeave            | `Function` |                | Callback function to call during the OnMouseLeave event.                                                                          |
+| padding                 |  `Number`  |     `0.1`      | Sets the padding between the chart bars.                                                                                          |
+| responsive              | `Boolean`  |    `false`     | Activates the chart responsiveness feature.                                                                                       |
+| theme                   |  `String`  | `"monteCarlo"` | Color theme name. [Color themes](#color-themes)                                                                                   |
+| tooltip                 | `Boolean`  |    `false`     | Activates the built in tooltip.                                                                                                   |
+| width                   |  `Number`  |     `640`      | Sets the chart's width.                                                                                                           |
+| xAxisChartLabel         |  `String`  |                | Sets the Chart's X axis label (you might need to adjust the margin).                                                              |
+| xAxisLabelRotation      | `Boolean`  |    `false`     | Rotates the X axis labels when these are to long to fit horizontally.                                                             |
+| xAxisLabelRotationValue |  `Number`  |     `-50`      | Overrides the default X axis label rotation value.                                                                                |
+| xAxisTicks              |  `Number`  |      `5`       | Sets the number of ticks of the x axis on the chart. `[3]`                                                                        |
+| yAxisChartLabel         |  `String`  |                | Sets the Chart's Y axis label (you might need to adjust the margin).                                                              |
+| yAxisTicks              |  `Number`  |      `5`       | Sets the number of ticks of the y axis on the chart. `[3]`                                                                        |
 
 `[1]` The ISO dates will be formatted using [D3's date formatting rules](https://github.com/d3/d3-time-format).
 
-`[2]` The default value for the margin prop is `{ top: 40, right: 50, bottom: 50, left: 50 }`.
+`[2]` The default values for the margin `prop` is `{ top: 40, right: 50, bottom: 50, left: 50 }`.
 
 `[3]` The specified count is only a hint; the scale may return more or fewer values depending on the domain. [Read more...](https://github.com/d3/d3-scale/blob/master/README.md#continuous_ticks)
+
+## Color Themes
+
+![Silky Charts Choropleth color themes](/color-themes.png)
 
 ## Bar Chart
 
@@ -139,5 +154,5 @@ Most props and options are present indistinguishable in all charts.
 | lineSeries     | `[String]` |                 | Series names of the datasets you want to appear as lines in the chart.                            |
 | lineType       |  `String`  | `"curveLinear"` | Define the line style to use based on [D3 Curves](https://github.com/d3/d3-shape#curves) options. |
 | lineTypeOption |  `String`  |                 | If the line style accepts options you can set it using this prop.                                 |
-| secondaryTheme |  `String`  |    `"pink"`     | Color theme for the chart lines. Hint: opposite colors have better contrast.                      |
+| secondaryTheme |  `String`  | `"vividCerise"` | Color theme for the chart lines. Hint: opposite colors have better contrast.                      |
 | stackedSeries  | `[String]` |                 | Series names of the datasets you want to appear as stacked bars in the chart.                     |

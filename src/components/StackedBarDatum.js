@@ -26,7 +26,7 @@ const StackedBarDatum = ({
         return (
           <BarDatum
             key={idx}
-            color={palette.themes[theme].base[layer.index]}
+            color={palette.themes[theme][layer.index]}
             datum={{ name, value }}
             height={height - y(value)}
             onClick={onClick}
