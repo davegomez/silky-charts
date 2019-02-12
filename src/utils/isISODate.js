@@ -1,5 +1,6 @@
 import compose from 'ramda/src/compose';
-import { isValid, parseISO } from 'date-fns';
+import isValid from './isValid';
+import parseISO from './parseISO';
 
 export default compose(
   isValid,
