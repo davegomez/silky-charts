@@ -17,10 +17,12 @@
     "build": "cross-env NODE_ENV=production rollup -c",
     "clean": "rimraf cjs esm umd",
     "dev": "cross-env NODE_ENV=development rollup -c -w",
+    "lint": "eslint **/*.js --quiet",
     "postpublish": "git push origin HEAD --follow-tags",
     "prebuild": "npm run clean",
     "prerelease": "npm run build",
-    "release": "standard-version"
+    "release": "standard-version",
+    "test": "npm run lint && jest"
   },
   "dependencies": {
     "d3-array": "^2.0.3",
@@ -36,6 +38,9 @@
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
     "cross-env": "^5.2.0",
+    "eslint": "^5.13.0",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^1.0.1",
     "jest-styled-components": "^6.3.1",
     "react-test-renderer": "^16.8.0",
     "rimraf": "^2.6.3",
