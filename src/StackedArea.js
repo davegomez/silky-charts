@@ -43,7 +43,6 @@ const StackedArea = ({
   grid,
   height: svgHeight = undefined,
   horizontal,
-  lineSeries = [],
   lineType = LINE_TYPE,
   lineTypeOption = null,
   margin = MARGIN,

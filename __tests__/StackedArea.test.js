@@ -1,6 +1,5 @@
 import React from 'react';
 import { StackedArea } from '../src';
-import { Path } from '../src/components';
 import { create } from 'react-test-renderer';
 import { data, dataWidthDates } from '../__mocks__/stackedArea';
 import createNodeMock from '../__mocks__/createNodeMock';
