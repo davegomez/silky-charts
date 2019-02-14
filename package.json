@@ -20,7 +20,7 @@
     "lint": "eslint **/*.js --quiet",
     "postpublish": "git push origin HEAD --follow-tags",
     "prebuild": "npm run clean",
-    "prerelease": "npm run build && git add . && git commit -m 'Update build'",
+    "prerelease": "npm run build",
     "release": "standard-version",
     "test": "npm run lint && jest"
   },
