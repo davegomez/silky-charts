@@ -1,3 +1,3 @@
 import { themes } from './palette';
 
-export default theme => themes[theme][2];
+export default theme => themes[theme][0];
