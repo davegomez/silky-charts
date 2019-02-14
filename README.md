@@ -22,6 +22,7 @@ A silky smooth D3/React chart library
     + [Props](#props-1)
   + [Contributing to Silky Charts](#contributing-to-silky-charts)
     + [How to use the playground](#how-to-use-the-playground)
+    + [Create a Pull Request](#create-a-pull-request)
   + [Tests](#tests)
   + [Testing in your own app](#testing-in-your-own-app)
   + [Troubleshooting](#troubleshooting)
@@ -204,6 +205,16 @@ Once you are in the playground you will find a React application created with [R
 After installing all the dependencies you will be able to start the application and use the `App.js` to play with the current charts or test new ones. The App file is already importing all the charts available and the example data sets included in the application for testing purposes, and is also already rendering one of the charts with most common props already defined and comment out to make it easier to test these.
 
 There is also a `data.js` that contains all the testing data sets. Use this data set to test your charts and add new ones if you need them for your new chart or just for testing the current ones and include them in your pull request.
+
+### Create a Pull Request
+
+Silky Charts uses [git flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) in its repository so if you want to contribute and publish a pull request please create a `feature` branch out of `develop` with a name describing you change or feature and create the pull request pointing back to the `develop` branch.
+
+1. `git flow feature start <feature-name>`
+2. Make your changes and commit them
+3. Run the tests with `yarn test` or `npm run tests`
+4. Fix the linting issues and broken tests (as today the tests are in plan of refactoring so don't worry about broken ones)
+5. [Create a pull request](https://help.github.com/articles/creating-a-pull-request/).
 
 ## Tests
 
