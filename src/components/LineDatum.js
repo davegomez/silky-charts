@@ -28,10 +28,10 @@ const LineDatum = ({
           <Circle
             key={idx}
             chart="bar-line"
-            strokeColor={color}
+            color={color}
             cx={xScale(name) + xScale.bandwidth() / 2}
             cy={yScale(value)}
-            r={4}
+            r={6}
             onClick={onClick}
             onMouseEnter={event => {
               setTooltip(state => ({ ...state, show: true }));

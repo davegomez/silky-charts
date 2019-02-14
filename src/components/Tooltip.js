@@ -6,7 +6,7 @@ const Container = styled.div.attrs(({ pageX, pageY, width, height }) => ({
   className: 'silky-charts-tooltip',
   style: {
     left: `${pageX - width / 2}px`,
-    top: `${pageY - height - 10}px`,
+    top: `${pageY - height - 16}px`,
   },
 }))`
   background-color: ${white};
