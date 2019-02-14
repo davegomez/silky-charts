@@ -689,7 +689,7 @@ var Label = styled.text.attrs(function (_ref) {
   return {
     className: "".concat(axis, "-axis-label"),
     x: axis === 'x' ? width / 2 : 0 - height / 2,
-    y: axis === 'x' ? height + margin.bottom : 0 - margin.left / 1.5
+    y: axis === 'x' ? height + margin.bottom - 30 : 34 - margin.left
   };
 })(_templateObject$4(), function (_ref2) {
   var axis = _ref2.axis;
@@ -873,7 +873,7 @@ var Source = styled.text.attrs(function (_ref) {
   return {
     className: "chart-source",
     x: width,
-    y: height + margin.bottom / 1.5
+    y: height + margin.bottom - 50
   };
 })(_templateObject$8());
 
@@ -949,13 +949,12 @@ function _templateObject$a() {
   return data;
 }
 var Title = styled.text.attrs(function (_ref) {
-  var height = _ref.height,
-      margin = _ref.margin,
+  var margin = _ref.margin,
       width = _ref.width;
   return {
     className: "chart-title",
     x: width / 2,
-    y: 0 - margin.top / 2
+    y: 50 - margin.top
   };
 })(_templateObject$a());
 
@@ -1078,4 +1077,4 @@ var TooltipItem = function TooltipItem(_ref2) {
 };
 
 export { getId as a, _slicedToArray as b, SIZE as c, setupData as d, getMax as e, debounce$1 as f, SVG as g, MainGroup as h, Grid as i, drawGrid as j, Title as k, Label as l, Source as m, DataGroup as n, BarDatum$$1 as o, getBaseColor as p, Axis as q, rotateXLabels as r, TIME_FORMAT as s, MARGIN as t, THEME as u, ROTATION as v, TICKS as w, SCALE_PADDING as x, _objectSpread as y, getSize as z, ASPECT_RATIO as A, buildStack as B, toStackedForm as C, getStackedMax as D, setLineType as E, getLineDataForSeries as F, StackedBarDatum as G, LineDatum$$1 as H, palette as I, LINE_TYPE as J, SECONDARY_THEME as K, appendStackedValues as L, getSeries as M, getXScale as N, SCALE_TIME as O, SCALE_BAND as P, getYScale as Q, SCALE_LINEAR as R, bySeries as S, classify as T, Path as U };
-//# sourceMappingURL=chunk-490699cc.js.map
+//# sourceMappingURL=chunk-eb41aa1d.js.map

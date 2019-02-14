@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-require('./chunk-dd5768a0.js');
+require('./chunk-a266a37b.js');
 require('react');
 require('d3-axis');
 require('d3-scale');

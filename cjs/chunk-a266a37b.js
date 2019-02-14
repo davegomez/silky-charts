@@ -694,7 +694,7 @@ var Label = styled.text.attrs(function (_ref) {
   return {
     className: "".concat(axis, "-axis-label"),
     x: axis === 'x' ? width / 2 : 0 - height / 2,
-    y: axis === 'x' ? height + margin.bottom : 0 - margin.left / 1.5
+    y: axis === 'x' ? height + margin.bottom - 30 : 34 - margin.left
   };
 })(_templateObject$4(), function (_ref2) {
   var axis = _ref2.axis;
@@ -878,7 +878,7 @@ var Source = styled.text.attrs(function (_ref) {
   return {
     className: "chart-source",
     x: width,
-    y: height + margin.bottom / 1.5
+    y: height + margin.bottom - 50
   };
 })(_templateObject$8());
 
@@ -954,13 +954,12 @@ function _templateObject$a() {
   return data;
 }
 var Title = styled.text.attrs(function (_ref) {
-  var height = _ref.height,
-      margin = _ref.margin,
+  var margin = _ref.margin,
       width = _ref.width;
   return {
     className: "chart-title",
     x: width / 2,
-    y: 0 - margin.top / 2
+    y: 50 - margin.top
   };
 })(_templateObject$a());
 
@@ -1129,4 +1128,4 @@ exports.SCALE_LINEAR = SCALE_LINEAR;
 exports.bySeries = bySeries;
 exports.classify = classify;
 exports.Path = Path;
-//# sourceMappingURL=chunk-dd5768a0.js.map
+//# sourceMappingURL=chunk-a266a37b.js.map
