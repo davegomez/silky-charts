@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { axisBottom as d3AxisBottom, axisLeft as d3AxisLeft } from 'd3-axis';
 import {
   scaleBand as d3ScaleBand,
@@ -23,7 +23,6 @@ import {
 import useResize from './hooks/useResize';
 import {
   buildStack,
-  debounce,
   drawGrid,
   getId,
   getLineDataForSeries,
