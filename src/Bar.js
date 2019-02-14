@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { axisBottom as d3AxisBottom, axisLeft as d3AxisLeft } from 'd3-axis';
 import {
   scaleBand as d3ScaleBand,
@@ -18,6 +18,16 @@ import {
   SVG,
   Title,
 } from './components';
+import useResize from './hooks/useResize';
+import {
+  drawGrid,
+  getBaseColor,
+  getId,
+  getMax,
+  getSize,
+  rotateXLabels,
+  setupData,
+} from './utils';
 import {
   ASPECT_RATIO,
   MARGIN,
@@ -28,16 +38,6 @@ import {
   TICKS,
   TIME_FORMAT,
 } from './utils/constants';
-import {
-  debounce,
-  drawGrid,
-  getBaseColor,
-  getId,
-  getMax,
-  getSize,
-  rotateXLabels,
-  setupData,
-} from './utils';
 
 const Bar = ({
   aspectRatio = ASPECT_RATIO,
@@ -94,16 +94,7 @@ const Bar = ({
     }
   };
 
-  const handleResize = debounce(handleSize)();
-
-  useEffect(() => {
-    handleSize();
-    responsive && window.addEventListener('resize', handleResize);
-
-    return () => {
-      responsive && window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  useResize(responsive, handleSize);
 
   return (
     <SVG

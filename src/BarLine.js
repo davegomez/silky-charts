@@ -20,18 +20,7 @@ import {
   SVG,
   Title,
 } from './components';
-import {
-  ASPECT_RATIO,
-  LINE_TYPE,
-  MARGIN,
-  ROTATION,
-  SCALE_PADDING,
-  SECONDARY_THEME,
-  SIZE,
-  THEME,
-  TICKS,
-  TIME_FORMAT,
-} from './utils/constants';
+import useResize from './hooks/useResize';
 import {
   buildStack,
   debounce,
@@ -47,6 +36,18 @@ import {
   setupData,
   toStackedForm,
 } from './utils';
+import {
+  ASPECT_RATIO,
+  LINE_TYPE,
+  MARGIN,
+  ROTATION,
+  SCALE_PADDING,
+  SECONDARY_THEME,
+  SIZE,
+  THEME,
+  TICKS,
+  TIME_FORMAT,
+} from './utils/constants';
 
 const BarLine = ({
   aspectRatio = ASPECT_RATIO,
@@ -116,16 +117,7 @@ const BarLine = ({
     }
   };
 
-  const handleResize = debounce(handleSize)();
-
-  useEffect(() => {
-    handleSize();
-    responsive && window.addEventListener('resize', handleResize);
-
-    return () => {
-      responsive && window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  useResize(responsive, handleSize);
 
   return (
     <SVG
