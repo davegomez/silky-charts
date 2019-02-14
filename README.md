@@ -10,16 +10,21 @@ A silky smooth D3/React chart library
   + [Features](#features)
   + [Roadmap](#roadmap)
   + [Installation](#installation)
-    + [Peer Dependencies](#peer-dependencies)
-  + [Basic Usage](#basic-usage)
-  + [Common Props](#common-props)
-  + [Color Themes](#color-themes)
-  + [Bar Chart](#bar-chart)
-    + [Data Definition](#data-definition)
+    + [Peer dependencies](#peer-dependencies)
+  + [Basic usage](#basic-usage)
+  + [Common props](#common-props)
+  + [Color themes](#color-themes)
+  + [Bar chart](#bar-chart)
+    + [Data definition](#data-definition)
     + [Props](#props)
-  + [BarLine Chart](#barline-chart)
-    + [Data Definition](#data-definition-1)
+  + [BarLine chart](#barline-chart)
+    + [Data definition](#data-definition-1)
     + [Props](#props-1)
+  + [Contributing to Silky Charts](#contributing-to-silky-charts)
+    + [How to use the playground](#how-to-use-the-playground)
+  + [Tests](#tests)
+  + [Testing in your own app](#testing-in-your-own-app)
+  + [Troubleshooting](#troubleshooting)
 
 ## Features
 
@@ -51,7 +56,7 @@ Install Silky Charts using [npm](https://www.npmjs.com/)
 npm install --save silky-charts
 ```
 
-### Peer Dependencies
+### Peer dependencies
 
 Silky Charts uses React `>= 16.8.0`, React DOM `>= 16.8.0`, and Styled Components `>= 4.1.3` as peer dependencies.
 
@@ -67,7 +72,7 @@ Install peer dependencies using npm
 npm install --save react react-dom styled-components
 ```
 
-## Basic Usage
+## Basic usage
 
 ```javascript
 import Bar from 'silky-charts/Bar';
@@ -79,7 +84,7 @@ import { Bar } from 'silky-charts';
 ...
 ```
 
-## Common Props
+## Common props
 
 Most props and options are present indistinguishable in all charts.
 
@@ -98,6 +103,8 @@ Most props and options are present indistinguishable in all charts.
 | responsive              | `Boolean`  |    `false`     | Activates the chart responsiveness feature.                                                                                       |
 | theme                   |  `String`  | `"monteCarlo"` | Color theme name. [Color themes](#color-themes)                                                                                   |
 | tooltip                 | `Boolean`  |    `false`     | Activates the built in tooltip.                                                                                                   |
+| sourceLabel             |  `String`  |                | Sets a source label in the bottom right of the chart.                                                                             |
+| title                   |  `String`  |                | Sets the title of the chart.                                                                                                      |
 | width                   |  `Number`  |     `640`      | Sets the chart's width.                                                                                                           |
 | xAxisChartLabel         |  `String`  |                | Sets the Chart's X axis label (you might need to adjust the margin).                                                              |
 | xAxisLabelRotation      | `Boolean`  |    `false`     | Rotates the X axis labels when these are to long to fit horizontally.                                                             |
@@ -112,15 +119,15 @@ Most props and options are present indistinguishable in all charts.
 
 `[3]` The specified count is only a hint; the scale may return more or fewer values depending on the domain. [Read more...](https://github.com/d3/d3-scale/blob/master/README.md#continuous_ticks)
 
-## Color Themes
+## Color themes
 
 ![Silky Charts Choropleth color themes](/color-themes.png)
 
-## Bar Chart
+## Bar chart
 
 [Demo](https://x7mr6l9omq.codesandbox.io/) - [Sandbox](https://codesandbox.io/s/x7mr6l9omq)
 
-### Data Definition
+### Data definition
 
 ```
 [
@@ -133,11 +140,11 @@ Most props and options are present indistinguishable in all charts.
 
 ### Props
 
-## BarLine Chart
+## BarLine chart
 
 [Demo](https://9oq4mx1z5y.codesandbox.io/) - [Sandbox](https://codesandbox.io/s/9oq4mx1z5y)
 
-### Data Definition
+### Data definition
 
 ```
 [
@@ -158,3 +165,62 @@ Most props and options are present indistinguishable in all charts.
 | lineTypeOption |  `String`  |                 | If the line style accepts options you can set it using this prop.                                 |
 | secondaryTheme |  `String`  | `"vividCerise"` | Color theme for the chart lines. Hint: opposite colors have better contrast.                      |
 | stackedSeries  | `[String]` |                 | Series names of the datasets you want to appear as stacked bars in the chart.                     |
+
+## Contributing to Silky Charts
+
+1. [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your own GitHub account and then clone it to your local device
+2. Install yarn: `npm install -g yarn` | [yarn installation](https://yarnpkg.com/en/docs/instal)
+3. Install the dependencies: `yarn`
+4. Link Silky Charts: `yarn link`
+5. Run `yarn dev` to build and watch for code changes
+6. Get into the Playground: `cd playground`
+7. Install the dependencies: `yarn`
+8. Link to Silky Charts: `yarn link silky-charts`
+9. Start the playground: `yarn start`
+
+### How to use the playground
+
+Once you are in the playground you will find a React application created with [RCA](https://facebook.github.io/create-react-app/). The App structure is the following:
+
+```
+.
+├── README.md
+├── package.json
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   └── manifest.json
+├── src
+│   ├── App.js
+│   ├── components
+│   │   ├── ChartContainer.js
+│   │   └── Container.js
+│   ├── data.js
+│   ├── index.js
+│   └── styles.css
+└── yarn.lock
+```
+
+After installing all the dependencies you will be able to start the application and use the `App.js` to play with the current charts or test new ones. The App file is already importing all the charts available and the example data sets included in the application for testing purposes, and is also already rendering one of the charts with most common props already defined and comment out to make it easier to test these.
+
+There is also a `data.js` that contains all the testing data sets. Use this data set to test your charts and add new ones if you need them for your new chart or just for testing the current ones and include them in your pull request.
+
+## Tests
+
+Running all tests:
+
+```
+yarn test
+```
+
+## Testing in your own app
+
+If you haven't yet, follow the first five steps described in [Contributing to Silky Charts](#contributing-to-silky-charts) then inside your project directory:
+
+1. Link to Silky Charts: `yarn link silky-charts`
+
+And start coding...
+
+## Troubleshooting
+
+- When you use bundlers like Webpack and Parcel you might encounter some issues related with Hooks throwing an error that says "`Hooks can only be called inside the body of a function component`". This problem is caused by a [duplicate React in your bundle](https://github.com/facebook/react/issues/14721#issuecomment-458757426) and you have to follow this [workaround](https://github.com/facebook/react/issues/13991#issuecomment-462090853) to make it work. -- Use this [package.json]('./playground/package.json) file as an example.
