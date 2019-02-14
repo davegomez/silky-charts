@@ -103,6 +103,7 @@ var Bar = function Bar(_ref) {
       isDates = _setupData2[0],
       data = _setupData2[1];
 
+  console.log('Test');
   var xScale = d3Scale.scaleBand().domain(data.map(function (_ref2) {
     var name = _ref2.name;
     return name;

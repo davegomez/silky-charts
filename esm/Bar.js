@@ -1,32 +1,4 @@
-import {
-  a as getId,
-  b as _slicedToArray,
-  c as SIZE,
-  d as setupData,
-  e as getMax,
-  f as debounce,
-  g as SVG,
-  h as MainGroup,
-  i as Grid,
-  j as drawGrid,
-  k as Title,
-  l as Label,
-  m as Source,
-  n as DataGroup,
-  o as BarDatum,
-  p as getBaseColor,
-  q as Axis,
-  r as rotateXLabels,
-  s as TIME_FORMAT,
-  t as MARGIN,
-  u as THEME,
-  v as ROTATION,
-  w as TICKS,
-  x as SCALE_PADDING,
-  y as _objectSpread,
-  z as getSize,
-  A as ASPECT_RATIO,
-} from './chunk-eb41aa1d.js';
+import { a as getId, b as _slicedToArray, c as SIZE, d as setupData, e as getMax, f as debounce, g as SVG, h as MainGroup, i as Grid, j as drawGrid, k as Title, l as Label, m as Source, n as DataGroup, o as BarDatum, p as getBaseColor, q as Axis, r as rotateXLabels, s as TIME_FORMAT, t as MARGIN, u as THEME, v as ROTATION, w as TICKS, x as SCALE_PADDING, y as _objectSpread, z as getSize, A as ASPECT_RATIO } from './chunk-eb41aa1d.js';
 import React, { useRef, useState, useEffect } from 'react';
 import { axisBottom, axisLeft } from 'd3-axis';
 import { scaleBand, scaleLinear } from 'd3-scale';
@@ -124,6 +96,7 @@ var Bar = function Bar(_ref) {
       isDates = _setupData2[0],
       data = _setupData2[1];
 
+  console.log('Test');
   var xScale = scaleBand().domain(data.map(function (_ref2) {
     var name = _ref2.name;
     return name;
