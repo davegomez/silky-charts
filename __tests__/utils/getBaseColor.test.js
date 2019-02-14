@@ -1,12 +1,12 @@
 import { getBaseColor, palette } from '../../src/utils';
 
-const { red, green, blue } = palette.themes;
-const redColor = red.base[2];
-const greenColor = green.base[2];
-const blueColor = blue.base[2];
+const { monteCarlo, vividCerise, sundown } = palette.themes;
+const monteCarloColor = monteCarlo[0];
+const vividCeriseColor = vividCerise[0];
+const sundownColor = sundown[0];
 
 test('return the correct color', () => {
-  expect(getBaseColor('red')).toEqual(redColor);
-  expect(getBaseColor('green')).toEqual(greenColor);
-  expect(getBaseColor('blue')).toEqual(blueColor);
+  expect(getBaseColor('monteCarlo')).toEqual(monteCarloColor);
+  expect(getBaseColor('vividCerise')).toEqual(vividCeriseColor);
+  expect(getBaseColor('sundown')).toEqual(sundownColor);
 });
