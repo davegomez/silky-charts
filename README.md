@@ -1,7 +1,19 @@
 <div align="center">
   <h1>Silky Charts</h1>
+
+  <img
+    alt="Silky Charts"
+    src="https://raw.githubusercontent.com/davegomez/silky-charts/master/assets/logo.jpg"
+  />
+
   <p>A silky smooth D3/React chart library.</p>
 </div>
+
+<hr />
+
+**Disclaimer**: Silky Charts is a work in progress, there is still many charts and features to add before is considered stable so the API is subject to change during its development.
+
+<hr />
 
 [![NPM Version](https://img.shields.io/npm/v/silky-charts.svg)](https://www.npmjs.com/package/silky-charts)
 [![Bundlephobia minified](https://badgen.net/bundlephobia/min/silky-charts)](https://bundlephobia.com/result?p=silky-charts)
@@ -23,12 +35,12 @@
 + [BarLine chart](#barline-chart)
   + [Data definition](#data-definition-1)
   + [Props](#props-1)
-+ [Contributing to Silky Charts](#contributing-to-silky-charts)
++ [Contributing](#contributing)
   + [How to use the playground](#how-to-use-the-playground)
   + [Create a Pull Request](#create-a-pull-request)
-+ [Tests](#tests)
-+ [Testing in your own app](#testing-in-your-own-app)
-+ [Troubleshooting](#troubleshooting)
+  + [Tests](#tests)
+  + [Testing in your own app](#testing-in-your-own-app)
+  + [Troubleshooting](#troubleshooting)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -119,13 +131,10 @@ Most props and options are present indistinguishable in all charts.
 | yAxisChartLabel         |     `String`      |                | Sets the Chart's Y axis label (you might need to adjust the margin).                                                              |
 | yAxisTicks              |     `Number`      |      `5`       | Sets the number of ticks of the y axis on the chart. `[4]`                                                                        |
 
-`[1]` The ISO dates will be formatted using [D3's date formatting rules](https://github.com/d3/d3-time-format).
-
-`[2]` The default values for the margin `prop` is `{ top: 40, right: 50, bottom: 50, left: 50 }`.
-
-`[3]` If you want to display the data source label as a link you can pass an object with `{ href, target, text, title }` instead.
-
-`[4]` The specified count is only a hint; the scale may return more or fewer values depending on the domain. [Read more...](https://github.com/d3/d3-scale/blob/master/README.md#continuous_ticks)
+- `[1]` The ISO dates will be formatted using [D3's date formatting rules](https://github.com/d3/d3-time-format).
+- `[2]` The default values for the margin `prop` is `{ top: 40, right: 50, bottom: 50, left: 50 }`.
+- `[3]` If you want to display the data source label as a link you can pass an object with `{ href, target, text, title }` instead.
+- `[4]` The specified count is only a hint; the scale may return more or fewer values depending on the domain. [Read more...](https://github.com/d3/d3-scale/blob/master/README.md#continuous_ticks)
 
 ## Color themes
 
@@ -174,17 +183,17 @@ Most props and options are present indistinguishable in all charts.
 | secondaryTheme |  `String`  | `"vividCerise"` | Color theme for the chart lines. Hint: opposite colors have better contrast.                      |
 | stackedSeries  | `[String]` |                 | Series names of the datasets you want to appear as stacked bars in the chart.                     |
 
-## Contributing to Silky Charts
+## Contributing
 
-1. [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your own GitHub account and then clone it to your local device
-2. Install yarn: `npm install -g yarn` | [yarn installation](https://yarnpkg.com/en/docs/instal)
-3. Install the dependencies: `yarn`
-4. Link Silky Charts: `yarn link`
-5. Run `yarn dev` to build and watch for code changes
-6. Get into the Playground: `cd playground`
-7. Install the dependencies: `yarn`
-8. Link to Silky Charts: `yarn link silky-charts`
-9. Start the playground: `yarn start`
+- [Fork](https://help.github.com/articles/fork-a-repo/) this repository to your own GitHub account and then clone it to your local device
+- Install yarn: `npm install -g yarn` | [yarn installation](https://yarnpkg.com/en/docs/instal)
+- Install the dependencies: `yarn`
+- Link Silky Charts: `yarn link`
+- Run `yarn dev` to build and watch for code changes
+- Get into the Playground: `cd playground`
+- Install the dependencies: `yarn`
+- Link to Silky Charts: `yarn link silky-charts`
+- Start the playground: `yarn start`
 
 ### How to use the playground
 
@@ -217,13 +226,13 @@ There is also a `data.js` that contains all the testing data sets. Use this data
 
 Silky Charts uses [git flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) in its repository, so if you want to contribute and publish a pull request please create a `feature` branch out of `develop` with a name describing you change or feature and create the pull request pointing back to the `develop` branch.
 
-1. `git flow feature start <feature-name>`
-2. Make your changes and commit them
-3. Run the tests with `yarn test` or `npm run tests`
-4. Add unit tests and fix the linting issues and broken tests (_as today the tests are in plan of refactoring so don't worry about broken ones_)
-5. [Create the pull request](https://help.github.com/articles/creating-a-pull-request/).
+- `git flow feature start <feature-name>`
+- Make your changes and commit them
+- Run the tests with `yarn test` or `npm run tests`
+- Add unit tests and fix the linting issues and broken tests (_as today the tests are in plan of refactoring so don't worry about broken ones_)
+- [Create the pull request](https://help.github.com/articles/creating-a-pull-request/).
 
-## Tests
+### Tests
 
 Running all tests:
 
@@ -231,14 +240,14 @@ Running all tests:
 yarn test
 ```
 
-## Testing in your own app
+### Testing in your own app
 
 If you haven't yet, follow the first five steps described in [Contributing to Silky Charts](#contributing-to-silky-charts) then inside your project directory:
 
-1. Link to Silky Charts: `yarn link silky-charts`
+- Link to Silky Charts: `yarn link silky-charts`
 
 And start coding...
 
-## Troubleshooting
+### Troubleshooting
 
 - When you use bundlers like Webpack and Parcel you might encounter some issues related with Hooks throwing an error that says "`Hooks can only be called inside the body of a function component`". This problem is caused by a [duplicate React in your bundle](https://github.com/facebook/react/issues/14721#issuecomment-458757426) and you have to follow this [workaround](https://github.com/facebook/react/issues/13991#issuecomment-462090853) to make it work. -- Use this [package.json]('./playground/package.json) file as an example.

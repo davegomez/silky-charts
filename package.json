@@ -2,16 +2,12 @@
   "name": "silky-charts",
   "description": "A silky smooth D3/React library",
   "version": "0.1.0",
-  "license": "MIT",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "unpkg": "umd/silky-charts.js",
-  "files": [
-    "cjs/*",
-    "esm/*",
-    "umd/*",
-    "src"
-  ],
+  "engines": {
+    "node": ">=8"
+  },
   "scripts": {
     "alpha": "standard-version --prerelease alpha",
     "build": "cross-env NODE_ENV=production rollup -c",
@@ -24,6 +20,31 @@
     "release": "standard-version",
     "test": "npm run lint && jest"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "precise-commits"
+    }
+  },
+  "files": [
+    "cjs/*",
+    "esm/*",
+    "umd/*",
+    "src"
+  ],
+  "keywords": [
+    "testing",
+    "react",
+    "ui",
+    "dom",
+    "jsdom",
+    "unit",
+    "integration",
+    "functional",
+    "end-to-end",
+    "e2e"
+  ],
+  "author": "Juan D. Gomez <dg.dave@gmail.com> (http://davidgomez.io/)",
+  "license": "MIT",
   "dependencies": {
     "d3-axis": "^1.0.12",
     "d3-scale": "^2.1.2",
@@ -70,9 +91,5 @@
   "bugs": {
     "url": "https://github.com/davegomez/silky-charts/issues"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "precise-commits"
-    }
-  }
+  "homepage": "https://github.com/davegomez/silky-charts#readme"
 }
