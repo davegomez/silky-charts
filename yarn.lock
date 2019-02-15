@@ -1295,11 +1295,6 @@ d3-array@^1.2.0:
   resolved "http://artifactory.aweber.io:80/api/npm/npm/d3-array/-/d3-array-1.2.4.tgz#635ce4d5eea759f6f605863dbcfc30edc737f71f"
   integrity sha1-Y1zk1e6nWfb2BYY9vPww7cc39x8=
 
-d3-array@^2.0.3:
-  version "2.0.3"
-  resolved "http://artifactory.aweber.io:80/api/npm/npm/d3-array/-/d3-array-2.0.3.tgz#9c0531eda701e416f28a030e3d4e6179ba74f19f"
-  integrity sha1-nAUx7acB5BbyigMOPU5hebp08Z8=
-
 d3-axis@^1.0.12:
   version "1.0.12"
   resolved "http://artifactory.aweber.io:80/api/npm/npm/d3-axis/-/d3-axis-1.0.12.tgz#cdf20ba210cfbb43795af33756886fb3638daac9"

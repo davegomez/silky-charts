@@ -3,9 +3,8 @@ import cond from 'ramda/src/cond';
 import equals from 'ramda/src/equals';
 import identity from 'ramda/src/identity';
 import T from 'ramda/src/T';
-import { extent as d3Extent } from 'd3-array';
 import { scaleBand as d3ScaleBand, scaleTime as d3ScaleTime } from 'd3-scale';
-import { getLength } from './';
+import { getLength, extent } from './';
 import { SCALE_TIME, SCALE_BAND } from './constants';
 
 const timeScale = (data, width, barChart = false) => {
@@ -13,7 +12,7 @@ const timeScale = (data, width, barChart = false) => {
   const rangeWidth = width / dataLength / 1.8;
 
   return d3ScaleTime()
-    .domain(d3Extent(data, ({ name }) => name))
+    .domain(extent(data, ({ name }) => name))
     .rangeRound(barChart ? [rangeWidth, width - rangeWidth] : [0, width]);
 };
 
