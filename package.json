@@ -25,7 +25,6 @@
     "test": "npm run lint && jest"
   },
   "dependencies": {
-    "d3-array": "^2.0.3",
     "d3-axis": "^1.0.12",
     "d3-scale": "^2.1.2",
     "d3-selection": "^1.4.0",
