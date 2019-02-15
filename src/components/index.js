@@ -8,7 +8,7 @@ export { default as LineDatum } from './LineDatum';
 export { default as MainGroup } from './MainGroup';
 export { default as Path } from './Path';
 export { default as Rect } from './Rect';
-export { default as Source } from './Source';
+export { default as DataSource } from './DataSource';
 export { default as StackedBarDatum } from './StackedBarDatum';
 export { default as SVG } from './SVG';
 export { default as Title } from './Title';

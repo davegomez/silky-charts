@@ -14,7 +14,7 @@ import {
   Grid,
   Label,
   MainGroup,
-  Source,
+  DataSource,
   SVG,
   Title,
 } from './components';
@@ -54,7 +54,7 @@ const Bar = ({
   responsive,
   theme = THEME,
   tooltip,
-  sourceLabel,
+  dataSource,
   width: svgWidth = undefined,
   xAxisChartLabel,
   xAxisLabelRotation,
@@ -142,10 +142,13 @@ const Bar = ({
           </Label>
         )}
 
-        {sourceLabel && (
-          <Source margin={margin} width={width} height={height}>
-            {sourceLabel}
-          </Source>
+        {dataSource && (
+          <DataSource
+            dataSource={dataSource}
+            height={height}
+            margin={margin}
+            width={width}
+          />
         )}
 
         <DataGroup>
