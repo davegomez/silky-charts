@@ -15,7 +15,7 @@ import {
   Label,
   LineDatum,
   MainGroup,
-  Source,
+  DataSource,
   StackedBarDatum,
   SVG,
   Title,
@@ -69,7 +69,7 @@ const BarLine = ({
   stackedSeries = [],
   theme = THEME,
   tooltip,
-  sourceLabel,
+  dataSource,
   width: svgWidth = undefined,
   xAxisChartLabel,
   xAxisLabelRotation,
@@ -164,10 +164,13 @@ const BarLine = ({
           </Label>
         )}
 
-        {sourceLabel && (
-          <Source margin={margin} width={width} height={height}>
-            {sourceLabel}
-          </Source>
+        {dataSource && (
+          <DataSource
+            dataSource={dataSource}
+            height={height}
+            margin={margin}
+            width={width}
+          />
         )}
 
         <StackedBarDatum

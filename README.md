@@ -89,36 +89,38 @@ import { Bar } from 'silky-charts';
 
 Most props and options are present indistinguishable in all charts.
 
-| Name                    |    Type    |    Defaults    | Description                                                                                                                       |
-| ----------------------- | :--------: | :------------: | --------------------------------------------------------------------------------------------------------------------------------- |
-| aspectRatio             |  `String`  |    `"16:9"`    | Sets the shape and size of the chart using the parent element width as a guide. Is overriden setting a `width` or `height` props. |
-| data                    |  `Array`   |                | Chart data.                                                                                                                       |
-| dateFormat              |  `String`  |   `"%a %d"`    | Name values as ISO dates will be formatted as dates. `[1]`                                                                        |
-| grid                    | `Boolean`  |    `false`     | Display the chart's grid.                                                                                                         |
-| height                  |  `Number`  |                | Sets the chart's height (breaks responsiveness).                                                                                  |
-| margin                  | `{Number}` |                | Sets the margin sizes around the chart from an object with `top`, `right`, `bottom`, and `left` key-values `[2]`.                 |
-| onClick                 | `Function` |                | Callback function to call during the onClick event.                                                                               |
-| onMouseEnter            | `Function` |                | Callback function to call during the onMouseEnter event.                                                                          |
-| onMouseLeave            | `Function` |                | Callback function to call during the OnMouseLeave event.                                                                          |
-| padding                 |  `Number`  |     `0.1`      | Sets the padding between the chart bars.                                                                                          |
-| responsive              | `Boolean`  |    `false`     | Activates the chart responsiveness feature.                                                                                       |
-| theme                   |  `String`  | `"monteCarlo"` | Color theme name. [Color themes](#color-themes)                                                                                   |
-| tooltip                 | `Boolean`  |    `false`     | Activates the built in tooltip.                                                                                                   |
-| sourceLabel             |  `String`  |                | Sets a source label in the bottom right of the chart.                                                                             |
-| title                   |  `String`  |                | Sets the title of the chart.                                                                                                      |
-| width                   |  `Number`  |     `640`      | Sets the chart's width.                                                                                                           |
-| xAxisChartLabel         |  `String`  |                | Sets the Chart's X axis label (you might need to adjust the margin).                                                              |
-| xAxisLabelRotation      | `Boolean`  |    `false`     | Rotates the X axis labels when these are to long to fit horizontally.                                                             |
-| xAxisLabelRotationValue |  `Number`  |     `-50`      | Overrides the default X axis label rotation value.                                                                                |
-| xAxisTicks              |  `Number`  |      `5`       | Sets the number of ticks of the x axis on the chart. `[3]`                                                                        |
-| yAxisChartLabel         |  `String`  |                | Sets the Chart's Y axis label (you might need to adjust the margin).                                                              |
-| yAxisTicks              |  `Number`  |      `5`       | Sets the number of ticks of the y axis on the chart. `[3]`                                                                        |
+| Name                    |      Type       |    Defaults    | Description                                                                                                                       |
+| ----------------------- | :-------------: | :------------: | --------------------------------------------------------------------------------------------------------------------------------- |
+| aspectRatio             |    `String`     |    `"16:9"`    | Sets the shape and size of the chart using the parent element width as a guide. Is overriden setting a `width` or `height` props. |
+| data                    |     `Array`     |                | Chart data.                                                                                                                       |
+| dateFormat              |    `String`     |   `"%a %d"`    | Name values as ISO dates will be formatted as dates. `[1]`                                                                        |
+| grid                    |    `Boolean`    |    `false`     | Display the chart's grid.                                                                                                         |
+| height                  |    `Number`     |                | Sets the chart's height (breaks responsiveness).                                                                                  |
+| margin                  |    `Object`     |                | Sets the margin sizes around the chart from an object with `top`, `right`, `bottom`, and `left` key-values `[2]`.                 |
+| onClick                 |   `Function`    |                | Callback function to call during the onClick event.                                                                               |
+| onMouseEnter            |   `Function`    |                | Callback function to call during the onMouseEnter event.                                                                          |
+| onMouseLeave            |   `Function`    |                | Callback function to call during the OnMouseLeave event.                                                                          |
+| padding                 |    `Number`     |     `0.1`      | Sets the padding between the chart bars.                                                                                          |
+| responsive              |    `Boolean`    |    `false`     | Activates the chart responsiveness feature.                                                                                       |
+| theme                   |    `String`     | `"monteCarlo"` | Color theme name. [Color themes](#color-themes)                                                                                   |
+| tooltip                 |    `Boolean`    |    `false`     | Activates the built in tooltip.                                                                                                   |
+| dataSource              | `String|Object` |                | Sets a data source label on the chart's bottom right corner `[3]`.                                                                |
+| title                   |    `String`     |                | Sets the title of the chart.                                                                                                      |
+| width                   |    `Number`     |     `640`      | Sets the chart's width.                                                                                                           |
+| xAxisChartLabel         |    `String`     |                | Sets the Chart's X axis label (you might need to adjust the margin).                                                              |
+| xAxisLabelRotation      |    `Boolean`    |    `false`     | Rotates the X axis labels when these are to long to fit horizontally.                                                             |
+| xAxisLabelRotationValue |    `Number`     |     `-50`      | Overrides the default X axis label rotation value.                                                                                |
+| xAxisTicks              |    `Number`     |      `5`       | Sets the number of ticks of the x axis on the chart. `[4]`                                                                        |
+| yAxisChartLabel         |    `String`     |                | Sets the Chart's Y axis label (you might need to adjust the margin).                                                              |
+| yAxisTicks              |    `Number`     |      `5`       | Sets the number of ticks of the y axis on the chart. `[4]`                                                                        |
 
 `[1]` The ISO dates will be formatted using [D3's date formatting rules](https://github.com/d3/d3-time-format).
 
 `[2]` The default values for the margin `prop` is `{ top: 40, right: 50, bottom: 50, left: 50 }`.
 
-`[3]` The specified count is only a hint; the scale may return more or fewer values depending on the domain. [Read more...](https://github.com/d3/d3-scale/blob/master/README.md#continuous_ticks)
+`[3]` If you want to display the data source label as a link you can pass an object with `{ href, target, text, title }` instead.
+
+`[4]` The specified count is only a hint; the scale may return more or fewer values depending on the domain. [Read more...](https://github.com/d3/d3-scale/blob/master/README.md#continuous_ticks)
 
 ## Color themes
 
