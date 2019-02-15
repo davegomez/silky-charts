@@ -1,31 +1,36 @@
-# Silky Charts
-
-A silky smooth D3/React chart library
+<div align="center">
+  <h1>Silky Charts</h1>
+  <p>A silky smooth D3/React chart library.</p>
+</div>
 
 [![NPM Version](https://img.shields.io/npm/v/silky-charts.svg)](https://www.npmjs.com/package/silky-charts)
 [![Bundlephobia minified](https://badgen.net/bundlephobia/min/silky-charts)](https://bundlephobia.com/result?p=silky-charts)
 [![Bundlephobia minified + gzip](https://badgen.net/bundlephobia/minzip/silky-charts)](https://bundlephobia.com/result?p=silky-charts)
 
-+ [Silky Charts](#silky-charts)
-  + [Features](#features)
-  + [Roadmap](#roadmap)
-  + [Installation](#installation)
-    + [Peer dependencies](#peer-dependencies)
-  + [Basic usage](#basic-usage)
-  + [Common props](#common-props)
-  + [Color themes](#color-themes)
-  + [Bar chart](#bar-chart)
-    + [Data definition](#data-definition)
-    + [Props](#props)
-  + [BarLine chart](#barline-chart)
-    + [Data definition](#data-definition-1)
-    + [Props](#props-1)
-  + [Contributing to Silky Charts](#contributing-to-silky-charts)
-    + [How to use the playground](#how-to-use-the-playground)
-    + [Create a Pull Request](#create-a-pull-request)
-  + [Tests](#tests)
-  + [Testing in your own app](#testing-in-your-own-app)
-  + [Troubleshooting](#troubleshooting)
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
++ [Features](#features)
++ [Roadmap](#roadmap)
++ [Installation](#installation)
+  + [Peer dependencies](#peer-dependencies)
++ [Basic usage](#basic-usage)
++ [Common props](#common-props)
++ [Color themes](#color-themes)
++ [Bar chart](#bar-chart)
+  + [Data definition](#data-definition)
+  + [Props](#props)
++ [BarLine chart](#barline-chart)
+  + [Data definition](#data-definition-1)
+  + [Props](#props-1)
++ [Contributing to Silky Charts](#contributing-to-silky-charts)
+  + [How to use the playground](#how-to-use-the-playground)
+  + [Create a Pull Request](#create-a-pull-request)
++ [Tests](#tests)
++ [Testing in your own app](#testing-in-your-own-app)
++ [Troubleshooting](#troubleshooting)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Features
 
