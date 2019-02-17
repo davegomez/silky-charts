@@ -1,5 +1,5 @@
-import { a as getId, b as _slicedToArray, c as SIZE, d as setupData, L as appendStackedValues, B as buildStack, M as getSeries, C as toStackedForm, N as getXScale, O as SCALE_TIME, P as SCALE_BAND, Q as getYScale, R as SCALE_LINEAR, e as getMax, D as getStackedMax, E as setLineType, f as debounce, g as SVG, i as Grid, j as drawGrid, l as Label, S as bySeries, T as classify, U as Path, I as palette, q as Axis, r as rotateXLabels, J as LINE_TYPE, t as MARGIN, u as THEME, w as TICKS, v as ROTATION, y as _objectSpread, z as getSize, A as ASPECT_RATIO } from './chunk-eb41aa1d.js';
-import React, { useRef, useState, useMemo, useEffect } from 'react';
+import { b as getId, c as _slicedToArray, d as SIZE, e as setupData, L as appendStackedValues, B as buildStack, M as getSeries, C as toStackedForm, N as getXScale, O as SCALE_TIME, P as SCALE_BAND, Q as getYScale, R as SCALE_LINEAR, f as getMax, D as getStackedMax, E as setLineType, a as debounce, g as SVG, i as Grid, j as drawGrid, l as Label, S as bySeries, T as classify, U as Path, I as palette, q as Axis, r as rotateXLabels, J as LINE_TYPE, t as MARGIN, u as THEME, w as TICKS, v as ROTATION, y as _objectSpread, z as getSize, A as ASPECT_RATIO } from './chunk-c832da19.js';
+import React, { useRef, useState, useEffect } from 'react';
 import { axisBottom, axisLeft } from 'd3-axis';
 import 'd3-scale';
 import { select } from 'd3-selection';
@@ -7,22 +7,24 @@ import 'd3-time-format';
 import identity from 'ramda/src/identity';
 import 'styled-components';
 import 'react-dom';
-import { area } from 'd3-shape';
 import 'ramda/src/all';
-import 'ramda/src/compose';
 import 'ramda/src/equals';
 import 'ramda/src/or';
 import 'ramda/src/type';
 import 'ramda/src/complement';
+import 'ramda/src/compose';
+import { area } from 'd3-shape';
 import 'ramda/src/groupBy';
 import 'ramda/src/prop';
 import 'ramda/src/toPairs';
 import 'ramda/src/apply';
 import 'ramda/src/curry';
+import 'ramda/src/max';
+import 'ramda/src/min';
+import 'ramda/src/head';
 import 'ramda/src/length';
 import 'ramda/src/uniq';
 import 'ramda/src/map';
-import 'ramda/src/max';
 import 'ramda/src/filter';
 import 'ramda/src/sum';
 import 'ramda/src/reduce';
@@ -30,12 +32,10 @@ import 'ramda/src/values';
 import 'ramda/src/always';
 import 'ramda/src/cond';
 import 'ramda/src/T';
-import 'd3-array';
 import 'ramda/src/flatten';
 import 'ramda/src/omit';
 import 'ramda/src/mergeAll';
 import 'ramda/src/splitEvery';
-import 'ramda/src/head';
 import 'ramda/src/last';
 
 var StackedArea = function StackedArea(_ref) {
@@ -46,7 +46,6 @@ var StackedArea = function StackedArea(_ref) {
       _ref$height = _ref.height,
       svgHeight = _ref$height === void 0 ? undefined : _ref$height,
       horizontal = _ref.horizontal,
-      _ref$lineSeries = _ref.lineSeries,
       _ref$lineType = _ref.lineType,
       lineType = _ref$lineType === void 0 ? LINE_TYPE : _ref$lineType,
       _ref$lineTypeOption = _ref.lineTypeOption,
@@ -86,16 +85,12 @@ var StackedArea = function StackedArea(_ref) {
       isSizeSet = _useState4$.isSizeSet,
       setSize = _useState4[1];
 
-  var _useMemo = useMemo(function () {
-    return setupData(chartData);
-  }, chartData),
-      _useMemo2 = _slicedToArray(_useMemo, 2),
-      isDates = _useMemo2[0],
-      data = _useMemo2[1];
+  var _setupData = setupData(chartData),
+      _setupData2 = _slicedToArray(_setupData, 2),
+      isDates = _setupData2[0],
+      data = _setupData2[1];
 
-  data = useMemo(function () {
-    return appendStackedValues(buildStack(getSeries(data))(toStackedForm(data)), data);
-  }, data);
+  data = appendStackedValues(buildStack(getSeries(data))(toStackedForm(data)), data);
   var xScale = getXScale(isDates ? SCALE_TIME : SCALE_BAND, data, width);
   var yScale = getYScale(SCALE_LINEAR, getMax(getStackedMax(data)), height);
   var area$$1 = area().curve(setLineType(lineType, lineTypeOption)).x(function (_ref2) {
@@ -130,7 +125,7 @@ var StackedArea = function StackedArea(_ref) {
     return function () {
       responsive && window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [handleSize, responsive, handleResize]);
   return React.createElement(SVG, {
     identifier: id,
     size: {

@@ -11,22 +11,24 @@ var d3TimeFormat = require('d3-time-format');
 var identity = _interopDefault(require('ramda/src/identity'));
 var styled = _interopDefault(require('styled-components'));
 var reactDom = require('react-dom');
-var d3Shape = require('d3-shape');
 var all = _interopDefault(require('ramda/src/all'));
-var compose = _interopDefault(require('ramda/src/compose'));
 var equals = _interopDefault(require('ramda/src/equals'));
 var or = _interopDefault(require('ramda/src/or'));
 var type = _interopDefault(require('ramda/src/type'));
 var complement = _interopDefault(require('ramda/src/complement'));
+var compose = _interopDefault(require('ramda/src/compose'));
+var d3Shape = require('d3-shape');
 var groupBy = _interopDefault(require('ramda/src/groupBy'));
 var prop = _interopDefault(require('ramda/src/prop'));
 var toPairs = _interopDefault(require('ramda/src/toPairs'));
 var apply = _interopDefault(require('ramda/src/apply'));
 var curry = _interopDefault(require('ramda/src/curry'));
+var max = _interopDefault(require('ramda/src/max'));
+var min = _interopDefault(require('ramda/src/min'));
+var head = _interopDefault(require('ramda/src/head'));
 var length = _interopDefault(require('ramda/src/length'));
 var uniq = _interopDefault(require('ramda/src/uniq'));
 var map = _interopDefault(require('ramda/src/map'));
-var max = _interopDefault(require('ramda/src/max'));
 var filter = _interopDefault(require('ramda/src/filter'));
 var sum = _interopDefault(require('ramda/src/sum'));
 var reduce = _interopDefault(require('ramda/src/reduce'));
@@ -34,12 +36,10 @@ var values = _interopDefault(require('ramda/src/values'));
 var always = _interopDefault(require('ramda/src/always'));
 var cond = _interopDefault(require('ramda/src/cond'));
 var T = _interopDefault(require('ramda/src/T'));
-var d3Array = require('d3-array');
 var flatten = _interopDefault(require('ramda/src/flatten'));
 var omit = _interopDefault(require('ramda/src/omit'));
 var mergeAll = _interopDefault(require('ramda/src/mergeAll'));
 var splitEvery = _interopDefault(require('ramda/src/splitEvery'));
-var head = _interopDefault(require('ramda/src/head'));
 var last = _interopDefault(require('ramda/src/last'));
 
 function _defineProperty(obj, key, value) {
@@ -252,78 +252,8 @@ var BarDatum$$1 = function BarDatum$$1(_ref) {
   }, datum))), document.body));
 };
 
-var white = 'rgb(255, 255, 255)'; // #FFFFFF
-
-var black = 'rgb(33, 33, 33)'; // #212121
-
-var grey = 'rgb(220, 220, 220)'; // #DCDCDC
-
-var themes = {
-  monteCarlo: ['rgb(8,104,172)', 'rgb(67,162,202)', 'rgb(123,204,196)', 'rgb(186,228,188)', 'rgb(240,249,232)'],
-  vividCerise: ['rgb(152,0,67)', 'rgb(221,28,119)', 'rgb(223,101,176)', 'rgb(215,181,216)', 'rgb(241,238,246)'],
-  sundown: ['rgb(122,1,119)', 'rgb(197,27,138)', 'rgb(247,104,161)', 'rgb(251,180,185)', 'rgb(254,235,226)'],
-  madang: ['rgb(0,104,55)', 'rgb(49,163,84)', 'rgb(120,198,121)', 'rgb(194,230,153)', 'rgb(255,255,204)'],
-  curiousBlue: ['rgb(37,52,148)', 'rgb(44,127,184)', 'rgb(65,182,196)', 'rgb(161,218,180)', 'rgb(255,255,204)']
-};
-var palette = {
-  white: white,
-  black: black,
-  grey: grey,
-  themes: themes
-};
-
-var ASPECT_RATIO = '16:9';
-var DEBOUNCE = 100;
-var MARGIN = {
-  top: 40,
-  right: 50,
-  bottom: 50,
-  left: 50
-};
-var ROTATION = -50;
-var SIZE = {
-  width: 0,
-  height: 0,
-  isSizeSet: false
-};
-var TICKS = 5;
-var TIME_FORMAT = '%a %d';
-var TOOLTIP_DATE_FORMAT = '%b %d, %Y';
-var WIDTH = 640; // Scales
-
-var SCALE_BAND = 'band';
-var SCALE_LINEAR = 'linear';
-var SCALE_PADDING = 0.1;
-var SCALE_TIME = 'time'; // Themes
-
-var THEME = 'monteCarlo';
-var SECONDARY_THEME = 'vividCerise'; // Line options
-
-var LINE_STROKE_WIDTH = 3;
-var LINE_TYPE = 'curveLinear';
-var LINE_TYPES = {
-  curveBasis: d3Shape.curveBasis,
-  curveBasisClosed: d3Shape.curveBasisClosed,
-  curveBasisOpen: d3Shape.curveBasisOpen,
-  curveBundle: d3Shape.curveBundle,
-  curveCardinal: d3Shape.curveCardinal,
-  curveCardinalClosed: d3Shape.curveCardinalClosed,
-  curveCardinalOpen: d3Shape.curveCardinalOpen,
-  curveCatmullRom: d3Shape.curveCatmullRom,
-  curveCatmullRomClosed: d3Shape.curveCatmullRomClosed,
-  curveCatmullRomOpen: d3Shape.curveCatmullRomOpen,
-  curveLinear: d3Shape.curveLinear,
-  curveLinearClosed: d3Shape.curveLinearClosed,
-  curveMonotoneX: d3Shape.curveMonotoneX,
-  curveMonotoneY: d3Shape.curveMonotoneY,
-  curveNatural: d3Shape.curveNatural,
-  curveStep: d3Shape.curveStep,
-  curveStepAfter: d3Shape.curveStepAfter,
-  curveStepBefore: d3Shape.curveStepBefore
-};
-
 function _templateObject$1() {
-  var data = _taggedTemplateLiteral(["\n  fill: ", ";\n  stroke: ", ";\n  stroke-width: ", ";\n"]);
+  var data = _taggedTemplateLiteral(["\n  fill: ", ";\n"]);
 
   _templateObject$1 = function _templateObject() {
     return data;
@@ -336,10 +266,10 @@ var Circle = styled.circle.attrs(function (_ref) {
   return {
     className: chart
   };
-})(_templateObject$1(), white, function (_ref2) {
-  var strokeColor = _ref2.strokeColor;
-  return strokeColor;
-}, LINE_STROKE_WIDTH);
+})(_templateObject$1(), function (_ref2) {
+  var color = _ref2.color;
+  return color;
+});
 
 function _templateObject$2() {
   var data = _taggedTemplateLiteral([""]);
@@ -445,6 +375,56 @@ var debounce_ = curry(function (immediate, timeMs, fn) {
 var debounceImmediate = debounce_(true);
 var debounce = debounce_(false);
 
+var ASPECT_RATIO = '16:9';
+var DEBOUNCE = 100;
+var MARGIN = {
+  top: 40,
+  right: 50,
+  bottom: 50,
+  left: 50
+};
+var ROTATION = -50;
+var SIZE = {
+  width: 0,
+  height: 0,
+  isSizeSet: false
+};
+var TICKS = 5;
+var TIME_FORMAT = '%a %d';
+var TOOLTIP_DATE_FORMAT = '%b %d, %Y';
+var WIDTH = 640; // Scales
+
+var SCALE_BAND = 'band';
+var SCALE_LINEAR = 'linear';
+var SCALE_PADDING = 0.1;
+var SCALE_TIME = 'time'; // Themes
+
+var THEME = 'monteCarlo';
+var SECONDARY_THEME = 'vividCerise'; // Line options
+
+var LINE_STROKE_WIDTH = 3;
+var LINE_TYPE = 'curveLinear';
+var LINE_TYPES = {
+  curveBasis: d3Shape.curveBasis,
+  curveBasisClosed: d3Shape.curveBasisClosed,
+  curveBasisOpen: d3Shape.curveBasisOpen,
+  curveBundle: d3Shape.curveBundle,
+  curveCardinal: d3Shape.curveCardinal,
+  curveCardinalClosed: d3Shape.curveCardinalClosed,
+  curveCardinalOpen: d3Shape.curveCardinalOpen,
+  curveCatmullRom: d3Shape.curveCatmullRom,
+  curveCatmullRomClosed: d3Shape.curveCatmullRomClosed,
+  curveCatmullRomOpen: d3Shape.curveCatmullRomOpen,
+  curveLinear: d3Shape.curveLinear,
+  curveLinearClosed: d3Shape.curveLinearClosed,
+  curveMonotoneX: d3Shape.curveMonotoneX,
+  curveMonotoneY: d3Shape.curveMonotoneY,
+  curveNatural: d3Shape.curveNatural,
+  curveStep: d3Shape.curveStep,
+  curveStepAfter: d3Shape.curveStepAfter,
+  curveStepBefore: d3Shape.curveStepBefore
+};
+
 var debounce$1 = debounce(DEBOUNCE);
 var debounceImmediate$1 = debounceImmediate(DEBOUNCE);
 
@@ -452,15 +432,41 @@ var drawGrid = (function (horizontal, xScale, height, yScale, width, xAxisTicks,
   return horizontal ? d3Axis.axisBottom().scale(xScale).tickSize(height, 0, 0).ticks(xAxisTicks).tickFormat('') : d3Axis.axisLeft().scale(yScale).tickSize(-width, 0, 0).ticks(yAxisTicks).tickFormat('');
 });
 
-var getBaseColor = (function (theme) {
-  return themes[theme][2];
+var extent = (function (xs) {
+  return [xs.reduce(min), xs.reduce(max)];
 });
 
-var getHoverColor = (function (rgb) {
+var white = 'rgb(255, 255, 255)'; // #FFFFFF
+
+var black = 'rgb(33, 33, 33)'; // #212121
+
+var grey = 'rgb(220, 220, 220)'; // #DCDCDC
+
+var themes = {
+  monteCarlo: ['rgb(8,104,172)', 'rgb(67,162,202)', 'rgb(123,204,196)', 'rgb(186,228,188)', 'rgb(240,249,232)'],
+  vividCerise: ['rgb(152,0,67)', 'rgb(221,28,119)', 'rgb(223,101,176)', 'rgb(215,181,216)', 'rgb(241,238,246)'],
+  sundown: ['rgb(122,1,119)', 'rgb(197,27,138)', 'rgb(247,104,161)', 'rgb(251,180,185)', 'rgb(254,235,226)'],
+  madang: ['rgb(0,104,55)', 'rgb(49,163,84)', 'rgb(120,198,121)', 'rgb(194,230,153)', 'rgb(255,255,204)'],
+  curiousBlue: ['rgb(37,52,148)', 'rgb(44,127,184)', 'rgb(65,182,196)', 'rgb(161,218,180)', 'rgb(255,255,204)']
+};
+var palette = {
+  white: white,
+  black: black,
+  grey: grey,
+  themes: themes
+};
+
+var getBaseColor = (function (theme) {
+  return head(themes[theme]);
+});
+
+var getHoverColor = (function () {
+  var rgb = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'rgb(0, 0, 0)';
+  var amt = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : -20;
   return "rgb(".concat(rgb.split(/\D/).filter(function (x) {
     return x;
   }).map(function (x) {
-    var val = parseInt(x) + -20;
+    var val = parseInt(x) + amt;
 
     if (val > 255) {
       val = 255;
@@ -559,7 +565,7 @@ var timeScale = function timeScale(data, width) {
   var dataLength = getLength(data); // TODO: fix this fucking length
 
   var rangeWidth = width / dataLength / 1.8;
-  return d3Scale.scaleTime().domain(d3Array.extent(data, function (_ref) {
+  return d3Scale.scaleTime().domain(extent(data, function (_ref) {
     var name = _ref.name;
     return name;
   })).rangeRound(barChart ? [rangeWidth, width - rangeWidth] : [0, width]);
@@ -725,7 +731,6 @@ var LineDatum$$1 = function LineDatum$$1(_ref) {
   return React__default.createElement(React.Fragment, null, React__default.createElement(Path, {
     chart: chart,
     d: d,
-    className: "line-path",
     strokeColor: color
   }), React__default.createElement("g", {
     className: "line-dot-group"
@@ -734,11 +739,11 @@ var LineDatum$$1 = function LineDatum$$1(_ref) {
         value = _ref2.value;
     return React__default.createElement(Circle, {
       key: idx,
-      chart: "bar-line",
-      strokeColor: color,
+      chart: chart,
+      color: color,
       cx: xScale(name) + xScale.bandwidth() / 2,
       cy: yScale(value),
-      r: 4,
+      r: 6,
       onClick: onClick,
       onMouseEnter: function onMouseEnter(event) {
         setTooltip(function (state) {
@@ -813,7 +818,7 @@ function _templateObject$6() {
 var Path = styled.path.attrs(function (_ref) {
   var chart = _ref.chart;
   return {
-    className: chart
+    className: "line-path ".concat(chart)
   };
 })(_templateObject$6(), function (_ref2) {
   var fillColor = _ref2.fillColor;
@@ -862,8 +867,18 @@ var Rect = styled.rect.attrs(function (_ref) {
   return getHoverColor(fillColor);
 });
 
-function _templateObject$8() {
+function _templateObject2() {
   var data = _taggedTemplateLiteral(["\n  font-size: 0.8em;\n  font-style: italic;\n  text-anchor: end;\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$8() {
+  var data = _taggedTemplateLiteral(["\n  text-decoration: underline;\n"]);
 
   _templateObject$8 = function _templateObject() {
     return data;
@@ -871,27 +886,52 @@ function _templateObject$8() {
 
   return data;
 }
-var Source = styled.text.attrs(function (_ref) {
-  var height = _ref.height,
-      margin = _ref.margin,
-      width = _ref.width;
+var Link = styled.a.attrs(function (_ref) {
+  var href = _ref.href,
+      target = _ref.target,
+      title = _ref.title;
   return {
-    className: "chart-source",
+    className: "data-source-link",
+    href: href,
+    target: target,
+    title: title
+  };
+})(_templateObject$8());
+var Text = styled.text.attrs(function (_ref2) {
+  var height = _ref2.height,
+      margin = _ref2.margin,
+      width = _ref2.width;
+  return {
+    className: "data-source",
     x: width,
     y: height + margin.bottom - 50
   };
-})(_templateObject$8());
+})(_templateObject2());
+
+var DataSource = function DataSource(_ref3) {
+  var dataSource = _ref3.dataSource,
+      height = _ref3.height,
+      margin = _ref3.margin,
+      width = _ref3.width;
+  return typeof dataSource === 'string' ? React__default.createElement(Text, {
+    height: height,
+    margin: margin,
+    width: width
+  }, dataSource) : React__default.createElement(Link, dataSource, React__default.createElement(Text, {
+    height: height,
+    margin: margin,
+    width: width
+  }, dataSource.text));
+};
 
 var StackedBarDatum = function StackedBarDatum(_ref) {
-  var data = _ref.data,
-      height = _ref.height,
+  var height = _ref.height,
       onClick = _ref.onClick,
       onMouseEnter = _ref.onMouseEnter,
       onMouseLeave = _ref.onMouseLeave,
       series = _ref.series,
       theme = _ref.theme,
       tooltip = _ref.tooltip,
-      width = _ref.width,
       x = _ref.x,
       y = _ref.y;
   return series.map(function (layer) {
@@ -981,7 +1021,7 @@ var Container = styled.div.attrs(function (_ref) {
     className: 'silky-charts-tooltip',
     style: {
       left: "".concat(pageX - width / 2, "px"),
-      top: "".concat(pageY - height - 10, "px")
+      top: "".concat(pageY - height - 16, "px")
     }
   };
 })(_templateObject$b(), white, grey);
@@ -1005,7 +1045,7 @@ var Tooltip = function Tooltip(props) {
       width: offsetWidth,
       height: offsetHeight
     });
-  }, []);
+  }, [tooltipRef, setSize]);
   return React__default.createElement(Container, _extends({
     ref: tooltipRef
   }, size, props), props.children);
@@ -1041,10 +1081,10 @@ function _templateObject3() {
   return data;
 }
 
-function _templateObject2() {
+function _templateObject2$1() {
   var data = _taggedTemplateLiteral(["\n  background-color: ", ";\n  margin-right: 10px;\n  padding: 0 4px;\n"]);
 
-  _templateObject2 = function _templateObject2() {
+  _templateObject2$1 = function _templateObject2() {
     return data;
   };
 
@@ -1061,7 +1101,7 @@ function _templateObject$c() {
   return data;
 }
 var Container$1 = styled.div(_templateObject$c());
-var Swatch = styled.span(_templateObject2(), function (_ref) {
+var Swatch = styled.span(_templateObject2$1(), function (_ref) {
   var swatchColor = _ref.swatchColor;
   return swatchColor || grey;
 });
@@ -1081,19 +1121,19 @@ var TooltipItem = function TooltipItem(_ref2) {
   }), React__default.createElement(Data, null, React__default.createElement(Name, null, isValidDate(name) ? timeFormat(name) : name), React__default.createElement(Value, null, value)));
 };
 
+exports.debounce = debounce$1;
 exports.getId = getId;
 exports._slicedToArray = _slicedToArray;
 exports.SIZE = SIZE;
 exports.setupData = setupData;
 exports.getMax = getMax;
-exports.debounce = debounce$1;
 exports.SVG = SVG;
 exports.MainGroup = MainGroup;
 exports.Grid = Grid;
 exports.drawGrid = drawGrid;
 exports.Title = Title;
 exports.Label = Label;
-exports.Source = Source;
+exports.DataSource = DataSource;
 exports.DataGroup = DataGroup;
 exports.BarDatum = BarDatum$$1;
 exports.getBaseColor = getBaseColor;
@@ -1128,4 +1168,4 @@ exports.SCALE_LINEAR = SCALE_LINEAR;
 exports.bySeries = bySeries;
 exports.classify = classify;
 exports.Path = Path;
-//# sourceMappingURL=chunk-a266a37b.js.map
+//# sourceMappingURL=chunk-b1f74868.js.map

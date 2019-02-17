@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var __chunk_1 = require('./chunk-a266a37b.js');
+var __chunk_1 = require('./chunk-b1f74868.js');
 var React = require('react');
 var React__default = _interopDefault(React);
 var d3Axis = require('d3-axis');
@@ -14,22 +14,24 @@ var d3TimeFormat = require('d3-time-format');
 var identity = _interopDefault(require('ramda/src/identity'));
 require('styled-components');
 require('react-dom');
-require('d3-shape');
 require('ramda/src/all');
-require('ramda/src/compose');
 require('ramda/src/equals');
 require('ramda/src/or');
 require('ramda/src/type');
 require('ramda/src/complement');
+require('ramda/src/compose');
+require('d3-shape');
 require('ramda/src/groupBy');
 require('ramda/src/prop');
 require('ramda/src/toPairs');
 require('ramda/src/apply');
 require('ramda/src/curry');
+require('ramda/src/max');
+require('ramda/src/min');
+require('ramda/src/head');
 require('ramda/src/length');
 require('ramda/src/uniq');
 require('ramda/src/map');
-require('ramda/src/max');
 require('ramda/src/filter');
 require('ramda/src/sum');
 require('ramda/src/reduce');
@@ -37,13 +39,12 @@ require('ramda/src/values');
 require('ramda/src/always');
 require('ramda/src/cond');
 require('ramda/src/T');
-require('d3-array');
 require('ramda/src/flatten');
 require('ramda/src/omit');
 require('ramda/src/mergeAll');
 require('ramda/src/splitEvery');
-require('ramda/src/head');
 require('ramda/src/last');
+var __chunk_2 = require('./chunk-d5852a15.js');
 
 var Bar = function Bar(_ref) {
   var _ref$aspectRatio = _ref.aspectRatio,
@@ -68,7 +69,7 @@ var Bar = function Bar(_ref) {
       _ref$theme = _ref.theme,
       theme = _ref$theme === void 0 ? __chunk_1.THEME : _ref$theme,
       tooltip = _ref.tooltip,
-      sourceLabel = _ref.sourceLabel,
+      dataSource = _ref.dataSource,
       _ref$width = _ref.width,
       svgWidth = _ref$width === void 0 ? undefined : _ref$width,
       xAxisChartLabel = _ref.xAxisChartLabel,
@@ -103,7 +104,6 @@ var Bar = function Bar(_ref) {
       isDates = _setupData2[0],
       data = _setupData2[1];
 
-  console.log('Test');
   var xScale = d3Scale.scaleBand().domain(data.map(function (_ref2) {
     var name = _ref2.name;
     return name;
@@ -127,14 +127,7 @@ var Bar = function Bar(_ref) {
     }
   };
 
-  var handleResize = __chunk_1.debounce(handleSize)();
-  React.useEffect(function () {
-    handleSize();
-    responsive && window.addEventListener('resize', handleResize);
-    return function () {
-      responsive && window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  __chunk_2.useResize(responsive, handleSize);
   return React__default.createElement(__chunk_1.SVG, {
     identifier: id,
     size: {
@@ -162,11 +155,12 @@ var Bar = function Bar(_ref) {
     margin: margin,
     width: width,
     height: height
-  }, yAxisChartLabel), sourceLabel && React__default.createElement(__chunk_1.Source, {
+  }, yAxisChartLabel), dataSource && React__default.createElement(__chunk_1.DataSource, {
+    dataSource: dataSource,
+    height: height,
     margin: margin,
-    width: width,
-    height: height
-  }, sourceLabel), React__default.createElement(__chunk_1.DataGroup, null, data.map(function (_ref4, idx) {
+    width: width
+  }), React__default.createElement(__chunk_1.DataGroup, null, data.map(function (_ref4, idx) {
     var name = _ref4.name,
         value = _ref4.value;
     return React__default.createElement(__chunk_1.BarDatum, {

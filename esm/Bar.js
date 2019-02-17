@@ -1,5 +1,5 @@
-import { a as getId, b as _slicedToArray, c as SIZE, d as setupData, e as getMax, f as debounce, g as SVG, h as MainGroup, i as Grid, j as drawGrid, k as Title, l as Label, m as Source, n as DataGroup, o as BarDatum, p as getBaseColor, q as Axis, r as rotateXLabels, s as TIME_FORMAT, t as MARGIN, u as THEME, v as ROTATION, w as TICKS, x as SCALE_PADDING, y as _objectSpread, z as getSize, A as ASPECT_RATIO } from './chunk-eb41aa1d.js';
-import React, { useRef, useState, useEffect } from 'react';
+import { b as getId, c as _slicedToArray, d as SIZE, e as setupData, f as getMax, g as SVG, h as MainGroup, i as Grid, j as drawGrid, k as Title, l as Label, m as DataSource, n as DataGroup, o as BarDatum, p as getBaseColor, q as Axis, r as rotateXLabels, s as TIME_FORMAT, t as MARGIN, u as THEME, v as ROTATION, w as TICKS, x as SCALE_PADDING, y as _objectSpread, z as getSize, A as ASPECT_RATIO } from './chunk-c832da19.js';
+import React, { useRef, useState } from 'react';
 import { axisBottom, axisLeft } from 'd3-axis';
 import { scaleBand, scaleLinear } from 'd3-scale';
 import { select } from 'd3-selection';
@@ -7,22 +7,24 @@ import { timeFormat } from 'd3-time-format';
 import identity from 'ramda/src/identity';
 import 'styled-components';
 import 'react-dom';
-import 'd3-shape';
 import 'ramda/src/all';
-import 'ramda/src/compose';
 import 'ramda/src/equals';
 import 'ramda/src/or';
 import 'ramda/src/type';
 import 'ramda/src/complement';
+import 'ramda/src/compose';
+import 'd3-shape';
 import 'ramda/src/groupBy';
 import 'ramda/src/prop';
 import 'ramda/src/toPairs';
 import 'ramda/src/apply';
 import 'ramda/src/curry';
+import 'ramda/src/max';
+import 'ramda/src/min';
+import 'ramda/src/head';
 import 'ramda/src/length';
 import 'ramda/src/uniq';
 import 'ramda/src/map';
-import 'ramda/src/max';
 import 'ramda/src/filter';
 import 'ramda/src/sum';
 import 'ramda/src/reduce';
@@ -30,13 +32,12 @@ import 'ramda/src/values';
 import 'ramda/src/always';
 import 'ramda/src/cond';
 import 'ramda/src/T';
-import 'd3-array';
 import 'ramda/src/flatten';
 import 'ramda/src/omit';
 import 'ramda/src/mergeAll';
 import 'ramda/src/splitEvery';
-import 'ramda/src/head';
 import 'ramda/src/last';
+import { a as useResize } from './chunk-791faa2c.js';
 
 var Bar = function Bar(_ref) {
   var _ref$aspectRatio = _ref.aspectRatio,
@@ -61,7 +62,7 @@ var Bar = function Bar(_ref) {
       _ref$theme = _ref.theme,
       theme = _ref$theme === void 0 ? THEME : _ref$theme,
       tooltip = _ref.tooltip,
-      sourceLabel = _ref.sourceLabel,
+      dataSource = _ref.dataSource,
       _ref$width = _ref.width,
       svgWidth = _ref$width === void 0 ? undefined : _ref$width,
       xAxisChartLabel = _ref.xAxisChartLabel,
@@ -96,7 +97,6 @@ var Bar = function Bar(_ref) {
       isDates = _setupData2[0],
       data = _setupData2[1];
 
-  console.log('Test');
   var xScale = scaleBand().domain(data.map(function (_ref2) {
     var name = _ref2.name;
     return name;
@@ -120,14 +120,7 @@ var Bar = function Bar(_ref) {
     }
   };
 
-  var handleResize = debounce(handleSize)();
-  useEffect(function () {
-    handleSize();
-    responsive && window.addEventListener('resize', handleResize);
-    return function () {
-      responsive && window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  useResize(responsive, handleSize);
   return React.createElement(SVG, {
     identifier: id,
     size: {
@@ -155,11 +148,12 @@ var Bar = function Bar(_ref) {
     margin: margin,
     width: width,
     height: height
-  }, yAxisChartLabel), sourceLabel && React.createElement(Source, {
+  }, yAxisChartLabel), dataSource && React.createElement(DataSource, {
+    dataSource: dataSource,
+    height: height,
     margin: margin,
-    width: width,
-    height: height
-  }, sourceLabel), React.createElement(DataGroup, null, data.map(function (_ref4, idx) {
+    width: width
+  }), React.createElement(DataGroup, null, data.map(function (_ref4, idx) {
     var name = _ref4.name,
         value = _ref4.value;
     return React.createElement(BarDatum, {

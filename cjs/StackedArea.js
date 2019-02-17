@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var __chunk_1 = require('./chunk-a266a37b.js');
+var __chunk_1 = require('./chunk-b1f74868.js');
 var React = require('react');
 var React__default = _interopDefault(React);
 var d3Axis = require('d3-axis');
@@ -14,22 +14,24 @@ require('d3-time-format');
 var identity = _interopDefault(require('ramda/src/identity'));
 require('styled-components');
 require('react-dom');
-var d3Shape = require('d3-shape');
 require('ramda/src/all');
-require('ramda/src/compose');
 require('ramda/src/equals');
 require('ramda/src/or');
 require('ramda/src/type');
 require('ramda/src/complement');
+require('ramda/src/compose');
+var d3Shape = require('d3-shape');
 require('ramda/src/groupBy');
 require('ramda/src/prop');
 require('ramda/src/toPairs');
 require('ramda/src/apply');
 require('ramda/src/curry');
+require('ramda/src/max');
+require('ramda/src/min');
+require('ramda/src/head');
 require('ramda/src/length');
 require('ramda/src/uniq');
 require('ramda/src/map');
-require('ramda/src/max');
 require('ramda/src/filter');
 require('ramda/src/sum');
 require('ramda/src/reduce');
@@ -37,12 +39,10 @@ require('ramda/src/values');
 require('ramda/src/always');
 require('ramda/src/cond');
 require('ramda/src/T');
-require('d3-array');
 require('ramda/src/flatten');
 require('ramda/src/omit');
 require('ramda/src/mergeAll');
 require('ramda/src/splitEvery');
-require('ramda/src/head');
 require('ramda/src/last');
 
 var StackedArea = function StackedArea(_ref) {
@@ -53,7 +53,6 @@ var StackedArea = function StackedArea(_ref) {
       _ref$height = _ref.height,
       svgHeight = _ref$height === void 0 ? undefined : _ref$height,
       horizontal = _ref.horizontal,
-      _ref$lineSeries = _ref.lineSeries,
       _ref$lineType = _ref.lineType,
       lineType = _ref$lineType === void 0 ? __chunk_1.LINE_TYPE : _ref$lineType,
       _ref$lineTypeOption = _ref.lineTypeOption,
@@ -93,16 +92,12 @@ var StackedArea = function StackedArea(_ref) {
       isSizeSet = _useState4$.isSizeSet,
       setSize = _useState4[1];
 
-  var _useMemo = React.useMemo(function () {
-    return __chunk_1.setupData(chartData);
-  }, chartData),
-      _useMemo2 = __chunk_1._slicedToArray(_useMemo, 2),
-      isDates = _useMemo2[0],
-      data = _useMemo2[1];
+  var _setupData = __chunk_1.setupData(chartData),
+      _setupData2 = __chunk_1._slicedToArray(_setupData, 2),
+      isDates = _setupData2[0],
+      data = _setupData2[1];
 
-  data = React.useMemo(function () {
-    return __chunk_1.appendStackedValues(__chunk_1.buildStack(__chunk_1.getSeries(data))(__chunk_1.toStackedForm(data)), data);
-  }, data);
+  data = __chunk_1.appendStackedValues(__chunk_1.buildStack(__chunk_1.getSeries(data))(__chunk_1.toStackedForm(data)), data);
   var xScale = __chunk_1.getXScale(isDates ? __chunk_1.SCALE_TIME : __chunk_1.SCALE_BAND, data, width);
   var yScale = __chunk_1.getYScale(__chunk_1.SCALE_LINEAR, __chunk_1.getMax(__chunk_1.getStackedMax(data)), height);
   var area = d3Shape.area().curve(__chunk_1.setLineType(lineType, lineTypeOption)).x(function (_ref2) {
@@ -137,7 +132,7 @@ var StackedArea = function StackedArea(_ref) {
     return function () {
       responsive && window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [handleSize, responsive, handleResize]);
   return React__default.createElement(__chunk_1.SVG, {
     identifier: id,
     size: {
