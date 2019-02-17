@@ -1,45 +1,68 @@
 import React from 'react';
+import { render, fireEvent, cleanup } from 'react-testing-library';
 import { Circle } from '../../src/components';
-import { create } from 'react-test-renderer';
 import 'jest-styled-components';
 
 const props = {
+  chart: 'foo',
   color: 'rgb(0, 0, 0)',
-  cx: 0,
-  cy: 0,
-  r: 10,
 };
 
-test('render correctly', () => {
-  const tree = create(<Circle {...props} />).toJSON();
+afterEach(cleanup);
 
-  expect(tree).toMatchSnapshot();
+test('Circle', () => {
+  const { container } = render(
+    <svg>
+      <Circle {...props} />
+    </svg>
+  );
+
+  const circle = container.querySelector('circle');
+  expect(circle).toMatchSnapshot();
+  expect(circle.classList.contains('foo')).toBe(true);
 });
 
-test('call the event handler onClick', () => {
+test('Circle:onClick', () => {
   const handleOnClick = jest.fn();
-  const tree = create(<Circle onClick={handleOnClick} {...props} />).toJSON();
 
-  tree.props.onClick();
+  const { container } = render(
+    <svg>
+      <Circle {...props} onClick={handleOnClick} />
+    </svg>
+  );
+
+  const circle = container.querySelector('circle');
+  fireEvent.click(circle, {});
+
   expect(handleOnClick).toHaveBeenCalled();
 });
 
-test('call the event handler onMouseEnter', () => {
+test('Circle:onMouseEnter', () => {
   const handleOnMouseEnter = jest.fn();
-  const tree = create(
-    <Circle onMouseEnter={handleOnMouseEnter} {...props} />
-  ).toJSON();
 
-  tree.props.onMouseEnter();
+  const { container } = render(
+    <svg>
+      <Circle {...props} onMouseEnter={handleOnMouseEnter} />
+    </svg>
+  );
+
+  const circle = container.querySelector('circle');
+  fireEvent.mouseEnter(circle, {});
+
   expect(handleOnMouseEnter).toHaveBeenCalled();
 });
 
-test('call the event handler onMouseLeave', () => {
+test('Circle:onMouseLeave', () => {
   const handleOnMouseLeave = jest.fn();
-  const tree = create(
-    <Circle onMouseLeave={handleOnMouseLeave} {...props} />
-  ).toJSON();
 
-  tree.props.onMouseLeave();
+  const { container } = render(
+    <svg>
+      <Circle {...props} onMouseLeave={handleOnMouseLeave} />
+    </svg>
+  );
+
+  const circle = container.querySelector('circle');
+  fireEvent.mouseLeave(circle, {});
+
   expect(handleOnMouseLeave).toHaveBeenCalled();
 });

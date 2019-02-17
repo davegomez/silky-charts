@@ -35,6 +35,8 @@ const commonPlugins = () => [
     includeDependencies: true,
   }),
   babel({
+    babelrc: false,
+    presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
     extensions: EXTENSIONS,
     exclude: 'node_modules/**',
   }),

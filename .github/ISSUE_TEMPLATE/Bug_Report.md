@@ -1,10 +1,7 @@
 ---
 name: "\U0001F41B Bug report"
 about: Create a report to help us improve
-title: ''
 labels: for review
-assignees: ''
-
 ---
 
 **Describe the bug**
@@ -14,6 +11,7 @@ If the current behavior is a bug, please provide the steps to reproduce and if p
 
 **To Reproduce**
 Steps to reproduce the behavior:
+
 1. Go to '...'
 2. Click on '....'
 3. Scroll down to '....'
@@ -29,9 +27,10 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Desktop (please complete the following information):**
- - OS: [e.g. macOS]
- - Browser [e.g. Chrome, Firefox]
- - Version [e.g. 22]
+
+- OS: [e.g. macOS]
+- Browser [e.g. Chrome, Firefox]
+- Version [e.g. 22]
 
 **Additional context**
 Add any other context about the problem here.

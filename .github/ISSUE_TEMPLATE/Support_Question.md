@@ -1,10 +1,7 @@
 ---
 name: "\U0001F469‍\U0001F3EB Support question"
 about: If you have a question please use the correct channels
-title: ''
 labels: wontfix
-assignees: ''
-
 ---
 
 Issues on GitHub are intended to be related to problems with the library itself

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render correctly 1`] = `
+exports[`Grid 1`] = `
 .c0 path {
   stroke: transparent;
 }
@@ -10,6 +10,6 @@ exports[`render correctly 1`] = `
 }
 
 <g
-  className="grid c0"
+  class="grid c0"
 />
 `;

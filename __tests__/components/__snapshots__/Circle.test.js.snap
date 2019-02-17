@@ -1,16 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render correctly 1`] = `
+exports[`Circle 1`] = `
 .c0 {
-  fill: rgb(255,255,255);
-  stroke-width: 3;
+  fill: rgb(0,0,0);
 }
 
 <circle
-  className="c0"
+  class="foo c0"
   color="rgb(0, 0, 0)"
-  cx={0}
-  cy={0}
-  r={10}
 />
 `;

@@ -1,55 +1,59 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render correctly 1`] = `
+exports[`BarDatum 1`] = `
 .c0 {
   fill: rgb(0,0,0);
-  height: 10px;
-  width: 10px;
 }
 
 .c0:hover {
-  fill: hsl(0,0%,0%);
+  fill: rgb(0,0,0);
 }
 
 <rect
-  className="bar c0"
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  onMouseMove={[Function]}
-  size={
-    Object {
-      "height": 10,
-      "width": 10,
-    }
-  }
-  x={0}
-  y={0}
+  class="bar c0"
+  height="10"
+  width="10"
+  x="0"
+  y="0"
 />
 `;
 
-exports[`render correctly and show the value 1`] = `
+exports[`BarDatum:onMouseEnter show tooltip 1`] = `
 .c0 {
   fill: rgb(0,0,0);
-  height: 10px;
-  width: 10px;
 }
 
 .c0:hover {
-  fill: hsl(0,0%,0%);
+  fill: rgb(0,0,0);
 }
 
-<rect
-  className="bar c0"
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
-  onMouseMove={[Function]}
-  size={
-    Object {
-      "height": 10,
-      "width": 10,
-    }
-  }
-  x={0}
-  y={0}
-/>
+<svg>
+  <rect
+    class="bar c0"
+    height="10"
+    width="10"
+    x="0"
+    y="0"
+  />
+</svg>
+`;
+
+exports[`BarDatum:onMouseLeave hide tooltip 1`] = `
+.c0 {
+  fill: rgb(0,0,0);
+}
+
+.c0:hover {
+  fill: rgb(0,0,0);
+}
+
+<svg>
+  <rect
+    class="bar c0"
+    height="10"
+    width="10"
+    x="0"
+    y="0"
+  />
+</svg>
 `;

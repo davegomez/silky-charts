@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Title 1`] = `
+.c0 {
+  font-size: 1.5em;
+  text-anchor: middle;
+}
+
+<text
+  class="chart-title c0"
+  width="100"
+  x="50"
+  y="10"
+/>
+`;

@@ -1,166 +1,95 @@
 import React from 'react';
 import { BarLine } from '../src';
-import { create } from 'react-test-renderer';
+import { render, cleanup } from 'react-testing-library';
 import { data, dataWidthDates } from '../__mocks__/barLine';
-import createNodeMock from '../__mocks__/createNodeMock';
 import 'jest-styled-components';
 
-test('render correctly', () => {
-  const tree = create(<BarLine data={data} />, {
-    createNodeMock,
-  }).toJSON();
+const props = {
+  data,
+  lineSeries: ['cherries', 'dates'],
+  stackedSeries: ['apples', 'bananas'],
+};
 
-  expect(tree).toMatchSnapshot();
+afterEach(cleanup);
+
+test('BarLine', () => {
+  const { container } = render(<BarLine {...props} />);
+
+  const barLine = container.firstChild;
+  expect(barLine).toMatchSnapshot();
 });
 
-test('render correctly with width', () => {
-  const tree = create(<BarLine data={data} width={400} />, {
-    createNodeMock,
-  }).toJSON();
-  expect(tree).toMatchSnapshot();
+test('BarLine with dates', () => {
+  const { container } = render(<BarLine {...props} data={dataWidthDates} />);
+
+  const barLine = container.firstChild;
+  expect(barLine).toMatchSnapshot();
 });
 
-test('render correctly with height', () => {
-  const tree = create(<BarLine data={data} height={400} />, {
-    createNodeMock,
-  }).toJSON();
-  expect(tree).toMatchSnapshot();
+test('Bar responsive', () => {
+  const { container } = render(<BarLine {...props} responsive />);
+
+  const barLine = container.firstChild;
+  expect(barLine).toMatchSnapshot();
 });
 
-test('render correctly with width and height', () => {
-  const tree = create(<BarLine data={data} width={400} height={300} />, {
-    createNodeMock,
-  }).toJSON();
-  expect(tree).toMatchSnapshot();
+test('Bar with width', () => {
+  const { container } = render(<BarLine {...props} width={100} />);
+
+  const barLine = container.firstChild;
+  expect(barLine).toMatchSnapshot();
 });
 
-test('render correctly with x axis label', () => {
-  const tree = create(<BarLine data={data} xAxisChartLabel="foo" />, {
-    createNodeMock,
-  }).toJSON();
-  expect(tree).toMatchSnapshot();
+test('Bar with height', () => {
+  const { container } = render(<BarLine {...props} height={100} />);
+
+  const barLine = container.firstChild;
+  expect(barLine).toMatchSnapshot();
 });
 
-test('render correctly with y axis label', () => {
-  const tree = create(<BarLine data={data} yAxisChartLabel="foo" />, {
-    createNodeMock,
-  }).toJSON();
-  expect(tree).toMatchSnapshot();
+test('BarLine width grid', () => {
+  const { container } = render(<BarLine {...props} grid />);
+
+  const barLine = container.firstChild;
+  expect(barLine).toMatchSnapshot();
 });
 
-test('render correctly with dates as name', () => {
-  const tree = create(<BarLine data={dataWidthDates} />, {
-    createNodeMock,
-  }).toJSON();
-  expect(tree).toMatchSnapshot();
-});
-
-test('render correctly with dates as name', () => {
-  const tree = create(<BarLine data={dataWidthDates} />, {
-    createNodeMock,
-  }).toJSON();
-  expect(tree).toMatchSnapshot();
-});
-
-test('render correctly with only bars', () => {
-  const tree = create(
-    <BarLine data={data} stackedSeries={['apples', 'bananas']} />,
-    {
-      createNodeMock,
-    }
-  ).toJSON();
-
-  expect(tree).toMatchSnapshot();
-});
-
-test('render correctly with only lines', () => {
-  const tree = create(
-    <BarLine data={data} lineSeries={['cherries', 'dates']} />,
-    {
-      createNodeMock,
-    }
-  ).toJSON();
-
-  expect(tree).toMatchSnapshot();
-});
-
-test('render correctly with bars and lines', () => {
-  const tree = create(
+test('BarLine with Title, X label, Y label', () => {
+  const { container } = render(
     <BarLine
-      data={dataWidthDates}
-      stackedSeries={['apples', 'bananas']}
-      lineSeries={['cherries', 'dates']}
-    />,
-    {
-      createNodeMock,
-    }
-  ).toJSON();
+      {...props}
+      title={'Test title'}
+      xAxisChartLabel={'Test X label'}
+      yAxisChartLabel={'Test Y label'}
+    />
+  );
 
-  expect(tree).toMatchSnapshot();
+  const barLine = container.firstChild;
+  expect(barLine).toMatchSnapshot();
 });
 
-test('render correctly with a different line type', () => {
-  const tree = create(<BarLine data={data} lineType={'curveNatural'} />, {
-    createNodeMock,
-  }).toJSON();
+test('BarLine with source', () => {
+  const { container } = render(<BarLine {...props} dataSource="Test source" />);
 
-  expect(tree).toMatchSnapshot();
+  const barLine = container.firstChild;
+  expect(barLine).toMatchSnapshot();
 });
 
-test('render correctly with curveBundle line type', () => {
-  const tree = create(
-    <BarLine data={data} lineType={'curveBundle'} lineTypeOption={0.5} />,
-    {
-      createNodeMock,
-    }
-  ).toJSON();
-
-  expect(tree).toMatchSnapshot();
-});
-
-test('render correctly with curveBundle line type', () => {
-  const tree = create(
-    <BarLine data={data} lineType={'curveCardinalOpen'} lineTypeOption={10} />,
-    {
-      createNodeMock,
-    }
-  ).toJSON();
-
-  expect(tree).toMatchSnapshot();
-});
-
-test('render correctly with curveBundle line type', () => {
-  const tree = create(
+test('BarLine with source link', () => {
+  const { container } = render(
     <BarLine
-      data={data}
-      lineType={'curveCatmullRomOpen'}
-      lineTypeOption={0.5}
-    />,
-    {
-      createNodeMock,
-    }
-  ).toJSON();
+      {...props}
+      dataSource={{ href: '#', target: 'foo', title: 'barLine' }}
+    />
+  );
 
-  expect(tree).toMatchSnapshot();
+  const barLine = container.firstChild;
+  expect(barLine).toMatchSnapshot();
 });
 
-test('render correctly width horizontal grid', () => {
-  const tree = create(<BarLine data={data} grid />, {
-    createNodeMock,
-  }).toJSON();
-  expect(tree).toMatchSnapshot();
-});
+test('BarLine with X label rotation', () => {
+  const { container } = render(<BarLine {...props} xAxisLabelRotation />);
 
-test('render correctly width vertical grid', () => {
-  const tree = create(<BarLine data={data} grid horizontal />, {
-    createNodeMock,
-  }).toJSON();
-  expect(tree).toMatchSnapshot();
-});
-
-test('render correctly X axis label rotation', () => {
-  const tree = create(<BarLine data={data} xAxisLabelRotation />, {
-    createNodeMock,
-  }).toJSON();
-  expect(tree).toMatchSnapshot();
+  const barLine = container.firstChild;
+  expect(barLine).toMatchSnapshot();
 });

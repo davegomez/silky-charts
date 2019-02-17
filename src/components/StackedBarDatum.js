@@ -2,10 +2,9 @@ import React from 'react';
 import head from 'ramda/src/head';
 import last from 'ramda/src/last';
 import BarDatum from './BarDatum';
-import { palette, valueFor, getLength } from '../utils';
+import { palette } from '../utils';
 
 const StackedBarDatum = ({
-  data,
   height,
   onClick,
   onMouseEnter,
@@ -13,7 +12,6 @@ const StackedBarDatum = ({
   series,
   theme,
   tooltip,
-  width,
   x,
   y,
 }) =>

@@ -1,8 +1,6 @@
-jest.mock('react-dom');
-
 import React from 'react';
-import { BarDatum, Tooltip } from '../../src/components';
-import { create } from 'react-test-renderer';
+import { render, fireEvent, cleanup } from 'react-testing-library';
+import { BarDatum } from '../../src/components';
 import 'jest-styled-components';
 
 const props = {
@@ -14,42 +12,71 @@ const props = {
   height: 10,
 };
 
-test('render correctly', () => {
-  const tree = create(<BarDatum {...props} />).toJSON();
+afterEach(cleanup);
 
-  expect(tree).toMatchSnapshot();
+test('BarDatum', () => {
+  const { container } = render(
+    <svg>
+      <BarDatum {...props} />
+    </svg>
+  );
+
+  const barDatum = container.querySelector('svg').firstChild;
+  expect(barDatum).toMatchSnapshot();
+  expect(barDatum.nodeName).toBe('rect');
+  expect(barDatum.classList.contains('bar')).toBe(true);
 });
 
-test('render correctly and show the value', () => {
-  const tree = create(<BarDatum showValue {...props} />).toJSON();
-
-  expect(tree).toMatchSnapshot();
-});
-
-test('call the event handler onClick', () => {
+test('BarDatum:onClick', () => {
   const handleOnClick = jest.fn();
-  const tree = create(<BarDatum onClick={handleOnClick} {...props} />).toJSON();
+  const { container } = render(
+    <svg>
+      <BarDatum {...props} onClick={handleOnClick} />
+    </svg>
+  );
 
-  tree.props.onClick();
+  const barDatum = container.querySelector('svg').firstChild;
+  fireEvent.click(barDatum, {});
+
   expect(handleOnClick).toHaveBeenCalled();
 });
 
-test('call the event handler onMouseEnter', () => {
-  const handleonMouseEnter = jest.fn();
-  const tree = create(
-    <BarDatum onMouseEnter={handleonMouseEnter} {...props} />
-  ).toJSON();
+test('BarDatum:onMouseEnter show tooltip', () => {
+  const handleOnMouseEnter = jest.fn();
+  const { container } = render(
+    <svg>
+      <BarDatum {...props} onMouseEnter={handleOnMouseEnter} tooltip />
+    </svg>
+  );
 
-  tree.props.onMouseEnter();
-  expect(handleonMouseEnter).toHaveBeenCalled();
+  const svg = container.querySelector('svg');
+  expect(svg).toMatchSnapshot();
+
+  const barDatum = container.querySelector('svg').firstChild;
+  fireEvent.mouseEnter(barDatum, {});
+
+  expect(handleOnMouseEnter).toHaveBeenCalled();
+
+  const tooltip = document.querySelector('.silky-charts-tooltip');
+  expect(tooltip.nodeName).toBe('DIV');
 });
 
-test('call the event handler onMouseLeave', () => {
-  const handleonMouseLeave = jest.fn();
-  const tree = create(
-    <BarDatum onMouseLeave={handleonMouseLeave} {...props} />
-  ).toJSON();
+test('BarDatum:onMouseLeave hide tooltip', () => {
+  const handleOnMouseLeave = jest.fn();
+  const { container } = render(
+    <svg>
+      <BarDatum {...props} onMouseLeave={handleOnMouseLeave} tooltip />
+    </svg>
+  );
 
-  tree.props.onMouseLeave();
-  expect(handleonMouseLeave).toHaveBeenCalled();
+  const svg = container.querySelector('svg');
+  expect(svg).toMatchSnapshot();
+
+  const barDatum = container.querySelector('svg').firstChild;
+  fireEvent.mouseLeave(barDatum, {});
+
+  expect(handleOnMouseLeave).toHaveBeenCalled();
+
+  const tooltip = document.querySelector('.silky-charts-tooltip');
+  expect(tooltip).toBe(null);
 });

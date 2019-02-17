@@ -32,7 +32,7 @@ const Tooltip = props => {
   useEffect(() => {
     const { offsetWidth, offsetHeight } = tooltipRef.current;
     setSize({ width: offsetWidth, height: offsetHeight });
-  }, []);
+  }, [tooltipRef, setSize]);
 
   return (
     <Container ref={tooltipRef} {...size} {...props}>

@@ -1,13 +1,21 @@
 import React from 'react';
+import { render, cleanup } from 'react-testing-library';
 import { SVG } from '../../src/components';
-import { create } from 'react-test-renderer';
 import 'jest-styled-components';
 
-test('render correctly', () => {
-  const ref = jest.fn();
-  const tree = create(
-    <SVG identifier="foo" size={{ width: 10, height: 10 }} ref={ref} />
-  ).toJSON();
+const props = {
+  identifier: 'foo',
+  ref: jest.fn(),
+  size: { width: 10, height: 10 },
+};
 
-  expect(tree).toMatchSnapshot();
+afterEach(cleanup);
+
+test('SVG', () => {
+  const { container } = render(<SVG {...props} />);
+
+  const svg = container.firstChild;
+  expect(svg).toMatchSnapshot();
+  expect(svg.classList.contains('silky-charts')).toBe(true);
+  expect(svg.id).toEqual('foo');
 });

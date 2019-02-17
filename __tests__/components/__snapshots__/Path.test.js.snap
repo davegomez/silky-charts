@@ -1,14 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render correctly 1`] = `
+exports[`Path:BarLine 1`] = `
 .c0 {
-  fill: none;
+  fill: rgb(0,0,0);
   stroke: none;
   stroke-width: 3;
+  pointer-events: none;
 }
 
 <path
-  className="c0"
-  color="rgb(0, 0, 0)"
+  class="line-path bar-line c0"
+/>
+`;
+
+exports[`Path:StackedArea 1`] = `
+.c0 {
+  fill: none;
+  stroke: rgb(255,255,255);
+  stroke-width: 3;
+}
+
+pointer-events: .c0:hover {
+  fill: rgb(0,0,0);
+}
+
+<path
+  class="line-path stacked-area c0"
 />
 `;
