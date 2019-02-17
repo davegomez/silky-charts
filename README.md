@@ -92,6 +92,8 @@ npm install --save react react-dom styled-components
 
 ## Basic usage
 
+### From NPM
+
 ```javascript
 import Bar from 'silky-charts/Bar';
 /* or */
@@ -100,6 +102,11 @@ import { Bar } from 'silky-charts';
 ...
     <Bar data={[ ... ]} />
 ...
+```
+
+### In the browser with UNPKG
+```html
+<script src="https://unpkg.com/silky-charts@:version/umd/silky-charts.js"></script>
 ```
 
 ## Common props
