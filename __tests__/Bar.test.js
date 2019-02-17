@@ -1,72 +1,86 @@
-// import React from 'react';
-// import { Bar } from '../src';
-// import { create } from 'react-test-renderer';
-// import { data, dataWidthDates } from '../__mocks__/bar';
-// import createNodeMock from '../__mocks__/createNodeMock';
+import React from 'react';
+import { Bar } from '../src';
+import { render, cleanup } from 'react-testing-library';
+import { data, dataWidthDates } from '../__mocks__/bar';
 import 'jest-styled-components';
 
-test('render correctly', () => {
-  // const tree = create(<Bar data={data} />, { createNodeMock }).toJSON();
-  // expect(tree).toMatchSnapshot();
+afterEach(cleanup);
+
+test('Bar', () => {
+  const { container } = render(<Bar data={data} />);
+
+  const bar = container.firstChild;
+  expect(bar).toMatchSnapshot();
 });
 
-// test('render correctly with width', () => {
-//   const tree = create(<Bar data={data} width={400} />, {
-//     createNodeMock,
-//   }).toJSON();
-//   expect(tree).toMatchSnapshot();
-// });
+test('Bar with dates', () => {
+  const { container } = render(<Bar data={dataWidthDates} />);
 
-// test('render correctly with height', () => {
-//   const tree = create(<Bar data={data} height={400} />, {
-//     createNodeMock,
-//   }).toJSON();
-//   expect(tree).toMatchSnapshot();
-// });
+  const bar = container.firstChild;
+  expect(bar).toMatchSnapshot();
+});
 
-// test('render correctly with width and height', () => {
-//   const tree = create(<Bar data={data} width={400} height={300} />, {
-//     createNodeMock,
-//   }).toJSON();
-//   expect(tree).toMatchSnapshot();
-// });
+test('Bar responsive', () => {
+  const { container } = render(<Bar data={data} responsive />);
 
-// test('render correctly with x axis label', () => {
-//   const tree = create(<Bar data={data} xAxisChartLabel="foo" />, {
-//     createNodeMock,
-//   }).toJSON();
-//   expect(tree).toMatchSnapshot();
-// });
+  const bar = container.firstChild;
+  expect(bar).toMatchSnapshot();
+});
 
-// test('render correctly with y axis label', () => {
-//   const tree = create(<Bar data={data} yAxisChartLabel="foo" />, {
-//     createNodeMock,
-//   }).toJSON();
-//   expect(tree).toMatchSnapshot();
-// });
+test('Bar with width', () => {
+  const { container } = render(<Bar data={data} width={100} />);
 
-// test('render correctly with dates as name', () => {
-//   const tree = create(<Bar data={dataWidthDates} />, {
-//     createNodeMock,
-//   }).toJSON();
-//   expect(tree).toMatchSnapshot();
-// });
+  const bar = container.firstChild;
+  expect(bar).toMatchSnapshot();
+});
 
-// test('render correctly width horizontal grid', () => {
-//   const tree = create(<Bar data={data} grid />, { createNodeMock }).toJSON();
-//   expect(tree).toMatchSnapshot();
-// });
+test('Bar with height', () => {
+  const { container } = render(<Bar data={data} height={100} />);
 
-// test('render correctly width vertical grid', () => {
-//   const tree = create(<Bar data={data} grid horizontal />, {
-//     createNodeMock,
-//   }).toJSON();
-//   expect(tree).toMatchSnapshot();
-// });
+  const bar = container.firstChild;
+  expect(bar).toMatchSnapshot();
+});
 
-// test('render correctly X axis label rotation', () => {
-//   const tree = create(<Bar data={data} xAxisLabelRotation />, {
-//     createNodeMock,
-//   }).toJSON();
-//   expect(tree).toMatchSnapshot();
-// });
+test('Bar width grid', () => {
+  const { container } = render(<Bar data={data} grid />);
+
+  const bar = container.firstChild;
+  expect(bar).toMatchSnapshot();
+});
+
+test('Bar with Title, X label, Y label', () => {
+  const { container } = render(
+    <Bar
+      data={data}
+      title={'Test title'}
+      xAxisChartLabel={'Test X label'}
+      yAxisChartLabel={'Test Y label'}
+    />
+  );
+
+  const bar = container.firstChild;
+  expect(bar).toMatchSnapshot();
+});
+
+test('Bar with source', () => {
+  const { container } = render(<Bar data={data} dataSource="Test source" />);
+
+  const bar = container.firstChild;
+  expect(bar).toMatchSnapshot();
+});
+
+test('Bar with source link', () => {
+  const { container } = render(
+    <Bar data={data} dataSource={{ href: '#', target: 'foo', title: 'bar' }} />
+  );
+
+  const bar = container.firstChild;
+  expect(bar).toMatchSnapshot();
+});
+
+test('Bar with X label rotation', () => {
+  const { container } = render(<Bar data={data} xAxisLabelRotation />);
+
+  const bar = container.firstChild;
+  expect(bar).toMatchSnapshot();
+});
