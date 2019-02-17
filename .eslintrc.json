@@ -21,6 +21,7 @@
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "rules": {
     "react/prop-types": "off",
-    "react-hooks/rules-of-hooks": "error"
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/reactive-deps": "error"
   }
 }

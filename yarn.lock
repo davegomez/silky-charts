@@ -657,17 +657,17 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@emotion/is-prop-valid@^0.7.3":
-  version "0.7.3"
-  resolved "http://artifactory.aweber.io:80/api/npm/npm/@emotion/is-prop-valid/-/is-prop-valid-0.7.3.tgz#a6bf4fa5387cbba59d44e698a4680f481a8da6cc"
-  integrity sha1-pr9PpTh8u6WdROaYpGgPSBqNpsw=
+"@emotion/is-prop-valid@^0.6.8":
+  version "0.6.8"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/@emotion/is-prop-valid/-/is-prop-valid-0.6.8.tgz#68ad02831da41213a2089d2cab4e8ac8b30cbd85"
+  integrity sha1-aK0Cgx2kEhOiCJ0sq06KyLMMvYU=
   dependencies:
-    "@emotion/memoize" "0.7.1"
+    "@emotion/memoize" "^0.6.6"
 
-"@emotion/memoize@0.7.1":
-  version "0.7.1"
-  resolved "http://artifactory.aweber.io:80/api/npm/npm/@emotion/memoize/-/memoize-0.7.1.tgz#e93c13942592cf5ef01aa8297444dc192beee52f"
-  integrity sha1-6TwTlCWSz17wGqgpdETcGSvu5S8=
+"@emotion/memoize@^0.6.6":
+  version "0.6.6"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/@emotion/memoize/-/memoize-0.6.6.tgz#004b98298d04c7ca3b4f50ca2035d4f60d2eed1b"
+  integrity sha1-AEuYKY0Ex8o7T1DKIDXU9g0u7Rs=
 
 "@emotion/unitless@^0.7.0":
   version "0.7.3"
@@ -1786,9 +1786,9 @@ doctrine@^2.1.0:
     esutils "^2.0.2"
 
 dom-testing-library@^3.13.1:
-  version "3.16.7"
-  resolved "http://artifactory.aweber.io:80/api/npm/npm/dom-testing-library/-/dom-testing-library-3.16.7.tgz#99490eeb7b2808463f2567c204e24bbd93bf921c"
-  integrity sha1-mUkO63soCEY/JWfCBOJLvZO/khw=
+  version "3.16.8"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/dom-testing-library/-/dom-testing-library-3.16.8.tgz#26549b249f131a25e4339ebec9fcaa2e7642527f"
+  integrity sha1-JlSbJJ8TGiXkM56+yfyqLnZCUn8=
   dependencies:
     "@babel/runtime" "^7.1.5"
     "@sheerun/mutationobserver-shim" "^0.3.2"
@@ -1887,10 +1887,10 @@ escodegen@^1.9.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-plugin-react-hooks@^1.0.2:
-  version "1.0.2"
-  resolved "http://artifactory.aweber.io:80/api/npm/npm/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-1.0.2.tgz#89d9ab0690a45956696e652368a952fb09f7134d"
-  integrity sha1-idmrBpCkWVZpbmUjaKlS+wn3E00=
+eslint-plugin-react-hooks@^1.1.0-alpha.0:
+  version "1.1.0-alpha.0"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-1.1.0-alpha.0.tgz#a81723f8a7caef413b39c28ef01c566e7e2ab05b"
+  integrity sha1-qBcj+KfK70E7OcKO8BxWbn4qsFs=
 
 eslint-plugin-react@^7.12.4:
   version "7.12.4"
@@ -4539,15 +4539,15 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-dom@^16.8.2:
-  version "16.8.2"
-  resolved "http://artifactory.aweber.io:80/api/npm/npm/react-dom/-/react-dom-16.8.2.tgz#7c8a69545dd554d45d66442230ba04a6a0a3c3d3"
-  integrity sha1-fIppVF3VVNRdZkQiMLoEpqCjw9M=
+react-dom@16.8.0:
+  version "16.8.0"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/react-dom/-/react-dom-16.8.0.tgz#18f28d4be3571ed206672a267c66dd083145a9c4"
+  integrity sha1-GPKNS+NXHtIGZyomfGbdCDFFqcQ=
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.13.2"
+    scheduler "^0.13.0"
 
 react-is@^16.6.0, react-is@^16.8.1:
   version "16.8.2"
@@ -4562,15 +4562,15 @@ react-testing-library@^5.8.0:
     "@babel/runtime" "^7.3.1"
     dom-testing-library "^3.13.1"
 
-react@^16.8.2:
-  version "16.8.2"
-  resolved "http://artifactory.aweber.io:80/api/npm/npm/react/-/react-16.8.2.tgz#83064596feaa98d9c2857c4deae1848b542c9c0c"
-  integrity sha1-gwZFlv6qmNnChXxN6uGEi1QsnAw=
+react@16.8.0:
+  version "16.8.0"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/react/-/react-16.8.0.tgz#8533f0e4af818f448a276eae71681d09e8dd970a"
+  integrity sha1-hTPw5K+Bj0SKJ26ucWgdCejdlwo=
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.13.2"
+    scheduler "^0.13.0"
 
 read-pkg-up@^1.0.1:
   version "1.0.1"
@@ -4995,7 +4995,7 @@ sax@^1.2.4:
   resolved "http://artifactory.aweber.io:80/api/npm/npm/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
   integrity sha1-KBYjTiN4vdxOU1T6tcqold9xANk=
 
-scheduler@^0.13.2:
+scheduler@^0.13.0:
   version "0.13.2"
   resolved "http://artifactory.aweber.io:80/api/npm/npm/scheduler/-/scheduler-0.13.2.tgz#969eaee2764a51d2e97b20a60963b2546beff8fa"
   integrity sha1-lp6u4nZKUdLpeyCmCWOyVGvv+Po=
@@ -5357,13 +5357,12 @@ strip-json-comments@^2.0.1, strip-json-comments@~2.0.1:
   resolved "http://artifactory.aweber.io:80/api/npm/npm/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
   integrity sha1-PFMZQukIwml8DsNEhYwobHygpgo=
 
-styled-components@^4.1.3:
-  version "4.1.3"
-  resolved "http://artifactory.aweber.io:80/api/npm/npm/styled-components/-/styled-components-4.1.3.tgz#4472447208e618b57e84deaaeb6acd34a5e0fe9b"
-  integrity sha1-RHJEcgjmGLV+hN6q62rNNKXg/ps=
+styled-components@4.1.0:
+  version "4.1.0"
+  resolved "http://artifactory.aweber.io:80/api/npm/npm/styled-components/-/styled-components-4.1.0.tgz#16f5cbe1afcc8adc932e9764992c19906e6a6289"
+  integrity sha1-FvXL4a/MityTLpdkmSwZkG5qYok=
   dependencies:
-    "@babel/helper-module-imports" "^7.0.0"
-    "@emotion/is-prop-valid" "^0.7.3"
+    "@emotion/is-prop-valid" "^0.6.8"
     "@emotion/unitless" "^0.7.0"
     babel-plugin-styled-components ">= 1"
     css-to-react-native "^2.2.2"
