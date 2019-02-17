@@ -104,7 +104,7 @@ const StackedArea = ({
     return () => {
       responsive && window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [handleSize, responsive, handleResize]);
 
   return (
     <SVG
