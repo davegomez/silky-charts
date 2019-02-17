@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import identity from 'ramda/src/identity';
 import { axisBottom as d3AxisBottom, axisLeft as d3AxisLeft } from 'd3-axis';
 import { select as d3Select } from 'd3-selection';
@@ -61,13 +61,9 @@ const StackedArea = ({
   const svgRef = useRef();
   const [id] = useState(getId('stacked-area'));
   const [{ width, height, isSizeSet }, setSize] = useState(SIZE);
-  let [isDates, data] = useMemo(() => setupData(chartData), chartData);
-  data = useMemo(
-    () =>
-      appendStackedValues(
-        buildStack(getSeries(data))(toStackedForm(data)),
-        data
-      ),
+  let [isDates, data] = setupData(chartData);
+  data = appendStackedValues(
+    buildStack(getSeries(data))(toStackedForm(data)),
     data
   );
 
