@@ -1,10 +1,7 @@
 ---
 name: "\U0001F4CA Chart request"
 about: Suggest a new chart for this project
-title: ''
 labels: for review
-assignees: ''
-
 ---
 
 **Would you like to have a new chart available in Silky Charts? Please describe.**
