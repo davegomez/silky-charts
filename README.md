@@ -145,7 +145,7 @@ Most props and options are present indistinguishable in all charts.
 
 ## Color themes
 
-![Silky Charts Choropleth color themes](/color-themes.png)
+![Silky Charts Choropleth color themes](/assets/color-themes.jpg)
 
 ## Bar chart
 
