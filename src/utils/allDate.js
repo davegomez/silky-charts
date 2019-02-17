@@ -1,5 +1,4 @@
 import all from 'ramda/src/all';
-import compose from 'ramda/src/compose';
 import equals from 'ramda/src/equals';
 import or from 'ramda/src/or';
 import type from 'ramda/src/type';

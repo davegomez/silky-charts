@@ -1,3 +1,4 @@
+import head from 'ramda/src/head';
 import { themes } from './palette';
 
-export default theme => themes[theme][0];
+export default theme => head(themes[theme]);
