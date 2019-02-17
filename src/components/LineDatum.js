@@ -22,12 +22,12 @@ const LineDatum = ({
 
   return (
     <Fragment>
-      <Path chart={chart} d={d} className="line-path" strokeColor={color} />
+      <Path chart={chart} d={d} strokeColor={color} />
       <g className="line-dot-group">
         {data.map(({ name, value }, idx) => (
           <Circle
             key={idx}
-            chart="bar-line"
+            chart={chart}
             color={color}
             cx={xScale(name) + xScale.bandwidth() / 2}
             cy={yScale(value)}

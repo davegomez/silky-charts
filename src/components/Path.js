@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import { getHoverColor } from '../utils';
 import { LINE_STROKE_WIDTH } from '../utils/constants';
 
-const Path = styled.path.attrs(({ chart }) => ({ className: chart }))`
+const Path = styled.path.attrs(({ chart }) => ({
+  className: `line-path ${chart}`,
+}))`
   fill: ${({ fillColor }) => fillColor || 'none'};
   stroke: ${({ strokeColor }) => strokeColor || 'none'};
   stroke-width: ${LINE_STROKE_WIDTH};

@@ -1,4 +1,4 @@
-export default rgb =>
+export default (rgb = 'rgb(0, 0, 0)') =>
   `rgb(${rgb
     .split(/\D/)
     .filter(x => x)
