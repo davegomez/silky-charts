@@ -1,163 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render correctly 1`] = `
-Array [
-  .c0 {
-  fill: rgb(127,29,24);
-  height: NaNpx;
-  width: px;
+exports[`StackedBarDatum 1`] = `
+.c0 {
+  fill: rgb(8,104,172);
 }
 
 .c0:hover {
-  fill: hsl(2.8999999999999773,68.2%,23.7%);
+  fill: rgb(0,84,152);
 }
 
 <g
-    className="bar-layer"
-  >
-    <rect
-      className="bar c0"
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseMove={[Function]}
-      size={
-        Object {
-          "height": NaN,
-          "width": undefined,
-        }
-      }
-    />
-    <rect
-      className="bar c0"
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseMove={[Function]}
-      size={
-        Object {
-          "height": NaN,
-          "width": undefined,
-        }
-      }
-    />
-  </g>,
-  .c0 {
-  fill: rgb(255,131,124);
-  height: NaNpx;
-  width: px;
-}
-
-.c0:hover {
-  fill: hsl(3.1999999999999886,100%,59.5%);
-}
-
-<g
-    className="baz-layer"
-  >
-    <rect
-      className="bar c0"
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseMove={[Function]}
-      size={
-        Object {
-          "height": NaN,
-          "width": undefined,
-        }
-      }
-    />
-    <rect
-      className="bar c0"
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseMove={[Function]}
-      size={
-        Object {
-          "height": NaN,
-          "width": undefined,
-        }
-      }
-    />
-  </g>,
-]
+  class="bar-layer"
+>
+  <rect
+    class="bar c0"
+    height="10"
+    width="0"
+    x="0"
+    y="0"
+  />
+  <rect
+    class="bar c0"
+    height="10"
+    width="0"
+    x="0"
+    y="0"
+  />
+</g>
 `;
 
-exports[`render correctly with date 1`] = `
-Array [
-  .c0 {
-  fill: rgb(127,29,24);
-  height: NaNpx;
-  width: px;
-}
-
-.c0:hover {
-  fill: hsl(2.8999999999999773,68.2%,23.7%);
-}
-
-<g
-    className="bar-layer"
-  >
-    <rect
-      className="bar c0"
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseMove={[Function]}
-      size={
-        Object {
-          "height": NaN,
-          "width": undefined,
-        }
-      }
-    />
-    <rect
-      className="bar c0"
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseMove={[Function]}
-      size={
-        Object {
-          "height": NaN,
-          "width": undefined,
-        }
-      }
-    />
-  </g>,
-  .c0 {
-  fill: rgb(255,131,124);
-  height: NaNpx;
-  width: px;
-}
-
-.c0:hover {
-  fill: hsl(3.1999999999999886,100%,59.5%);
-}
-
-<g
-    className="baz-layer"
-  >
-    <rect
-      className="bar c0"
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseMove={[Function]}
-      size={
-        Object {
-          "height": NaN,
-          "width": undefined,
-        }
-      }
-    />
-    <rect
-      className="bar c0"
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseMove={[Function]}
-      size={
-        Object {
-          "height": NaN,
-          "width": undefined,
-        }
-      }
-    />
-  </g>,
-]
+exports[`StackedBarDatum 2`] = `
+<rect
+  class="sc-gzVnrw bar eJUvTq"
+  height="10"
+  width="0"
+  x="0"
+  y="0"
+/>
 `;

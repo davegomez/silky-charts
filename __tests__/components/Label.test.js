@@ -1,19 +1,37 @@
 import React from 'react';
+import { render, cleanup } from 'react-testing-library';
 import { Label } from '../../src/components';
-import { create } from 'react-test-renderer';
-import 'jest-styled-components';
 import { MARGIN } from '../../src/utils/constants';
+import 'jest-styled-components';
 
-test('render correctly for x axis', () => {
-  const tree = create(
-    <Label axis="x" margin={MARGIN} width={10} height={10} />
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
+const props = {
+  height: 10,
+  margin: MARGIN,
+  width: 10,
+};
+
+afterEach(cleanup);
+
+test('Label:X', () => {
+  const { container } = render(
+    <svg>
+      <Label axis="x" {...props} />
+    </svg>
+  );
+
+  const label = container.querySelector('text');
+  expect(label).toMatchSnapshot();
+  expect(label.classList.contains('x-axis-label')).toBe(true);
 });
 
-test('render correctly for y axis', () => {
-  const tree = create(
-    <Label axis="y" margin={MARGIN} width={10} height={10} />
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
+test('Label:Y', () => {
+  const { container } = render(
+    <svg>
+      <Label axis="y" {...props} />
+    </svg>
+  );
+
+  const label = container.querySelector('text');
+  expect(label).toMatchSnapshot();
+  expect(label.classList.contains('y-axis-label')).toBe(true);
 });

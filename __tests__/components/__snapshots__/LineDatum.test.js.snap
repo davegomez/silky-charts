@@ -1,66 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render correctly 1`] = `
-Array [
-  .c0 {
+exports[`LineDatum 1`] = `
+.c0 {
   fill: none;
   stroke: rgb(0,0,0);
   stroke-width: 3;
 }
 
 <path
-    className="line-path c0"
-    d="M0"
-  />,
-  .c0 {
-  fill: rgb(255,255,255);
-  stroke: rgb(0,0,0);
-  stroke-width: 3;
-}
-
-<g
-    className="line-dot-group"
-  >
-    <circle
-      className="bar-line c0"
-      cx={NaN}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseMove={[Function]}
-      r={5}
-    />
-  </g>,
-]
+  class="line-path foo c0"
+  d="M0"
+/>
 `;
 
-exports[`render correctly width dates 1`] = `
-Array [
-  .c0 {
-  fill: none;
-  stroke: rgb(0,0,0);
-  stroke-width: 3;
-}
-
-<path
-    className="line-path c0"
-    d="M0"
-  />,
-  .c0 {
-  fill: rgb(255,255,255);
-  stroke: rgb(0,0,0);
-  stroke-width: 3;
+exports[`LineDatum 2`] = `
+.c0 {
+  fill: rgb(0,0,0);
 }
 
 <g
-    className="line-dot-group"
-  >
-    <circle
-      className="bar-line c0"
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseMove={[Function]}
-      r={5}
-    />
-  </g>,
-]
+  class="line-dot-group"
+>
+  <circle
+    class="foo c0"
+    color="rgb(0, 0, 0)"
+    cx="0"
+    cy="0"
+    r="6"
+  />
+</g>
+`;
+
+exports[`LineDatum 3`] = `
+<circle
+  class="sc-bwzfXH foo jGWvBj"
+  color="rgb(0, 0, 0)"
+  cx="0"
+  cy="0"
+  r="6"
+/>
 `;

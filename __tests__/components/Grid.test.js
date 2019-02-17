@@ -1,12 +1,23 @@
 import React from 'react';
+import { render, cleanup } from 'react-testing-library';
 import { Grid } from '../../src/components';
-import { create } from 'react-test-renderer';
 import 'jest-styled-components';
 
-test('render correctly', () => {
-  const ref = jest.fn();
-  const tree = create(<Grid ref={ref} />).toJSON();
+const props = {
+  axis: 'foo',
+  position: { x: 10, y: 10 },
+};
 
-  expect(tree).toMatchSnapshot();
-  expect(ref).toHaveBeenCalled();
+afterEach(cleanup);
+
+test('Grid', () => {
+  const { container } = render(
+    <svg>
+      <Grid {...props} />
+    </svg>
+  );
+
+  const grid = container.querySelector('g');
+  expect(grid).toMatchSnapshot();
+  expect(grid.classList.contains('grid')).toBe(true);
 });

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render correctly 1`] = `
+exports[`SVG 1`] = `
 .c0 {
   background-color: rgb(255,255,255);
   border: 1px solid rgb(220,220,220);
@@ -16,14 +16,41 @@ exports[`render correctly 1`] = `
 }
 
 <div
-  className="silky-charts-tooltip c0"
-  height={0}
-  style={
-    Object {
-      "left": "10px",
-      "top": "0px",
-    }
-  }
-  width={0}
-/>
+  class="silky-charts-tooltip c0"
+  height="0"
+  style="left: 100px; top: 84px;"
+  width="0"
+>
+  <div
+    class="child"
+    width="100px"
+  >
+    foo
+  </div>
+</div>
+`;
+
+exports[`Tooltip 1`] = `
+.c0 {
+  background-color: rgb(255,255,255);
+  border: 1px solid rgb(220,220,220);
+  border-radius: 4px;
+  box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
+  padding: 10px;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+
+<div
+  class="silky-charts-tooltip c0"
+  height="0"
+  style="left: 100px; top: 84px;"
+  width="0"
+>
+  foo
+</div>
 `;

@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainGroup 1`] = `
+<g
+  class="silky-charts-container "
+  transform="translate(50, 40)"
+/>
+`;

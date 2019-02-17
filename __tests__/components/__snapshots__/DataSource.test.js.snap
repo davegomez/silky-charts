@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataSource:link 1`] = `
+.c0 {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+}
+
+.c1 {
+  font-size: 0.8em;
+  font-style: italic;
+  text-anchor: end;
+}
+
+<a
+  class="data-source-link c0"
+  href="#"
+  target="bar"
+  title="foo"
+>
+  <text
+    class="data-source c1"
+    height="10"
+    width="10"
+    x="10"
+    y="10"
+  />
+</a>
+`;
+
+exports[`DataSource:link 2`] = `
+<text
+  class="sc-dnqmqq data-source opPsF"
+  height="10"
+  width="10"
+  x="10"
+  y="10"
+/>
+`;
+
+exports[`DataSource:text 1`] = `
+.c0 {
+  font-size: 0.8em;
+  font-style: italic;
+  text-anchor: end;
+}
+
+<text
+  class="data-source c0"
+  height="10"
+  width="10"
+  x="10"
+  y="10"
+>
+  foo
+</text>
+`;

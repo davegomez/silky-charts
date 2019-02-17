@@ -1,14 +1,23 @@
 import React from 'react';
+import { render, cleanup } from 'react-testing-library';
 import { Axis } from '../../src/components';
-import { create } from 'react-test-renderer';
 import 'jest-styled-components';
 
-test('render correctly', () => {
-  const ref = jest.fn();
-  const tree = create(
-    <Axis axis="foo" position={{ x: 0, y: 0 }} ref={ref} />
-  ).toJSON();
+const props = {
+  axis: 'foo',
+  position: { x: 10, y: 10 },
+};
 
-  expect(tree).toMatchSnapshot();
-  expect(ref).toHaveBeenCalled();
+afterEach(cleanup);
+
+test('Axis', () => {
+  const { container } = render(
+    <svg>
+      <Axis {...props} />
+    </svg>
+  );
+
+  const axis = container.querySelector('g');
+  expect(axis).toMatchSnapshot();
+  expect(axis.classList.contains('axis-foo')).toBe(true);
 });
