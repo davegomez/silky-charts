@@ -229,7 +229,7 @@ Silky Charts uses [git flow](https://www.atlassian.com/git/tutorials/comparing-w
 - `git flow feature start <feature-name>`
 - Make your changes and commit them
 - Run the tests with `yarn test` or `npm run tests`
-- Add unit tests and fix the linting issues and broken tests (_as today the tests are in plan of refactoring so don't worry about broken ones_)
+- Add unit tests and fix the linting issues and broken tests
 - [Create the pull request](https://help.github.com/articles/creating-a-pull-request/).
 
 ### Tests
