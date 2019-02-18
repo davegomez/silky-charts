@@ -1,3 +1,6 @@
 steps:
-  - name: ':node:'
+  - label: ':node: Lint'
     command: 'yarn && yarn lint'
+
+  - label: ':node: Test'
+    command: 'yarn && yarn test'
