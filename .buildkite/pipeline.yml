@@ -1,0 +1,3 @@
+steps:
+  - name: ':node:'
+    command: 'yarn && yarn lint'
