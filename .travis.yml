@@ -1,0 +1,28 @@
+language: node_js
+node_js:
+  - node
+  - lts/*
+script:
+  - yarn lint
+  - yarn test
+  - yarn build
+notifications:
+  email:
+    - dg.dave@gmail.com
+deploy:
+  - provider: npm
+    email: dg.dave@gmail.com
+    api_key:
+      secure: UqfNw+yZbEQtRDuPiJ6vuat7aSYxgMWk2h78uI+Ti1QVj1R0u9aTm+LaaWIHU3Prp966Bmc1A5IpxH+iaj9nCRJ75/kq3IPV82MAH6TTGCSalT85USwFVIPE/7F46C1CBcu8SnBLzj7+W8Tb4WjIaYyhazavBoM5o/KZrHwITRBz5795mLAy0LgCDZI7Cj6kYkUuZZbXMYO2wqAYC5tg6PtnMu6ApzwiMZ5ndi3Z1nahS6EoKBLaRFldxNP9/hwGsTD5BNWL2aLdV7oxTjY9QFpvCvBJUbJjs/VM8XYHIqaKdQNNnocw6xOODCvR2l7EsZ5Qm53YVfDxl3DG1vconEJgFrSLYX6i5YEpNfn7r1qztdbcXcxk4PAvcZeNQlKSq1BJtH/m9GZMp7sTtlazBRXnZ9EIP6jP1p/FRbthsjGreb/Cu6eukI6wKwCHk3o6D+rdd2MvD7XHium76eOzsL1BIU4XcFIu/IRO6Rvj7WIdaEy8i0jD4nQSTWqNGBkY8SLBsC9eBDHaVl6EmBss1ooJ3oM4lA2ItUYqZY/BvMJh+G7TLXJZmcjs8T58bZgnX3D7sZSpXU13C31F0iu68ore4+ZCIMIFmA+yuDVMqF5V61c6f+m6J6ffFFyOtLIjPDtwVk7DJPjm5sXTKF89/ncuBJz9BPgn9c93aJuGY+s=
+    on:
+      tags: true
+      repo: davegomez/silky-charts
+  - provider: npm
+    email: dg.dave@gmail.com
+    api_key:
+      secure: UqfNw+yZbEQtRDuPiJ6vuat7aSYxgMWk2h78uI+Ti1QVj1R0u9aTm+LaaWIHU3Prp966Bmc1A5IpxH+iaj9nCRJ75/kq3IPV82MAH6TTGCSalT85USwFVIPE/7F46C1CBcu8SnBLzj7+W8Tb4WjIaYyhazavBoM5o/KZrHwITRBz5795mLAy0LgCDZI7Cj6kYkUuZZbXMYO2wqAYC5tg6PtnMu6ApzwiMZ5ndi3Z1nahS6EoKBLaRFldxNP9/hwGsTD5BNWL2aLdV7oxTjY9QFpvCvBJUbJjs/VM8XYHIqaKdQNNnocw6xOODCvR2l7EsZ5Qm53YVfDxl3DG1vconEJgFrSLYX6i5YEpNfn7r1qztdbcXcxk4PAvcZeNQlKSq1BJtH/m9GZMp7sTtlazBRXnZ9EIP6jP1p/FRbthsjGreb/Cu6eukI6wKwCHk3o6D+rdd2MvD7XHium76eOzsL1BIU4XcFIu/IRO6Rvj7WIdaEy8i0jD4nQSTWqNGBkY8SLBsC9eBDHaVl6EmBss1ooJ3oM4lA2ItUYqZY/BvMJh+G7TLXJZmcjs8T58bZgnX3D7sZSpXU13C31F0iu68ore4+ZCIMIFmA+yuDVMqF5V61c6f+m6J6ffFFyOtLIjPDtwVk7DJPjm5sXTKF89/ncuBJz9BPgn9c93aJuGY+s=
+    on:
+      tags: true
+      repo: davegomez/silky-charts
+      branch: develop
+      tag: next

@@ -10,6 +10,12 @@
       }
     },
     {
+      "files": "*.yml",
+      "options": {
+        "parser": "yaml"
+      }
+    },
+    {
       "files": "*.html",
       "options": {
         "parser": "html"
