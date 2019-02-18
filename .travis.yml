@@ -3,8 +3,6 @@ node_js:
   - node
   - lts/*
 script:
-  - yarn lint
-  - yarn test
   - yarn build
 notifications:
   email:
