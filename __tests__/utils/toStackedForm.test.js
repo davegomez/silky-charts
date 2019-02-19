@@ -2,10 +2,10 @@ import { toStackedForm } from '../../src/utils';
 
 const data = [
   { name: 'name1', series: 'foo', value: 0 },
-  { name: 'name1', series: 'bar', value: 1 },
   { name: 'name2', series: 'foo', value: 2 },
-  { name: 'name2', series: 'bar', value: 3 },
   { name: 'name3', series: 'foo', value: 4 },
+  { name: 'name1', series: 'bar', value: 1 },
+  { name: 'name2', series: 'bar', value: 3 },
   { name: 'name3', series: 'bar', value: 5 },
 ];
 
