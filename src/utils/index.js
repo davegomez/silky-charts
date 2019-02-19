@@ -21,6 +21,7 @@ export { default as palette } from './palette';
 export { default as rotateXLabels } from './rotateXLabels';
 export { default as setLineType } from './setLineType';
 export { default as setupData } from './setupData';
+export { default as toSeries } from './toSeries';
 export { default as toSingleForm } from './toSingleForm';
 export { default as toStackedForm } from './toStackedForm';
 export { default as valueFor } from './valueFor';
