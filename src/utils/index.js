@@ -3,8 +3,6 @@ export { default as appendStackedValues } from './appendStackedValues';
 export { default as buildStack } from './buildStack';
 export { default as bySeries } from './bySeries';
 export { default as classify } from './classify';
-export { debounce } from './debounce';
-export { debounceImmediate } from './debounce';
 export { default as drawGrid } from './drawGrid';
 export { default as extent } from './extent';
 export { default as getBaseColor } from './getBaseColor';
