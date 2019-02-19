@@ -16,6 +16,7 @@
 <hr />
 
 [![NPM Version](https://img.shields.io/npm/v/silky-charts.svg)](https://www.npmjs.com/package/silky-charts)
+[![Travis CI Build](https://travis-ci.org/davegomez/silky-charts.svg?branch=master)](https://travis-ci.org/davegomez/silky-charts)
 [![Bundlephobia minified](https://badgen.net/bundlephobia/min/silky-charts)](https://bundlephobia.com/result?p=silky-charts)
 [![Bundlephobia minified + gzip](https://badgen.net/bundlephobia/minzip/silky-charts)](https://bundlephobia.com/result?p=silky-charts)
 
