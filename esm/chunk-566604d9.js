@@ -306,7 +306,8 @@ var SIZE = {
   height: 0,
   isSizeSet: false
 };
-var TICKS = 10;
+var X_TICKS = 10;
+var Y_TICKS = 5;
 var TIME_FORMAT = '%a %d';
 var TOOLTIP_DATE_FORMAT = '%b %d, %Y';
 var WIDTH = 640; // Scales
@@ -905,5 +906,5 @@ var useResize = (function (responsive, handleSize) {
   }, [handleResize, responsive]);
 });
 
-export { getId as a, SIZE as b, setupData as c, getMax as d, useResize as e, SVG as f, MainGroup as g, Grid as h, drawGrid as i, Title as j, Label as k, DataSource as l, DataGroup as m, BarDatum as n, getBaseColor as o, Axis as p, rotateXLabels as q, TIME_FORMAT as r, MARGIN as s, THEME as t, ROTATION as u, TICKS as v, SCALE_PADDING as w, getSize as x, ASPECT_RATIO as y, buildStack as z, toStackedForm as A, getStackedMax as B, setLineType as C, getLineDataForSeries as D, StackedBarDatum as E, LineDatum as F, palette as G, LINE_TYPE as H, SECONDARY_THEME as I, appendStackedValues as J, getSeries as K, extent as L, bySeries as M, classify as N, Path as O };
-//# sourceMappingURL=chunk-eef27141.js.map
+export { getId as a, SIZE as b, setupData as c, getMax as d, useResize as e, SVG as f, MainGroup as g, Grid as h, drawGrid as i, Title as j, Label as k, DataSource as l, DataGroup as m, BarDatum as n, getBaseColor as o, Axis as p, rotateXLabels as q, TIME_FORMAT as r, MARGIN as s, THEME as t, ROTATION as u, X_TICKS as v, SCALE_PADDING as w, Y_TICKS as x, getSize as y, ASPECT_RATIO as z, buildStack as A, toStackedForm as B, getStackedMax as C, setLineType as D, getLineDataForSeries as E, StackedBarDatum as F, LineDatum as G, palette as H, LINE_TYPE as I, SECONDARY_THEME as J, appendStackedValues as K, getSeries as L, extent as M, bySeries as N, classify as O, Path as P };
+//# sourceMappingURL=chunk-566604d9.js.map

@@ -311,7 +311,8 @@ var SIZE = {
   height: 0,
   isSizeSet: false
 };
-var TICKS = 10;
+var X_TICKS = 10;
+var Y_TICKS = 5;
 var TIME_FORMAT = '%a %d';
 var TOOLTIP_DATE_FORMAT = '%b %d, %Y';
 var WIDTH = 640; // Scales
@@ -931,8 +932,9 @@ exports.TIME_FORMAT = TIME_FORMAT;
 exports.MARGIN = MARGIN;
 exports.THEME = THEME;
 exports.ROTATION = ROTATION;
-exports.TICKS = TICKS;
+exports.X_TICKS = X_TICKS;
 exports.SCALE_PADDING = SCALE_PADDING;
+exports.Y_TICKS = Y_TICKS;
 exports.getSize = getSize;
 exports.ASPECT_RATIO = ASPECT_RATIO;
 exports.buildStack = buildStack;
@@ -951,4 +953,4 @@ exports.extent = extent;
 exports.bySeries = bySeries;
 exports.classify = classify;
 exports.Path = Path;
-//# sourceMappingURL=chunk-b2aede61.js.map
+//# sourceMappingURL=chunk-b4002af8.js.map

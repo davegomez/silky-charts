@@ -6,7 +6,7 @@ import { select } from 'd3-selection';
 import { timeFormat } from 'd3-time-format';
 import identity from 'ramda/src/identity';
 import 'styled-components';
-import { a as getId, b as SIZE, c as setupData, d as getMax, e as useResize, f as SVG, g as MainGroup, h as Grid, i as drawGrid, j as Title, k as Label, l as DataSource, m as DataGroup, n as BarDatum, o as getBaseColor, p as Axis, q as rotateXLabels, r as TIME_FORMAT, s as MARGIN, t as THEME, u as ROTATION, v as TICKS, w as SCALE_PADDING, x as getSize, y as ASPECT_RATIO } from './chunk-eef27141.js';
+import { a as getId, b as SIZE, c as setupData, d as getMax, e as useResize, f as SVG, g as MainGroup, h as Grid, i as drawGrid, j as Title, k as Label, l as DataSource, m as DataGroup, n as BarDatum, o as getBaseColor, p as Axis, q as rotateXLabels, r as TIME_FORMAT, s as MARGIN, t as THEME, u as ROTATION, v as X_TICKS, w as SCALE_PADDING, x as Y_TICKS, y as getSize, z as ASPECT_RATIO } from './chunk-566604d9.js';
 import 'react-dom';
 import 'ramda/src/all';
 import 'ramda/src/equals';
@@ -66,12 +66,12 @@ var Bar = function Bar(_ref) {
       _ref$xAxisLabelRotati = _ref.xAxisLabelRotationValue,
       xAxisLabelRotationValue = _ref$xAxisLabelRotati === void 0 ? ROTATION : _ref$xAxisLabelRotati,
       _ref$xAxisTicks = _ref.xAxisTicks,
-      xAxisTicks = _ref$xAxisTicks === void 0 ? TICKS : _ref$xAxisTicks,
+      xAxisTicks = _ref$xAxisTicks === void 0 ? X_TICKS : _ref$xAxisTicks,
       _ref$padding = _ref.padding,
       xScalePadding = _ref$padding === void 0 ? SCALE_PADDING : _ref$padding,
       yAxisChartLabel = _ref.yAxisChartLabel,
       _ref$yAxisTicks = _ref.yAxisTicks,
-      yAxisTicks = _ref$yAxisTicks === void 0 ? TICKS : _ref$yAxisTicks;
+      yAxisTicks = _ref$yAxisTicks === void 0 ? Y_TICKS : _ref$yAxisTicks;
   var svgRef = useRef();
 
   var _useState = useState(getId('bar')),

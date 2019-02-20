@@ -10,7 +10,7 @@ require('d3-selection');
 require('d3-time-format');
 require('ramda/src/identity');
 require('styled-components');
-require('./chunk-b2aede61.js');
+require('./chunk-b4002af8.js');
 require('react-dom');
 require('ramda/src/all');
 require('ramda/src/equals');

@@ -6,7 +6,7 @@ import { select } from 'd3-selection';
 import { timeFormat } from 'd3-time-format';
 import identity from 'ramda/src/identity';
 import 'styled-components';
-import { a as getId, b as SIZE, c as setupData, J as appendStackedValues, z as buildStack, K as getSeries, A as toStackedForm, L as extent, d as getMax, B as getStackedMax, C as setLineType, e as useResize, f as SVG, g as MainGroup, h as Grid, i as drawGrid, j as Title, k as Label, l as DataSource, M as bySeries, N as classify, O as Path, G as palette, p as Axis, q as rotateXLabels, r as TIME_FORMAT, H as LINE_TYPE, s as MARGIN, t as THEME, u as ROTATION, v as TICKS, x as getSize, y as ASPECT_RATIO } from './chunk-eef27141.js';
+import { a as getId, b as SIZE, c as setupData, K as appendStackedValues, A as buildStack, L as getSeries, B as toStackedForm, M as extent, d as getMax, C as getStackedMax, D as setLineType, e as useResize, f as SVG, g as MainGroup, h as Grid, i as drawGrid, j as Title, k as Label, l as DataSource, N as bySeries, O as classify, P as Path, H as palette, p as Axis, q as rotateXLabels, r as TIME_FORMAT, I as LINE_TYPE, s as MARGIN, t as THEME, u as ROTATION, v as X_TICKS, x as Y_TICKS, y as getSize, z as ASPECT_RATIO } from './chunk-566604d9.js';
 import 'react-dom';
 import 'ramda/src/all';
 import 'ramda/src/equals';
@@ -70,10 +70,10 @@ var StackedArea = function StackedArea(_ref) {
       _ref$xAxisLabelRotati = _ref.xAxisLabelRotationValue,
       xAxisLabelRotationValue = _ref$xAxisLabelRotati === void 0 ? ROTATION : _ref$xAxisLabelRotati,
       _ref$xAxisTicks = _ref.xAxisTicks,
-      xAxisTicks = _ref$xAxisTicks === void 0 ? TICKS : _ref$xAxisTicks,
+      xAxisTicks = _ref$xAxisTicks === void 0 ? X_TICKS : _ref$xAxisTicks,
       yAxisChartLabel = _ref.yAxisChartLabel,
       _ref$yAxisTicks = _ref.yAxisTicks,
-      yAxisTicks = _ref$yAxisTicks === void 0 ? TICKS : _ref$yAxisTicks;
+      yAxisTicks = _ref$yAxisTicks === void 0 ? Y_TICKS : _ref$yAxisTicks;
   var svgRef = useRef(null);
 
   var _useState = useState(getId('stacked-area')),

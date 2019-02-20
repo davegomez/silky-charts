@@ -13,7 +13,7 @@ var d3Selection = require('d3-selection');
 var d3TimeFormat = require('d3-time-format');
 var identity = _interopDefault(require('ramda/src/identity'));
 require('styled-components');
-var __chunk_2 = require('./chunk-b2aede61.js');
+var __chunk_2 = require('./chunk-b4002af8.js');
 require('react-dom');
 require('ramda/src/all');
 require('ramda/src/equals');
@@ -85,10 +85,10 @@ var BarLine = function BarLine(_ref) {
       _ref$xAxisLabelRotati = _ref.xAxisLabelRotationValue,
       xAxisLabelRotationValue = _ref$xAxisLabelRotati === void 0 ? __chunk_2.ROTATION : _ref$xAxisLabelRotati,
       _ref$xAxisTicks = _ref.xAxisTicks,
-      xAxisTicks = _ref$xAxisTicks === void 0 ? __chunk_2.TICKS : _ref$xAxisTicks,
+      xAxisTicks = _ref$xAxisTicks === void 0 ? __chunk_2.X_TICKS : _ref$xAxisTicks,
       yAxisChartLabel = _ref.yAxisChartLabel,
       _ref$yAxisTicks = _ref.yAxisTicks,
-      yAxisTicks = _ref$yAxisTicks === void 0 ? __chunk_2.TICKS : _ref$yAxisTicks;
+      yAxisTicks = _ref$yAxisTicks === void 0 ? __chunk_2.Y_TICKS : _ref$yAxisTicks;
   var svgRef = React.useRef();
 
   var _useState = React.useState(__chunk_2.getId('bar-line')),
