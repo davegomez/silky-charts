@@ -1,15 +1,17 @@
-import { useEffect } from 'react';
-import { debounce } from '../utils';
+import { useEffect, useRef } from 'react';
+import useDebounce from './useDebounce';
 
 export default (responsive, handleSize) => {
-  const handleResize = debounce(handleSize)();
+  const refSize = useRef(handleSize);
+  const handleResize = useDebounce(handleSize, 250, [handleSize]);
+
+  useEffect(() => refSize.current(), [refSize]);
 
   useEffect(() => {
-    handleSize();
     responsive && window.addEventListener('resize', handleResize);
 
     return () => {
       responsive && window.removeEventListener('resize', handleResize);
     };
-  }, [handleSize, responsive, handleResize]);
+  }, [responsive, handleResize]);
 };
