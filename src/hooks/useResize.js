@@ -13,5 +13,5 @@ export default (responsive, handleSize) => {
     return () => {
       responsive && window.removeEventListener('resize', handleResize);
     };
-  }, [responsive, handleResize]);
+  }, [handleResize, responsive]);
 };

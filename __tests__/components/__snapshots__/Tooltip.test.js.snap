@@ -3,7 +3,7 @@
 exports[`SVG 1`] = `
 .c0 {
   background-color: rgb(255,255,255);
-  border: 1px solid rgb(220,220,220);
+  border: 1px solid rgb(230,230,230);
   border-radius: 4px;
   box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
   padding: 10px;
@@ -33,7 +33,7 @@ exports[`SVG 1`] = `
 exports[`Tooltip 1`] = `
 .c0 {
   background-color: rgb(255,255,255);
-  border: 1px solid rgb(220,220,220);
+  border: 1px solid rgb(230,230,230);
   border-radius: 4px;
   box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
   padding: 10px;
