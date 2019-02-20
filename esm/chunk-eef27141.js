@@ -1,6 +1,6 @@
-import React, { useState, Fragment, useRef, useEffect } from 'react';
+import { a as _taggedTemplateLiteral, b as _slicedToArray, c as _objectSpread, d as _extends, e as _toConsumableArray, f as _defineProperty } from './chunk-30f6a875.js';
+import React, { useState, Fragment, useRef, useEffect, useCallback } from 'react';
 import { axisBottom, axisLeft } from 'd3-axis';
-import { scaleTime, scaleBand, scaleLinear } from 'd3-scale';
 import { selectAll } from 'd3-selection';
 import { timeFormat } from 'd3-time-format';
 import identity from 'ramda/src/identity';
@@ -16,148 +16,21 @@ import { stack, stackOrderNone, stackOffsetNone, curveBasis, curveBasisClosed, c
 import groupBy from 'ramda/src/groupBy';
 import prop from 'ramda/src/prop';
 import toPairs from 'ramda/src/toPairs';
-import apply from 'ramda/src/apply';
-import curry from 'ramda/src/curry';
 import max from 'ramda/src/max';
 import min from 'ramda/src/min';
 import head from 'ramda/src/head';
-import length from 'ramda/src/length';
-import uniq from 'ramda/src/uniq';
-import map from 'ramda/src/map';
 import filter from 'ramda/src/filter';
 import sum from 'ramda/src/sum';
+import map from 'ramda/src/map';
 import reduce from 'ramda/src/reduce';
 import values from 'ramda/src/values';
-import always from 'ramda/src/always';
+import uniq from 'ramda/src/uniq';
 import cond from 'ramda/src/cond';
 import T from 'ramda/src/T';
-import flatten from 'ramda/src/flatten';
-import omit from 'ramda/src/omit';
 import mergeAll from 'ramda/src/mergeAll';
+import sortBy from 'ramda/src/sortBy';
 import splitEvery from 'ramda/src/splitEvery';
 import last from 'ramda/src/last';
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-function _objectSpread(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? arguments[i] : {};
-    var ownKeys = Object.keys(source);
-
-    if (typeof Object.getOwnPropertySymbols === 'function') {
-      ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
-        return Object.getOwnPropertyDescriptor(source, sym).enumerable;
-      }));
-    }
-
-    ownKeys.forEach(function (key) {
-      _defineProperty(target, key, source[key]);
-    });
-  }
-
-  return target;
-}
-
-function _taggedTemplateLiteral(strings, raw) {
-  if (!raw) {
-    raw = strings.slice(0);
-  }
-
-  return Object.freeze(Object.defineProperties(strings, {
-    raw: {
-      value: Object.freeze(raw)
-    }
-  }));
-}
-
-function _slicedToArray(arr, i) {
-  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
-}
-
-function _toConsumableArray(arr) {
-  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread();
-}
-
-function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) {
-    for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
-
-    return arr2;
-  }
-}
-
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
-
-function _iterableToArray(iter) {
-  if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter);
-}
-
-function _iterableToArrayLimit(arr, i) {
-  var _arr = [];
-  var _n = true;
-  var _d = false;
-  var _e = undefined;
-
-  try {
-    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-      _arr.push(_s.value);
-
-      if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true;
-    _e = err;
-  } finally {
-    try {
-      if (!_n && _i["return"] != null) _i["return"]();
-    } finally {
-      if (_d) throw _e;
-    }
-  }
-
-  return _arr;
-}
-
-function _nonIterableSpread() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance");
-}
-
-function _nonIterableRest() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance");
-}
 
 function _templateObject() {
   var data = _taggedTemplateLiteral([""]);
@@ -177,7 +50,7 @@ var Axis = styled.g.attrs(function (_ref) {
   };
 })(_templateObject());
 
-var BarDatum$$1 = function BarDatum$$1(_ref) {
+var BarDatum = function BarDatum(_ref) {
   var color = _ref.color,
       datum = _ref.datum,
       height = _ref.height,
@@ -296,11 +169,11 @@ var allDate = (function (dates) {
 });
 
 var idx = 0;
-var appendStackedValues = (function (stack$$1, data) {
-  stack$$1.forEach(function (values$$1) {
+var appendStackedValues = (function (stack, data) {
+  stack.forEach(function (values) {
     data.forEach(function (datum) {
-      if (values$$1.key === datum.series) {
-        datum.stackedValues = values$$1[idx];
+      if (values.key === datum.series) {
+        datum.stackedValues = values[idx];
         idx += 1;
       }
     });
@@ -319,110 +192,6 @@ var classify = (function (str) {
   return str.replace(/ /g, '-').toLowerCase();
 });
 
-/**
- * Debounce function
- * Source: https://gist.github.com/tommmyy/daf61103d6022cd23d74c71b0e8adc0d
- *
- * @param {Boolean} immediate If true run `fn` at the start of the timeout
- * @param {Number} timeMs Debounce timeout
- * @param {Function} fn Function to debounce
- *
- * @return {Number} timeout
- * @example
- *
- *    const say = (x) => console.log(x)
- *    const debouncedSay = debounce_(false, 1000, say)();
- *
- *    debouncedSay("1")
- *    debouncedSay("2")
- *    debouncedSay("3")
- *
- */
-
-var debounce_ = curry(function (immediate, timeMs, fn) {
-  return function () {
-    var timeout;
-    return function () {
-      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-        args[_key] = arguments[_key];
-      }
-
-      var later = function later() {
-        timeout = null;
-
-        if (!immediate) {
-          apply(fn, args);
-        }
-      };
-
-      var callNow = immediate && !timeout;
-      clearTimeout(timeout);
-      timeout = setTimeout(later, timeMs);
-
-      if (callNow) {
-        apply(fn, args);
-      }
-
-      return timeout;
-    };
-  };
-});
-var debounceImmediate = debounce_(true);
-var debounce = debounce_(false);
-
-var ASPECT_RATIO = '16:9';
-var DEBOUNCE = 100;
-var MARGIN = {
-  top: 40,
-  right: 50,
-  bottom: 50,
-  left: 50
-};
-var ROTATION = -50;
-var SIZE = {
-  width: 0,
-  height: 0,
-  isSizeSet: false
-};
-var TICKS = 5;
-var TIME_FORMAT = '%a %d';
-var TOOLTIP_DATE_FORMAT = '%b %d, %Y';
-var WIDTH = 640; // Scales
-
-var SCALE_BAND = 'band';
-var SCALE_LINEAR = 'linear';
-var SCALE_PADDING = 0.1;
-var SCALE_TIME = 'time'; // Themes
-
-var THEME = 'monteCarlo';
-var SECONDARY_THEME = 'vividCerise'; // Line options
-
-var LINE_STROKE_WIDTH = 3;
-var LINE_TYPE = 'curveLinear';
-var LINE_TYPES = {
-  curveBasis: curveBasis,
-  curveBasisClosed: curveBasisClosed,
-  curveBasisOpen: curveBasisOpen,
-  curveBundle: curveBundle,
-  curveCardinal: curveCardinal,
-  curveCardinalClosed: curveCardinalClosed,
-  curveCardinalOpen: curveCardinalOpen,
-  curveCatmullRom: curveCatmullRom,
-  curveCatmullRomClosed: curveCatmullRomClosed,
-  curveCatmullRomOpen: curveCatmullRomOpen,
-  curveLinear: curveLinear,
-  curveLinearClosed: curveLinearClosed,
-  curveMonotoneX: curveMonotoneX,
-  curveMonotoneY: curveMonotoneY,
-  curveNatural: curveNatural,
-  curveStep: curveStep,
-  curveStepAfter: curveStepAfter,
-  curveStepBefore: curveStepBefore
-};
-
-var debounce$1 = debounce(DEBOUNCE);
-var debounceImmediate$1 = debounceImmediate(DEBOUNCE);
-
 var drawGrid = (function (horizontal, xScale, height, yScale, width, xAxisTicks, yAxisTicks) {
   return horizontal ? axisBottom().scale(xScale).tickSize(height, 0, 0).ticks(xAxisTicks).tickFormat('') : axisLeft().scale(yScale).tickSize(-width, 0, 0).ticks(yAxisTicks).tickFormat('');
 });
@@ -435,7 +204,7 @@ var white = 'rgb(255, 255, 255)'; // #FFFFFF
 
 var black = 'rgb(33, 33, 33)'; // #212121
 
-var grey = 'rgb(220, 220, 220)'; // #DCDCDC
+var grey = 'rgb(230, 230, 230)'; // #E6E6E6
 
 var themes = {
   monteCarlo: ['rgb(8,104,172)', 'rgb(67,162,202)', 'rgb(123,204,196)', 'rgb(186,228,188)', 'rgb(240,249,232)'],
@@ -484,8 +253,6 @@ var getId = (function (prefix) {
   return id;
 });
 
-var getLength = compose(length, uniq, map(prop('name')));
-
 var getLineDataForSeries = (function (series, data) {
   return series.map(function (x) {
     return data.filter(function (datum) {
@@ -494,8 +261,8 @@ var getLineDataForSeries = (function (series, data) {
   });
 });
 
-var getMax = (function (values$$1) {
-  return values$$1.reduce(max, 0);
+var getMax = (function (values) {
+  return values.reduce(max, 0);
 });
 
 var reducer = function reducer(a, _ref) {
@@ -526,6 +293,51 @@ var getStackedMax = (function (data) {
 
 var getSeries = compose(uniq, map(prop('series')));
 
+var ASPECT_RATIO = '16:9';
+var MARGIN = {
+  top: 40,
+  right: 50,
+  bottom: 50,
+  left: 50
+};
+var ROTATION = -50;
+var SIZE = {
+  width: 0,
+  height: 0,
+  isSizeSet: false
+};
+var TICKS = 10;
+var TIME_FORMAT = '%a %d';
+var TOOLTIP_DATE_FORMAT = '%b %d, %Y';
+var WIDTH = 640; // Scales
+var SCALE_PADDING = 0.1;
+
+var THEME = 'monteCarlo';
+var SECONDARY_THEME = 'vividCerise'; // Line options
+
+var LINE_STROKE_WIDTH = 3;
+var LINE_TYPE = 'curveLinear';
+var LINE_TYPES = {
+  curveBasis: curveBasis,
+  curveBasisClosed: curveBasisClosed,
+  curveBasisOpen: curveBasisOpen,
+  curveBundle: curveBundle,
+  curveCardinal: curveCardinal,
+  curveCardinalClosed: curveCardinalClosed,
+  curveCardinalOpen: curveCardinalOpen,
+  curveCatmullRom: curveCatmullRom,
+  curveCatmullRomClosed: curveCatmullRomClosed,
+  curveCatmullRomOpen: curveCatmullRomOpen,
+  curveLinear: curveLinear,
+  curveLinearClosed: curveLinearClosed,
+  curveMonotoneX: curveMonotoneX,
+  curveMonotoneY: curveMonotoneY,
+  curveNatural: curveNatural,
+  curveStep: curveStep,
+  curveStepAfter: curveStepAfter,
+  curveStepBefore: curveStepBefore
+};
+
 var getSize = (function (w1, h1, _ref, r) {
   var top = _ref.top,
       right = _ref.right,
@@ -555,49 +367,6 @@ var getSize = (function (w1, h1, _ref, r) {
   };
 });
 
-var timeScale = function timeScale(data, width) {
-  var barChart = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-  var dataLength = getLength(data); // TODO: fix this fucking length
-
-  var rangeWidth = width / dataLength / 1.8;
-  return scaleTime().domain(extent(data, function (_ref) {
-    var name = _ref.name;
-    return name;
-  })).rangeRound(barChart ? [rangeWidth, width - rangeWidth] : [0, width]);
-};
-
-var bandScale = function bandScale(data, width) {
-  return scaleBand().domain(data.map(function (_ref2) {
-    var name = _ref2.name;
-    return name;
-  })).range([0, width]).padding(0.1);
-};
-/**
- * Depending on the type of data we are using to represent the X axis ticks we
- * have to use a different D3 scale
- *
- * @param {String} type Type of Scale defined in the constants file
- * @param {Object} data Data
- * @param {Number} width Chart width
- * @param {Boolean} barChart Indicates if the chart use bars in order to
- * calculate the X axis path with for the time scale
- *
- * @return {Function} D3 scale function
- */
-
-
-var getXScale = (function (type$$1, data, width, barChart) {
-  return cond([[equals(SCALE_TIME), always(timeScale(data, width, barChart))], [equals(SCALE_BAND), always(bandScale(data, width))], [(identity)]])(type$$1);
-});
-
-var linearScale = function linearScale(max$$1, height) {
-  return scaleLinear().domain([0, max$$1]).range([height, 0]);
-};
-
-var getYScale = (function (type$$1, data, height) {
-  return cond([[equals(SCALE_LINEAR), always(linearScale(data, height))], [(identity)]])(type$$1);
-});
-
 /**
  * Rotate the X axis labels to given degrees
  *
@@ -610,17 +379,17 @@ var rotateXLabels = (function (id, deg) {
   selectAll("#".concat(id, " .axis-x .tick text")).attr('text-anchor', isNegative ? 'end' : 'start').attr('transform', "translate(".concat(isNegative ? -12 : 12, ", 6) rotate(").concat(deg, ")"));
 });
 
-var setLineType = (function (type$$1) {
+var setLineType = (function (type) {
   var option = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
   return cond([[equals('curveBundle'), function () {
-    return LINE_TYPES[type$$1].beta(option);
+    return LINE_TYPES[type].beta(option);
   }], [equals('curveCardinalOpen'), function () {
-    return LINE_TYPES[type$$1].tension(option);
+    return LINE_TYPES[type].tension(option);
   }], [equals('curveCatmullRomOpen'), function () {
-    return LINE_TYPES[type$$1].alpha(option);
+    return LINE_TYPES[type].alpha(option);
   }], [T, function () {
-    return LINE_TYPES[type$$1];
-  }]])(type$$1);
+    return LINE_TYPES[type];
+  }]])(type);
 });
 
 var setupData = (function (d) {
@@ -636,22 +405,6 @@ var setupData = (function (d) {
   return [isDates, data];
 });
 
-var toSingle = function toSingle(datum) {
-  return compose(map(function (_ref) {
-    var _ref2 = _slicedToArray(_ref, 2),
-        series = _ref2[0],
-        value = _ref2[1];
-
-    return {
-      name: datum.name,
-      series: series,
-      value: value
-    };
-  }), toPairs, omit(['name']))(datum);
-};
-
-compose(flatten, map(toSingle));
-
 var toStackedForm = (function (data) {
   return compose(map(mergeAll), splitEvery(getSeries(data).length), map(function (_ref) {
     var name = _ref.name,
@@ -660,7 +413,7 @@ var toStackedForm = (function (data) {
     return _defineProperty({
       name: name
     }, series, value);
-  }))(data);
+  }), sortBy(prop('name')))(data);
 });
 
 function _templateObject$3() {
@@ -702,7 +455,7 @@ var Label = styled.text.attrs(function (_ref) {
   return axis === 'y' && 'rotate(-90deg)';
 });
 
-var LineDatum$$1 = function LineDatum$$1(_ref) {
+var LineDatum = function LineDatum(_ref) {
   var chart = _ref.chart,
       color = _ref.color,
       d = _ref.d,
@@ -936,7 +689,7 @@ var StackedBarDatum = function StackedBarDatum(_ref) {
     }, layer.map(function (datum, idx) {
       var value = last(datum) - head(datum);
       var name = datum.data.name;
-      return React.createElement(BarDatum$$1, {
+      return React.createElement(BarDatum, {
         key: idx,
         color: palette.themes[theme][layer.index],
         datum: {
@@ -1110,11 +863,47 @@ var TooltipItem = function TooltipItem(_ref2) {
       dateFormat = _ref2$dateFormat === void 0 ? TOOLTIP_DATE_FORMAT : _ref2$dateFormat,
       name = _ref2.name,
       value = _ref2.value;
-  var timeFormat$$1 = timeFormat(dateFormat);
+  var timeFormat$1 = timeFormat(dateFormat);
   return React.createElement(Container$1, null, React.createElement(Swatch, {
     swatchColor: color
-  }), React.createElement(Data, null, React.createElement(Name, null, isValidDate(name) ? timeFormat$$1(name) : name), React.createElement(Value, null, value)));
+  }), React.createElement(Data, null, React.createElement(Name, null, isValidDate(name) ? timeFormat$1(name) : name), React.createElement(Value, null, value)));
 };
 
-export { debounce$1 as a, getId as b, _slicedToArray as c, SIZE as d, setupData as e, getMax as f, SVG as g, MainGroup as h, Grid as i, drawGrid as j, Title as k, Label as l, DataSource as m, DataGroup as n, BarDatum$$1 as o, getBaseColor as p, Axis as q, rotateXLabels as r, TIME_FORMAT as s, MARGIN as t, THEME as u, ROTATION as v, TICKS as w, SCALE_PADDING as x, _objectSpread as y, getSize as z, ASPECT_RATIO as A, buildStack as B, toStackedForm as C, getStackedMax as D, setLineType as E, getLineDataForSeries as F, StackedBarDatum as G, LineDatum$$1 as H, palette as I, LINE_TYPE as J, SECONDARY_THEME as K, appendStackedValues as L, getSeries as M, getXScale as N, SCALE_TIME as O, SCALE_BAND as P, getYScale as Q, SCALE_LINEAR as R, bySeries as S, classify as T, Path as U };
-//# sourceMappingURL=chunk-c832da19.js.map
+var useDebounce = (function (callback, delay, deps) {
+  var _useRef = useRef(null),
+      current = _useRef.current;
+
+  var debouncedFunction = useCallback(callback, deps);
+  useEffect(function () {
+    return function () {
+      clearTimeout(current);
+    };
+  }, [current]);
+  return function () {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    clearTimeout(current);
+    current = setTimeout(function () {
+      return debouncedFunction.apply(void 0, args);
+    }, delay);
+  };
+});
+
+var useResize = (function (responsive, handleSize) {
+  var refSize = useRef(handleSize);
+  var handleResize = useDebounce(handleSize, 250, [handleSize]);
+  useEffect(function () {
+    return refSize.current();
+  }, [refSize]);
+  useEffect(function () {
+    responsive && window.addEventListener('resize', handleResize);
+    return function () {
+      responsive && window.removeEventListener('resize', handleResize);
+    };
+  }, [handleResize, responsive]);
+});
+
+export { getId as a, SIZE as b, setupData as c, getMax as d, useResize as e, SVG as f, MainGroup as g, Grid as h, drawGrid as i, Title as j, Label as k, DataSource as l, DataGroup as m, BarDatum as n, getBaseColor as o, Axis as p, rotateXLabels as q, TIME_FORMAT as r, MARGIN as s, THEME as t, ROTATION as u, TICKS as v, SCALE_PADDING as w, getSize as x, ASPECT_RATIO as y, buildStack as z, toStackedForm as A, getStackedMax as B, setLineType as C, getLineDataForSeries as D, StackedBarDatum as E, LineDatum as F, palette as G, LINE_TYPE as H, SECONDARY_THEME as I, appendStackedValues as J, getSeries as K, extent as L, bySeries as M, classify as N, Path as O };
+//# sourceMappingURL=chunk-eef27141.js.map

@@ -1,4 +1,4 @@
-import { b as getId, c as _slicedToArray, d as SIZE, e as setupData, B as buildStack, C as toStackedForm, f as getMax, D as getStackedMax, E as setLineType, F as getLineDataForSeries, g as SVG, h as MainGroup, i as Grid, j as drawGrid, k as Title, l as Label, m as DataSource, G as StackedBarDatum, q as Axis, r as rotateXLabels, H as LineDatum, I as palette, s as TIME_FORMAT, J as LINE_TYPE, t as MARGIN, x as SCALE_PADDING, K as SECONDARY_THEME, u as THEME, v as ROTATION, w as TICKS, y as _objectSpread, z as getSize, A as ASPECT_RATIO } from './chunk-c832da19.js';
+import { b as _slicedToArray, c as _objectSpread } from './chunk-30f6a875.js';
 import React, { useRef, useState } from 'react';
 import { axisBottom, axisLeft } from 'd3-axis';
 import { scaleBand, scaleLinear } from 'd3-scale';
@@ -6,6 +6,7 @@ import { select } from 'd3-selection';
 import { timeFormat } from 'd3-time-format';
 import identity from 'ramda/src/identity';
 import 'styled-components';
+import { a as getId, b as SIZE, c as setupData, z as buildStack, A as toStackedForm, d as getMax, B as getStackedMax, C as setLineType, D as getLineDataForSeries, e as useResize, f as SVG, g as MainGroup, h as Grid, i as drawGrid, j as Title, k as Label, l as DataSource, E as StackedBarDatum, p as Axis, q as rotateXLabels, F as LineDatum, G as palette, r as TIME_FORMAT, H as LINE_TYPE, s as MARGIN, w as SCALE_PADDING, I as SECONDARY_THEME, t as THEME, u as ROTATION, v as TICKS, x as getSize, y as ASPECT_RATIO } from './chunk-eef27141.js';
 import 'react-dom';
 import 'ramda/src/all';
 import 'ramda/src/equals';
@@ -17,33 +18,28 @@ import { line } from 'd3-shape';
 import 'ramda/src/groupBy';
 import 'ramda/src/prop';
 import 'ramda/src/toPairs';
-import 'ramda/src/apply';
-import 'ramda/src/curry';
 import 'ramda/src/max';
 import 'ramda/src/min';
 import head from 'ramda/src/head';
-import 'ramda/src/length';
-import 'ramda/src/uniq';
-import 'ramda/src/map';
 import 'ramda/src/filter';
 import 'ramda/src/sum';
+import 'ramda/src/map';
 import 'ramda/src/reduce';
 import 'ramda/src/values';
-import 'ramda/src/always';
+import 'ramda/src/uniq';
 import 'ramda/src/cond';
 import 'ramda/src/T';
 import 'ramda/src/flatten';
-import 'ramda/src/omit';
 import 'ramda/src/mergeAll';
+import 'ramda/src/sortBy';
 import 'ramda/src/splitEvery';
 import 'ramda/src/last';
-import { a as useResize } from './chunk-791faa2c.js';
 
 var BarLine = function BarLine(_ref) {
   var _ref$aspectRatio = _ref.aspectRatio,
       aspectRatio = _ref$aspectRatio === void 0 ? ASPECT_RATIO : _ref$aspectRatio,
-      title = _ref.title,
       chartData = _ref.data,
+      dataSource = _ref.dataSource,
       _ref$dateFormat = _ref.dateFormat,
       dateFormat = _ref$dateFormat === void 0 ? TIME_FORMAT : _ref$dateFormat,
       grid = _ref.grid,
@@ -73,8 +69,8 @@ var BarLine = function BarLine(_ref) {
       stackedSeries = _ref$stackedSeries === void 0 ? [] : _ref$stackedSeries,
       _ref$theme = _ref.theme,
       theme = _ref$theme === void 0 ? THEME : _ref$theme,
+      title = _ref.title,
       tooltip = _ref.tooltip,
-      dataSource = _ref.dataSource,
       _ref$width = _ref.width,
       svgWidth = _ref$width === void 0 ? undefined : _ref$width,
       xAxisChartLabel = _ref.xAxisChartLabel,
@@ -92,7 +88,7 @@ var BarLine = function BarLine(_ref) {
       _useState2 = _slicedToArray(_useState, 1),
       id = _useState2[0];
 
-  var timeFormat$$1 = timeFormat(dateFormat);
+  var timeFormat$1 = timeFormat(dateFormat);
 
   var _useState3 = useState(SIZE),
       _useState4 = _slicedToArray(_useState3, 2),
@@ -113,7 +109,7 @@ var BarLine = function BarLine(_ref) {
     return name;
   })).range([0, width]).padding(xScalePadding);
   var yScale = scaleLinear().domain([0, getMax(getStackedMax(data, stackedSeries))]).range([height, 0]);
-  var line$$1 = line().curve(setLineType(lineType, lineTypeOption)).x(function (_ref3) {
+  var line$1 = line().curve(setLineType(lineType, lineTypeOption)).x(function (_ref3) {
     var name = _ref3.name;
     return xScale(name) + xScale.bandwidth() / 2;
   }).y(function (_ref4) {
@@ -187,7 +183,7 @@ var BarLine = function BarLine(_ref) {
       y: height
     },
     ref: function ref(node) {
-      select(node).call(axisBottom(xScale).ticks(xAxisTicks).tickFormat(isDates ? timeFormat$$1 : null));
+      select(node).call(axisBottom(xScale).ticks(xAxisTicks).tickFormat(isDates ? timeFormat$1 : null));
       xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
     }
   }), React.createElement(Axis, {
@@ -203,7 +199,7 @@ var BarLine = function BarLine(_ref) {
       chart: "bar-line",
       data: datum,
       color: palette.themes[secondaryTheme][idx],
-      d: line$$1(datum),
+      d: line$1(datum),
       xScale: xScale,
       yScale: yScale,
       onClick: onClick,

@@ -1,11 +1,12 @@
-import { b as getId, c as _slicedToArray, d as SIZE, e as setupData, L as appendStackedValues, B as buildStack, M as getSeries, C as toStackedForm, N as getXScale, O as SCALE_TIME, P as SCALE_BAND, Q as getYScale, R as SCALE_LINEAR, f as getMax, D as getStackedMax, E as setLineType, a as debounce, g as SVG, i as Grid, j as drawGrid, l as Label, S as bySeries, T as classify, U as Path, I as palette, q as Axis, r as rotateXLabels, J as LINE_TYPE, t as MARGIN, u as THEME, w as TICKS, v as ROTATION, y as _objectSpread, z as getSize, A as ASPECT_RATIO } from './chunk-c832da19.js';
-import React, { useRef, useState, useEffect } from 'react';
+import { b as _slicedToArray, c as _objectSpread } from './chunk-30f6a875.js';
+import React, { useRef, useState } from 'react';
 import { axisBottom, axisLeft } from 'd3-axis';
-import 'd3-scale';
+import { scaleTime, scaleLinear } from 'd3-scale';
 import { select } from 'd3-selection';
-import 'd3-time-format';
+import { timeFormat } from 'd3-time-format';
 import identity from 'ramda/src/identity';
 import 'styled-components';
+import { a as getId, b as SIZE, c as setupData, J as appendStackedValues, z as buildStack, K as getSeries, A as toStackedForm, L as extent, d as getMax, B as getStackedMax, C as setLineType, e as useResize, f as SVG, g as MainGroup, h as Grid, i as drawGrid, j as Title, k as Label, l as DataSource, M as bySeries, N as classify, O as Path, G as palette, p as Axis, q as rotateXLabels, r as TIME_FORMAT, H as LINE_TYPE, s as MARGIN, t as THEME, u as ROTATION, v as TICKS, x as getSize, y as ASPECT_RATIO } from './chunk-eef27141.js';
 import 'react-dom';
 import 'ramda/src/all';
 import 'ramda/src/equals';
@@ -17,24 +18,20 @@ import { area } from 'd3-shape';
 import 'ramda/src/groupBy';
 import 'ramda/src/prop';
 import 'ramda/src/toPairs';
-import 'ramda/src/apply';
-import 'ramda/src/curry';
 import 'ramda/src/max';
 import 'ramda/src/min';
 import 'ramda/src/head';
-import 'ramda/src/length';
-import 'ramda/src/uniq';
-import 'ramda/src/map';
 import 'ramda/src/filter';
 import 'ramda/src/sum';
+import 'ramda/src/map';
 import 'ramda/src/reduce';
 import 'ramda/src/values';
-import 'ramda/src/always';
+import 'ramda/src/uniq';
 import 'ramda/src/cond';
 import 'ramda/src/T';
 import 'ramda/src/flatten';
-import 'ramda/src/omit';
 import 'ramda/src/mergeAll';
+import 'ramda/src/sortBy';
 import 'ramda/src/splitEvery';
 import 'ramda/src/last';
 
@@ -42,6 +39,9 @@ var StackedArea = function StackedArea(_ref) {
   var _ref$aspectRatio = _ref.aspectRatio,
       aspectRatio = _ref$aspectRatio === void 0 ? ASPECT_RATIO : _ref$aspectRatio,
       chartData = _ref.data,
+      dataSource = _ref.dataSource,
+      _ref$dateFormat = _ref.dateFormat,
+      dateFormat = _ref$dateFormat === void 0 ? TIME_FORMAT : _ref$dateFormat,
       grid = _ref.grid,
       _ref$height = _ref.height,
       svgHeight = _ref$height === void 0 ? undefined : _ref$height,
@@ -62,20 +62,25 @@ var StackedArea = function StackedArea(_ref) {
       responsive = _ref$responsive === void 0 ? false : _ref$responsive,
       _ref$theme = _ref.theme,
       theme = _ref$theme === void 0 ? THEME : _ref$theme,
-      _ref$ticks = _ref.ticks,
-      ticks = _ref$ticks === void 0 ? TICKS : _ref$ticks,
+      title = _ref.title,
       _ref$width = _ref.width,
       svgWidth = _ref$width === void 0 ? undefined : _ref$width,
       xAxisChartLabel = _ref.xAxisChartLabel,
       xAxisLabelRotation = _ref.xAxisLabelRotation,
       _ref$xAxisLabelRotati = _ref.xAxisLabelRotationValue,
       xAxisLabelRotationValue = _ref$xAxisLabelRotati === void 0 ? ROTATION : _ref$xAxisLabelRotati,
-      yAxisChartLabel = _ref.yAxisChartLabel;
-  var svgRef = useRef();
+      _ref$xAxisTicks = _ref.xAxisTicks,
+      xAxisTicks = _ref$xAxisTicks === void 0 ? TICKS : _ref$xAxisTicks,
+      yAxisChartLabel = _ref.yAxisChartLabel,
+      _ref$yAxisTicks = _ref.yAxisTicks,
+      yAxisTicks = _ref$yAxisTicks === void 0 ? TICKS : _ref$yAxisTicks;
+  var svgRef = useRef(null);
 
   var _useState = useState(getId('stacked-area')),
       _useState2 = _slicedToArray(_useState, 1),
       id = _useState2[0];
+
+  var timeFormat$1 = timeFormat(dateFormat);
 
   var _useState3 = useState(SIZE),
       _useState4 = _slicedToArray(_useState3, 2),
@@ -91,16 +96,24 @@ var StackedArea = function StackedArea(_ref) {
       data = _setupData2[1];
 
   data = appendStackedValues(buildStack(getSeries(data))(toStackedForm(data)), data);
-  var xScale = getXScale(isDates ? SCALE_TIME : SCALE_BAND, data, width);
-  var yScale = getYScale(SCALE_LINEAR, getMax(getStackedMax(data)), height);
-  var area$$1 = area().curve(setLineType(lineType, lineTypeOption)).x(function (_ref2) {
+
+  if (!isDates) {
+    throw new TypeError('StackedArea charts only accept valid dates in the "name" section of the dataset.');
+  }
+
+  var xScale = scaleTime().domain(extent(data.map(function (_ref2) {
     var name = _ref2.name;
+    return name;
+  }))).range([0, width]);
+  var yScale = scaleLinear().domain([0, getMax(getStackedMax(data))]).range([height, 0]);
+  var area$1 = area().curve(setLineType(lineType, lineTypeOption)).x(function (_ref3) {
+    var name = _ref3.name;
     return xScale(name);
-  }).y0(function (_ref3) {
-    var stackedValues = _ref3.stackedValues;
-    return yScale(stackedValues[0]);
-  }).y1(function (_ref4) {
+  }).y0(function (_ref4) {
     var stackedValues = _ref4.stackedValues;
+    return yScale(stackedValues[0]);
+  }).y1(function (_ref5) {
+    var stackedValues = _ref5.stackedValues;
     return yScale(stackedValues[1]);
   });
 
@@ -118,14 +131,7 @@ var StackedArea = function StackedArea(_ref) {
     }
   };
 
-  var handleResize = debounce(handleSize)();
-  useEffect(function () {
-    handleSize();
-    responsive && window.addEventListener('resize', handleResize);
-    return function () {
-      responsive && window.removeEventListener('resize', handleResize);
-    };
-  }, [handleSize, responsive, handleResize]);
+  useResize(responsive, handleSize);
   return React.createElement(SVG, {
     identifier: id,
     size: {
@@ -133,14 +139,16 @@ var StackedArea = function StackedArea(_ref) {
       height: svgHeight || height + margin.top + margin.bottom
     },
     ref: svgRef
-  }, React.createElement("g", {
-    className: "silky-charts-container",
-    transform: "translate(".concat(margin.left, ", ").concat(margin.top, ")")
+  }, React.createElement(MainGroup, {
+    margin: margin
   }, grid && React.createElement(Grid, {
     ref: function ref(node) {
-      return select(node).call(drawGrid(horizontal, xScale, height, yScale, width, ticks));
+      return select(node).call(drawGrid(horizontal, xScale, height, yScale, width, xAxisTicks, yAxisTicks));
     }
-  }), xAxisChartLabel && React.createElement(Label, {
+  }), title && React.createElement(Title, {
+    margin: margin,
+    width: width
+  }, title), xAxisChartLabel && React.createElement(Label, {
     axis: "x",
     margin: margin,
     width: width,
@@ -150,10 +158,15 @@ var StackedArea = function StackedArea(_ref) {
     margin: margin,
     width: width,
     height: height
-  }, yAxisChartLabel), bySeries(data).map(function (_ref5, idx) {
-    var _ref6 = _slicedToArray(_ref5, 2),
-        series = _ref6[0],
-        datum = _ref6[1];
+  }, yAxisChartLabel), dataSource && React.createElement(DataSource, {
+    dataSource: dataSource,
+    height: height,
+    margin: margin,
+    width: width
+  }), bySeries(data).map(function (_ref6, idx) {
+    var _ref7 = _slicedToArray(_ref6, 2),
+        series = _ref7[0],
+        datum = _ref7[1];
 
     return React.createElement("g", {
       className: "".concat(classify(series), "-layer"),
@@ -161,7 +174,7 @@ var StackedArea = function StackedArea(_ref) {
     }, React.createElement(Path, {
       chart: "stacked-area",
       fillColor: palette.themes[theme][idx],
-      d: area$$1(datum),
+      d: area$1(datum),
       strokeWidth: 0,
       onClick: onClick,
       onMouseEnter: onMouseEnter,
@@ -174,13 +187,13 @@ var StackedArea = function StackedArea(_ref) {
       y: height
     },
     ref: function ref(node) {
-      select(node).call(axisBottom(xScale));
+      select(node).call(axisBottom(xScale).ticks(xAxisTicks).tickFormat(isDates ? timeFormat$1 : null));
       xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
     }
   }), React.createElement(Axis, {
     axis: "y",
     ref: function ref(node) {
-      return select(node).call(axisLeft(yScale).ticks(ticks));
+      return select(node).call(axisLeft(yScale).ticks(yAxisTicks));
     }
   })));
 };

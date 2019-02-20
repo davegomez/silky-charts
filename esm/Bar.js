@@ -1,4 +1,4 @@
-import { b as getId, c as _slicedToArray, d as SIZE, e as setupData, f as getMax, g as SVG, h as MainGroup, i as Grid, j as drawGrid, k as Title, l as Label, m as DataSource, n as DataGroup, o as BarDatum, p as getBaseColor, q as Axis, r as rotateXLabels, s as TIME_FORMAT, t as MARGIN, u as THEME, v as ROTATION, w as TICKS, x as SCALE_PADDING, y as _objectSpread, z as getSize, A as ASPECT_RATIO } from './chunk-c832da19.js';
+import { b as _slicedToArray, c as _objectSpread } from './chunk-30f6a875.js';
 import React, { useRef, useState } from 'react';
 import { axisBottom, axisLeft } from 'd3-axis';
 import { scaleBand, scaleLinear } from 'd3-scale';
@@ -6,6 +6,7 @@ import { select } from 'd3-selection';
 import { timeFormat } from 'd3-time-format';
 import identity from 'ramda/src/identity';
 import 'styled-components';
+import { a as getId, b as SIZE, c as setupData, d as getMax, e as useResize, f as SVG, g as MainGroup, h as Grid, i as drawGrid, j as Title, k as Label, l as DataSource, m as DataGroup, n as BarDatum, o as getBaseColor, p as Axis, q as rotateXLabels, r as TIME_FORMAT, s as MARGIN, t as THEME, u as ROTATION, v as TICKS, w as SCALE_PADDING, x as getSize, y as ASPECT_RATIO } from './chunk-eef27141.js';
 import 'react-dom';
 import 'ramda/src/all';
 import 'ramda/src/equals';
@@ -17,33 +18,28 @@ import 'd3-shape';
 import 'ramda/src/groupBy';
 import 'ramda/src/prop';
 import 'ramda/src/toPairs';
-import 'ramda/src/apply';
-import 'ramda/src/curry';
 import 'ramda/src/max';
 import 'ramda/src/min';
 import 'ramda/src/head';
-import 'ramda/src/length';
-import 'ramda/src/uniq';
-import 'ramda/src/map';
 import 'ramda/src/filter';
 import 'ramda/src/sum';
+import 'ramda/src/map';
 import 'ramda/src/reduce';
 import 'ramda/src/values';
-import 'ramda/src/always';
+import 'ramda/src/uniq';
 import 'ramda/src/cond';
 import 'ramda/src/T';
 import 'ramda/src/flatten';
-import 'ramda/src/omit';
 import 'ramda/src/mergeAll';
+import 'ramda/src/sortBy';
 import 'ramda/src/splitEvery';
 import 'ramda/src/last';
-import { a as useResize } from './chunk-791faa2c.js';
 
 var Bar = function Bar(_ref) {
   var _ref$aspectRatio = _ref.aspectRatio,
       aspectRatio = _ref$aspectRatio === void 0 ? ASPECT_RATIO : _ref$aspectRatio,
-      title = _ref.title,
       chartData = _ref.data,
+      dataSource = _ref.dataSource,
       _ref$dateFormat = _ref.dateFormat,
       dateFormat = _ref$dateFormat === void 0 ? TIME_FORMAT : _ref$dateFormat,
       grid = _ref.grid,
@@ -61,8 +57,8 @@ var Bar = function Bar(_ref) {
       responsive = _ref.responsive,
       _ref$theme = _ref.theme,
       theme = _ref$theme === void 0 ? THEME : _ref$theme,
+      title = _ref.title,
       tooltip = _ref.tooltip,
-      dataSource = _ref.dataSource,
       _ref$width = _ref.width,
       svgWidth = _ref$width === void 0 ? undefined : _ref$width,
       xAxisChartLabel = _ref.xAxisChartLabel,
@@ -82,7 +78,7 @@ var Bar = function Bar(_ref) {
       _useState2 = _slicedToArray(_useState, 1),
       id = _useState2[0];
 
-  var timeFormat$$1 = timeFormat(dateFormat);
+  var timeFormat$1 = timeFormat(dateFormat);
 
   var _useState3 = useState(SIZE),
       _useState4 = _slicedToArray(_useState3, 2),
@@ -179,7 +175,7 @@ var Bar = function Bar(_ref) {
       y: height
     },
     ref: function ref(node) {
-      select(node).call(axisBottom(xScale).ticks(xAxisTicks).tickFormat(isDates ? timeFormat$$1 : null));
+      select(node).call(axisBottom(xScale).ticks(xAxisTicks).tickFormat(isDates ? timeFormat$1 : null));
       xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
     }
   }), React.createElement(Axis, {
