@@ -41,8 +41,8 @@ import {
 
 const Bar = ({
   aspectRatio = ASPECT_RATIO,
-  title,
   data: chartData,
+  dataSource,
   dateFormat = TIME_FORMAT,
   grid,
   height: svgHeight = undefined,
@@ -53,8 +53,8 @@ const Bar = ({
   onMouseLeave = identity,
   responsive,
   theme = THEME,
+  title,
   tooltip,
-  dataSource,
   width: svgWidth = undefined,
   xAxisChartLabel,
   xAxisLabelRotation,
@@ -184,6 +184,7 @@ const Bar = ({
             xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
           }}
         />
+
         <Axis
           axis="y"
           ref={node =>
