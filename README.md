@@ -118,6 +118,7 @@ Most props and options are present indistinguishable in all charts.
 | ----------------------- | :---------------: | :------------: | --------------------------------------------------------------------------------------------------------------------------------- |
 | aspectRatio             |     `String`      |    `"16:9"`    | Sets the shape and size of the chart using the parent element width as a guide. Is overriden setting a `width` or `height` props. |
 | data                    |      `Array`      |                | Chart data.                                                                                                                       |
+| dataSource              | `String` `Object` |                | Sets the data source label on the chart's bottom right corner with optional link `[3]`.                                           |
 | dateFormat              |     `String`      |   `"%a %d"`    | Name values as ISO dates will be formatted as dates. `[1]`                                                                        |
 | grid                    |     `Boolean`     |    `false`     | Display the chart's grid.                                                                                                         |
 | height                  |     `Number`      |                | Sets the chart's height (breaks responsiveness).                                                                                  |
@@ -125,11 +126,9 @@ Most props and options are present indistinguishable in all charts.
 | onClick                 |    `Function`     |                | Callback function to call during the onClick event.                                                                               |
 | onMouseEnter            |    `Function`     |                | Callback function to call during the onMouseEnter event.                                                                          |
 | onMouseLeave            |    `Function`     |                | Callback function to call during the OnMouseLeave event.                                                                          |
-| padding                 |     `Number`      |     `0.1`      | Sets the padding between the chart bars.                                                                                          |
 | responsive              |     `Boolean`     |    `false`     | Activates the chart responsiveness feature.                                                                                       |
 | theme                   |     `String`      | `"monteCarlo"` | Color theme name. [Color themes](#color-themes)                                                                                   |
 | tooltip                 |     `Boolean`     |    `false`     | Activates the built in tooltip.                                                                                                   |
-| dataSource              | `String` `Object` |                | Sets the data source label on the chart's bottom right corner with optional link `[3]`.                                           |
 | title                   |     `String`      |                | Sets the title of the chart.                                                                                                      |
 | width                   |     `Number`      |     `640`      | Sets the chart's width.                                                                                                           |
 | xAxisChartLabel         |     `String`      |                | Sets the Chart's X axis label (you might need to adjust the margin).                                                              |
@@ -165,6 +164,10 @@ Most props and options are present indistinguishable in all charts.
 
 ### Props
 
+| Name    |   Type   | Default | Description                              |
+| ------- | :------: | :-----: | ---------------------------------------- |
+| padding | `Number` |  `0.1`  | Sets the padding between the chart bars. |
+
 ## BarLine chart
 
 [Demo](https://9oq4mx1z5y.codesandbox.io/) - [Sandbox](https://codesandbox.io/s/9oq4mx1z5y)
@@ -188,8 +191,36 @@ Most props and options are present indistinguishable in all charts.
 | lineSeries     | `[String]` |                 | Series names of the datasets you want to appear as lines in the chart.                            |
 | lineType       |  `String`  | `"curveLinear"` | Define the line style to use based on [D3 Curves](https://github.com/d3/d3-shape#curves) options. |
 | lineTypeOption |  `String`  |                 | If the line style accepts options you can set it using this prop.                                 |
+| padding        |  `Number`  |      `0.1`      | Sets the padding between the chart bars.                                                          |
 | secondaryTheme |  `String`  | `"vividCerise"` | Color theme for the chart lines. Hint: opposite colors have better contrast.                      |
 | stackedSeries  | `[String]` |                 | Series names of the datasets you want to appear as stacked bars in the chart.                     |
+
+## StackedArea chart
+
+[Demo](https://z2m6pjj6nl.codesandbox.io/) - [Sandbox](https://codesandbox.io/s/z2m6pjj6nl)
+
+### Data definition
+
+```
+[
+  {
+    name: Date {ISO String}, 
+    series: String, 
+    value: Number,
+  },
+]
+```
+
+### Props
+
+| Name           |   Type   |     Default     | Description                                                                                       |
+| -------------- | :------: | :-------------: | ------------------------------------------------------------------------------------------------- |
+| lineType       | `String` | `"curveLinear"` | Define the line style to use based on [D3 Curves](https://github.com/d3/d3-shape#curves) options. |
+| lineTypeOption | `String` |                 | If the line style accepts options you can set it using this prop.                                 |
+
+### Roadmap
+
+- [ ] Tooltip support
 
 ## Contributing
 
