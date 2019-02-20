@@ -168,23 +168,6 @@ exports[`Bar 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,241.46774193548387)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          10
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,212.43548387096774)"
       >
         <line
@@ -197,23 +180,6 @@ exports[`Bar 1`] = `
           x="-9"
         >
           20
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,183.40322580645162)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          30
         </text>
       </g>
       <g
@@ -236,23 +202,6 @@ exports[`Bar 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,125.33870967741936)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          50
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,96.30645161290323)"
       >
         <line
@@ -270,23 +219,6 @@ exports[`Bar 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,67.2741935483871)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          70
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,38.241935483870975)"
       >
         <line
@@ -299,23 +231,6 @@ exports[`Bar 1`] = `
           x="-9"
         >
           80
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,9.209677419354819)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          90
         </text>
       </g>
     </g>
@@ -491,23 +406,6 @@ exports[`Bar responsive 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,241.46774193548387)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          10
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,212.43548387096774)"
       >
         <line
@@ -520,23 +418,6 @@ exports[`Bar responsive 1`] = `
           x="-9"
         >
           20
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,183.40322580645162)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          30
         </text>
       </g>
       <g
@@ -559,23 +440,6 @@ exports[`Bar responsive 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,125.33870967741936)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          50
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,96.30645161290323)"
       >
         <line
@@ -593,23 +457,6 @@ exports[`Bar responsive 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,67.2741935483871)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          70
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,38.241935483870975)"
       >
         <line
@@ -622,23 +469,6 @@ exports[`Bar responsive 1`] = `
           x="-9"
         >
           80
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,9.209677419354819)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          90
         </text>
       </g>
     </g>
@@ -706,37 +536,7 @@ exports[`Bar width grid 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,241.46774193548387)"
-      >
-        <line
-          stroke="currentColor"
-          x2="540"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-3"
-        />
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,212.43548387096774)"
-      >
-        <line
-          stroke="currentColor"
-          x2="540"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-3"
-        />
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,183.40322580645162)"
       >
         <line
           stroke="currentColor"
@@ -766,21 +566,6 @@ exports[`Bar width grid 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,125.33870967741936)"
-      >
-        <line
-          stroke="currentColor"
-          x2="540"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-3"
-        />
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,96.30645161290323)"
       >
         <line
@@ -796,37 +581,7 @@ exports[`Bar width grid 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,67.2741935483871)"
-      >
-        <line
-          stroke="currentColor"
-          x2="540"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-3"
-        />
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,38.241935483870975)"
-      >
-        <line
-          stroke="currentColor"
-          x2="540"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-3"
-        />
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,9.209677419354819)"
       >
         <line
           stroke="currentColor"
@@ -985,23 +740,6 @@ exports[`Bar width grid 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,241.46774193548387)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          10
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,212.43548387096774)"
       >
         <line
@@ -1014,23 +752,6 @@ exports[`Bar width grid 1`] = `
           x="-9"
         >
           20
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,183.40322580645162)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          30
         </text>
       </g>
       <g
@@ -1053,23 +774,6 @@ exports[`Bar width grid 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,125.33870967741936)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          50
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,96.30645161290323)"
       >
         <line
@@ -1087,23 +791,6 @@ exports[`Bar width grid 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,67.2741935483871)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          70
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,38.241935483870975)"
       >
         <line
@@ -1116,23 +803,6 @@ exports[`Bar width grid 1`] = `
           x="-9"
         >
           80
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,9.209677419354819)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          90
         </text>
       </g>
     </g>
@@ -1351,23 +1021,6 @@ exports[`Bar with Title, X label, Y label 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,241.46774193548387)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          10
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,212.43548387096774)"
       >
         <line
@@ -1380,23 +1033,6 @@ exports[`Bar with Title, X label, Y label 1`] = `
           x="-9"
         >
           20
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,183.40322580645162)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          30
         </text>
       </g>
       <g
@@ -1419,23 +1055,6 @@ exports[`Bar with Title, X label, Y label 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,125.33870967741936)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          50
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,96.30645161290323)"
       >
         <line
@@ -1453,23 +1072,6 @@ exports[`Bar with Title, X label, Y label 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,67.2741935483871)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          70
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,38.241935483870975)"
       >
         <line
@@ -1482,23 +1084,6 @@ exports[`Bar with Title, X label, Y label 1`] = `
           x="-9"
         >
           80
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,9.209677419354819)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          90
         </text>
       </g>
     </g>
@@ -1682,23 +1267,6 @@ exports[`Bar with X label rotation 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,241.46774193548387)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          10
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,212.43548387096774)"
       >
         <line
@@ -1711,23 +1279,6 @@ exports[`Bar with X label rotation 1`] = `
           x="-9"
         >
           20
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,183.40322580645162)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          30
         </text>
       </g>
       <g
@@ -1750,23 +1301,6 @@ exports[`Bar with X label rotation 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,125.33870967741936)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          50
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,96.30645161290323)"
       >
         <line
@@ -1784,23 +1318,6 @@ exports[`Bar with X label rotation 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,67.2741935483871)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          70
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,38.241935483870975)"
       >
         <line
@@ -1813,23 +1330,6 @@ exports[`Bar with X label rotation 1`] = `
           x="-9"
         >
           80
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,9.209677419354819)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          90
         </text>
       </g>
     </g>
@@ -2005,23 +1505,6 @@ exports[`Bar with dates 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,241.46774193548387)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          10
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,212.43548387096774)"
       >
         <line
@@ -2034,23 +1517,6 @@ exports[`Bar with dates 1`] = `
           x="-9"
         >
           20
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,183.40322580645162)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          30
         </text>
       </g>
       <g
@@ -2073,23 +1539,6 @@ exports[`Bar with dates 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,125.33870967741936)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          50
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,96.30645161290323)"
       >
         <line
@@ -2107,23 +1556,6 @@ exports[`Bar with dates 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,67.2741935483871)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          70
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,38.241935483870975)"
       >
         <line
@@ -2136,23 +1568,6 @@ exports[`Bar with dates 1`] = `
           x="-9"
         >
           80
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,9.209677419354819)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          90
         </text>
       </g>
     </g>
@@ -2328,23 +1743,6 @@ exports[`Bar with height 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,9.4247311827957)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          10
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,8.349462365591398)"
       >
         <line
@@ -2357,23 +1755,6 @@ exports[`Bar with height 1`] = `
           x="-9"
         >
           20
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,7.274193548387097)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          30
         </text>
       </g>
       <g
@@ -2396,23 +1777,6 @@ exports[`Bar with height 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,5.123655913978495)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          50
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,4.048387096774194)"
       >
         <line
@@ -2430,23 +1794,6 @@ exports[`Bar with height 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,2.973118279569892)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          70
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,1.897849462365592)"
       >
         <line
@@ -2459,23 +1806,6 @@ exports[`Bar with height 1`] = `
           x="-9"
         >
           80
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,0.82258064516129)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          90
         </text>
       </g>
     </g>
@@ -2666,23 +1996,6 @@ exports[`Bar with source 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,241.46774193548387)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          10
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,212.43548387096774)"
       >
         <line
@@ -2695,23 +2008,6 @@ exports[`Bar with source 1`] = `
           x="-9"
         >
           20
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,183.40322580645162)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          30
         </text>
       </g>
       <g
@@ -2734,23 +2030,6 @@ exports[`Bar with source 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,125.33870967741936)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          50
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,96.30645161290323)"
       >
         <line
@@ -2768,23 +2047,6 @@ exports[`Bar with source 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,67.2741935483871)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          70
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,38.241935483870975)"
       >
         <line
@@ -2797,23 +2059,6 @@ exports[`Bar with source 1`] = `
           x="-9"
         >
           80
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,9.209677419354819)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          90
         </text>
       </g>
     </g>
@@ -3014,23 +2259,6 @@ exports[`Bar with source link 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,241.46774193548387)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          10
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,212.43548387096774)"
       >
         <line
@@ -3043,23 +2271,6 @@ exports[`Bar with source link 1`] = `
           x="-9"
         >
           20
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,183.40322580645162)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          30
         </text>
       </g>
       <g
@@ -3082,23 +2293,6 @@ exports[`Bar with source link 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,125.33870967741936)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          50
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,96.30645161290323)"
       >
         <line
@@ -3116,23 +2310,6 @@ exports[`Bar with source link 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,67.2741935483871)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          70
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,38.241935483870975)"
       >
         <line
@@ -3145,23 +2322,6 @@ exports[`Bar with source link 1`] = `
           x="-9"
         >
           80
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,9.209677419354819)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          90
         </text>
       </g>
     </g>
@@ -3337,23 +2497,6 @@ exports[`Bar with width 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,-29.620967741935484)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          10
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,-25.991935483870968)"
       >
         <line
@@ -3366,23 +2509,6 @@ exports[`Bar with width 1`] = `
           x="-9"
         >
           20
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,-22.362903225806452)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          30
         </text>
       </g>
       <g
@@ -3405,23 +2531,6 @@ exports[`Bar with width 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,-15.10483870967742)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          50
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,-11.475806451612904)"
       >
         <line
@@ -3439,23 +2548,6 @@ exports[`Bar with width 1`] = `
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,-7.846774193548388)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          70
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,-4.217741935483872)"
       >
         <line
@@ -3468,23 +2560,6 @@ exports[`Bar with width 1`] = `
           x="-9"
         >
           80
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,-0.5887096774193523)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          90
         </text>
       </g>
     </g>

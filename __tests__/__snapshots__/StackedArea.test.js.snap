@@ -357,23 +357,6 @@ pointer-events: .c4:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,248.7258064516129)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          5
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,226.9516129032258)"
       >
         <line
@@ -386,23 +369,6 @@ pointer-events: .c4:hover {
           x="-9"
         >
           10
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,205.17741935483872)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          15
         </text>
       </g>
       <g
@@ -425,23 +391,6 @@ pointer-events: .c4:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,161.6290322580645)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          25
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,139.8548387096774)"
       >
         <line
@@ -454,23 +403,6 @@ pointer-events: .c4:hover {
           x="-9"
         >
           30
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,118.0806451612903)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          35
         </text>
       </g>
       <g
@@ -493,23 +425,6 @@ pointer-events: .c4:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,74.53225806451613)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          45
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,52.75806451612905)"
       >
         <line
@@ -522,23 +437,6 @@ pointer-events: .c4:hover {
           x="-9"
         >
           50
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,30.98387096774195)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          55
         </text>
       </g>
       <g
@@ -920,23 +818,6 @@ pointer-events: .c4:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,248.7258064516129)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          5
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,226.9516129032258)"
       >
         <line
@@ -949,23 +830,6 @@ pointer-events: .c4:hover {
           x="-9"
         >
           10
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,205.17741935483872)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          15
         </text>
       </g>
       <g
@@ -988,23 +852,6 @@ pointer-events: .c4:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,161.6290322580645)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          25
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,139.8548387096774)"
       >
         <line
@@ -1017,23 +864,6 @@ pointer-events: .c4:hover {
           x="-9"
         >
           30
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,118.0806451612903)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          35
         </text>
       </g>
       <g
@@ -1056,23 +886,6 @@ pointer-events: .c4:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,74.53225806451613)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          45
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,52.75806451612905)"
       >
         <line
@@ -1085,23 +898,6 @@ pointer-events: .c4:hover {
           x="-9"
         >
           50
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,30.98387096774195)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          55
         </text>
       </g>
       <g
@@ -1218,37 +1014,7 @@ pointer-events: .c5:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,248.7258064516129)"
-      >
-        <line
-          stroke="currentColor"
-          x2="540"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-3"
-        />
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,226.9516129032258)"
-      >
-        <line
-          stroke="currentColor"
-          x2="540"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-3"
-        />
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,205.17741935483872)"
       >
         <line
           stroke="currentColor"
@@ -1278,37 +1044,7 @@ pointer-events: .c5:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,161.6290322580645)"
-      >
-        <line
-          stroke="currentColor"
-          x2="540"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-3"
-        />
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,139.8548387096774)"
-      >
-        <line
-          stroke="currentColor"
-          x2="540"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-3"
-        />
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,118.0806451612903)"
       >
         <line
           stroke="currentColor"
@@ -1338,37 +1074,7 @@ pointer-events: .c5:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,74.53225806451613)"
-      >
-        <line
-          stroke="currentColor"
-          x2="540"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-3"
-        />
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,52.75806451612905)"
-      >
-        <line
-          stroke="currentColor"
-          x2="540"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-3"
-        />
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,30.98387096774195)"
       >
         <line
           stroke="currentColor"
@@ -1699,23 +1405,6 @@ pointer-events: .c5:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,248.7258064516129)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          5
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,226.9516129032258)"
       >
         <line
@@ -1728,23 +1417,6 @@ pointer-events: .c5:hover {
           x="-9"
         >
           10
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,205.17741935483872)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          15
         </text>
       </g>
       <g
@@ -1767,23 +1439,6 @@ pointer-events: .c5:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,161.6290322580645)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          25
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,139.8548387096774)"
       >
         <line
@@ -1796,23 +1451,6 @@ pointer-events: .c5:hover {
           x="-9"
         >
           30
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,118.0806451612903)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          35
         </text>
       </g>
       <g
@@ -1835,23 +1473,6 @@ pointer-events: .c5:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,74.53225806451613)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          45
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,52.75806451612905)"
       >
         <line
@@ -1864,23 +1485,6 @@ pointer-events: .c5:hover {
           x="-9"
         >
           50
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,30.98387096774195)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          55
         </text>
       </g>
       <g
@@ -2304,23 +1908,6 @@ pointer-events: .c7:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,248.7258064516129)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          5
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,226.9516129032258)"
       >
         <line
@@ -2333,23 +1920,6 @@ pointer-events: .c7:hover {
           x="-9"
         >
           10
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,205.17741935483872)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          15
         </text>
       </g>
       <g
@@ -2372,23 +1942,6 @@ pointer-events: .c7:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,161.6290322580645)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          25
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,139.8548387096774)"
       >
         <line
@@ -2401,23 +1954,6 @@ pointer-events: .c7:hover {
           x="-9"
         >
           30
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,118.0806451612903)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          35
         </text>
       </g>
       <g
@@ -2440,23 +1976,6 @@ pointer-events: .c7:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,74.53225806451613)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          45
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,52.75806451612905)"
       >
         <line
@@ -2469,23 +1988,6 @@ pointer-events: .c7:hover {
           x="-9"
         >
           50
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,30.98387096774195)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          55
         </text>
       </g>
       <g
@@ -2893,23 +2395,6 @@ pointer-events: .c4:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,248.7258064516129)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          5
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,226.9516129032258)"
       >
         <line
@@ -2922,23 +2407,6 @@ pointer-events: .c4:hover {
           x="-9"
         >
           10
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,205.17741935483872)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          15
         </text>
       </g>
       <g
@@ -2961,23 +2429,6 @@ pointer-events: .c4:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,161.6290322580645)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          25
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,139.8548387096774)"
       >
         <line
@@ -2990,23 +2441,6 @@ pointer-events: .c4:hover {
           x="-9"
         >
           30
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,118.0806451612903)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          35
         </text>
       </g>
       <g
@@ -3029,23 +2463,6 @@ pointer-events: .c4:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,74.53225806451613)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          45
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,52.75806451612905)"
       >
         <line
@@ -3058,23 +2475,6 @@ pointer-events: .c4:hover {
           x="-9"
         >
           50
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,30.98387096774195)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          55
         </text>
       </g>
       <g
@@ -3456,23 +2856,6 @@ pointer-events: .c4:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,248.7258064516129)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          5
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,226.9516129032258)"
       >
         <line
@@ -3485,23 +2868,6 @@ pointer-events: .c4:hover {
           x="-9"
         >
           10
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,205.17741935483872)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          15
         </text>
       </g>
       <g
@@ -3524,23 +2890,6 @@ pointer-events: .c4:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,161.6290322580645)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          25
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,139.8548387096774)"
       >
         <line
@@ -3553,23 +2902,6 @@ pointer-events: .c4:hover {
           x="-9"
         >
           30
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,118.0806451612903)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          35
         </text>
       </g>
       <g
@@ -3592,23 +2924,6 @@ pointer-events: .c4:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,74.53225806451613)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          45
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,52.75806451612905)"
       >
         <line
@@ -3621,23 +2936,6 @@ pointer-events: .c4:hover {
           x="-9"
         >
           50
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,30.98387096774195)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          55
         </text>
       </g>
       <g
@@ -4019,23 +3317,6 @@ pointer-events: .c4:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,9.693548387096774)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          5
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,8.887096774193548)"
       >
         <line
@@ -4048,23 +3329,6 @@ pointer-events: .c4:hover {
           x="-9"
         >
           10
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,8.080645161290322)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          15
         </text>
       </g>
       <g
@@ -4087,23 +3351,6 @@ pointer-events: .c4:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,6.467741935483871)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          25
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,5.661290322580645)"
       >
         <line
@@ -4116,23 +3363,6 @@ pointer-events: .c4:hover {
           x="-9"
         >
           30
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,4.854838709677419)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          35
         </text>
       </g>
       <g
@@ -4155,23 +3385,6 @@ pointer-events: .c4:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,3.241935483870968)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          45
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,2.435483870967742)"
       >
         <line
@@ -4184,23 +3397,6 @@ pointer-events: .c4:hover {
           x="-9"
         >
           50
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,1.629032258064516)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          55
         </text>
       </g>
       <g
@@ -4597,23 +3793,6 @@ pointer-events: .c5:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,248.7258064516129)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          5
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,226.9516129032258)"
       >
         <line
@@ -4626,23 +3805,6 @@ pointer-events: .c5:hover {
           x="-9"
         >
           10
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,205.17741935483872)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          15
         </text>
       </g>
       <g
@@ -4665,23 +3827,6 @@ pointer-events: .c5:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,161.6290322580645)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          25
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,139.8548387096774)"
       >
         <line
@@ -4694,23 +3839,6 @@ pointer-events: .c5:hover {
           x="-9"
         >
           30
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,118.0806451612903)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          35
         </text>
       </g>
       <g
@@ -4733,23 +3861,6 @@ pointer-events: .c5:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,74.53225806451613)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          45
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,52.75806451612905)"
       >
         <line
@@ -4762,23 +3873,6 @@ pointer-events: .c5:hover {
           x="-9"
         >
           50
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,30.98387096774195)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          55
         </text>
       </g>
       <g
@@ -5185,23 +4279,6 @@ pointer-events: .c6:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,248.7258064516129)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          5
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,226.9516129032258)"
       >
         <line
@@ -5214,23 +4291,6 @@ pointer-events: .c6:hover {
           x="-9"
         >
           10
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,205.17741935483872)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          15
         </text>
       </g>
       <g
@@ -5253,23 +4313,6 @@ pointer-events: .c6:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,161.6290322580645)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          25
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,139.8548387096774)"
       >
         <line
@@ -5282,23 +4325,6 @@ pointer-events: .c6:hover {
           x="-9"
         >
           30
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,118.0806451612903)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          35
         </text>
       </g>
       <g
@@ -5321,23 +4347,6 @@ pointer-events: .c6:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,74.53225806451613)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          45
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,52.75806451612905)"
       >
         <line
@@ -5350,23 +4359,6 @@ pointer-events: .c6:hover {
           x="-9"
         >
           50
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,30.98387096774195)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          55
         </text>
       </g>
       <g
@@ -5748,23 +4740,6 @@ pointer-events: .c4:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,-30.528225806451612)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          5
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,-27.806451612903224)"
       >
         <line
@@ -5777,23 +4752,6 @@ pointer-events: .c4:hover {
           x="-9"
         >
           10
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,-25.08467741935484)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          15
         </text>
       </g>
       <g
@@ -5816,23 +4774,6 @@ pointer-events: .c4:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,-19.641129032258064)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          25
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,-16.919354838709676)"
       >
         <line
@@ -5845,23 +4786,6 @@ pointer-events: .c4:hover {
           x="-9"
         >
           30
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,-14.197580645161288)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          35
         </text>
       </g>
       <g
@@ -5884,23 +4808,6 @@ pointer-events: .c4:hover {
       <g
         class="tick"
         opacity="1"
-        transform="translate(0,-8.754032258064516)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          45
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
         transform="translate(0,-6.032258064516132)"
       >
         <line
@@ -5913,23 +4820,6 @@ pointer-events: .c4:hover {
           x="-9"
         >
           50
-        </text>
-      </g>
-      <g
-        class="tick"
-        opacity="1"
-        transform="translate(0,-3.3104838709677438)"
-      >
-        <line
-          stroke="currentColor"
-          x2="-6"
-        />
-        <text
-          dy="0.32em"
-          fill="currentColor"
-          x="-9"
-        >
-          55
         </text>
       </g>
       <g

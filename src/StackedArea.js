@@ -45,7 +45,8 @@ import {
   SIZE,
   THEME,
   TIME_FORMAT,
-  TICKS,
+  X_TICKS,
+  Y_TICKS,
 } from './utils/constants';
 
 const StackedArea = ({
@@ -69,9 +70,9 @@ const StackedArea = ({
   xAxisChartLabel,
   xAxisLabelRotation,
   xAxisLabelRotationValue = ROTATION,
-  xAxisTicks = TICKS,
+  xAxisTicks = X_TICKS,
   yAxisChartLabel,
-  yAxisTicks = TICKS,
+  yAxisTicks = Y_TICKS,
 }) => {
   const svgRef = useRef(null);
   const [id] = useState(getId('stacked-area'));

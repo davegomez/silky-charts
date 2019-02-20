@@ -28,6 +28,8 @@
 + [Installation](#installation)
   + [Peer dependencies](#peer-dependencies)
 + [Basic usage](#basic-usage)
+  + [From NPM](#from-npm)
+  + [In the browser with UNPKG](#in-the-browser-with-unpkg)
 + [Common props](#common-props)
 + [Color themes](#color-themes)
 + [Bar chart](#bar-chart)
@@ -36,6 +38,10 @@
 + [BarLine chart](#barline-chart)
   + [Data definition](#data-definition-1)
   + [Props](#props-1)
++ [StackedArea chart](#stackedarea-chart)
+  + [Data definition](#data-definition-2)
+  + [Props](#props-2)
+  + [Roadmap](#roadmap-1)
 + [Contributing](#contributing)
   + [How to use the playground](#how-to-use-the-playground)
   + [Create a Pull Request](#create-a-pull-request)
@@ -134,7 +140,7 @@ Most props and options are present indistinguishable in all charts.
 | xAxisChartLabel         |     `String`      |                | Sets the Chart's X axis label (you might need to adjust the margin).                                                              |
 | xAxisLabelRotation      |     `Boolean`     |    `false`     | Rotates the X axis labels when these are to long to fit horizontally.                                                             |
 | xAxisLabelRotationValue |     `Number`      |     `-50`      | Overrides the default X axis label rotation value.                                                                                |
-| xAxisTicks              |     `Number`      |      `5`       | Sets the number of ticks of the x axis on the chart. `[4]`                                                                        |
+| xAxisTicks              |     `Number`      |      `10`      | Sets the number of ticks of the x axis on the chart. `[4]`                                                                        |
 | yAxisChartLabel         |     `String`      |                | Sets the Chart's Y axis label (you might need to adjust the margin).                                                              |
 | yAxisTicks              |     `Number`      |      `5`       | Sets the number of ticks of the y axis on the chart. `[4]`                                                                        |
 

@@ -28,7 +28,8 @@ export const SIZE = {
   height: 0,
   isSizeSet: false,
 };
-export const TICKS = 10;
+export const X_TICKS = 10;
+export const Y_TICKS = 5;
 export const TIME_FORMAT = '%a %d';
 export const TOOLTIP_DATE_FORMAT = '%b %d, %Y';
 export const WIDTH = 640;

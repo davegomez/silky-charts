@@ -44,7 +44,8 @@ import {
   SECONDARY_THEME,
   SIZE,
   THEME,
-  TICKS,
+  X_TICKS,
+  Y_TICKS,
   TIME_FORMAT,
 } from './utils/constants';
 
@@ -74,9 +75,9 @@ const BarLine = ({
   xAxisChartLabel,
   xAxisLabelRotation,
   xAxisLabelRotationValue = ROTATION,
-  xAxisTicks = TICKS,
+  xAxisTicks = X_TICKS,
   yAxisChartLabel,
-  yAxisTicks = TICKS,
+  yAxisTicks = Y_TICKS,
 }) => {
   const svgRef = useRef();
   const [id] = useState(getId('bar-line'));

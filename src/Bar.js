@@ -35,7 +35,8 @@ import {
   SCALE_PADDING,
   SIZE,
   THEME,
-  TICKS,
+  X_TICKS,
+  Y_TICKS,
   TIME_FORMAT,
 } from './utils/constants';
 
@@ -59,10 +60,10 @@ const Bar = ({
   xAxisChartLabel,
   xAxisLabelRotation,
   xAxisLabelRotationValue = ROTATION,
-  xAxisTicks = TICKS,
+  xAxisTicks = X_TICKS,
   padding: xScalePadding = SCALE_PADDING,
   yAxisChartLabel,
-  yAxisTicks = TICKS,
+  yAxisTicks = Y_TICKS,
 }) => {
   const svgRef = useRef();
   const [id] = useState(getId('bar'));
