@@ -4,7 +4,7 @@ node_js:
   - lts/*
 script:
   - yarn lint
-  - yarn test -u
+  - yarn test
   - yarn build
 notifications:
   email:
