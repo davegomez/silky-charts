@@ -15,7 +15,7 @@
     "dev": "cross-env NODE_ENV=development rollup -c -w",
     "lint": "eslint **/*.js --quiet",
     "postpublish": "git push origin HEAD --follow-tags",
-    "prebuild": "npm run lint && npm run test && npm run clean",
+    "prebuild": "npm run clean",
     "prerelease": "npm run build && git add -A && git commit -m 'Update build'",
     "release": "standard-version",
     "test": "jest"
