@@ -6,7 +6,7 @@ exports[`Grid 1`] = `
 }
 
 .c0 line {
-  stroke: rgb(220,220,220);
+  stroke: rgb(230,230,230);
 }
 
 <g

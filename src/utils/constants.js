@@ -21,7 +21,6 @@ import {
 
 // Base values
 export const ASPECT_RATIO = '16:9';
-export const DEBOUNCE = 100;
 export const MARGIN = { top: 40, right: 50, bottom: 50, left: 50 };
 export const ROTATION = -50;
 export const SIZE = {
@@ -29,7 +28,7 @@ export const SIZE = {
   height: 0,
   isSizeSet: false,
 };
-export const TICKS = 5;
+export const TICKS = 10;
 export const TIME_FORMAT = '%a %d';
 export const TOOLTIP_DATE_FORMAT = '%b %d, %Y';
 export const WIDTH = 640;

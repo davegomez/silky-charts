@@ -1,6 +1,6 @@
 export const white = 'rgb(255, 255, 255)'; // #FFFFFF
 export const black = 'rgb(33, 33, 33)'; // #212121
-export const grey = 'rgb(220, 220, 220)'; // #DCDCDC
+export const grey = 'rgb(230, 230, 230)'; // #E6E6E6
 
 export const themes = {
   monteCarlo: [

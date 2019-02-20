@@ -50,8 +50,8 @@ import {
 
 const BarLine = ({
   aspectRatio = ASPECT_RATIO,
-  title,
   data: chartData,
+  dataSource,
   dateFormat = TIME_FORMAT,
   grid,
   height: svgHeight = undefined,
@@ -68,8 +68,8 @@ const BarLine = ({
   secondaryTheme = SECONDARY_THEME,
   stackedSeries = [],
   theme = THEME,
+  title,
   tooltip,
-  dataSource,
   width: svgWidth = undefined,
   xAxisChartLabel,
   xAxisLabelRotation,
@@ -199,6 +199,7 @@ const BarLine = ({
             xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
           }}
         />
+
         <Axis
           axis="y"
           ref={node =>
