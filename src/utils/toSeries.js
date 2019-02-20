@@ -1,6 +1,8 @@
+import flatten from 'ramda/src/flatten';
+
 export default (dataset, omit = []) =>
-  Object.keys(dataset)
-    .map(name =>
+  flatten(
+    Object.keys(dataset).map(name =>
       Object.entries(dataset[name]).reduce((acc, [series, value]) => {
         if (!omit.includes(series)) {
           acc.push({
@@ -13,4 +15,4 @@ export default (dataset, omit = []) =>
         return acc;
       }, [])
     )
-    .flat();
+  );
