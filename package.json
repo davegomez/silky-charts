@@ -12,13 +12,15 @@
     "alpha": "standard-version --prerelease alpha",
     "build": "cross-env NODE_ENV=production rollup -c",
     "clean": "rimraf cjs esm umd",
+    "coverage": "codecov",
     "dev": "cross-env NODE_ENV=development rollup -c -w",
     "lint": "eslint **/*.js --quiet",
     "postpublish": "git push origin HEAD --follow-tags",
     "prebuild": "npm run clean",
     "prerelease": "npm run build && git add -A && git commit -m 'Update build'",
     "release": "standard-version",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "husky": {
     "hooks": {
@@ -90,5 +92,9 @@
   "bugs": {
     "url": "https://github.com/davegomez/silky-charts/issues"
   },
-  "homepage": "https://github.com/davegomez/silky-charts#readme"
+  "homepage": "https://github.com/davegomez/silky-charts#readme",
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
+  }
 }

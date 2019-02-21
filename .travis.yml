@@ -2,9 +2,12 @@ language: node_js
 node_js:
   - node
   - lts/*
+install:
+  - yarn global add codecov
 script:
   - yarn lint
   - yarn test -u
+  - yarn coverage
   - yarn build
 notifications:
   email:
@@ -17,6 +20,7 @@ deploy:
     on:
       tags: true
       repo: davegomez/silky-charts
+      branch: master
   - provider: npm
     email: dg.dave@gmail.com
     api_key:
