@@ -10,6 +10,7 @@
   },
   "scripts": {
     "alpha": "standard-version --prerelease alpha",
+    "beta": "standard-version --prerelease beta",
     "build": "cross-env NODE_ENV=production rollup -c",
     "clean": "rimraf cjs esm umd",
     "coverage": "codecov",
@@ -19,6 +20,9 @@
     "prebuild": "npm run clean",
     "prerelease": "npm run build && git add -A && git commit -m 'Update build'",
     "release": "standard-version",
+    "release:major": "standard-version --release-as major",
+    "release:minor": "standard-version --release-as minor",
+    "release:pre": "standard-version --prerelease",
     "test": "jest",
     "test:watch": "jest --watch"
   },
