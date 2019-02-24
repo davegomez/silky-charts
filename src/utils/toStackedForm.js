@@ -6,6 +6,12 @@ import sortBy from 'ramda/src/sortBy';
 import splitEvery from 'ramda/src/splitEvery';
 import { getSeries } from './';
 
+/**
+ * Transforms a given data list to be consumed by the D3 stack function.
+ *
+ * @param {Array} data Chart's data list.
+ * @returns {Array} Stacked formatted chart's data.
+ */
 export default data =>
   compose(
     map(mergeAll),
