@@ -45,8 +45,10 @@ exports[`Bar responsive 1`] = `
 }
 
 <svg
+  baseProfile="full"
   class="silky-charts c0"
   id="silky-charts_bar-line-4"
+  xmlns="http://www.w3.org/2000/svg"
 >
   <g
     class="silky-charts-container "
@@ -459,8 +461,10 @@ exports[`Bar with height 1`] = `
 }
 
 <svg
+  baseProfile="full"
   class="silky-charts c0"
   id="silky-charts_bar-line-8"
+  xmlns="http://www.w3.org/2000/svg"
 >
   <g
     class="silky-charts-container "
@@ -873,8 +877,10 @@ exports[`Bar with width 1`] = `
 }
 
 <svg
+  baseProfile="full"
   class="silky-charts c0"
   id="silky-charts_bar-line-6"
+  xmlns="http://www.w3.org/2000/svg"
 >
   <g
     class="silky-charts-container "
@@ -1287,8 +1293,10 @@ exports[`BarLine 1`] = `
 }
 
 <svg
+  baseProfile="full"
   class="silky-charts c0"
   id="silky-charts_bar-line-0"
+  xmlns="http://www.w3.org/2000/svg"
 >
   <g
     class="silky-charts-container "
@@ -1709,8 +1717,10 @@ exports[`BarLine width grid 1`] = `
 }
 
 <svg
+  baseProfile="full"
   class="silky-charts c0"
   id="silky-charts_bar-line-10"
+  xmlns="http://www.w3.org/2000/svg"
 >
   <g
     class="silky-charts-container "
@@ -2257,8 +2267,10 @@ exports[`BarLine with Title, X label, Y label 1`] = `
 }
 
 <svg
+  baseProfile="full"
   class="silky-charts c0"
   id="silky-charts_bar-line-12"
+  xmlns="http://www.w3.org/2000/svg"
 >
   <g
     class="silky-charts-container "
@@ -2697,8 +2709,10 @@ exports[`BarLine with X label rotation 1`] = `
 }
 
 <svg
+  baseProfile="full"
   class="silky-charts c0"
   id="silky-charts_bar-line-18"
+  xmlns="http://www.w3.org/2000/svg"
 >
   <g
     class="silky-charts-container "
@@ -3119,8 +3133,10 @@ exports[`BarLine with dates 1`] = `
 }
 
 <svg
+  baseProfile="full"
   class="silky-charts c0"
   id="silky-charts_bar-line-2"
+  xmlns="http://www.w3.org/2000/svg"
 >
   <g
     class="silky-charts-container "
@@ -3539,8 +3555,10 @@ exports[`BarLine with source 1`] = `
 }
 
 <svg
+  baseProfile="full"
   class="silky-charts c0"
   id="silky-charts_bar-line-14"
+  xmlns="http://www.w3.org/2000/svg"
 >
   <g
     class="silky-charts-container "
@@ -3973,8 +3991,10 @@ exports[`BarLine with source link 1`] = `
 }
 
 <svg
+  baseProfile="full"
   class="silky-charts c0"
   id="silky-charts_bar-line-16"
+  xmlns="http://www.w3.org/2000/svg"
 >
   <g
     class="silky-charts-container "

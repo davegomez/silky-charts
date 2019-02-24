@@ -47,8 +47,10 @@ pointer-events: .c4:hover {
 }
 
 <svg
+  baseProfile="full"
   class="silky-charts c0"
   id="silky-charts_stacked-area-0"
+  xmlns="http://www.w3.org/2000/svg"
 >
   <g
     class="silky-charts-container "
@@ -508,8 +510,10 @@ pointer-events: .c4:hover {
 }
 
 <svg
+  baseProfile="full"
   class="silky-charts c0"
   id="silky-charts_stacked-area-2"
+  xmlns="http://www.w3.org/2000/svg"
 >
   <g
     class="silky-charts-container "
@@ -977,8 +981,10 @@ pointer-events: .c5:hover {
 }
 
 <svg
+  baseProfile="full"
   class="silky-charts c0"
   id="silky-charts_stacked-area-8"
+  xmlns="http://www.w3.org/2000/svg"
 >
   <g
     class="silky-charts-container "
@@ -1572,8 +1578,10 @@ pointer-events: .c7:hover {
 }
 
 <svg
+  baseProfile="full"
   class="silky-charts c0"
   id="silky-charts_stacked-area-10"
+  xmlns="http://www.w3.org/2000/svg"
 >
   <g
     class="silky-charts-container "
@@ -2059,8 +2067,10 @@ pointer-events: .c4:hover {
 }
 
 <svg
+  baseProfile="full"
   class="silky-charts c0"
   id="silky-charts_stacked-area-18"
+  xmlns="http://www.w3.org/2000/svg"
 >
   <g
     class="silky-charts-container "
@@ -2546,8 +2556,10 @@ pointer-events: .c4:hover {
 }
 
 <svg
+  baseProfile="full"
   class="silky-charts c0"
   id="silky-charts_stacked-area-14"
+  xmlns="http://www.w3.org/2000/svg"
 >
   <g
     class="silky-charts-container "
@@ -3007,8 +3019,10 @@ pointer-events: .c4:hover {
 }
 
 <svg
+  baseProfile="full"
   class="silky-charts c0"
   id="silky-charts_stacked-area-6"
+  xmlns="http://www.w3.org/2000/svg"
 >
   <g
     class="silky-charts-container "
@@ -3474,8 +3488,10 @@ pointer-events: .c5:hover {
 }
 
 <svg
+  baseProfile="full"
   class="silky-charts c0"
   id="silky-charts_stacked-area-12"
+  xmlns="http://www.w3.org/2000/svg"
 >
   <g
     class="silky-charts-container "
@@ -3955,8 +3971,10 @@ pointer-events: .c6:hover {
 }
 
 <svg
+  baseProfile="full"
   class="silky-charts c0"
   id="silky-charts_stacked-area-16"
+  xmlns="http://www.w3.org/2000/svg"
 >
   <g
     class="silky-charts-container "
@@ -4430,8 +4448,10 @@ pointer-events: .c4:hover {
 }
 
 <svg
+  baseProfile="full"
   class="silky-charts c0"
   id="silky-charts_stacked-area-4"
+  xmlns="http://www.w3.org/2000/svg"
 >
   <g
     class="silky-charts-container "
