@@ -1,5 +1,11 @@
 let innerId = 0;
 
+/**
+ * Creates a unique ID for each chart of the same type rendered.
+ *
+ * @param {String} prefix Chart name.
+ * @returns {String} ID
+ */
 export default prefix => {
   if (!prefix) {
     return null;
