@@ -1,7 +1,14 @@
 import { stack as d3Stack, stackOffsetNone, stackOrderNone } from 'd3-shape';
 
-export default keys =>
+/**
+ * The D3 stack function takes the list of the series in the chart data to
+ * generate the stacks for the stacked charts.
+ *
+ * @param {Array} series List of series in the data.
+ * @returns {Array} D3 stack.
+ */
+export default series =>
   d3Stack()
-    .keys(keys)
+    .keys(series)
     .order(stackOrderNone)
     .offset(stackOffsetNone);
