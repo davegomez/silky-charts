@@ -10,6 +10,7 @@ export { default as getHoverColor } from './getHoverColor';
 export { default as getId } from './getId';
 export { default as getLineDataForSeries } from './getLineDataForSeries';
 export { default as getMax } from './getMax';
+export { default as getMin } from './getMin';
 export { default as getStackedMax } from './getStackedMax';
 export { default as getSeries } from './getSeries';
 export { default as getSize } from './getSize';
