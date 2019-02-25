@@ -1,6 +1,8 @@
 import { axisBottom as d3AxisBottom, axisLeft as d3AxisLeft } from 'd3-axis';
 
 /**
+ * Draw the chart's vertical or horizontal grid.
+ *
  * @param {Boolean} horizontal Is the chart vertical or horizontal.
  * @param {Function} xScale D3 scale.
  * @param {Number} height Chart's available height.
