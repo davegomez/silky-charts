@@ -32,3 +32,17 @@ test('SVG', () => {
   expect(tooltip).toMatchSnapshot();
   expect(tooltip.classList.contains('silky-charts-tooltip')).toBe(true);
 });
+
+test('SVG for static tooltips', () => {
+  const { container } = render(
+    <Tooltip {...props} staticTooltip>
+      <div width="100px" className="child">
+        foo
+      </div>
+    </Tooltip>
+  );
+
+  const tooltip = container.firstChild;
+  expect(tooltip).toMatchSnapshot();
+  expect(tooltip.classList.contains('silky-charts-tooltip')).toBe(true);
+});

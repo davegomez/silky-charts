@@ -2,17 +2,69 @@
 
 exports[`SVG 1`] = `
 .c0 {
-  background-color: rgb(255,255,255);
-  border: 1px solid rgb(230,230,230);
+  background-color: rgba(0,0,0,0.85);
   border-radius: 4px;
-  box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
   padding: 10px;
   pointer-events: none;
   position: absolute;
   text-align: center;
   left: 0;
   top: 0;
-  z-index: 10;
+  z-index: 1;
+}
+
+.c0:before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-left: 8px solid transparent;
+  border-top: 8px solid rgba(0,0,0,0.85);
+  border-right: 8px solid transparent;
+  left: -8px;
+  top: 0px;
+}
+
+<div
+  class="silky-charts-tooltip c0"
+  height="0"
+  style="left: 100px; top: 84px;"
+  width="0"
+>
+  <div
+    class="child"
+    width="100px"
+  >
+    foo
+  </div>
+</div>
+`;
+
+exports[`SVG for static tooltips 1`] = `
+.c0 {
+  background-color: rgba(0,0,0,0.85);
+  border-radius: 4px;
+  padding: 10px;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.c0:before {
+  content: '';
+  display: none;
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-left: 8px solid transparent;
+  border-top: 8px solid rgba(0,0,0,0.85);
+  border-right: 8px solid transparent;
+  left: -8px;
+  top: 0px;
 }
 
 <div
@@ -32,17 +84,28 @@ exports[`SVG 1`] = `
 
 exports[`Tooltip 1`] = `
 .c0 {
-  background-color: rgb(255,255,255);
-  border: 1px solid rgb(230,230,230);
+  background-color: rgba(0,0,0,0.85);
   border-radius: 4px;
-  box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
   padding: 10px;
   pointer-events: none;
   position: absolute;
   text-align: center;
   left: 0;
   top: 0;
-  z-index: 10;
+  z-index: 1;
+}
+
+.c0:before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-left: 8px solid transparent;
+  border-top: 8px solid rgba(0,0,0,0.85);
+  border-right: 8px solid transparent;
+  left: -8px;
+  top: 0px;
 }
 
 <div

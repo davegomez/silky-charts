@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Circle, Path, Tooltip, TooltipItem } from './';
+import { Circle, Path, Tooltip, SingleTooltipItem } from './';
 
 const LineDatum = ({
   chart,
@@ -53,7 +53,7 @@ const LineDatum = ({
         tooltip.show &&
         createPortal(
           <Tooltip pageX={tooltip.pageX} pageY={tooltip.pageY}>
-            <TooltipItem
+            <SingleTooltipItem
               color={color}
               name={tooltip.name}
               value={tooltip.value}

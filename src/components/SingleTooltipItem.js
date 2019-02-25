@@ -2,34 +2,29 @@ import React from 'react';
 import styled from 'styled-components';
 import { timeFormat as d3TimeFormat } from 'd3-time-format';
 import { isValidDate } from '../utils';
-import { grey } from '../utils/palette';
+import { grey, white } from '../utils/palette';
 import { TOOLTIP_DATE_FORMAT } from '../utils/constants';
-
-const Container = styled.div`
-  display: flex;
-`;
 
 const Swatch = styled.span`
   background-color: ${({ swatchColor }) => swatchColor || grey};
-  margin-right: 10px;
-  padding: 0 4px;
+  display: block;
+  height: 2px;
+  /* width: 100%; */
 `;
 
 const Data = styled.div`
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-`;
-
-const Name = styled.span`
+  color: ${white};
+  font-size: 12px;
+  font-weight: 600;
   margin-bottom: 4px;
 `;
 
-const Value = styled.span`
-  font-size: 1.2em;
+const Divider = styled.span`
+  color: grey;
+  font-weight: 500;
 `;
 
-const TooltipItem = ({
+const SingleTooltipItem = ({
   color,
   dateFormat = TOOLTIP_DATE_FORMAT,
   name,
@@ -37,14 +32,14 @@ const TooltipItem = ({
 }) => {
   const timeFormat = d3TimeFormat(dateFormat);
   return (
-    <Container>
-      <Swatch swatchColor={color} />
+    <>
       <Data>
-        <Name>{isValidDate(name) ? timeFormat(name) : name}</Name>
-        <Value>{value}</Value>
+        {value} <Divider>on</Divider>{' '}
+        {isValidDate(name) ? timeFormat(name) : name}
       </Data>
-    </Container>
+      <Swatch swatchColor={color} />
+    </>
   );
 };
 
-export default TooltipItem;
+export default SingleTooltipItem;

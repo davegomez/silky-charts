@@ -13,4 +13,4 @@ export { default as StackedBarDatum } from './StackedBarDatum';
 export { default as SVG } from './SVG';
 export { default as Title } from './Title';
 export { default as Tooltip } from './Tooltip';
-export { default as TooltipItem } from './TooltipItem';
+export { default as SingleTooltipItem } from './SingleTooltipItem';
