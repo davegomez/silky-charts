@@ -486,7 +486,7 @@ exports[`Bar width grid 1`] = `
 }
 
 .c1 line {
-  stroke: rgb(230,230,230);
+  stroke: rgb(232,232,232);
 }
 
 .c2 {
