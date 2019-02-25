@@ -6,7 +6,9 @@ import toPairs from 'ramda/src/toPairs';
 /**
  * The data must be ordered by series before the area is created.
  *
- * @returns {Function} Ordering function
+ * @param {Array} _ Chart data.
+ * @returns {Function} Ordering function that returns a list ordered by data
+ * series.
  */
 export default compose(
   toPairs,
