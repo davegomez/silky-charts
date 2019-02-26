@@ -13,13 +13,17 @@ const dataWidthDates = [
 ];
 
 test('setup user data', () => {
-  expect(setupData(data)).toEqual([false, data]);
+  expect(setupData(data)).toEqual([false, data, ['foo', 'bar', 'baz']]);
 });
 
 test('setup user data width dates', () => {
-  const [isDates, data] = setupData(dataWidthDates);
+  const [isDates, data, names] = setupData(dataWidthDates);
+
   expect(isDates).toBe(true);
-  data.map(d => {
-    expect(d.name).toBeInstanceOf(Date);
-  });
+
+  data.map(d => expect(d.name).toBeInstanceOf(Date));
+
+  expect(names).toBeInstanceOf(Array);
+  expect(names.length).toBe(3);
+  names.map(name => expect(name).toBeInstanceOf(Date));
 });

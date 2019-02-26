@@ -1,17 +1,21 @@
+import uniq from 'ramda/src/uniq';
 import { allDate } from './';
 
 /**
  * Validates if the values in the data's name fields are valid dates and if is
- * the case transfor this dates into instances of Date before returning a tuple
- * with the validation result and the new data list.
+ * the case transform this dates into instances of Date before returning a tuple
+ * with the validation result, the new data list, and the unique list of names.
  *
- * @param {Array} d Chart's data.
- * @returns {Array} Tupple containing the dates validation result and the
- * transformed new data list.
+ * @param {Array} dataset Chart's data.
+ * @returns {Array} Tupple containing the dates validation result, the
+ * transformed new data list, and an array with the unique list of names.
  */
-export default d => {
-  const isDates = allDate(d.map(({ name }) => name));
-  const data = isDates ? d.map(x => ({ ...x, name: new Date(x.name) })) : d;
+export default dataset => {
+  const isDates = allDate(dataset.map(({ name }) => name));
+  const data = isDates
+    ? dataset.map(x => ({ ...x, name: new Date(x.name) }))
+    : dataset;
+  const names = uniq(data.map(({ name }) => name));
 
-  return [isDates, data];
+  return [isDates, data, names];
 };
