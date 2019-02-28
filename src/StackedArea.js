@@ -9,12 +9,12 @@ import { area as d3Area } from 'd3-shape';
 import { timeFormat as d3TimeFormat } from 'd3-time-format';
 import identity from 'ramda/src/identity';
 import {
+  AreaDatum,
   Axis,
   DataSource,
   Grid,
   Label,
   MainGroup,
-  Path,
   SVG,
   Title,
 } from './components';
@@ -23,7 +23,6 @@ import {
   appendStackedValues,
   buildStack,
   bySeries,
-  classify,
   drawGrid,
   extent,
   getId,
@@ -31,6 +30,7 @@ import {
   getStackedMax,
   getSeries,
   getSize,
+  mapTooltipData,
   palette,
   rotateXLabels,
   setLineType,
@@ -66,6 +66,7 @@ const StackedArea = ({
   responsive = false,
   theme = THEME,
   title,
+  tooltip,
   width: svgWidth = undefined,
   xAxisChartLabel,
   xAxisLabelRotation,
@@ -78,7 +79,7 @@ const StackedArea = ({
   const [id] = useState(getId('stacked-area'));
   const timeFormat = d3TimeFormat(dateFormat);
   const [{ width, height, isSizeSet }, setSize] = useState(SIZE);
-  let [isDates, data] = setupData(chartData);
+  let [isDates, data, names] = setupData(chartData);
   data = appendStackedValues(
     buildStack(getSeries(data))(toStackedForm(data)),
     data
@@ -103,6 +104,9 @@ const StackedArea = ({
     .x(({ name }) => xScale(name))
     .y0(({ stackedValues }) => yScale(stackedValues[0]))
     .y1(({ stackedValues }) => yScale(stackedValues[1]));
+
+  const dataPositions = names.map(name => xScale(name));
+  const tooltipData = mapTooltipData(data, dataPositions);
 
   const handleSize = () => {
     const offsetWidth = svgRef.current.parentElement.offsetWidth;
@@ -177,17 +181,22 @@ const StackedArea = ({
         )}
 
         {bySeries(data).map(([series, datum], idx) => (
-          <g className={`${classify(series)}-layer`} key={idx}>
-            <Path
-              chart="stacked-area"
-              fillColor={palette.themes[theme][idx]}
-              d={area(datum)}
-              strokeWidth={0}
-              onClick={onClick}
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-            />
-          </g>
+          <AreaDatum
+            area={area}
+            dataPositions={dataPositions}
+            datum={datum}
+            fillColor={palette.themes[theme][idx]}
+            key={idx}
+            margin={margin}
+            onClick={onClick}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+            series={series}
+            svg={svgRef.current}
+            theme={theme}
+            tooltip={tooltip}
+            tooltipData={tooltipData}
+          />
         ))}
 
         <Axis

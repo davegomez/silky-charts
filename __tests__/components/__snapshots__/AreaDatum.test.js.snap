@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AreaDatum 1`] = `
+.c0 {
+  fill: none;
+  stroke: none;
+  stroke-width: 3;
+}
+
+pointer-events: .c0:hover {
+  fill: rgb(0,0,0);
+}
+
+<g
+  class="bar-layer"
+>
+  <path
+    class="line-path stacked-area c0"
+    stroke-width="0"
+  />
+</g>
+`;
+
+exports[`AreaDatum:onMouseLeave hide tooltip 1`] = `
+.c0 {
+  fill: none;
+  stroke: none;
+  stroke-width: 3;
+}
+
+pointer-events: .c0:hover {
+  fill: rgb(0,0,0);
+}
+
+<svg>
+  <g
+    class="bar-layer"
+  >
+    <path
+      class="line-path stacked-area c0"
+      stroke-width="0"
+    />
+  </g>
+</svg>
+`;
