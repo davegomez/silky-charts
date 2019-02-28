@@ -1,3 +1,4 @@
+export { default as AreaDatum } from './AreaDatum';
 export { default as Axis } from './Axis';
 export { default as BarDatum } from './BarDatum';
 export { default as Circle } from './Circle';
@@ -13,4 +14,5 @@ export { default as StackedBarDatum } from './StackedBarDatum';
 export { default as SVG } from './SVG';
 export { default as Title } from './Title';
 export { default as Tooltip } from './Tooltip';
-export { default as SingleTooltipItem } from './SingleTooltipItem';
+export { default as TooltipGroup } from './TooltipGroup';
+export { default as TooltipItem } from './TooltipItem';

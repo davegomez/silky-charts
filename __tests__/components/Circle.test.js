@@ -23,46 +23,46 @@ test('Circle', () => {
 });
 
 test('Circle:onClick', () => {
-  const handleOnClick = jest.fn();
+  const handleClick = jest.fn();
 
   const { container } = render(
     <svg>
-      <Circle {...props} onClick={handleOnClick} />
+      <Circle {...props} onClick={handleClick} />
     </svg>
   );
 
   const circle = container.querySelector('circle');
   fireEvent.click(circle, {});
 
-  expect(handleOnClick).toHaveBeenCalled();
+  expect(handleClick).toHaveBeenCalled();
 });
 
 test('Circle:onMouseEnter', () => {
-  const handleOnMouseEnter = jest.fn();
+  const handleMouseEnter = jest.fn();
 
   const { container } = render(
     <svg>
-      <Circle {...props} onMouseEnter={handleOnMouseEnter} />
+      <Circle {...props} onMouseEnter={handleMouseEnter} />
     </svg>
   );
 
   const circle = container.querySelector('circle');
   fireEvent.mouseEnter(circle, {});
 
-  expect(handleOnMouseEnter).toHaveBeenCalled();
+  expect(handleMouseEnter).toHaveBeenCalled();
 });
 
 test('Circle:onMouseLeave', () => {
-  const handleOnMouseLeave = jest.fn();
+  const handleMouseLeave = jest.fn();
 
   const { container } = render(
     <svg>
-      <Circle {...props} onMouseLeave={handleOnMouseLeave} />
+      <Circle {...props} onMouseLeave={handleMouseLeave} />
     </svg>
   );
 
   const circle = container.querySelector('circle');
   fireEvent.mouseLeave(circle, {});
 
-  expect(handleOnMouseLeave).toHaveBeenCalled();
+  expect(handleMouseLeave).toHaveBeenCalled();
 });

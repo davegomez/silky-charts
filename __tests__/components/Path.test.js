@@ -34,46 +34,46 @@ test('Path:StackedArea', () => {
 });
 
 test('Path:onClick', () => {
-  const handleOnClick = jest.fn();
+  const handleClick = jest.fn();
 
   const { container } = render(
     <svg>
-      <Path {...props} onClick={handleOnClick} />
+      <Path {...props} onClick={handleClick} />
     </svg>
   );
 
   const path = container.querySelector('path');
   fireEvent.click(path, {});
 
-  expect(handleOnClick).toHaveBeenCalled();
+  expect(handleClick).toHaveBeenCalled();
 });
 
 test('Path:onMouseEnter', () => {
-  const handleOnMouseEnter = jest.fn();
+  const handleMouseEnter = jest.fn();
 
   const { container } = render(
     <svg>
-      <Path {...props} onMouseEnter={handleOnMouseEnter} />
+      <Path {...props} onMouseEnter={handleMouseEnter} />
     </svg>
   );
 
   const path = container.querySelector('path');
   fireEvent.mouseEnter(path, {});
 
-  expect(handleOnMouseEnter).toHaveBeenCalled();
+  expect(handleMouseEnter).toHaveBeenCalled();
 });
 
 test('Path:onMouseLeave', () => {
-  const handleOnMouseLeave = jest.fn();
+  const handleMouseLeave = jest.fn();
 
   const { container } = render(
     <svg>
-      <Path {...props} onMouseLeave={handleOnMouseLeave} />
+      <Path {...props} onMouseLeave={handleMouseLeave} />
     </svg>
   );
 
   const path = container.querySelector('path');
   fireEvent.mouseLeave(path, {});
 
-  expect(handleOnMouseLeave).toHaveBeenCalled();
+  expect(handleMouseLeave).toHaveBeenCalled();
 });

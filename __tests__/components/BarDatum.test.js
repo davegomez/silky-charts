@@ -28,55 +28,66 @@ test('BarDatum', () => {
 });
 
 test('BarDatum:onClick', () => {
-  const handleOnClick = jest.fn();
+  const handleClick = jest.fn();
   const { container } = render(
     <svg>
-      <BarDatum {...props} onClick={handleOnClick} />
+      <BarDatum {...props} onClick={handleClick} />
     </svg>
   );
 
   const barDatum = container.querySelector('svg').firstChild;
   fireEvent.click(barDatum, {});
 
-  expect(handleOnClick).toHaveBeenCalled();
+  expect(handleClick).toHaveBeenCalled();
 });
 
 test('BarDatum:onMouseEnter show tooltip', () => {
-  const handleOnMouseEnter = jest.fn();
+  const handleMouseEnter = jest.fn();
   const { container } = render(
     <svg>
-      <BarDatum {...props} onMouseEnter={handleOnMouseEnter} tooltip />
+      <BarDatum {...props} onMouseEnter={handleMouseEnter} tooltip />
     </svg>
   );
 
   const svg = container.querySelector('svg');
   expect(svg).toMatchSnapshot();
 
-  const barDatum = container.querySelector('svg').firstChild;
-  fireEvent.mouseEnter(barDatum, {});
+  const rect = container.querySelector('rect');
+  fireEvent.mouseEnter(rect, {});
 
-  expect(handleOnMouseEnter).toHaveBeenCalled();
+  expect(handleMouseEnter).toHaveBeenCalled();
 
   const tooltip = document.querySelector('.silky-charts-tooltip');
   expect(tooltip.nodeName).toBe('DIV');
 });
 
 test('BarDatum:onMouseLeave hide tooltip', () => {
-  const handleOnMouseLeave = jest.fn();
+  const handleMouseLeave = jest.fn();
   const { container } = render(
     <svg>
-      <BarDatum {...props} onMouseLeave={handleOnMouseLeave} tooltip />
+      <BarDatum {...props} onMouseLeave={handleMouseLeave} tooltip />
     </svg>
   );
 
   const svg = container.querySelector('svg');
   expect(svg).toMatchSnapshot();
 
-  const barDatum = container.querySelector('svg').firstChild;
-  fireEvent.mouseLeave(barDatum, {});
+  const rect = container.querySelector('rect');
+  fireEvent.mouseLeave(rect, {});
 
-  expect(handleOnMouseLeave).toHaveBeenCalled();
+  expect(handleMouseLeave).toHaveBeenCalled();
 
   const tooltip = document.querySelector('.silky-charts-tooltip');
   expect(tooltip).toBe(null);
+});
+
+test('BarDatum:onMouseMove', () => {
+  const { container } = render(
+    <svg>
+      <BarDatum {...props} tooltip />
+    </svg>
+  );
+
+  const rect = container.querySelector('rect');
+  fireEvent.mouseMove(rect, { clientX: 10, clientY: 10 });
 });

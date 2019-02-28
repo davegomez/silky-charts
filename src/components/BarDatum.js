@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Rect, Tooltip, SingleTooltipItem } from './';
+import { Rect, Tooltip, TooltipItem } from './';
 
 const BarDatum = ({
   color,
@@ -46,7 +46,7 @@ const BarDatum = ({
         tooltip.show &&
         createPortal(
           <Tooltip pageX={tooltip.pageX} pageY={tooltip.pageY}>
-            <SingleTooltipItem color={color} {...datum} />
+            <TooltipItem color={color} {...datum} />
           </Tooltip>,
           document.body
         )}

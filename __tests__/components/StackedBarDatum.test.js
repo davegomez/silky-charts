@@ -44,27 +44,27 @@ test('StackedBarDatum', () => {
 });
 
 test('StackedBarDatum:onClick', () => {
-  const handleOnClick = jest.fn();
+  const handleClick = jest.fn();
   const { container } = render(
     <svg>
-      <StackedBarDatum {...props} series={series} onClick={handleOnClick} />
+      <StackedBarDatum {...props} series={series} onClick={handleClick} />
     </svg>
   );
 
   const rect = container.querySelector('rect');
   fireEvent.click(rect, {});
 
-  expect(handleOnClick).toHaveBeenCalled();
+  expect(handleClick).toHaveBeenCalled();
 });
 
 test('StackedBarDatum:onMouseEnter', () => {
-  const handleOnMouseEnter = jest.fn();
+  const handleMouseEnter = jest.fn();
   const { container } = render(
     <svg>
       <StackedBarDatum
         {...props}
         series={series}
-        onMouseEnter={handleOnMouseEnter}
+        onMouseEnter={handleMouseEnter}
       />
     </svg>
   );
@@ -72,17 +72,17 @@ test('StackedBarDatum:onMouseEnter', () => {
   const rect = container.querySelector('rect');
   fireEvent.mouseEnter(rect, {});
 
-  expect(handleOnMouseEnter).toHaveBeenCalled();
+  expect(handleMouseEnter).toHaveBeenCalled();
 });
 
 test('StackedBarDatum:onMouseLeave', () => {
-  const handleOnMouseLeave = jest.fn();
+  const handleMouseLeave = jest.fn();
   const { container } = render(
     <svg>
       <StackedBarDatum
         {...props}
         series={series}
-        onMouseLeave={handleOnMouseLeave}
+        onMouseLeave={handleMouseLeave}
       />
     </svg>
   );
@@ -90,5 +90,5 @@ test('StackedBarDatum:onMouseLeave', () => {
   const rect = container.querySelector('rect');
   fireEvent.mouseLeave(rect, {});
 
-  expect(handleOnMouseLeave).toHaveBeenCalled();
+  expect(handleMouseLeave).toHaveBeenCalled();
 });

@@ -25,46 +25,46 @@ test('Rect', () => {
 });
 
 test('Rect:onClick', () => {
-  const handleOnClick = jest.fn();
+  const handleClick = jest.fn();
 
   const { container } = render(
     <svg>
-      <Rect {...props} onClick={handleOnClick} />
+      <Rect {...props} onClick={handleClick} />
     </svg>
   );
 
   const rect = container.querySelector('rect');
   fireEvent.click(rect, {});
 
-  expect(handleOnClick).toHaveBeenCalled();
+  expect(handleClick).toHaveBeenCalled();
 });
 
 test('Rect:onMouseEnter', () => {
-  const handleOnMouseEnter = jest.fn();
+  const handleMouseEnter = jest.fn();
 
   const { container } = render(
     <svg>
-      <Rect {...props} onMouseEnter={handleOnMouseEnter} />
+      <Rect {...props} onMouseEnter={handleMouseEnter} />
     </svg>
   );
 
   const rect = container.querySelector('rect');
   fireEvent.mouseEnter(rect, {});
 
-  expect(handleOnMouseEnter).toHaveBeenCalled();
+  expect(handleMouseEnter).toHaveBeenCalled();
 });
 
 test('Rect:onMouseLeave', () => {
-  const handleOnMouseLeave = jest.fn();
+  const handleMouseLeave = jest.fn();
 
   const { container } = render(
     <svg>
-      <Rect {...props} onMouseLeave={handleOnMouseLeave} />
+      <Rect {...props} onMouseLeave={handleMouseLeave} />
     </svg>
   );
 
   const rect = container.querySelector('rect');
   fireEvent.mouseLeave(rect, {});
 
-  expect(handleOnMouseLeave).toHaveBeenCalled();
+  expect(handleMouseLeave).toHaveBeenCalled();
 });

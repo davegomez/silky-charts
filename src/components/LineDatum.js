@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { Circle, Path, Tooltip, SingleTooltipItem } from './';
+import { Circle, Path, Tooltip, TooltipItem } from './';
 
 const LineDatum = ({
   chart,
@@ -42,7 +42,6 @@ const LineDatum = ({
               onMouseLeave(event);
             }}
             onMouseMove={event => {
-              event.persist();
               const { pageX, pageY } = event;
               setTooltip(state => ({ ...state, name, pageX, pageY, value }));
             }}
@@ -53,7 +52,7 @@ const LineDatum = ({
         tooltip.show &&
         createPortal(
           <Tooltip pageX={tooltip.pageX} pageY={tooltip.pageY}>
-            <SingleTooltipItem
+            <TooltipItem
               color={color}
               name={tooltip.name}
               value={tooltip.value}

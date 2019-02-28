@@ -42,49 +42,60 @@ test('LineDatum', () => {
 });
 
 test('LineDatum:onClick', () => {
-  const handleOnClick = jest.fn();
+  const handleClick = jest.fn();
   const { container } = render(
     <svg>
-      <LineDatum {...props} onClick={handleOnClick} />
+      <LineDatum {...props} onClick={handleClick} />
     </svg>
   );
 
   const circle = container.querySelector('circle');
   fireEvent.click(circle, {});
 
-  expect(handleOnClick).toHaveBeenCalled();
+  expect(handleClick).toHaveBeenCalled();
 });
 
 test('LineDatum:onMouseEnter show tooltip', () => {
-  const handleOnMouseEnter = jest.fn();
+  const handleMouseEnter = jest.fn();
   const { container } = render(
     <svg>
-      <LineDatum {...props} onMouseEnter={handleOnMouseEnter} tooltip />
+      <LineDatum {...props} onMouseEnter={handleMouseEnter} tooltip />
     </svg>
   );
 
   const circle = container.querySelector('circle');
   fireEvent.mouseEnter(circle, {});
 
-  expect(handleOnMouseEnter).toHaveBeenCalled();
+  expect(handleMouseEnter).toHaveBeenCalled();
 
   const tooltip = document.querySelector('.silky-charts-tooltip');
   expect(tooltip.nodeName).toBe('DIV');
 });
 
 test('LineDatum:onMouseLeave show tooltip', () => {
-  const handleOnMouseLeave = jest.fn();
+  const handleMouseLeave = jest.fn();
   const { container } = render(
     <svg>
-      <LineDatum {...props} onMouseLeave={handleOnMouseLeave} tooltip />
+      <LineDatum {...props} onMouseLeave={handleMouseLeave} tooltip />
     </svg>
   );
 
   const circle = container.querySelector('circle');
   fireEvent.mouseLeave(circle, {});
 
-  expect(handleOnMouseLeave).toHaveBeenCalled();
+  expect(handleMouseLeave).toHaveBeenCalled();
 
   const tooltip = document.querySelector('.silky-charts-tooltip');
   expect(tooltip).toBe(null);
+});
+
+test('LineDatum:onMouseMove', () => {
+  const { container } = render(
+    <svg>
+      <LineDatum {...props} tooltip />
+    </svg>
+  );
+
+  const circle = container.querySelector('circle');
+  fireEvent.mouseMove(circle, { pageX: 10, pageY: 10 });
 });
