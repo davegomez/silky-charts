@@ -1,4 +1,3 @@
-export { default as allDate } from './allDate';
 export { default as appendStackedValues } from './appendStackedValues';
 export { default as buildStack } from './buildStack';
 export { default as bySeries } from './bySeries';

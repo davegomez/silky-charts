@@ -1,5 +1,5 @@
 import uniq from 'ramda/src/uniq';
-import { allDate } from './';
+import { isValidDate } from './';
 
 /**
  * Validates if the values in the data's name fields are valid dates and if is
@@ -11,11 +11,12 @@ import { allDate } from './';
  * transformed new data list, and an array with the unique list of names.
  */
 export default dataset => {
-  const isDates = allDate(dataset.map(({ name }) => name));
-  const data = isDates
-    ? dataset.map(x => ({ ...x, name: new Date(x.name) }))
-    : dataset;
-  const names = uniq(data.map(({ name }) => name));
+  const isDates = isValidDate(dataset[0].name);
+  const names = uniq(dataset.map(({ name }) => name));
 
-  return [isDates, data, names];
+  return [
+    isDates,
+    isDates ? dataset.map(x => ({ ...x, name: new Date(x.name) })) : dataset,
+    isDates ? names.map(x => new Date(x)) : names,
+  ];
 };
