@@ -1,0 +1,231 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TooltipGroup 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1:not(:last-child) {
+  margin-bottom: 6px;
+}
+
+.c2 {
+  background-color: rgb(8,104,172);
+  margin-right: 2px;
+  padding: 0 3px;
+}
+
+.c3 {
+  background-color: rgb(8,104,172);
+  margin-right: 10px;
+  padding: 0 1px;
+}
+
+.c6 {
+  background-color: rgb(67,162,202);
+  margin-right: 2px;
+  padding: 0 3px;
+}
+
+.c7 {
+  background-color: rgb(67,162,202);
+  margin-right: 10px;
+  padding: 0 1px;
+}
+
+.c0 {
+  color: grey;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: right;
+}
+
+.c4 {
+  color: rgb(255,255,255);
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.c5 {
+  color: grey;
+  font-weight: 500;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    foo
+  </div>
+  <div
+    class="c1"
+  >
+    <span
+      class="c2"
+      width="6"
+    />
+    <span
+      class="c3"
+      width="2"
+    />
+    <div
+      class="c4"
+    >
+      0
+       
+      <span
+        class="c5"
+      >
+        on
+      </span>
+       
+      bar
+    </div>
+  </div>
+  <div
+    class="c1"
+  >
+    <span
+      class="c6"
+      width="6"
+    />
+    <span
+      class="c7"
+      width="2"
+    />
+    <div
+      class="c4"
+    >
+      1
+       
+      <span
+        class="c5"
+      >
+        on
+      </span>
+       
+      qux
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipGroup with date 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1:not(:last-child) {
+  margin-bottom: 6px;
+}
+
+.c2 {
+  background-color: rgb(8,104,172);
+  margin-right: 2px;
+  padding: 0 3px;
+}
+
+.c3 {
+  background-color: rgb(8,104,172);
+  margin-right: 10px;
+  padding: 0 1px;
+}
+
+.c6 {
+  background-color: rgb(67,162,202);
+  margin-right: 2px;
+  padding: 0 3px;
+}
+
+.c7 {
+  background-color: rgb(67,162,202);
+  margin-right: 10px;
+  padding: 0 1px;
+}
+
+.c0 {
+  color: grey;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: right;
+}
+
+.c4 {
+  color: rgb(255,255,255);
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.c5 {
+  color: grey;
+  font-weight: 500;
+}
+
+<div>
+  <div
+    class="c0"
+  >
+    Sep 24, 1980
+  </div>
+  <div
+    class="c1"
+  >
+    <span
+      class="c2"
+      width="6"
+    />
+    <span
+      class="c3"
+      width="2"
+    />
+    <div
+      class="c4"
+    >
+      0
+       
+      <span
+        class="c5"
+      >
+        on
+      </span>
+       
+      bar
+    </div>
+  </div>
+  <div
+    class="c1"
+  >
+    <span
+      class="c6"
+      width="6"
+    />
+    <span
+      class="c7"
+      width="2"
+    />
+    <div
+      class="c4"
+    >
+      1
+       
+      <span
+        class="c5"
+      >
+        on
+      </span>
+       
+      qux
+    </div>
+  </div>
+</div>
+`;
