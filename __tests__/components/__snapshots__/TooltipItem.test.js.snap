@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TooltipItem 1`] = `
+.c0 {
+  color: rgb(255,255,255);
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.c1 {
+  color: grey;
+  font-weight: 500;
+}
+
+<div
+  class="c0"
+>
+  0
+   
+  <span
+    class="c1"
+  >
+    on
+  </span>
+   
+  foo
+</div>
+`;
+
+exports[`TooltipItem with date 1`] = `
+.c0 {
+  color: rgb(255,255,255);
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.c1 {
+  color: grey;
+  font-weight: 500;
+}
+
+<div
+  class="c0"
+>
+  0
+   
+  <span
+    class="c1"
+  >
+    on
+  </span>
+   
+  Sep 24, 1980
+</div>
+`;
+
+exports[`TooltipItem with no color 1`] = `
+.c0 {
+  color: rgb(255,255,255);
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.c1 {
+  color: grey;
+  font-weight: 500;
+}
+
+<div
+  class="c0"
+>
+  0
+   
+  <span
+    class="c1"
+  >
+    on
+  </span>
+   
+  foo
+</div>
+`;

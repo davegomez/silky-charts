@@ -9,7 +9,6 @@ const Swatch = styled.span`
   background-color: ${({ swatchColor }) => swatchColor || grey};
   display: block;
   height: 2px;
-  /* width: 100%; */
 `;
 
 const Data = styled.div`
@@ -24,7 +23,7 @@ const Divider = styled.span`
   font-weight: 500;
 `;
 
-const SingleTooltipItem = ({
+const TooltipItem = ({
   color,
   dateFormat = TOOLTIP_DATE_FORMAT,
   name,
@@ -42,4 +41,4 @@ const SingleTooltipItem = ({
   );
 };
 
-export default SingleTooltipItem;
+export default TooltipItem;
