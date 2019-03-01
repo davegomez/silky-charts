@@ -8,6 +8,14 @@ import toPairs from 'ramda/src/toPairs';
 
 const mapIndexed = addIndex(map);
 
+/**
+ * Map all the series to a single name to be used by the tooltip group using the
+ * name as a reference according to the mouse position.
+ *
+ * @param {Array} data Chart's data.
+ * @param {Array} positions List of positions to map the data with.
+ * @returns {Object} Mapped data.
+ */
 export default (data, positions) =>
   compose(
     mergeAll,
