@@ -64,6 +64,7 @@ const StackedArea = ({
   onMouseEnter = identity,
   onMouseLeave = identity,
   responsive = false,
+  staticTooltip,
   theme = THEME,
   title,
   tooltip,
@@ -192,6 +193,7 @@ const StackedArea = ({
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
             series={series}
+            staticTooltip={staticTooltip}
             svg={svgRef.current}
             theme={theme}
             tooltip={tooltip}

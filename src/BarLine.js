@@ -68,6 +68,7 @@ const BarLine = ({
   responsive,
   secondaryTheme = SECONDARY_THEME,
   stackedSeries = [],
+  staticTooltip,
   theme = THEME,
   title,
   tooltip,
@@ -182,9 +183,12 @@ const BarLine = ({
           y={yScale}
           width={width}
           height={height}
+          margin={margin}
           onClick={onClick}
           onMouseEnter={onMouseEnter}
           onMouseLeave={onMouseLeave}
+          staticTooltip={staticTooltip}
+          svg={svgRef.current}
           tooltip={tooltip}
         />
 
@@ -217,9 +221,12 @@ const BarLine = ({
               d={line(datum)}
               xScale={xScale}
               yScale={yScale}
+              margin={margin}
               onClick={onClick}
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
+              staticTooltip={staticTooltip}
+              svg={svgRef.current}
               tooltip={tooltip}
             />
           </g>

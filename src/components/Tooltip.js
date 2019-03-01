@@ -1,14 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { tooltipBackground } from '../utils/palette';
+import getTooltipPosition from '../utils/getTooltipPosition';
 
-const Container = styled.div.attrs(({ pageX, pageY, width, height }) => ({
-  className: 'silky-charts-tooltip',
-  style: {
-    left: `${pageX - width / 2}px`,
-    top: `${pageY - height - 16}px`,
-  },
-}))`
+const Container = styled.div.attrs(
+  ({ margin, mousePosition, width, height, position, svg }) => ({
+    className: 'silky-charts-tooltip',
+    style: getTooltipPosition(
+      margin,
+      mousePosition,
+      width,
+      height,
+      position,
+      svg
+    ),
+  })
+)`
   background-color: ${tooltipBackground};
   border-radius: 4px;
   padding: 10px;
@@ -21,7 +28,7 @@ const Container = styled.div.attrs(({ pageX, pageY, width, height }) => ({
 
   &:before {
     content: '';
-    display: ${({ staticTooltip }) => (staticTooltip ? 'none' : 'block')};
+    display: ${({ position }) => (position ? 'none' : 'block')};
     width: 0;
     height: 0;
     position: absolute;

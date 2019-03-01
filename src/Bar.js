@@ -53,6 +53,7 @@ const Bar = ({
   onMouseEnter = identity,
   onMouseLeave = identity,
   responsive,
+  staticTooltip,
   theme = THEME,
   title,
   tooltip,
@@ -165,9 +166,12 @@ const Bar = ({
               y={yScale(value)}
               width={xScale.bandwidth()}
               height={height - yScale(value)}
+              margin={margin}
               onClick={onClick}
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
+              staticTooltip={staticTooltip}
+              svg={svgRef.current}
               tooltip={tooltip}
             />
           ))}

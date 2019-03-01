@@ -15,6 +15,7 @@ export { default as getNearestPoint } from './getNearestPoint';
 export { default as getStackedMax } from './getStackedMax';
 export { default as getSeries } from './getSeries';
 export { default as getSize } from './getSize';
+export { default as getTooltipPosition } from './getTooltipPosition';
 export { default as isValidDate } from './isValidDate';
 export { default as mapTooltipData } from './mapTooltipData';
 export { default as palette } from './palette';

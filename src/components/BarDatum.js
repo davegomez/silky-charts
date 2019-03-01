@@ -6,9 +6,12 @@ const BarDatum = ({
   color,
   datum,
   height,
+  margin,
   onClick,
   onMouseEnter,
   onMouseLeave,
+  staticTooltip,
+  svg,
   tooltip: withTooltip,
   width,
   x,
@@ -45,7 +48,12 @@ const BarDatum = ({
       {withTooltip &&
         tooltip.show &&
         createPortal(
-          <Tooltip pageX={tooltip.pageX} pageY={tooltip.pageY}>
+          <Tooltip
+            margin={margin}
+            mousePosition={tooltip}
+            position={staticTooltip}
+            svg={svg}
+          >
             <TooltipItem color={color} {...datum} />
           </Tooltip>,
           document.body

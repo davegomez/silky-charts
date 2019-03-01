@@ -32,6 +32,7 @@ export const X_TICKS = 10;
 export const Y_TICKS = 5;
 export const TIME_FORMAT = '%a %d';
 export const TOOLTIP_DATE_FORMAT = '%b %d, %Y';
+export const TOOLTIP_OFFSET = 20;
 export const WIDTH = 640;
 
 // Scales

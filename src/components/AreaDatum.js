@@ -13,6 +13,7 @@ const AreaDatum = ({
   onMouseEnter,
   onMouseLeave,
   series,
+  staticTooltip,
   svg,
   theme,
   tooltip: withTooltip,
@@ -65,7 +66,12 @@ const AreaDatum = ({
       {withTooltip &&
         tooltip.show &&
         createPortal(
-          <Tooltip pageX={tooltip.pageX} pageY={tooltip.pageY}>
+          <Tooltip
+            margin={margin}
+            mousePosition={tooltip}
+            position={staticTooltip}
+            svg={svg}
+          >
             <TooltipGroup theme={theme} data={currentTooltipData} />
           </Tooltip>,
           document.body

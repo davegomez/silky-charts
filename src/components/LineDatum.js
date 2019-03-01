@@ -7,9 +7,12 @@ const LineDatum = ({
   color,
   d,
   data,
+  margin,
   onClick,
   onMouseEnter,
   onMouseLeave,
+  staticTooltip,
+  svg,
   tooltip: withTooltip,
   xScale,
   yScale,
@@ -51,7 +54,12 @@ const LineDatum = ({
       {withTooltip &&
         tooltip.show &&
         createPortal(
-          <Tooltip pageX={tooltip.pageX} pageY={tooltip.pageY}>
+          <Tooltip
+            margin={margin}
+            mousePosition={tooltip}
+            position={staticTooltip}
+            svg={svg}
+          >
             <TooltipItem
               color={color}
               name={tooltip.name}
