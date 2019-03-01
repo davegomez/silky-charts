@@ -7,6 +7,7 @@ import {
 import { select as d3Select } from 'd3-selection';
 import { timeFormat as d3TimeFormat } from 'd3-time-format';
 import identity from 'ramda/src/identity';
+import { GraphContext } from './contexts';
 import {
   Axis,
   BarDatum,
@@ -40,32 +41,33 @@ import {
   TIME_FORMAT,
 } from './utils/constants';
 
-const Bar = ({
-  aspectRatio = ASPECT_RATIO,
-  data: chartData,
-  dataSource,
-  dateFormat = TIME_FORMAT,
-  grid,
-  height: svgHeight = undefined,
-  horizontal,
-  margin = MARGIN,
-  onClick = identity,
-  onMouseEnter = identity,
-  onMouseLeave = identity,
-  responsive,
-  staticTooltip,
-  theme = THEME,
-  title,
-  tooltip,
-  width: svgWidth = undefined,
-  xAxisChartLabel,
-  xAxisLabelRotation,
-  xAxisLabelRotationValue = ROTATION,
-  xAxisTicks = X_TICKS,
-  padding: xScalePadding = SCALE_PADDING,
-  yAxisChartLabel,
-  yAxisTicks = Y_TICKS,
-}) => {
+const Bar = props => {
+  const {
+    aspectRatio = ASPECT_RATIO,
+    data: chartData,
+    dataSource,
+    dateFormat = TIME_FORMAT,
+    grid,
+    height: svgHeight = undefined,
+    horizontal,
+    margin = MARGIN,
+    onClick = identity,
+    onMouseEnter = identity,
+    onMouseLeave = identity,
+    responsive,
+    staticTooltip,
+    theme = THEME,
+    title,
+    tooltip,
+    width: svgWidth = undefined,
+    xAxisChartLabel,
+    xAxisLabelRotation,
+    xAxisLabelRotationValue = ROTATION,
+    xAxisTicks = X_TICKS,
+    padding: xScalePadding = SCALE_PADDING,
+    yAxisChartLabel,
+    yAxisTicks = Y_TICKS,
+  } = props;
   const svgRef = useRef();
   const [id] = useState(getId('bar'));
   const timeFormat = d3TimeFormat(dateFormat);
@@ -99,105 +101,106 @@ const Bar = ({
   useResize(responsive, handleSize);
 
   return (
-    <SVG
-      identifier={id}
-      size={{
-        width: svgWidth || width + margin.left + margin.right,
-        height: svgHeight || height + margin.top + margin.bottom,
-      }}
-      ref={svgRef}
-    >
-      <MainGroup margin={margin}>
-        {grid && (
-          <Grid
-            ref={node =>
-              d3Select(node).call(
-                drawGrid(
-                  horizontal,
-                  xScale,
-                  height,
-                  yScale,
-                  width,
-                  xAxisTicks,
-                  yAxisTicks
+    <GraphContext.Provider value={props}>
+      <SVG
+        identifier={id}
+        size={{
+          width: svgWidth || width + margin.left + margin.right,
+          height: svgHeight || height + margin.top + margin.bottom,
+        }}
+        ref={svgRef}
+      >
+        <MainGroup margin={margin}>
+          {grid && (
+            <Grid
+              ref={node =>
+                d3Select(node).call(
+                  drawGrid(
+                    horizontal,
+                    xScale,
+                    height,
+                    yScale,
+                    width,
+                    xAxisTicks,
+                    yAxisTicks
+                  )
                 )
-              )
+              }
+            />
+          )}
+
+          {title && (
+            <Title margin={margin} width={width} height={height}>
+              {title}
+            </Title>
+          )}
+
+          {xAxisChartLabel && (
+            <Label axis="x" margin={margin} width={width} height={height}>
+              {xAxisChartLabel}
+            </Label>
+          )}
+
+          {yAxisChartLabel && (
+            <Label axis="y" margin={margin} width={width} height={height}>
+              {yAxisChartLabel}
+            </Label>
+          )}
+
+          {dataSource && (
+            <DataSource
+              dataSource={dataSource}
+              height={height}
+              margin={margin}
+              width={width}
+            />
+          )}
+
+          <DataGroup>
+            {data.map(({ name, value }, idx) => (
+              <BarDatum
+                key={idx}
+                datum={{
+                  name,
+                  value,
+                }}
+                color={getBaseColor(theme)}
+                x={xScale(name)}
+                y={yScale(value)}
+                width={xScale.bandwidth()}
+                height={height - yScale(value)}
+                margin={margin}
+                onClick={onClick}
+                onMouseEnter={onMouseEnter}
+                onMouseLeave={onMouseLeave}
+                svg={svgRef.current}
+                tooltip={tooltip}
+              />
+            ))}
+          </DataGroup>
+
+          <Axis
+            axis="x"
+            position={{ x: 0, y: height }}
+            ref={node => {
+              d3Select(node).call(
+                d3AxisBottom(xScale)
+                  .ticks(xAxisTicks)
+                  .tickFormat(isDates ? timeFormat : null)
+              );
+              xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
+            }}
+          />
+
+          <Axis
+            axis="y"
+            ref={node =>
+              d3Select(node).call(d3AxisLeft(yScale).ticks(yAxisTicks))
             }
           />
-        )}
-
-        {title && (
-          <Title margin={margin} width={width} height={height}>
-            {title}
-          </Title>
-        )}
-
-        {xAxisChartLabel && (
-          <Label axis="x" margin={margin} width={width} height={height}>
-            {xAxisChartLabel}
-          </Label>
-        )}
-
-        {yAxisChartLabel && (
-          <Label axis="y" margin={margin} width={width} height={height}>
-            {yAxisChartLabel}
-          </Label>
-        )}
-
-        {dataSource && (
-          <DataSource
-            dataSource={dataSource}
-            height={height}
-            margin={margin}
-            width={width}
-          />
-        )}
-
-        <DataGroup>
-          {data.map(({ name, value }, idx) => (
-            <BarDatum
-              key={idx}
-              datum={{
-                name,
-                value,
-              }}
-              color={getBaseColor(theme)}
-              x={xScale(name)}
-              y={yScale(value)}
-              width={xScale.bandwidth()}
-              height={height - yScale(value)}
-              margin={margin}
-              onClick={onClick}
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-              staticTooltip={staticTooltip}
-              svg={svgRef.current}
-              tooltip={tooltip}
-            />
-          ))}
-        </DataGroup>
-
-        <Axis
-          axis="x"
-          position={{ x: 0, y: height }}
-          ref={node => {
-            d3Select(node).call(
-              d3AxisBottom(xScale)
-                .ticks(xAxisTicks)
-                .tickFormat(isDates ? timeFormat : null)
-            );
-            xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
-          }}
-        />
-
-        <Axis
-          axis="y"
-          ref={node =>
-            d3Select(node).call(d3AxisLeft(yScale).ticks(yAxisTicks))
-          }
-        />
-      </MainGroup>
-    </SVG>
+        </MainGroup>
+      </SVG>
+    </GraphContext.Provider>
   );
 };
 

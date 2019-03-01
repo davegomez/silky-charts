@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import { GraphContext } from '../contexts';
 import { tooltipBackground } from '../utils/palette';
 import getTooltipPosition from '../utils/getTooltipPosition';
 
@@ -42,6 +43,7 @@ const Container = styled.div.attrs(
 
 const Tooltip = props => {
   const tooltipRef = useRef();
+  const { staticTooltip } = useContext(GraphContext);
   const [size, setSize] = useState({
     width: 0,
     height: 0,
@@ -53,7 +55,7 @@ const Tooltip = props => {
   }, [tooltipRef, setSize]);
 
   return (
-    <Container ref={tooltipRef} {...size} {...props}>
+    <Container ref={tooltipRef} {...size} {...props} position={staticTooltip}>
       {props.children}
     </Container>
   );
