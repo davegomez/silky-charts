@@ -41,33 +41,32 @@ import {
   TIME_FORMAT,
 } from './utils/constants';
 
-const Bar = props => {
-  const {
-    aspectRatio = ASPECT_RATIO,
-    data: chartData,
-    dataSource,
-    dateFormat = TIME_FORMAT,
-    grid,
-    height: svgHeight = undefined,
-    horizontal,
-    margin = MARGIN,
-    onClick = identity,
-    onMouseEnter = identity,
-    onMouseLeave = identity,
-    responsive,
-    staticTooltip,
-    theme = THEME,
-    title,
-    tooltip,
-    width: svgWidth = undefined,
-    xAxisChartLabel,
-    xAxisLabelRotation,
-    xAxisLabelRotationValue = ROTATION,
-    xAxisTicks = X_TICKS,
-    padding: xScalePadding = SCALE_PADDING,
-    yAxisChartLabel,
-    yAxisTicks = Y_TICKS,
-  } = props;
+const Bar = ({
+  aspectRatio = ASPECT_RATIO,
+  data: chartData,
+  dataSource,
+  dateFormat = TIME_FORMAT,
+  grid,
+  height: svgHeight = undefined,
+  horizontal,
+  margin = MARGIN,
+  onClick = identity,
+  onMouseEnter = identity,
+  onMouseLeave = identity,
+  responsive,
+  staticTooltip,
+  theme = THEME,
+  title,
+  tooltip,
+  width: svgWidth = undefined,
+  xAxisChartLabel,
+  xAxisLabelRotation,
+  xAxisLabelRotationValue = ROTATION,
+  xAxisTicks = X_TICKS,
+  padding: xScalePadding = SCALE_PADDING,
+  yAxisChartLabel,
+  yAxisTicks = Y_TICKS,
+}) => {
   const svgRef = useRef();
   const [id] = useState(getId('bar'));
   const timeFormat = d3TimeFormat(dateFormat);
@@ -101,7 +100,9 @@ const Bar = props => {
   useResize(responsive, handleSize);
 
   return (
-    <GraphContext.Provider value={props}>
+    <GraphContext.Provider
+      value={{ margin, node: svgRef.current, staticTooltip }}
+    >
       <SVG
         identifier={id}
         size={{
@@ -169,11 +170,9 @@ const Bar = props => {
                 y={yScale(value)}
                 width={xScale.bandwidth()}
                 height={height - yScale(value)}
-                margin={margin}
                 onClick={onClick}
                 onMouseEnter={onMouseEnter}
                 onMouseLeave={onMouseLeave}
-                svg={svgRef.current}
                 tooltip={tooltip}
               />
             ))}
