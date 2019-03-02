@@ -1,3 +1,4 @@
+import always from 'ramda/src/always';
 import { TOOLTIP_OFFSET } from './constants';
 
 /**
@@ -23,15 +24,15 @@ export default (
   position = 'default'
 ) => {
   const { top, right, bottom, left } = node.getBoundingClientRect();
-  const leftOffset = left + margin.left + TOOLTIP_OFFSET;
-  const topOffset = top + margin.top + TOOLTIP_OFFSET;
-  const rightOffset = right - width - margin.right - TOOLTIP_OFFSET;
-  const bottomOffset = bottom - height - margin.bottom - TOOLTIP_OFFSET;
+  const leftOffset = always(left + margin.left + TOOLTIP_OFFSET);
+  const topOffset = always(top + margin.top + TOOLTIP_OFFSET);
+  const rightOffset = always(right - width - margin.right - TOOLTIP_OFFSET);
+  const bottomOffset = always(bottom - height - margin.bottom - TOOLTIP_OFFSET);
   const positionMap = {
-    'top-left': { left: leftOffset, top: topOffset },
-    'top-right': { left: rightOffset, top: topOffset },
-    'bottom-right': { left: rightOffset, top: bottomOffset },
-    'bottom-left': { left: leftOffset, top: bottomOffset },
+    'top-left': { left: leftOffset(), top: topOffset() },
+    'top-right': { left: rightOffset(), top: topOffset() },
+    'bottom-right': { left: rightOffset(), top: bottomOffset() },
+    'bottom-left': { left: leftOffset(), top: bottomOffset() },
     default: {
       left: pageX - width / 2,
       top: pageY - height - 16,
