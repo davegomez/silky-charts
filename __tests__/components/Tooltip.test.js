@@ -1,17 +1,25 @@
 import React from 'react';
 import { render, cleanup } from 'react-testing-library';
+import { GraphContext } from '../../src/contexts';
 import { Tooltip } from '../../src/components';
+import graphContext from '../../__mocks__/graphContext';
 import 'jest-styled-components';
 
 const props = {
-  pageX: 100,
-  pageY: 100,
+  mousePosition: {
+    pageX: 180,
+    pageY: 45,
+  },
 };
 
 afterEach(cleanup);
 
 test('Tooltip', () => {
-  const { container } = render(<Tooltip {...props}>foo</Tooltip>);
+  const { container } = render(
+    <GraphContext.Provider value={graphContext}>
+      <Tooltip {...props}>foo</Tooltip>
+    </GraphContext.Provider>
+  );
 
   const tooltip = container.firstChild;
   expect(tooltip).toMatchSnapshot();
@@ -19,27 +27,17 @@ test('Tooltip', () => {
   expect(tooltip.textContent).toEqual('foo');
 });
 
-test('SVG', () => {
+test('Tooltip static', () => {
   const { container } = render(
-    <Tooltip {...props}>
-      <div width="100px" className="child">
-        foo
-      </div>
-    </Tooltip>
-  );
-
-  const tooltip = container.firstChild;
-  expect(tooltip).toMatchSnapshot();
-  expect(tooltip.classList.contains('silky-charts-tooltip')).toBe(true);
-});
-
-test('SVG for static tooltips', () => {
-  const { container } = render(
-    <Tooltip {...props} staticTooltip>
-      <div width="100px" className="child">
-        foo
-      </div>
-    </Tooltip>
+    <GraphContext.Provider
+      value={{ ...graphContext, staticTooltip: 'top-left' }}
+    >
+      <Tooltip {...props}>
+        <div width="100px" className="child">
+          foo
+        </div>
+      </Tooltip>
+    </GraphContext.Provider>
   );
 
   const tooltip = container.firstChild;

@@ -64,7 +64,6 @@ const StackedArea = ({
   onMouseEnter = identity,
   onMouseLeave = identity,
   responsive = false,
-  staticTooltip,
   theme = THEME,
   title,
   tooltip,
@@ -193,7 +192,6 @@ const StackedArea = ({
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
             series={series}
-            staticTooltip={staticTooltip}
             svg={svgRef.current}
             theme={theme}
             tooltip={tooltip}
@@ -208,7 +206,7 @@ const StackedArea = ({
             d3Select(node).call(
               d3AxisBottom(xScale)
                 .ticks(xAxisTicks)
-                .tickFormat(isDates ? timeFormat : null)
+                .tickFormat(timeFormat)
             );
             xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
           }}

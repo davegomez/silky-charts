@@ -4,19 +4,10 @@ import { GraphContext } from '../contexts';
 import { tooltipBackground } from '../utils/palette';
 import getTooltipPosition from '../utils/getTooltipPosition';
 
-const Container = styled.div.attrs(
-  ({ margin, mousePosition, width, height, position, svg }) => ({
-    className: 'silky-charts-tooltip',
-    style: getTooltipPosition(
-      margin,
-      mousePosition,
-      width,
-      height,
-      position,
-      svg
-    ),
-  })
-)`
+const TooltipBubble = styled.div.attrs(({ position }) => ({
+  className: 'silky-charts-tooltip',
+  style: position,
+}))`
   background-color: ${tooltipBackground};
   border-radius: 4px;
   padding: 10px;
@@ -29,7 +20,7 @@ const Container = styled.div.attrs(
 
   &:before {
     content: '';
-    display: ${({ position }) => (position ? 'none' : 'block')};
+    display: ${({ staticTooltip }) => (staticTooltip ? 'none' : 'block')};
     width: 0;
     height: 0;
     position: absolute;
@@ -41,13 +32,17 @@ const Container = styled.div.attrs(
   }
 `;
 
-const Tooltip = props => {
+const Tooltip = ({ children, mousePosition }) => {
   const tooltipRef = useRef();
-  const { staticTooltip } = useContext(GraphContext);
-  const [size, setSize] = useState({
-    width: 0,
-    height: 0,
-  });
+  const { margin, node, staticTooltip } = useContext(GraphContext);
+  const [size, setSize] = useState({ width: 0, height: 0 });
+  const position = getTooltipPosition(
+    node,
+    margin,
+    mousePosition,
+    size,
+    staticTooltip
+  );
 
   useEffect(() => {
     const { offsetWidth, offsetHeight } = tooltipRef.current;
@@ -55,9 +50,14 @@ const Tooltip = props => {
   }, [tooltipRef, setSize]);
 
   return (
-    <Container ref={tooltipRef} {...size} {...props} position={staticTooltip}>
-      {props.children}
-    </Container>
+    <TooltipBubble
+      ref={tooltipRef}
+      position={position}
+      staticTooltip={staticTooltip}
+      {...size}
+    >
+      {children}
+    </TooltipBubble>
   );
 };
 

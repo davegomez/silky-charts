@@ -1,5 +1,7 @@
 import React from 'react';
 import { render, fireEvent, cleanup } from 'react-testing-library';
+import { GraphContext } from '../../src/contexts';
+import graphContext from '../../__mocks__/graphContext';
 import { AreaDatum } from '../../src/components';
 import 'jest-styled-components';
 
@@ -43,7 +45,9 @@ test('AreaDatum:onMouseEnter show tooltip', () => {
 
   const { container } = render(
     <svg>
-      <AreaDatum {...props} onMouseEnter={handleMouseEnter} tooltip />
+      <GraphContext.Provider value={graphContext}>
+        <AreaDatum {...props} onMouseEnter={handleMouseEnter} tooltip />
+      </GraphContext.Provider>
     </svg>
   );
 
@@ -80,7 +84,9 @@ test('AreaDatum:onMouseLeave hide tooltip', () => {
 test('AreaDatum:onMouseMove', () => {
   const { container } = render(
     <svg>
-      <AreaDatum {...props} tooltip />
+      <GraphContext.Provider value={graphContext}>
+        <AreaDatum {...props} tooltip />
+      </GraphContext.Provider>
     </svg>
   );
 

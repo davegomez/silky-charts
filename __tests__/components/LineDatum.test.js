@@ -1,6 +1,8 @@
 import React from 'react';
 import { render, fireEvent, cleanup } from 'react-testing-library';
 import always from 'ramda/src/always';
+import { GraphContext } from '../../src/contexts';
+import graphContext from '../../__mocks__/graphContext';
 import { LineDatum } from '../../src/components';
 import 'jest-styled-components';
 
@@ -59,7 +61,9 @@ test('LineDatum:onMouseEnter show tooltip', () => {
   const handleMouseEnter = jest.fn();
   const { container } = render(
     <svg>
-      <LineDatum {...props} onMouseEnter={handleMouseEnter} tooltip />
+      <GraphContext.Provider value={graphContext}>
+        <LineDatum {...props} onMouseEnter={handleMouseEnter} tooltip />
+      </GraphContext.Provider>
     </svg>
   );
 

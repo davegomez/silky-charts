@@ -1,87 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SVG 1`] = `
-.c0 {
-  background-color: rgba(0,0,0,0.85);
-  border-radius: 4px;
-  padding: 10px;
-  pointer-events: none;
-  position: absolute;
-  text-align: center;
-  left: 0;
-  top: 0;
-  z-index: 1;
-}
-
-.c0:before {
-  content: '';
-  display: block;
-  width: 0;
-  height: 0;
-  position: absolute;
-  border-left: 8px solid transparent;
-  border-top: 8px solid rgba(0,0,0,0.85);
-  border-right: 8px solid transparent;
-  left: -8px;
-  top: 0px;
-}
-
-<div
-  class="silky-charts-tooltip c0"
-  height="0"
-  style="left: 100px; top: 84px;"
-  width="0"
->
-  <div
-    class="child"
-    width="100px"
-  >
-    foo
-  </div>
-</div>
-`;
-
-exports[`SVG for static tooltips 1`] = `
-.c0 {
-  background-color: rgba(0,0,0,0.85);
-  border-radius: 4px;
-  padding: 10px;
-  pointer-events: none;
-  position: absolute;
-  text-align: center;
-  left: 0;
-  top: 0;
-  z-index: 1;
-}
-
-.c0:before {
-  content: '';
-  display: none;
-  width: 0;
-  height: 0;
-  position: absolute;
-  border-left: 8px solid transparent;
-  border-top: 8px solid rgba(0,0,0,0.85);
-  border-right: 8px solid transparent;
-  left: -8px;
-  top: 0px;
-}
-
-<div
-  class="silky-charts-tooltip c0"
-  height="0"
-  style="left: 100px; top: 84px;"
-  width="0"
->
-  <div
-    class="child"
-    width="100px"
-  >
-    foo
-  </div>
-</div>
-`;
-
 exports[`Tooltip 1`] = `
 .c0 {
   background-color: rgba(0,0,0,0.85);
@@ -111,9 +29,50 @@ exports[`Tooltip 1`] = `
 <div
   class="silky-charts-tooltip c0"
   height="0"
-  style="left: 100px; top: 84px;"
+  style="left: 180px; top: 29px;"
   width="0"
 >
   foo
+</div>
+`;
+
+exports[`Tooltip static 1`] = `
+.c0 {
+  background-color: rgba(0,0,0,0.85);
+  border-radius: 4px;
+  padding: 10px;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.c0:before {
+  content: '';
+  display: none;
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-left: 8px solid transparent;
+  border-top: 8px solid rgba(0,0,0,0.85);
+  border-right: 8px solid transparent;
+  left: -8px;
+  top: 0px;
+}
+
+<div
+  class="silky-charts-tooltip c0"
+  height="0"
+  style="left: 40px; top: 40px;"
+  width="0"
+>
+  <div
+    class="child"
+    width="100px"
+  >
+    foo
+  </div>
 </div>
 `;

@@ -1,5 +1,7 @@
 import React from 'react';
 import { render, fireEvent, cleanup } from 'react-testing-library';
+import { GraphContext } from '../../src/contexts';
+import graphContext from '../../__mocks__/graphContext';
 import { BarDatum } from '../../src/components';
 import 'jest-styled-components';
 
@@ -44,9 +46,11 @@ test('BarDatum:onClick', () => {
 test('BarDatum:onMouseEnter show tooltip', () => {
   const handleMouseEnter = jest.fn();
   const { container } = render(
-    <svg>
-      <BarDatum {...props} onMouseEnter={handleMouseEnter} tooltip />
-    </svg>
+    <GraphContext.Provider value={graphContext}>
+      <svg>
+        <BarDatum {...props} onMouseEnter={handleMouseEnter} tooltip />
+      </svg>
+    </GraphContext.Provider>
   );
 
   const svg = container.querySelector('svg');

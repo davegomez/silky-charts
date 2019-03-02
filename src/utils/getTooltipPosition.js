@@ -5,46 +5,36 @@ import { TOOLTIP_OFFSET } from './constants';
  * the prop staticTooltip of use the default instead to position the tooltip
  * on top of the mouse cursor.
  *
+ * @param {Object} node Graph's SVG node.
  * @param {Object} margin Chart's maring prop.
  * @param {Object} mousePosition PageX and PageY values returned by the
  * mouseMove event.
- * @param {Number} width Tooltip bubble width.
- * @param {Number} height Tooltip bubble height.
+ * @param {Object} size Tooltip bubble width and height.
  * @param {String} position Position of the tooltip specified in the
  * staticTooltip prop.
- * @param {Object} svg Chart's SVG node.
  * @returns {Object} Object containing the top and left values to position the
  * tooltip.
  */
 export default (
+  node,
   margin,
   { pageX, pageY },
-  width,
-  height,
-  position = 'default',
-  svg
+  { width, height },
+  position = 'default'
 ) => {
-  const { top, right, bottom, left } = svg.getBoundingClientRect();
+  const { top, right, bottom, left } = node.getBoundingClientRect();
+  const leftOffset = left + margin.left + TOOLTIP_OFFSET;
+  const topOffset = top + margin.top + TOOLTIP_OFFSET;
+  const rightOffset = right - width - margin.right - TOOLTIP_OFFSET;
+  const bottomOffset = bottom - height - margin.bottom - TOOLTIP_OFFSET;
   const positionMap = {
-    'top-left': {
-      left: left + margin.left + TOOLTIP_OFFSET,
-      top: top + margin.top + TOOLTIP_OFFSET,
-    },
-    'top-right': {
-      left: right - width - margin.right - TOOLTIP_OFFSET,
-      top: top + margin.top + TOOLTIP_OFFSET,
-    },
-    'bottom-right': {
-      left: right - width - margin.right - TOOLTIP_OFFSET,
-      top: bottom - height - margin.bottom - TOOLTIP_OFFSET,
-    },
-    'bottom-left': {
-      left: left + margin.left + TOOLTIP_OFFSET,
-      top: bottom - height - margin.bottom - TOOLTIP_OFFSET,
-    },
+    'top-left': { left: leftOffset, top: topOffset },
+    'top-right': { left: rightOffset, top: topOffset },
+    'bottom-right': { left: rightOffset, top: bottomOffset },
+    'bottom-left': { left: leftOffset, top: bottomOffset },
     default: {
-      left: `${pageX - width / 2}px`,
-      top: `${pageY - height - 16}px`,
+      left: pageX - width / 2,
+      top: pageY - height - 16,
     },
   };
 
