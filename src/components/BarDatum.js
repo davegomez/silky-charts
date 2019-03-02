@@ -6,7 +6,6 @@ const BarDatum = ({
   color,
   datum,
   height,
-  margin,
   onClick,
   onMouseEnter,
   onMouseLeave,
@@ -46,7 +45,7 @@ const BarDatum = ({
       {withTooltip &&
         tooltip.show &&
         createPortal(
-          <Tooltip margin={margin} mousePosition={tooltip}>
+          <Tooltip mousePosition={tooltip}>
             <TooltipItem color={color} {...datum} />
           </Tooltip>,
           document.body

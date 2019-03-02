@@ -9,6 +9,7 @@ import { line as d3Line } from 'd3-shape';
 import { timeFormat as d3TimeFormat } from 'd3-time-format';
 import head from 'ramda/src/head';
 import identity from 'ramda/src/identity';
+import { GraphContext } from './contexts';
 import {
   Axis,
   Grid,
@@ -121,118 +122,119 @@ const BarLine = ({
   useResize(responsive, handleSize);
 
   return (
-    <SVG
-      identifier={id}
-      size={{
-        width: svgWidth || width + margin.left + margin.right,
-        height: svgHeight || height + margin.top + margin.bottom,
-      }}
-      ref={svgRef}
+    <GraphContext.Provider
+      value={{ margin, node: svgRef.current, staticTooltip }}
     >
-      <MainGroup margin={margin}>
-        {grid && (
-          <Grid
-            ref={node =>
-              d3Select(node).call(
-                drawGrid(
-                  horizontal,
-                  xScale,
-                  height,
-                  yScale,
-                  width,
-                  xAxisTicks,
-                  yAxisTicks
+      <SVG
+        identifier={id}
+        size={{
+          width: svgWidth || width + margin.left + margin.right,
+          height: svgHeight || height + margin.top + margin.bottom,
+        }}
+        ref={svgRef}
+      >
+        <MainGroup margin={margin}>
+          {grid && (
+            <Grid
+              ref={node =>
+                d3Select(node).call(
+                  drawGrid(
+                    horizontal,
+                    xScale,
+                    height,
+                    yScale,
+                    width,
+                    xAxisTicks,
+                    yAxisTicks
+                  )
                 )
-              )
+              }
+            />
+          )}
+
+          {title && (
+            <Title margin={margin} width={width}>
+              {title}
+            </Title>
+          )}
+
+          {xAxisChartLabel && (
+            <Label axis="x" margin={margin} width={width} height={height}>
+              {xAxisChartLabel}
+            </Label>
+          )}
+
+          {yAxisChartLabel && (
+            <Label axis="y" margin={margin} width={width} height={height}>
+              {yAxisChartLabel}
+            </Label>
+          )}
+
+          {dataSource && (
+            <DataSource
+              dataSource={dataSource}
+              height={height}
+              margin={margin}
+              width={width}
+            />
+          )}
+
+          <StackedBarDatum
+            data={data}
+            series={stack}
+            theme={theme}
+            x={xScale}
+            y={yScale}
+            width={width}
+            height={height}
+            onClick={onClick}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+            tooltip={tooltip}
+          />
+
+          <Axis
+            axis="x"
+            position={{ x: 0, y: height }}
+            ref={node => {
+              d3Select(node).call(
+                d3AxisBottom(xScale)
+                  .ticks(xAxisTicks)
+                  .tickFormat(isDates ? timeFormat : null)
+              );
+              xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
+            }}
+          />
+
+          <Axis
+            axis="y"
+            ref={node =>
+              d3Select(node).call(d3AxisLeft(yScale).ticks(yAxisTicks))
             }
           />
-        )}
 
-        {title && (
-          <Title margin={margin} width={width}>
-            {title}
-          </Title>
-        )}
-
-        {xAxisChartLabel && (
-          <Label axis="x" margin={margin} width={width} height={height}>
-            {xAxisChartLabel}
-          </Label>
-        )}
-
-        {yAxisChartLabel && (
-          <Label axis="y" margin={margin} width={width} height={height}>
-            {yAxisChartLabel}
-          </Label>
-        )}
-
-        {dataSource && (
-          <DataSource
-            dataSource={dataSource}
-            height={height}
-            margin={margin}
-            width={width}
-          />
-        )}
-
-        <StackedBarDatum
-          data={data}
-          series={stack}
-          theme={theme}
-          x={xScale}
-          y={yScale}
-          width={width}
-          height={height}
-          margin={margin}
-          onClick={onClick}
-          onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave}
-          staticTooltip={staticTooltip}
-          svg={svgRef.current}
-          tooltip={tooltip}
-        />
-
-        <Axis
-          axis="x"
-          position={{ x: 0, y: height }}
-          ref={node => {
-            d3Select(node).call(
-              d3AxisBottom(xScale)
-                .ticks(xAxisTicks)
-                .tickFormat(isDates ? timeFormat : null)
-            );
-            xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
-          }}
-        />
-
-        <Axis
-          axis="y"
-          ref={node =>
-            d3Select(node).call(d3AxisLeft(yScale).ticks(yAxisTicks))
-          }
-        />
-
-        {lineData.map((datum, idx) => (
-          <g className={`${head(datum)['series']}-layer`} key={idx}>
-            <LineDatum
-              chart="bar-line"
-              data={datum}
-              color={palette.themes[secondaryTheme][idx]}
-              d={line(datum)}
-              xScale={xScale}
-              yScale={yScale}
-              margin={margin}
-              onClick={onClick}
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-              staticTooltip={staticTooltip}
-              svg={svgRef.current}
-              tooltip={tooltip}
-            />
-          </g>
-        ))}
-      </MainGroup>
-    </SVG>
+          {lineData.map((datum, idx) => (
+            <g className={`${head(datum)['series']}-layer`} key={idx}>
+              <LineDatum
+                chart="bar-line"
+                data={datum}
+                color={palette.themes[secondaryTheme][idx]}
+                d={line(datum)}
+                xScale={xScale}
+                yScale={yScale}
+                margin={margin}
+                onClick={onClick}
+                onMouseEnter={onMouseEnter}
+                onMouseLeave={onMouseLeave}
+                staticTooltip={staticTooltip}
+                svg={svgRef.current}
+                tooltip={tooltip}
+              />
+            </g>
+          ))}
+        </MainGroup>
+      </SVG>
+    </GraphContext.Provider>
   );
 };
 

@@ -8,6 +8,7 @@ import { select as d3Select } from 'd3-selection';
 import { area as d3Area } from 'd3-shape';
 import { timeFormat as d3TimeFormat } from 'd3-time-format';
 import identity from 'ramda/src/identity';
+import { GraphContext } from './contexts';
 import {
   AreaDatum,
   Axis,
@@ -64,6 +65,7 @@ const StackedArea = ({
   onMouseEnter = identity,
   onMouseLeave = identity,
   responsive = false,
+  staticTooltip,
   theme = THEME,
   title,
   tooltip,
@@ -126,100 +128,102 @@ const StackedArea = ({
   useResize(responsive, handleSize);
 
   return (
-    <SVG
-      identifier={id}
-      size={{
-        width: svgWidth || width + margin.left + margin.right,
-        height: svgHeight || height + margin.top + margin.bottom,
-      }}
-      ref={svgRef}
+    <GraphContext.Provider
+      value={{ margin, node: svgRef.current, staticTooltip }}
     >
-      <MainGroup margin={margin}>
-        {grid && (
-          <Grid
-            ref={node =>
-              d3Select(node).call(
-                drawGrid(
-                  horizontal,
-                  xScale,
-                  height,
-                  yScale,
-                  width,
-                  xAxisTicks,
-                  yAxisTicks
+      <SVG
+        identifier={id}
+        size={{
+          width: svgWidth || width + margin.left + margin.right,
+          height: svgHeight || height + margin.top + margin.bottom,
+        }}
+        ref={svgRef}
+      >
+        <MainGroup margin={margin}>
+          {grid && (
+            <Grid
+              ref={node =>
+                d3Select(node).call(
+                  drawGrid(
+                    horizontal,
+                    xScale,
+                    height,
+                    yScale,
+                    width,
+                    xAxisTicks,
+                    yAxisTicks
+                  )
                 )
-              )
+              }
+            />
+          )}
+
+          {title && (
+            <Title margin={margin} width={width}>
+              {title}
+            </Title>
+          )}
+
+          {xAxisChartLabel && (
+            <Label axis="x" margin={margin} width={width} height={height}>
+              {xAxisChartLabel}
+            </Label>
+          )}
+
+          {yAxisChartLabel && (
+            <Label axis="y" margin={margin} width={width} height={height}>
+              {yAxisChartLabel}
+            </Label>
+          )}
+
+          {dataSource && (
+            <DataSource
+              dataSource={dataSource}
+              height={height}
+              margin={margin}
+              width={width}
+            />
+          )}
+
+          {bySeries(data).map(([series, datum], idx) => (
+            <AreaDatum
+              area={area}
+              dataPositions={dataPositions}
+              datum={datum}
+              fillColor={palette.themes[theme][idx]}
+              key={idx}
+              onClick={onClick}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+              series={series}
+              theme={theme}
+              tooltip={tooltip}
+              tooltipData={tooltipData}
+            />
+          ))}
+
+          <Axis
+            axis="x"
+            position={{ x: 0, y: height }}
+            ref={node => {
+              d3Select(node).call(
+                d3AxisBottom(xScale)
+                  .ticks(xAxisTicks)
+                  .tickFormat(timeFormat)
+              );
+              xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
+            }}
+          />
+
+          <Axis
+            axis="y"
+            ref={node =>
+              d3Select(node).call(d3AxisLeft(yScale).ticks(yAxisTicks))
             }
           />
-        )}
-
-        {title && (
-          <Title margin={margin} width={width}>
-            {title}
-          </Title>
-        )}
-
-        {xAxisChartLabel && (
-          <Label axis="x" margin={margin} width={width} height={height}>
-            {xAxisChartLabel}
-          </Label>
-        )}
-
-        {yAxisChartLabel && (
-          <Label axis="y" margin={margin} width={width} height={height}>
-            {yAxisChartLabel}
-          </Label>
-        )}
-
-        {dataSource && (
-          <DataSource
-            dataSource={dataSource}
-            height={height}
-            margin={margin}
-            width={width}
-          />
-        )}
-
-        {bySeries(data).map(([series, datum], idx) => (
-          <AreaDatum
-            area={area}
-            dataPositions={dataPositions}
-            datum={datum}
-            fillColor={palette.themes[theme][idx]}
-            key={idx}
-            margin={margin}
-            onClick={onClick}
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
-            series={series}
-            svg={svgRef.current}
-            theme={theme}
-            tooltip={tooltip}
-            tooltipData={tooltipData}
-          />
-        ))}
-
-        <Axis
-          axis="x"
-          position={{ x: 0, y: height }}
-          ref={node => {
-            d3Select(node).call(
-              d3AxisBottom(xScale)
-                .ticks(xAxisTicks)
-                .tickFormat(timeFormat)
-            );
-            xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
-          }}
-        />
-
-        <Axis
-          axis="y"
-          ref={node =>
-            d3Select(node).call(d3AxisLeft(yScale).ticks(yAxisTicks))
-          }
-        />
-      </MainGroup>
-    </SVG>
+        </MainGroup>
+      </SVG>
+    </GraphContext.Provider>
   );
 };
 

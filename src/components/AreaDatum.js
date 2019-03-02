@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { GraphContext } from '../contexts';
 import { Path, Tooltip, TooltipGroup } from './';
 import { classify, getMousePosition, getNearestPoint } from '../utils';
 
@@ -8,16 +9,15 @@ const AreaDatum = ({
   dataPositions,
   datum,
   fillColor,
-  margin,
   onClick,
   onMouseEnter,
   onMouseLeave,
   series,
-  svg,
   theme,
   tooltip: withTooltip,
   tooltipData,
 }) => {
+  const { margin, node } = useContext(GraphContext);
   const [tooltip, setTooltip] = useState({
     pageX: null,
     pageY: null,
@@ -53,7 +53,7 @@ const AreaDatum = ({
           }}
           onMouseMove={event => {
             const { pageX, pageY } = event;
-            const [x] = getMousePosition(svg, event);
+            const [x] = getMousePosition(node, event);
             const nearest = getNearestPoint(x, margin.left, dataPositions);
             setTooltip(state => ({ ...state, pageX, pageY }));
             if (nearest !== nearestPoint && tooltipData[nearest]) {

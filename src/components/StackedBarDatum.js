@@ -6,13 +6,10 @@ import { palette } from '../utils';
 
 const StackedBarDatum = ({
   height,
-  margin,
   onClick,
   onMouseEnter,
   onMouseLeave,
   series,
-  svg,
-  staticTooltip,
   theme,
   tooltip,
   x,
@@ -30,12 +27,9 @@ const StackedBarDatum = ({
             color={palette.themes[theme][layer.index]}
             datum={{ name, value }}
             height={height - y(value)}
-            margin={margin}
             onClick={onClick}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
-            svg={svg}
-            staticTooltip={staticTooltip}
             tooltip={tooltip}
             width={x.bandwidth()}
             x={x(name)}

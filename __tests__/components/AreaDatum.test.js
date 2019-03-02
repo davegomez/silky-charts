@@ -30,9 +30,11 @@ afterEach(cleanup);
 
 test('AreaDatum', () => {
   const { container } = render(
-    <svg>
-      <AreaDatum {...props} />
-    </svg>
+    <GraphContext.Provider value={graphContext}>
+      <svg>
+        <AreaDatum {...props} />
+      </svg>
+    </GraphContext.Provider>
   );
 
   const area = container.querySelector('g');
@@ -44,11 +46,11 @@ test('AreaDatum:onMouseEnter show tooltip', () => {
   const handleMouseEnter = jest.fn();
 
   const { container } = render(
-    <svg>
-      <GraphContext.Provider value={graphContext}>
+    <GraphContext.Provider value={graphContext}>
+      <svg>
         <AreaDatum {...props} onMouseEnter={handleMouseEnter} tooltip />
-      </GraphContext.Provider>
-    </svg>
+      </svg>
+    </GraphContext.Provider>
   );
 
   const path = container.querySelector('path');
@@ -64,9 +66,11 @@ test('AreaDatum:onMouseLeave hide tooltip', () => {
   const handleMouseLeave = jest.fn();
 
   const { container } = render(
-    <svg>
-      <AreaDatum {...props} onMouseLeave={handleMouseLeave} tooltip />
-    </svg>
+    <GraphContext.Provider value={graphContext}>
+      <svg>
+        <AreaDatum {...props} onMouseLeave={handleMouseLeave} tooltip />
+      </svg>
+    </GraphContext.Provider>
   );
 
   const svg = container.querySelector('svg');
@@ -83,11 +87,11 @@ test('AreaDatum:onMouseLeave hide tooltip', () => {
 
 test('AreaDatum:onMouseMove', () => {
   const { container } = render(
-    <svg>
-      <GraphContext.Provider value={graphContext}>
+    <GraphContext.Provider value={graphContext}>
+      <svg>
         <AreaDatum {...props} tooltip />
-      </GraphContext.Provider>
-    </svg>
+      </svg>
+    </GraphContext.Provider>
   );
 
   const path = container.querySelector('path');
