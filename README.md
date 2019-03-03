@@ -34,16 +34,15 @@
   + [In the browser with UNPKG](#in-the-browser-with-unpkg)
 + [Common props](#common-props)
 + [Color themes](#color-themes)
-+ [Bar chart](#bar-chart)
++ [Bar](#bar)
   + [Data definition](#data-definition)
   + [Props](#props)
-+ [BarLine chart](#barline-chart)
++ [BarLine](#barline)
   + [Data definition](#data-definition-1)
   + [Props](#props-1)
-+ [StackedArea chart](#stackedarea-chart)
++ [StackedArea](#stackedarea)
   + [Data definition](#data-definition-2)
   + [Props](#props-2)
-  + [Roadmap](#roadmap-1)
 + [Contributing](#contributing)
   + [How to use the playground](#how-to-use-the-playground)
   + [Create a Pull Request](#create-a-pull-request)
@@ -135,27 +134,29 @@ Most props and options are present indistinguishable in all charts.
 | onMouseEnter            |    `Function`     |                | Callback function to call during the onMouseEnter event.                                                                          |
 | onMouseLeave            |    `Function`     |                | Callback function to call during the OnMouseLeave event.                                                                          |
 | responsive              |     `Boolean`     |    `false`     | Activates the chart responsiveness feature.                                                                                       |
+| staticTooltip           |     `String`      |                | Makes the tooltip to be static on the provided position. `[3]`                                                                    |
 | theme                   |     `String`      | `"monteCarlo"` | Color theme name. [Color themes](#color-themes)                                                                                   |
-| tooltip                 |     `Boolean`     |    `false`     | Activates the built in tooltip.                                                                                                   |
 | title                   |     `String`      |                | Sets the title of the chart.                                                                                                      |
+| tooltip                 |     `Boolean`     |    `false`     | Activates the built in tooltip.                                                                                                   |
 | width                   |     `Number`      |     `640`      | Sets the chart's width.                                                                                                           |
 | xAxisChartLabel         |     `String`      |                | Sets the Chart's X axis label (you might need to adjust the margin).                                                              |
 | xAxisLabelRotation      |     `Boolean`     |    `false`     | Rotates the X axis labels when these are to long to fit horizontally.                                                             |
 | xAxisLabelRotationValue |     `Number`      |     `-50`      | Overrides the default X axis label rotation value.                                                                                |
 | xAxisTicks              |     `Number`      |      `10`      | Sets the number of ticks of the x axis on the chart. `[4]`                                                                        |
 | yAxisChartLabel         |     `String`      |                | Sets the Chart's Y axis label (you might need to adjust the margin).                                                              |
-| yAxisTicks              |     `Number`      |      `5`       | Sets the number of ticks of the y axis on the chart. `[4]`                                                                        |
+| yAxisTicks              |     `Number`      |      `5`       | Sets the number of ticks of the y axis on the chart. `[5]`                                                                        |
 
 - `[1]` The ISO dates will be formatted using [D3's date formatting rules](https://github.com/d3/d3-time-format).
 - `[2]` The default values for the margin `prop` is `{ top: 40, right: 50, bottom: 50, left: 50 }`.
-- `[3]` If you want to display the data source label as a link you can pass an object with `{ href, target, text, title }` instead.
-- `[4]` The specified count is only a hint; the scale may return more or fewer values depending on the domain. [Read more...](https://github.com/d3/d3-scale/blob/master/README.md#continuous_ticks)
+- `[3]` The static tooltip requires `tooltip` and the available positions are `top-left`, `top-right`, `bottom-right`, and `bottom-left`.
+- `[4]` If you want to display the data source label as a link you can pass an object with `{ href, target, text, title }` instead.
+- `[5]` The specified count is only a hint; the scale may return more or fewer values depending on the domain. [Read more...](https://github.com/d3/d3-scale/blob/master/README.md#continuous_ticks)
 
 ## Color themes
 
 ![Silky Charts Choropleth color themes](/assets/color-themes.jpg)
 
-## Bar chart
+## Bar
 
 [Demo](https://x7mr6l9omq.codesandbox.io/) - [Sandbox](https://codesandbox.io/s/x7mr6l9omq)
 
@@ -176,7 +177,7 @@ Most props and options are present indistinguishable in all charts.
 | ------- | :------: | :-----: | ---------------------------------------- |
 | padding | `Number` |  `0.1`  | Sets the padding between the chart bars. |
 
-## BarLine chart
+## BarLine
 
 [Demo](https://9oq4mx1z5y.codesandbox.io/) - [Sandbox](https://codesandbox.io/s/9oq4mx1z5y)
 
@@ -198,12 +199,12 @@ Most props and options are present indistinguishable in all charts.
 | -------------- | :--------: | :-------------: | ------------------------------------------------------------------------------------------------- |
 | lineSeries     | `[String]` |                 | Series names of the datasets you want to appear as lines in the chart.                            |
 | lineType       |  `String`  | `"curveLinear"` | Define the line style to use based on [D3 Curves](https://github.com/d3/d3-shape#curves) options. |
-| lineTypeOption |  `String`  |                 | If the line style accepts options you can set it using this prop.                                 |
+| lineTypeOption |   `Any`    |                 | If the line style accepts optional values you can set them using this prop.                       |
 | padding        |  `Number`  |      `0.1`      | Sets the padding between the chart bars.                                                          |
 | secondaryTheme |  `String`  | `"vividCerise"` | Color theme for the chart lines. Hint: opposite colors have better contrast.                      |
 | stackedSeries  | `[String]` |                 | Series names of the datasets you want to appear as stacked bars in the chart.                     |
 
-## StackedArea chart
+## StackedArea
 
 [Demo](https://z2m6pjj6nl.codesandbox.io/) - [Sandbox](https://codesandbox.io/s/z2m6pjj6nl)
 
@@ -224,11 +225,7 @@ Most props and options are present indistinguishable in all charts.
 | Name           |   Type   |     Default     | Description                                                                                       |
 | -------------- | :------: | :-------------: | ------------------------------------------------------------------------------------------------- |
 | lineType       | `String` | `"curveLinear"` | Define the line style to use based on [D3 Curves](https://github.com/d3/d3-shape#curves) options. |
-| lineTypeOption | `String` |                 | If the line style accepts options you can set it using this prop.                                 |
-
-### Roadmap
-
-- [ ] Tooltip support
+| lineTypeOption |  `Any`   |                 | If the line style accepts optional values you can set them using this prop.                       |
 
 ## Contributing
 
