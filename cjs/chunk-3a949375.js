@@ -2,40 +2,563 @@
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var __chunk_1 = require('./chunk-6b49a288.js');
+var __chunk_1 = require('./chunk-8219fdff.js');
 var React = require('react');
 var React__default = _interopDefault(React);
 var d3Axis = require('d3-axis');
 var d3Selection = require('d3-selection');
 var d3TimeFormat = require('d3-time-format');
 var identity = _interopDefault(require('ramda/src/identity'));
-var styled = _interopDefault(require('styled-components'));
 var reactDom = require('react-dom');
-var all = _interopDefault(require('ramda/src/all'));
-var equals = _interopDefault(require('ramda/src/equals'));
-var or = _interopDefault(require('ramda/src/or'));
-var type = _interopDefault(require('ramda/src/type'));
-var complement = _interopDefault(require('ramda/src/complement'));
-var compose = _interopDefault(require('ramda/src/compose'));
 var d3Shape = require('d3-shape');
+var compose = _interopDefault(require('ramda/src/compose'));
 var groupBy = _interopDefault(require('ramda/src/groupBy'));
 var prop = _interopDefault(require('ramda/src/prop'));
 var toPairs = _interopDefault(require('ramda/src/toPairs'));
+var head = _interopDefault(require('ramda/src/head'));
 var max = _interopDefault(require('ramda/src/max'));
 var min = _interopDefault(require('ramda/src/min'));
-var head = _interopDefault(require('ramda/src/head'));
+var find = _interopDefault(require('ramda/src/find'));
 var filter = _interopDefault(require('ramda/src/filter'));
 var sum = _interopDefault(require('ramda/src/sum'));
 var map = _interopDefault(require('ramda/src/map'));
 var reduce = _interopDefault(require('ramda/src/reduce'));
 var values = _interopDefault(require('ramda/src/values'));
 var uniq = _interopDefault(require('ramda/src/uniq'));
-var cond = _interopDefault(require('ramda/src/cond'));
-var T = _interopDefault(require('ramda/src/T'));
+var complement = _interopDefault(require('ramda/src/complement'));
+var addIndex = _interopDefault(require('ramda/src/addIndex'));
 var mergeAll = _interopDefault(require('ramda/src/mergeAll'));
+var cond = _interopDefault(require('ramda/src/cond'));
+var equals = _interopDefault(require('ramda/src/equals'));
+var T = _interopDefault(require('ramda/src/T'));
 var sortBy = _interopDefault(require('ramda/src/sortBy'));
 var splitEvery = _interopDefault(require('ramda/src/splitEvery'));
+var styled = _interopDefault(require('styled-components'));
 var last = _interopDefault(require('ramda/src/last'));
+
+var idx = 0;
+/**
+ * The "stacked" charts use these values to generate both instances of the Y
+ * axis.
+ *
+ * @param {Object} stack D3 stack object.
+ * @param {Array} data Chart data list.
+ * @returns {Array} The modified chart data list.
+ */
+
+var appendStackedValues = (function (stack, data) {
+  stack.forEach(function (values) {
+    data.forEach(function (datum) {
+      if (values.key === datum.series) {
+        datum.stackedValues = values[idx];
+        idx += 1;
+      }
+    });
+    idx = 0;
+  });
+  return data;
+});
+
+/**
+ * The D3 stack function takes the list of the series in the chart data to
+ * generate the stacks for the stacked charts.
+ *
+ * @param {Array} series List of series in the data.
+ * @returns {Array} D3 stack.
+ */
+
+var buildStack = (function (series) {
+  return d3Shape.stack().keys(series).order(d3Shape.stackOrderNone).offset(d3Shape.stackOffsetNone);
+});
+
+/**
+ * The data must be ordered by series before the area is created.
+ *
+ * @param {Array} _ Chart data.
+ * @returns {Function} Ordering function that returns a list ordered by data
+ * series.
+ */
+
+var bySeries = compose(toPairs, groupBy(prop('series')));
+
+/**
+ * Use the series value to create a class to identify the element.
+ *
+ * @param {String} series Series name.
+ * @returns {String} Classname.
+ */
+var classify = (function (series) {
+  return series.replace(/ /g, '-').toLowerCase();
+});
+
+/**
+ * Draw the chart's vertical or horizontal grid.
+ *
+ * @param {Boolean} horizontal Is the chart vertical or horizontal.
+ * @param {Function} xScale D3 scale.
+ * @param {Number} height Chart's available height.
+ * @param {Function} yScale D3 scale.
+ * @param {Number} width Chart's available width.
+ * @param {Number} xAxisTicks Suggested value for the X axis ticks.
+ * @param {Number} yAxisTicks Suggested value for the Y axis ticks.
+ * @returns {Void}
+ */
+
+var drawGrid = (function (horizontal, xScale, height, yScale, width, xAxisTicks, yAxisTicks) {
+  return horizontal ? d3Axis.axisBottom().scale(xScale).tickSize(height, 0, 0).ticks(xAxisTicks).tickFormat('') : d3Axis.axisLeft().scale(yScale).tickSize(-width, 0, 0).ticks(yAxisTicks).tickFormat('');
+});
+
+/**
+ * Find the minimum and maximum value in a given list.
+ *
+ * @param {Array} xs List of values.
+ * @returns {Array} Minimum and maximum value in the list.
+ */
+
+var extent = (function (xs) {
+  return [getMin(xs), getMax(xs)];
+});
+
+var white = 'rgb(255, 255, 255)'; // #FFFFFF
+
+var black = 'rgb(33, 33, 33)'; // #212121
+
+var grey = 'rgb(232, 232, 232)'; // #E8E8E8
+
+var tooltipBackground = 'rgba(0, 0, 0, 0.85)';
+var themes = {
+  monteCarlo: ['rgb(8,104,172)', 'rgb(67,162,202)', 'rgb(123,204,196)', 'rgb(186,228,188)', 'rgb(240,249,232)'],
+  vividCerise: ['rgb(152,0,67)', 'rgb(221,28,119)', 'rgb(223,101,176)', 'rgb(215,181,216)', 'rgb(241,238,246)'],
+  sundown: ['rgb(122,1,119)', 'rgb(197,27,138)', 'rgb(247,104,161)', 'rgb(251,180,185)', 'rgb(254,235,226)'],
+  madang: ['rgb(0,104,55)', 'rgb(49,163,84)', 'rgb(120,198,121)', 'rgb(194,230,153)', 'rgb(255,255,204)'],
+  curiousBlue: ['rgb(37,52,148)', 'rgb(44,127,184)', 'rgb(65,182,196)', 'rgb(161,218,180)', 'rgb(255,255,204)']
+};
+var palette = {
+  white: white,
+  black: black,
+  grey: grey,
+  themes: themes
+};
+
+/**
+ * Use the first color in the color theme list to use it as base color.
+ *
+ * @param {Array} theme Color theme list
+ * @returns {String} Color
+ */
+
+var getBaseColor = (function (theme) {
+  return head(themes[theme]);
+});
+
+/**
+ * You can generate a different color shade passing a second argument with the
+ * amount to apply in order to make it darker or lighter.
+ *
+ * @param {String} rgb RGB color.
+ * @param {Number} amt Amount to apply in order to make it darker or lighter.
+ * @returns {String} RGB color.
+ */
+var getHoverColor = (function () {
+  var rgb = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'rgb(0, 0, 0)';
+  var amt = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : -20;
+  return "rgb(".concat(rgb.split(/\D/).filter(function (x) {
+    return x;
+  }).map(function (x) {
+    var val = parseInt(x) + amt;
+
+    if (val > 255) {
+      val = 255;
+    } else if (val < 0) {
+      val = 0;
+    }
+
+    return val;
+  }).join(', '), ")");
+});
+
+var innerId = 0;
+/**
+ * Creates a unique ID for each chart of the same type rendered.
+ *
+ * @param {String} prefix Chart name.
+ * @returns {String} ID
+ */
+
+var getId = (function (prefix) {
+  if (!prefix) {
+    return null;
+  }
+
+  var id = "silky-charts_".concat(prefix, "-").concat(innerId);
+  innerId += 1;
+  return id;
+});
+
+/**
+ * Filter the data for the series selected to be represented as lines in the
+ * chart.
+ *
+ * @param {Array} series List of series to filter form the chart data.
+ * @param {Array} data Chart data list.
+ * @returns {Array} Data to use as lines in the chart.
+ */
+var getLineDataForSeries = (function (series, data) {
+  return series.map(function (x) {
+    return data.filter(function (datum) {
+      return datum.series === x;
+    });
+  });
+});
+
+var getMax = (function (xs) {
+  return xs.reduce(max);
+});
+
+var getMin = (function (xs) {
+  return xs.reduce(min);
+});
+
+var getMousePosition = (function (svg, _ref) {
+  var clientX = _ref.clientX,
+      clientY = _ref.clientY;
+  var point = svg.createSVGPoint();
+  point.x = clientX;
+  point.y = clientY;
+
+  var _point$matrixTransfor = point.matrixTransform(svg.getScreenCTM().inverse()),
+      x = _point$matrixTransfor.x,
+      y = _point$matrixTransfor.y;
+
+  return [x, y];
+});
+
+var getNearestPoint = (function (axis, margin, positions) {
+  var mouseAxis = axis - margin;
+  var epsilon = (positions[1] - positions[0]) / 2;
+  return find(function (x) {
+    return Math.abs(x - mouseAxis) <= epsilon;
+  }, positions);
+});
+
+var reducer = function reducer(a, _ref) {
+  var name = _ref.name,
+      value = _ref.value;
+  a[name] = a[name] ? [].concat(__chunk_1._toConsumableArray(a[name]), [value]) : [value];
+  return a;
+};
+/**
+ * Using an optional list of series names calculate the largest possible values
+ * adding the values for the series names provided plus the rest of the values
+ * present in the data
+ *
+ * @param {Array} data Chart data
+ * @param {Array} seriesList List of series names whose values will be added to
+ * calculate the largest possible value
+ * @returns {Array} List of calculated values
+ */
+
+
+var getStackedMax = (function (data) {
+  var seriesList = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+  return compose(map(sum), values, reduce(reducer, {}), seriesList.length ? filter(function (_ref2) {
+    var series = _ref2.series;
+    return seriesList.includes(series);
+  }) : identity)(data);
+});
+
+/**
+ * Get the list of series in the chart data.
+ *
+ * @param {Array} _ Chart data.
+ * @returns {Function} Ordering function that returns a list of unique series
+ * names.
+ */
+
+var getSeries = compose(uniq, map(prop('series')));
+
+var ASPECT_RATIO = '16:9';
+var MARGIN = {
+  top: 40,
+  right: 50,
+  bottom: 50,
+  left: 50
+};
+var ROTATION = -50;
+var SIZE = {
+  width: 0,
+  height: 0,
+  isSizeSet: false
+};
+var X_TICKS = 10;
+var Y_TICKS = 5;
+var TIME_FORMAT = '%a %d';
+var TOOLTIP_DATE_FORMAT = '%b %d, %Y';
+var WIDTH = 640; // Scales
+var SCALE_PADDING = 0.1;
+
+var THEME = 'monteCarlo';
+var SECONDARY_THEME = 'vividCerise'; // Line options
+
+var LINE_STROKE_WIDTH = 3;
+var LINE_TYPE = 'curveLinear';
+var LINE_TYPES = {
+  curveBasis: d3Shape.curveBasis,
+  curveBasisClosed: d3Shape.curveBasisClosed,
+  curveBasisOpen: d3Shape.curveBasisOpen,
+  curveBundle: d3Shape.curveBundle,
+  curveCardinal: d3Shape.curveCardinal,
+  curveCardinalClosed: d3Shape.curveCardinalClosed,
+  curveCardinalOpen: d3Shape.curveCardinalOpen,
+  curveCatmullRom: d3Shape.curveCatmullRom,
+  curveCatmullRomClosed: d3Shape.curveCatmullRomClosed,
+  curveCatmullRomOpen: d3Shape.curveCatmullRomOpen,
+  curveLinear: d3Shape.curveLinear,
+  curveLinearClosed: d3Shape.curveLinearClosed,
+  curveMonotoneX: d3Shape.curveMonotoneX,
+  curveMonotoneY: d3Shape.curveMonotoneY,
+  curveNatural: d3Shape.curveNatural,
+  curveStep: d3Shape.curveStep,
+  curveStepAfter: d3Shape.curveStepAfter,
+  curveStepBefore: d3Shape.curveStepBefore
+};
+
+/**
+ * Calculate the size of the chart using aspect-ratio, margins, and parent size.
+ *
+ * @param {Number} w1 Chart's width.
+ * @param {Number} h1 Chart's height.
+ * @param {Object} h1 Chart's margin.
+ * @param {String} r Chart's aspect-ratio.
+ * @returns {Object} Chart's width and height.
+ */
+
+var getSize = (function (w1, h1, _ref, r) {
+  var top = _ref.top,
+      right = _ref.right,
+      bottom = _ref.bottom,
+      left = _ref.left;
+
+  var _r$split = r.split(':'),
+      _r$split2 = __chunk_1._slicedToArray(_r$split, 2),
+      r1 = _r$split2[0],
+      r2 = _r$split2[1];
+
+  var w2 = w1 || WIDTH;
+  var h2 = h1 || w2 / r1 * r2;
+
+  if (w1 && h1) {
+    return {
+      width: w1 - left - right,
+      height: h1 - top - bottom
+    };
+  }
+
+  var width = w1 ? w2 : h2 / r2 * r1;
+  var height = h1 ? h2 : w2 / r1 * r2;
+  return {
+    width: width - left - right,
+    height: height - top - bottom
+  };
+});
+
+var isNotNaN = complement(isNaN);
+/**
+ * Validate if the string passed is a valid ISO string date.
+ *
+ * @param {String} _ ISO string date to validate.
+ * @returns {Function} Validation function that returns true if the string is a
+ * valid date.
+ */
+
+var isValidDate = compose(isNotNaN, Date.parse);
+
+var mapIndexed = addIndex(map);
+var mapTooltipData = (function (data, positions) {
+  return compose(mergeAll, // eslint-disable-next-line no-unused-vars
+  mapIndexed(function (_ref, idx) {
+    var _ref2 = __chunk_1._slicedToArray(_ref, 2),
+        _ = _ref2[0],
+        x = _ref2[1];
+
+    return __chunk_1._defineProperty({}, positions[idx], x);
+  }), toPairs, groupBy(prop('name')))(data);
+});
+
+/**
+ * Rotate the X axis labels to a given degrees.
+ *
+ * @param {String} id Unique chart ID.
+ * @param {Number} deg Degrees to rotate.
+ * @returns {Void}
+ */
+
+var rotateXLabels = (function (id, deg) {
+  var isNegative = deg < 0;
+  d3Selection.selectAll("#".concat(id, " .axis-x .tick text")).attr('text-anchor', isNegative ? 'end' : 'start').attr('transform', "translate(".concat(isNegative ? -12 : 12, ", 6) rotate(").concat(deg, ")"));
+});
+
+/**
+ * Apply the option to the corresponding line type if exist.
+ *
+ * @param {String} type Line type.
+ * @param {Number} option Option value.
+ * @returns {Function} Line type setter.
+ */
+
+var setLineType = (function (type) {
+  var option = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+  return cond([[equals('curveBundle'), function () {
+    return LINE_TYPES[type].beta(option);
+  }], [equals('curveCardinalOpen'), function () {
+    return LINE_TYPES[type].tension(option);
+  }], [equals('curveCatmullRomOpen'), function () {
+    return LINE_TYPES[type].alpha(option);
+  }], [T, function () {
+    return LINE_TYPES[type];
+  }]])(type);
+});
+
+/**
+ * Validates if the values in the data's name fields are valid dates and if is
+ * the case transform this dates into instances of Date before returning a tuple
+ * with the validation result, the new data list, and the unique list of names.
+ *
+ * @param {Array} dataset Chart's data.
+ * @returns {Array} Tupple containing the dates validation result, the
+ * transformed new data list, and an array with the unique list of names.
+ */
+
+var setupData = (function (dataset) {
+  var isDates = isValidDate(dataset[0].name);
+  var names = uniq(dataset.map(function (_ref) {
+    var name = _ref.name;
+    return name;
+  }));
+  return [isDates, isDates ? dataset.map(function (x) {
+    return __chunk_1._objectSpread({}, x, {
+      name: new Date(x.name)
+    });
+  }) : dataset, isDates ? names.map(function (x) {
+    return new Date(x);
+  }) : names];
+});
+
+/**
+ * Transforms a given data list to be consumed by the D3 stack function.
+ *
+ * @param {Array} data Chart's data list.
+ * @returns {Array} Stacked formatted chart's data.
+ */
+
+var toStackedForm = (function (data) {
+  return compose(map(mergeAll), splitEvery(getSeries(data).length), map(function (_ref) {
+    var name = _ref.name,
+        series = _ref.series,
+        value = _ref.value;
+    return __chunk_1._defineProperty({
+      name: name
+    }, series, value);
+  }), sortBy(prop('name')))(data);
+});
+
+var AreaDatum = function AreaDatum(_ref) {
+  var area = _ref.area,
+      dataPositions = _ref.dataPositions,
+      datum = _ref.datum,
+      fillColor = _ref.fillColor,
+      margin = _ref.margin,
+      onClick = _ref.onClick,
+      _onMouseEnter = _ref.onMouseEnter,
+      _onMouseLeave = _ref.onMouseLeave,
+      series = _ref.series,
+      svg = _ref.svg,
+      theme = _ref.theme,
+      withTooltip = _ref.tooltip,
+      tooltipData = _ref.tooltipData;
+
+  var _useState = React.useState({
+    pageX: null,
+    pageY: null,
+    show: false
+  }),
+      _useState2 = __chunk_1._slicedToArray(_useState, 2),
+      tooltip = _useState2[0],
+      setTooltip = _useState2[1];
+
+  var _useState3 = React.useState(0),
+      _useState4 = __chunk_1._slicedToArray(_useState3, 2),
+      nearestPoint = _useState4[0],
+      setNearestPoint = _useState4[1];
+
+  var _useState5 = React.useState(tooltipData['0']),
+      _useState6 = __chunk_1._slicedToArray(_useState5, 2),
+      currentTooltipData = _useState6[0],
+      setCurrentTooltipData = _useState6[1];
+
+  var handleMouseMove = function handleMouseMove(nearest) {
+    setNearestPoint(nearest);
+    setCurrentTooltipData(tooltipData[nearest]);
+  };
+
+  return React__default.createElement(React__default.Fragment, null, React__default.createElement("g", {
+    className: "".concat(classify(series), "-layer")
+  }, React__default.createElement(Path, {
+    chart: "stacked-area",
+    fillColor: fillColor,
+    d: area(datum),
+    strokeWidth: 0,
+    onClick: onClick,
+    onMouseEnter: function onMouseEnter(event) {
+      var pageX = event.pageX,
+          pageY = event.pageY;
+      setTooltip(function (state) {
+        return __chunk_1._objectSpread({}, state, {
+          pageX: pageX,
+          pageY: pageY,
+          show: true
+        });
+      });
+
+      _onMouseEnter(event);
+    },
+    onMouseLeave: function onMouseLeave(event) {
+      setTooltip(function (state) {
+        return __chunk_1._objectSpread({}, state, {
+          show: false
+        });
+      });
+
+      _onMouseLeave(event);
+    },
+    onMouseMove: function onMouseMove(event) {
+      var pageX = event.pageX,
+          pageY = event.pageY;
+
+      var _getMousePosition = getMousePosition(svg, event),
+          _getMousePosition2 = __chunk_1._slicedToArray(_getMousePosition, 1),
+          x = _getMousePosition2[0];
+
+      var nearest = getNearestPoint(x, margin.left, dataPositions);
+      setTooltip(function (state) {
+        return __chunk_1._objectSpread({}, state, {
+          pageX: pageX,
+          pageY: pageY
+        });
+      });
+
+      if (nearest !== nearestPoint && tooltipData[nearest]) {
+        handleMouseMove(nearest);
+      }
+    }
+  })), withTooltip && tooltip.show && reactDom.createPortal(React__default.createElement(Tooltip, {
+    pageX: tooltip.pageX,
+    pageY: tooltip.pageY
+  }, React__default.createElement(TooltipGroup, {
+    theme: theme,
+    data: currentTooltipData
+  })), document.body));
+};
 
 function _templateObject() {
   var data = __chunk_1._taggedTemplateLiteral([""]);
@@ -157,271 +680,6 @@ var DataGroup = styled.g.attrs({
   className: 'dataviz-layer'
 })(_templateObject$2());
 
-var isNotNaN = complement(isNaN);
-var isValidDate = compose(isNotNaN, Date.parse);
-
-var isString = equals('String');
-var isDate = equals('Date');
-
-var isStringOrDate = function isStringOrDate(x) {
-  return or(isString(type(x)), isDate(type(x)));
-};
-
-var allStringOrDate = all(isStringOrDate);
-var allValidDate = all(isValidDate);
-var allDate = (function (dates) {
-  return allStringOrDate(dates) && allValidDate(dates);
-});
-
-var idx = 0;
-var appendStackedValues = (function (stack, data) {
-  stack.forEach(function (values) {
-    data.forEach(function (datum) {
-      if (values.key === datum.series) {
-        datum.stackedValues = values[idx];
-        idx += 1;
-      }
-    });
-    idx = 0;
-  });
-  return data;
-});
-
-var buildStack = (function (keys) {
-  return d3Shape.stack().keys(keys).order(d3Shape.stackOrderNone).offset(d3Shape.stackOffsetNone);
-});
-
-var bySeries = compose(toPairs, groupBy(prop('series')));
-
-var classify = (function (str) {
-  return str.replace(/ /g, '-').toLowerCase();
-});
-
-var drawGrid = (function (horizontal, xScale, height, yScale, width, xAxisTicks, yAxisTicks) {
-  return horizontal ? d3Axis.axisBottom().scale(xScale).tickSize(height, 0, 0).ticks(xAxisTicks).tickFormat('') : d3Axis.axisLeft().scale(yScale).tickSize(-width, 0, 0).ticks(yAxisTicks).tickFormat('');
-});
-
-var extent = (function (xs) {
-  return [xs.reduce(min), xs.reduce(max)];
-});
-
-var white = 'rgb(255, 255, 255)'; // #FFFFFF
-
-var black = 'rgb(33, 33, 33)'; // #212121
-
-var grey = 'rgb(230, 230, 230)'; // #E6E6E6
-
-var themes = {
-  monteCarlo: ['rgb(8,104,172)', 'rgb(67,162,202)', 'rgb(123,204,196)', 'rgb(186,228,188)', 'rgb(240,249,232)'],
-  vividCerise: ['rgb(152,0,67)', 'rgb(221,28,119)', 'rgb(223,101,176)', 'rgb(215,181,216)', 'rgb(241,238,246)'],
-  sundown: ['rgb(122,1,119)', 'rgb(197,27,138)', 'rgb(247,104,161)', 'rgb(251,180,185)', 'rgb(254,235,226)'],
-  madang: ['rgb(0,104,55)', 'rgb(49,163,84)', 'rgb(120,198,121)', 'rgb(194,230,153)', 'rgb(255,255,204)'],
-  curiousBlue: ['rgb(37,52,148)', 'rgb(44,127,184)', 'rgb(65,182,196)', 'rgb(161,218,180)', 'rgb(255,255,204)']
-};
-var palette = {
-  white: white,
-  black: black,
-  grey: grey,
-  themes: themes
-};
-
-var getBaseColor = (function (theme) {
-  return head(themes[theme]);
-});
-
-var getHoverColor = (function () {
-  var rgb = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'rgb(0, 0, 0)';
-  var amt = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : -20;
-  return "rgb(".concat(rgb.split(/\D/).filter(function (x) {
-    return x;
-  }).map(function (x) {
-    var val = parseInt(x) + amt;
-
-    if (val > 255) {
-      val = 255;
-    } else if (val < 0) {
-      val = 0;
-    }
-
-    return val;
-  }).join(', '), ")");
-});
-
-var innerId = 0;
-var getId = (function (prefix) {
-  if (!prefix) {
-    return null;
-  }
-
-  var id = "silky-charts_".concat(prefix, "-").concat(innerId);
-  innerId += 1;
-  return id;
-});
-
-var getLineDataForSeries = (function (series, data) {
-  return series.map(function (x) {
-    return data.filter(function (datum) {
-      return datum.series === x;
-    });
-  });
-});
-
-var getMax = (function (values) {
-  return values.reduce(max, 0);
-});
-
-var reducer = function reducer(a, _ref) {
-  var name = _ref.name,
-      value = _ref.value;
-  a[name] = a[name] ? [].concat(__chunk_1._toConsumableArray(a[name]), [value]) : [value];
-  return a;
-};
-/**
- * Using an optional list of series names calculate the largest possible values
- * adding the values for the series names provided plus the rest of the values
- * present in the data
- *
- * @param {Array} data Chart data
- * @param {Array} seriesList List of series names whose values will be added to
- * calculate the largest possible value
- * @returns {Array} List of calculated values
- */
-
-
-var getStackedMax = (function (data) {
-  var seriesList = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
-  return compose(map(sum), values, reduce(reducer, {}), seriesList.length ? filter(function (_ref2) {
-    var series = _ref2.series;
-    return seriesList.includes(series);
-  }) : identity)(data);
-});
-
-var getSeries = compose(uniq, map(prop('series')));
-
-var ASPECT_RATIO = '16:9';
-var MARGIN = {
-  top: 40,
-  right: 50,
-  bottom: 50,
-  left: 50
-};
-var ROTATION = -50;
-var SIZE = {
-  width: 0,
-  height: 0,
-  isSizeSet: false
-};
-var X_TICKS = 10;
-var Y_TICKS = 5;
-var TIME_FORMAT = '%a %d';
-var TOOLTIP_DATE_FORMAT = '%b %d, %Y';
-var WIDTH = 640; // Scales
-var SCALE_PADDING = 0.1;
-
-var THEME = 'monteCarlo';
-var SECONDARY_THEME = 'vividCerise'; // Line options
-
-var LINE_STROKE_WIDTH = 3;
-var LINE_TYPE = 'curveLinear';
-var LINE_TYPES = {
-  curveBasis: d3Shape.curveBasis,
-  curveBasisClosed: d3Shape.curveBasisClosed,
-  curveBasisOpen: d3Shape.curveBasisOpen,
-  curveBundle: d3Shape.curveBundle,
-  curveCardinal: d3Shape.curveCardinal,
-  curveCardinalClosed: d3Shape.curveCardinalClosed,
-  curveCardinalOpen: d3Shape.curveCardinalOpen,
-  curveCatmullRom: d3Shape.curveCatmullRom,
-  curveCatmullRomClosed: d3Shape.curveCatmullRomClosed,
-  curveCatmullRomOpen: d3Shape.curveCatmullRomOpen,
-  curveLinear: d3Shape.curveLinear,
-  curveLinearClosed: d3Shape.curveLinearClosed,
-  curveMonotoneX: d3Shape.curveMonotoneX,
-  curveMonotoneY: d3Shape.curveMonotoneY,
-  curveNatural: d3Shape.curveNatural,
-  curveStep: d3Shape.curveStep,
-  curveStepAfter: d3Shape.curveStepAfter,
-  curveStepBefore: d3Shape.curveStepBefore
-};
-
-var getSize = (function (w1, h1, _ref, r) {
-  var top = _ref.top,
-      right = _ref.right,
-      bottom = _ref.bottom,
-      left = _ref.left;
-
-  var _r$split = r.split(':'),
-      _r$split2 = __chunk_1._slicedToArray(_r$split, 2),
-      r1 = _r$split2[0],
-      r2 = _r$split2[1];
-
-  var w2 = w1 || WIDTH;
-  var h2 = h1 || w2 / r1 * r2;
-
-  if (w1 && h1) {
-    return {
-      width: w1 - left - right,
-      height: h1 - top - bottom
-    };
-  }
-
-  var width = w1 ? w2 : h2 / r2 * r1;
-  var height = h1 ? h2 : w2 / r1 * r2;
-  return {
-    width: width - left - right,
-    height: height - top - bottom
-  };
-});
-
-/**
- * Rotate the X axis labels to given degrees
- *
- * @param {String} id Unique chart id
- * @param {Number} deg Degrees to rotate
- */
-
-var rotateXLabels = (function (id, deg) {
-  var isNegative = deg < 0;
-  d3Selection.selectAll("#".concat(id, " .axis-x .tick text")).attr('text-anchor', isNegative ? 'end' : 'start').attr('transform', "translate(".concat(isNegative ? -12 : 12, ", 6) rotate(").concat(deg, ")"));
-});
-
-var setLineType = (function (type) {
-  var option = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-  return cond([[equals('curveBundle'), function () {
-    return LINE_TYPES[type].beta(option);
-  }], [equals('curveCardinalOpen'), function () {
-    return LINE_TYPES[type].tension(option);
-  }], [equals('curveCatmullRomOpen'), function () {
-    return LINE_TYPES[type].alpha(option);
-  }], [T, function () {
-    return LINE_TYPES[type];
-  }]])(type);
-});
-
-var setupData = (function (d) {
-  var isDates = allDate(d.map(function (_ref) {
-    var name = _ref.name;
-    return name;
-  }));
-  var data = isDates ? d.map(function (x) {
-    return __chunk_1._objectSpread({}, x, {
-      name: new Date(x.name)
-    });
-  }) : d;
-  return [isDates, data];
-});
-
-var toStackedForm = (function (data) {
-  return compose(map(mergeAll), splitEvery(getSeries(data).length), map(function (_ref) {
-    var name = _ref.name,
-        series = _ref.series,
-        value = _ref.value;
-    return __chunk_1._defineProperty({
-      name: name
-    }, series, value);
-  }), sortBy(prop('name')))(data);
-});
-
 function _templateObject$3() {
   var data = __chunk_1._taggedTemplateLiteral(["\n  path {\n    stroke: transparent;\n  }\n\n  line {\n    stroke: ", ";\n  }\n"]);
 
@@ -518,7 +776,6 @@ var LineDatum = function LineDatum(_ref) {
         _onMouseLeave(event);
       },
       onMouseMove: function onMouseMove(event) {
-        event.persist();
         var pageX = event.pageX,
             pageY = event.pageY;
         setTooltip(function (state) {
@@ -728,7 +985,9 @@ var SVG = styled.svg.attrs(function (_ref) {
   var identifier = _ref.identifier;
   return {
     id: identifier,
-    className: 'silky-charts'
+    className: 'silky-charts',
+    baseProfile: 'full',
+    xmlns: 'http://www.w3.org/2000/svg'
   };
 })(_templateObject$9(), function (_ref2) {
   var size = _ref2.size;
@@ -758,7 +1017,7 @@ var Title = styled.text.attrs(function (_ref) {
 })(_templateObject$a());
 
 function _templateObject$b() {
-  var data = __chunk_1._taggedTemplateLiteral(["\n  background-color: ", ";\n  border: 1px solid ", ";\n  border-radius: 4px;\n  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.75);\n  padding: 10px;\n  pointer-events: none;\n  position: absolute;\n  text-align: center;\n  left: 0;\n  top: 0;\n  z-index: 10;\n"]);
+  var data = __chunk_1._taggedTemplateLiteral(["\n  background-color: ", ";\n  border-radius: 4px;\n  padding: 10px;\n  pointer-events: none;\n  position: absolute;\n  text-align: center;\n  left: 0;\n  top: 0;\n  z-index: 1;\n\n  &:before {\n    content: '';\n    display: ", ";\n    width: 0;\n    height: 0;\n    position: absolute;\n    border-left: 8px solid transparent;\n    border-top: 8px solid ", ";\n    border-right: 8px solid transparent;\n    left: ", "px;\n    top: ", "px;\n  }\n"]);
 
   _templateObject$b = function _templateObject() {
     return data;
@@ -778,7 +1037,16 @@ var Container = styled.div.attrs(function (_ref) {
       top: "".concat(pageY - height - 16, "px")
     }
   };
-})(_templateObject$b(), white, grey);
+})(_templateObject$b(), tooltipBackground, function (_ref2) {
+  var staticTooltip = _ref2.staticTooltip;
+  return staticTooltip ? 'none' : 'block';
+}, tooltipBackground, function (_ref3) {
+  var width = _ref3.width;
+  return width / 2 - 8;
+}, function (_ref4) {
+  var height = _ref4.height;
+  return height;
+});
 
 var Tooltip = function Tooltip(props) {
   var tooltipRef = React.useRef();
@@ -806,7 +1074,7 @@ var Tooltip = function Tooltip(props) {
 };
 
 function _templateObject5() {
-  var data = __chunk_1._taggedTemplateLiteral(["\n  font-size: 1.2em;\n"]);
+  var data = __chunk_1._taggedTemplateLiteral(["\n  color: grey;\n  font-weight: 500;\n"]);
 
   _templateObject5 = function _templateObject5() {
     return data;
@@ -816,7 +1084,7 @@ function _templateObject5() {
 }
 
 function _templateObject4() {
-  var data = __chunk_1._taggedTemplateLiteral(["\n  margin-bottom: 4px;\n"]);
+  var data = __chunk_1._taggedTemplateLiteral(["\n  color: ", ";\n  font-size: 12px;\n  font-weight: 600;\n  margin-bottom: 4px;\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
@@ -826,7 +1094,7 @@ function _templateObject4() {
 }
 
 function _templateObject3() {
-  var data = __chunk_1._taggedTemplateLiteral(["\n  align-items: flex-start;\n  display: flex;\n  flex-direction: column;\n"]);
+  var data = __chunk_1._taggedTemplateLiteral(["\n  color: grey;\n  font-size: 12px;\n  font-weight: 600;\n  margin-bottom: 10px;\n  text-align: right;\n"]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -836,7 +1104,7 @@ function _templateObject3() {
 }
 
 function _templateObject2$1() {
-  var data = __chunk_1._taggedTemplateLiteral(["\n  background-color: ", ";\n  margin-right: 10px;\n  padding: 0 4px;\n"]);
+  var data = __chunk_1._taggedTemplateLiteral(["\n  background-color: ", ";\n  margin-right: ", "px;\n  padding: 0 ", "px;\n"]);
 
   _templateObject2$1 = function _templateObject2() {
     return data;
@@ -846,7 +1114,7 @@ function _templateObject2$1() {
 }
 
 function _templateObject$c() {
-  var data = __chunk_1._taggedTemplateLiteral(["\n  display: flex;\n"]);
+  var data = __chunk_1._taggedTemplateLiteral(["\n  display: flex;\n  &:not(:last-child) {\n    margin-bottom: 6px;\n  }\n"]);
 
   _templateObject$c = function _templateObject() {
     return data;
@@ -858,10 +1126,77 @@ var Container$1 = styled.div(_templateObject$c());
 var Swatch = styled.span(_templateObject2$1(), function (_ref) {
   var swatchColor = _ref.swatchColor;
   return swatchColor || grey;
+}, function (_ref2) {
+  var marginRight = _ref2.marginRight;
+  return marginRight;
+}, function (_ref3) {
+  var width = _ref3.width;
+  return width / 2;
 });
-var Data = styled.div(_templateObject3());
-var Name = styled.span(_templateObject4());
-var Value = styled.span(_templateObject5());
+var Name = styled.div(_templateObject3());
+var Data = styled.div(_templateObject4(), white);
+var Divider = styled.span(_templateObject5());
+
+var TooltipGroup = function TooltipGroup(_ref4) {
+  var data = _ref4.data,
+      _ref4$dateFormat = _ref4.dateFormat,
+      dateFormat = _ref4$dateFormat === void 0 ? TOOLTIP_DATE_FORMAT : _ref4$dateFormat,
+      _ref4$theme = _ref4.theme,
+      theme = _ref4$theme === void 0 ? 'monteCarlo' : _ref4$theme;
+  var timeFormat = d3TimeFormat.timeFormat(dateFormat);
+  var name = data[0].name;
+  return React__default.createElement(React__default.Fragment, null, React__default.createElement(Name, null, isValidDate(name) ? timeFormat(name) : name), data.map(function (_ref5, idx) {
+    var series = _ref5.series,
+        value = _ref5.value;
+    return React__default.createElement(Container$1, {
+      key: idx
+    }, React__default.createElement(Swatch, {
+      swatchColor: themes[theme][idx],
+      width: 6,
+      marginRight: 2
+    }), React__default.createElement(Swatch, {
+      swatchColor: themes[theme][idx],
+      width: 2,
+      marginRight: 10
+    }), React__default.createElement(Data, null, value, " ", React__default.createElement(Divider, null, "on"), " ", series));
+  }));
+};
+
+function _templateObject3$1() {
+  var data = __chunk_1._taggedTemplateLiteral(["\n  color: grey;\n  font-weight: 500;\n"]);
+
+  _templateObject3$1 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2$2() {
+  var data = __chunk_1._taggedTemplateLiteral(["\n  color: ", ";\n  font-size: 12px;\n  font-weight: 600;\n  margin-bottom: 4px;\n"]);
+
+  _templateObject2$2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$d() {
+  var data = __chunk_1._taggedTemplateLiteral(["\n  background-color: ", ";\n  display: block;\n  height: 2px;\n"]);
+
+  _templateObject$d = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Swatch$1 = styled.span(_templateObject$d(), function (_ref) {
+  var swatchColor = _ref.swatchColor;
+  return swatchColor || grey;
+});
+var Data$1 = styled.div(_templateObject2$2(), white);
+var Divider$1 = styled.span(_templateObject3$1());
 
 var TooltipItem = function TooltipItem(_ref2) {
   var color = _ref2.color,
@@ -870,9 +1205,9 @@ var TooltipItem = function TooltipItem(_ref2) {
       name = _ref2.name,
       value = _ref2.value;
   var timeFormat = d3TimeFormat.timeFormat(dateFormat);
-  return React__default.createElement(Container$1, null, React__default.createElement(Swatch, {
+  return React__default.createElement(React__default.Fragment, null, React__default.createElement(Data$1, null, value, " ", React__default.createElement(Divider$1, null, "on"), ' ', isValidDate(name) ? timeFormat(name) : name), React__default.createElement(Swatch$1, {
     swatchColor: color
-  }), React__default.createElement(Data, null, React__default.createElement(Name, null, isValidDate(name) ? timeFormat(name) : name), React__default.createElement(Value, null, value)));
+  }));
 };
 
 var useDebounce = (function (callback, delay, deps) {
@@ -950,7 +1285,7 @@ exports.SECONDARY_THEME = SECONDARY_THEME;
 exports.appendStackedValues = appendStackedValues;
 exports.getSeries = getSeries;
 exports.extent = extent;
+exports.mapTooltipData = mapTooltipData;
 exports.bySeries = bySeries;
-exports.classify = classify;
-exports.Path = Path;
-//# sourceMappingURL=chunk-b4002af8.js.map
+exports.AreaDatum = AreaDatum;
+//# sourceMappingURL=chunk-3a949375.js.map

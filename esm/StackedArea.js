@@ -1,38 +1,37 @@
-import { b as _slicedToArray, c as _objectSpread } from './chunk-30f6a875.js';
+import { b as _slicedToArray, d as _objectSpread } from './chunk-7cf43bf1.js';
 import React, { useRef, useState } from 'react';
 import { axisBottom, axisLeft } from 'd3-axis';
 import { scaleTime, scaleLinear } from 'd3-scale';
 import { select } from 'd3-selection';
 import { timeFormat } from 'd3-time-format';
 import identity from 'ramda/src/identity';
-import 'styled-components';
-import { a as getId, b as SIZE, c as setupData, K as appendStackedValues, A as buildStack, L as getSeries, B as toStackedForm, M as extent, d as getMax, C as getStackedMax, D as setLineType, e as useResize, f as SVG, g as MainGroup, h as Grid, i as drawGrid, j as Title, k as Label, l as DataSource, N as bySeries, O as classify, P as Path, H as palette, p as Axis, q as rotateXLabels, r as TIME_FORMAT, I as LINE_TYPE, s as MARGIN, t as THEME, u as ROTATION, v as X_TICKS, x as Y_TICKS, y as getSize, z as ASPECT_RATIO } from './chunk-566604d9.js';
 import 'react-dom';
-import 'ramda/src/all';
-import 'ramda/src/equals';
-import 'ramda/src/or';
-import 'ramda/src/type';
-import 'ramda/src/complement';
-import 'ramda/src/compose';
+import { a as getId, b as SIZE, c as setupData, K as appendStackedValues, A as buildStack, L as getSeries, B as toStackedForm, M as extent, d as getMax, C as getStackedMax, D as setLineType, N as mapTooltipData, e as useResize, f as SVG, g as MainGroup, h as Grid, i as drawGrid, j as Title, k as Label, l as DataSource, O as bySeries, P as AreaDatum, H as palette, p as Axis, q as rotateXLabels, r as TIME_FORMAT, I as LINE_TYPE, s as MARGIN, t as THEME, u as ROTATION, v as X_TICKS, x as Y_TICKS, y as getSize, z as ASPECT_RATIO } from './chunk-e9603ea5.js';
 import { area } from 'd3-shape';
+import 'ramda/src/compose';
 import 'ramda/src/groupBy';
 import 'ramda/src/prop';
 import 'ramda/src/toPairs';
+import 'ramda/src/head';
 import 'ramda/src/max';
 import 'ramda/src/min';
-import 'ramda/src/head';
+import 'ramda/src/find';
 import 'ramda/src/filter';
 import 'ramda/src/sum';
 import 'ramda/src/map';
 import 'ramda/src/reduce';
 import 'ramda/src/values';
 import 'ramda/src/uniq';
+import 'ramda/src/complement';
+import 'ramda/src/addIndex';
+import 'ramda/src/mergeAll';
 import 'ramda/src/cond';
+import 'ramda/src/equals';
 import 'ramda/src/T';
 import 'ramda/src/flatten';
-import 'ramda/src/mergeAll';
 import 'ramda/src/sortBy';
 import 'ramda/src/splitEvery';
+import 'styled-components';
 import 'ramda/src/last';
 
 var StackedArea = function StackedArea(_ref) {
@@ -63,6 +62,7 @@ var StackedArea = function StackedArea(_ref) {
       _ref$theme = _ref.theme,
       theme = _ref$theme === void 0 ? THEME : _ref$theme,
       title = _ref.title,
+      tooltip = _ref.tooltip,
       _ref$width = _ref.width,
       svgWidth = _ref$width === void 0 ? undefined : _ref$width,
       xAxisChartLabel = _ref.xAxisChartLabel,
@@ -91,9 +91,10 @@ var StackedArea = function StackedArea(_ref) {
       setSize = _useState4[1];
 
   var _setupData = setupData(chartData),
-      _setupData2 = _slicedToArray(_setupData, 2),
+      _setupData2 = _slicedToArray(_setupData, 3),
       isDates = _setupData2[0],
-      data = _setupData2[1];
+      data = _setupData2[1],
+      names = _setupData2[2];
 
   data = appendStackedValues(buildStack(getSeries(data))(toStackedForm(data)), data);
 
@@ -116,6 +117,10 @@ var StackedArea = function StackedArea(_ref) {
     var stackedValues = _ref5.stackedValues;
     return yScale(stackedValues[1]);
   });
+  var dataPositions = names.map(function (name) {
+    return xScale(name);
+  });
+  var tooltipData = mapTooltipData(data, dataPositions);
 
   var handleSize = function handleSize() {
     var offsetWidth = svgRef.current.parentElement.offsetWidth;
@@ -168,18 +173,22 @@ var StackedArea = function StackedArea(_ref) {
         series = _ref7[0],
         datum = _ref7[1];
 
-    return React.createElement("g", {
-      className: "".concat(classify(series), "-layer"),
-      key: idx
-    }, React.createElement(Path, {
-      chart: "stacked-area",
+    return React.createElement(AreaDatum, {
+      area: area$1,
+      dataPositions: dataPositions,
+      datum: datum,
       fillColor: palette.themes[theme][idx],
-      d: area$1(datum),
-      strokeWidth: 0,
+      key: idx,
+      margin: margin,
       onClick: onClick,
       onMouseEnter: onMouseEnter,
-      onMouseLeave: onMouseLeave
-    }));
+      onMouseLeave: onMouseLeave,
+      series: series,
+      svg: svgRef.current,
+      theme: theme,
+      tooltip: tooltip,
+      tooltipData: tooltipData
+    });
   }), React.createElement(Axis, {
     axis: "x",
     position: {

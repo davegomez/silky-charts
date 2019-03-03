@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var __chunk_1 = require('./chunk-6b49a288.js');
+var __chunk_1 = require('./chunk-8219fdff.js');
 var React = require('react');
 var React__default = _interopDefault(React);
 var d3Axis = require('d3-axis');
@@ -12,34 +12,33 @@ var d3Scale = require('d3-scale');
 var d3Selection = require('d3-selection');
 var d3TimeFormat = require('d3-time-format');
 var identity = _interopDefault(require('ramda/src/identity'));
-require('styled-components');
-var __chunk_2 = require('./chunk-b4002af8.js');
 require('react-dom');
-require('ramda/src/all');
-require('ramda/src/equals');
-require('ramda/src/or');
-require('ramda/src/type');
-require('ramda/src/complement');
-require('ramda/src/compose');
+var __chunk_2 = require('./chunk-3a949375.js');
 var d3Shape = require('d3-shape');
+require('ramda/src/compose');
 require('ramda/src/groupBy');
 require('ramda/src/prop');
 require('ramda/src/toPairs');
+require('ramda/src/head');
 require('ramda/src/max');
 require('ramda/src/min');
-require('ramda/src/head');
+require('ramda/src/find');
 require('ramda/src/filter');
 require('ramda/src/sum');
 require('ramda/src/map');
 require('ramda/src/reduce');
 require('ramda/src/values');
 require('ramda/src/uniq');
+require('ramda/src/complement');
+require('ramda/src/addIndex');
+require('ramda/src/mergeAll');
 require('ramda/src/cond');
+require('ramda/src/equals');
 require('ramda/src/T');
 require('ramda/src/flatten');
-require('ramda/src/mergeAll');
 require('ramda/src/sortBy');
 require('ramda/src/splitEvery');
+require('styled-components');
 require('ramda/src/last');
 
 var StackedArea = function StackedArea(_ref) {
@@ -70,6 +69,7 @@ var StackedArea = function StackedArea(_ref) {
       _ref$theme = _ref.theme,
       theme = _ref$theme === void 0 ? __chunk_2.THEME : _ref$theme,
       title = _ref.title,
+      tooltip = _ref.tooltip,
       _ref$width = _ref.width,
       svgWidth = _ref$width === void 0 ? undefined : _ref$width,
       xAxisChartLabel = _ref.xAxisChartLabel,
@@ -98,9 +98,10 @@ var StackedArea = function StackedArea(_ref) {
       setSize = _useState4[1];
 
   var _setupData = __chunk_2.setupData(chartData),
-      _setupData2 = __chunk_1._slicedToArray(_setupData, 2),
+      _setupData2 = __chunk_1._slicedToArray(_setupData, 3),
       isDates = _setupData2[0],
-      data = _setupData2[1];
+      data = _setupData2[1],
+      names = _setupData2[2];
 
   data = __chunk_2.appendStackedValues(__chunk_2.buildStack(__chunk_2.getSeries(data))(__chunk_2.toStackedForm(data)), data);
 
@@ -123,6 +124,10 @@ var StackedArea = function StackedArea(_ref) {
     var stackedValues = _ref5.stackedValues;
     return yScale(stackedValues[1]);
   });
+  var dataPositions = names.map(function (name) {
+    return xScale(name);
+  });
+  var tooltipData = __chunk_2.mapTooltipData(data, dataPositions);
 
   var handleSize = function handleSize() {
     var offsetWidth = svgRef.current.parentElement.offsetWidth;
@@ -175,18 +180,22 @@ var StackedArea = function StackedArea(_ref) {
         series = _ref7[0],
         datum = _ref7[1];
 
-    return React__default.createElement("g", {
-      className: "".concat(__chunk_2.classify(series), "-layer"),
-      key: idx
-    }, React__default.createElement(__chunk_2.Path, {
-      chart: "stacked-area",
+    return React__default.createElement(__chunk_2.AreaDatum, {
+      area: area,
+      dataPositions: dataPositions,
+      datum: datum,
       fillColor: __chunk_2.palette.themes[theme][idx],
-      d: area(datum),
-      strokeWidth: 0,
+      key: idx,
+      margin: margin,
       onClick: onClick,
       onMouseEnter: onMouseEnter,
-      onMouseLeave: onMouseLeave
-    }));
+      onMouseLeave: onMouseLeave,
+      series: series,
+      svg: svgRef.current,
+      theme: theme,
+      tooltip: tooltip,
+      tooltipData: tooltipData
+    });
   }), React__default.createElement(__chunk_2.Axis, {
     axis: "x",
     position: {
