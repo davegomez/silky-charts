@@ -12,8 +12,8 @@ var d3Scale = require('d3-scale');
 var d3Selection = require('d3-selection');
 var d3TimeFormat = require('d3-time-format');
 var identity = _interopDefault(require('ramda/src/identity'));
+var __chunk_2 = require('./chunk-d782a9ec.js');
 require('react-dom');
-var __chunk_2 = require('./chunk-3a949375.js');
 var d3Shape = require('d3-shape');
 require('ramda/src/compose');
 require('ramda/src/groupBy');
@@ -29,6 +29,7 @@ require('ramda/src/map');
 require('ramda/src/reduce');
 require('ramda/src/values');
 require('ramda/src/uniq');
+require('ramda/src/always');
 require('ramda/src/complement');
 require('ramda/src/addIndex');
 require('ramda/src/mergeAll');
@@ -73,6 +74,7 @@ var BarLine = function BarLine(_ref) {
       secondaryTheme = _ref$secondaryTheme === void 0 ? __chunk_2.SECONDARY_THEME : _ref$secondaryTheme,
       _ref$stackedSeries = _ref.stackedSeries,
       stackedSeries = _ref$stackedSeries === void 0 ? [] : _ref$stackedSeries,
+      staticTooltip = _ref.staticTooltip,
       _ref$theme = _ref.theme,
       theme = _ref$theme === void 0 ? __chunk_2.THEME : _ref$theme,
       title = _ref.title,
@@ -139,7 +141,13 @@ var BarLine = function BarLine(_ref) {
   };
 
   __chunk_2.useResize(responsive, handleSize);
-  return React__default.createElement(__chunk_2.SVG, {
+  return React__default.createElement(__chunk_2.GraphContext.Provider, {
+    value: {
+      margin: margin,
+      node: svgRef.current,
+      staticTooltip: staticTooltip
+    }
+  }, React__default.createElement(__chunk_2.SVG, {
     identifier: id,
     size: {
       width: svgWidth || width + margin.left + margin.right,
@@ -208,12 +216,15 @@ var BarLine = function BarLine(_ref) {
       d: line(datum),
       xScale: xScale,
       yScale: yScale,
+      margin: margin,
       onClick: onClick,
       onMouseEnter: onMouseEnter,
       onMouseLeave: onMouseLeave,
+      staticTooltip: staticTooltip,
+      svg: svgRef.current,
       tooltip: tooltip
     }));
-  })));
+  }))));
 };
 
 exports.default = BarLine;

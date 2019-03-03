@@ -12,8 +12,8 @@ var d3Scale = require('d3-scale');
 var d3Selection = require('d3-selection');
 var d3TimeFormat = require('d3-time-format');
 var identity = _interopDefault(require('ramda/src/identity'));
+var __chunk_2 = require('./chunk-d782a9ec.js');
 require('react-dom');
-var __chunk_2 = require('./chunk-3a949375.js');
 require('d3-shape');
 require('ramda/src/compose');
 require('ramda/src/groupBy');
@@ -29,6 +29,7 @@ require('ramda/src/map');
 require('ramda/src/reduce');
 require('ramda/src/values');
 require('ramda/src/uniq');
+require('ramda/src/always');
 require('ramda/src/complement');
 require('ramda/src/addIndex');
 require('ramda/src/mergeAll');
@@ -61,6 +62,7 @@ var Bar = function Bar(_ref) {
       _ref$onMouseLeave = _ref.onMouseLeave,
       onMouseLeave = _ref$onMouseLeave === void 0 ? identity : _ref$onMouseLeave,
       responsive = _ref.responsive,
+      staticTooltip = _ref.staticTooltip,
       _ref$theme = _ref.theme,
       theme = _ref$theme === void 0 ? __chunk_2.THEME : _ref$theme,
       title = _ref.title,
@@ -123,7 +125,13 @@ var Bar = function Bar(_ref) {
   };
 
   __chunk_2.useResize(responsive, handleSize);
-  return React__default.createElement(__chunk_2.SVG, {
+  return React__default.createElement(__chunk_2.GraphContext.Provider, {
+    value: {
+      margin: margin,
+      node: svgRef.current,
+      staticTooltip: staticTooltip
+    }
+  }, React__default.createElement(__chunk_2.SVG, {
     identifier: id,
     size: {
       width: svgWidth || width + margin.left + margin.right,
@@ -189,7 +197,7 @@ var Bar = function Bar(_ref) {
     ref: function ref(node) {
       return d3Selection.select(node).call(d3Axis.axisLeft(yScale).ticks(yAxisTicks));
     }
-  })));
+  }))));
 };
 
 exports.default = Bar;

@@ -5,8 +5,8 @@ import { scaleBand, scaleLinear } from 'd3-scale';
 import { select } from 'd3-selection';
 import { timeFormat } from 'd3-time-format';
 import identity from 'ramda/src/identity';
+import { a as getId, b as SIZE, c as setupData, d as getMax, e as useResize, f as GraphContext, g as SVG, h as MainGroup, i as Grid, j as drawGrid, k as Title, l as Label, m as DataSource, n as DataGroup, o as BarDatum, p as getBaseColor, q as Axis, r as rotateXLabels, s as TIME_FORMAT, t as MARGIN, u as THEME, v as ROTATION, w as X_TICKS, x as SCALE_PADDING, y as Y_TICKS, z as getSize, A as ASPECT_RATIO } from './chunk-d43ca2d7.js';
 import 'react-dom';
-import { a as getId, b as SIZE, c as setupData, d as getMax, e as useResize, f as SVG, g as MainGroup, h as Grid, i as drawGrid, j as Title, k as Label, l as DataSource, m as DataGroup, n as BarDatum, o as getBaseColor, p as Axis, q as rotateXLabels, r as TIME_FORMAT, s as MARGIN, t as THEME, u as ROTATION, v as X_TICKS, w as SCALE_PADDING, x as Y_TICKS, y as getSize, z as ASPECT_RATIO } from './chunk-e9603ea5.js';
 import 'd3-shape';
 import 'ramda/src/compose';
 import 'ramda/src/groupBy';
@@ -22,6 +22,7 @@ import 'ramda/src/map';
 import 'ramda/src/reduce';
 import 'ramda/src/values';
 import 'ramda/src/uniq';
+import 'ramda/src/always';
 import 'ramda/src/complement';
 import 'ramda/src/addIndex';
 import 'ramda/src/mergeAll';
@@ -54,6 +55,7 @@ var Bar = function Bar(_ref) {
       _ref$onMouseLeave = _ref.onMouseLeave,
       onMouseLeave = _ref$onMouseLeave === void 0 ? identity : _ref$onMouseLeave,
       responsive = _ref.responsive,
+      staticTooltip = _ref.staticTooltip,
       _ref$theme = _ref.theme,
       theme = _ref$theme === void 0 ? THEME : _ref$theme,
       title = _ref.title,
@@ -116,7 +118,13 @@ var Bar = function Bar(_ref) {
   };
 
   useResize(responsive, handleSize);
-  return React.createElement(SVG, {
+  return React.createElement(GraphContext.Provider, {
+    value: {
+      margin: margin,
+      node: svgRef.current,
+      staticTooltip: staticTooltip
+    }
+  }, React.createElement(SVG, {
     identifier: id,
     size: {
       width: svgWidth || width + margin.left + margin.right,
@@ -182,7 +190,7 @@ var Bar = function Bar(_ref) {
     ref: function ref(node) {
       return select(node).call(axisLeft(yScale).ticks(yAxisTicks));
     }
-  })));
+  }))));
 };
 
 export default Bar;

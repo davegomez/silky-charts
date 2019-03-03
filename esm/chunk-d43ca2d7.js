@@ -1,5 +1,5 @@
 import { a as _toConsumableArray, b as _slicedToArray, c as _defineProperty, d as _objectSpread, e as _taggedTemplateLiteral, f as _extends } from './chunk-7cf43bf1.js';
-import React, { useState, Fragment, useRef, useEffect, useCallback } from 'react';
+import React, { createContext, useContext, useState, Fragment, useRef, useEffect, useCallback } from 'react';
 import { axisBottom, axisLeft } from 'd3-axis';
 import { selectAll } from 'd3-selection';
 import { timeFormat } from 'd3-time-format';
@@ -20,6 +20,7 @@ import map from 'ramda/src/map';
 import reduce from 'ramda/src/reduce';
 import values from 'ramda/src/values';
 import uniq from 'ramda/src/uniq';
+import always from 'ramda/src/always';
 import complement from 'ramda/src/complement';
 import addIndex from 'ramda/src/addIndex';
 import mergeAll from 'ramda/src/mergeAll';
@@ -30,6 +31,8 @@ import sortBy from 'ramda/src/sortBy';
 import splitEvery from 'ramda/src/splitEvery';
 import styled from 'styled-components';
 import last from 'ramda/src/last';
+
+var GraphContext = createContext();
 
 var idx = 0;
 /**
@@ -289,6 +292,7 @@ var X_TICKS = 10;
 var Y_TICKS = 5;
 var TIME_FORMAT = '%a %d';
 var TOOLTIP_DATE_FORMAT = '%b %d, %Y';
+var TOOLTIP_OFFSET = 20;
 var WIDTH = 640; // Scales
 var SCALE_PADDING = 0.1;
 
@@ -357,6 +361,64 @@ var getSize = (function (w1, h1, _ref, r) {
   };
 });
 
+/**
+ * Calculates the position of the tooltip based on the position specified in
+ * the prop staticTooltip of use the default instead to position the tooltip
+ * on top of the mouse cursor.
+ *
+ * @param {Object} node Graph's SVG node.
+ * @param {Object} margin Chart's maring prop.
+ * @param {Object} mousePosition PageX and PageY values returned by the
+ * mouseMove event.
+ * @param {Object} size Tooltip bubble width and height.
+ * @param {String} position Position of the tooltip specified in the
+ * staticTooltip prop.
+ * @returns {Object} Object containing the top and left values to position the
+ * tooltip.
+ */
+
+var getTooltipPosition = (function (node, margin, _ref, _ref2) {
+  var pageX = _ref.pageX,
+      pageY = _ref.pageY;
+  var width = _ref2.width,
+      height = _ref2.height;
+  var position = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 'default';
+
+  var _node$getBoundingClie = node.getBoundingClientRect(),
+      top = _node$getBoundingClie.top,
+      right = _node$getBoundingClie.right,
+      bottom = _node$getBoundingClie.bottom,
+      left = _node$getBoundingClie.left;
+
+  var leftOffset = always(left + margin.left + TOOLTIP_OFFSET);
+  var topOffset = always(top + margin.top + TOOLTIP_OFFSET);
+  var rightOffset = always(right - width - margin.right - TOOLTIP_OFFSET);
+  var bottomOffset = always(bottom - height - margin.bottom - TOOLTIP_OFFSET);
+  var positionMap = {
+    'top-left': {
+      left: leftOffset(),
+      top: topOffset()
+    },
+    'top-right': {
+      left: rightOffset(),
+      top: topOffset()
+    },
+    'bottom-right': {
+      left: rightOffset(),
+      top: bottomOffset()
+    },
+    'bottom-left': {
+      left: leftOffset(),
+      top: bottomOffset()
+    },
+    default: {
+      left: pageX - width / 2,
+      top: pageY - height - 16
+    }
+  };
+  return positionMap[position];
+});
+
 var isNotNaN = complement(isNaN);
 /**
  * Validate if the string passed is a valid ISO string date.
@@ -369,6 +431,15 @@ var isNotNaN = complement(isNaN);
 var isValidDate = compose(isNotNaN, Date.parse);
 
 var mapIndexed = addIndex(map);
+/**
+ * Map all the series to a single name to be used by the tooltip group using the
+ * name as a reference according to the mouse position.
+ *
+ * @param {Array} data Chart's data.
+ * @param {Array} positions List of positions to map the data with.
+ * @returns {Object} Mapped data.
+ */
+
 var mapTooltipData = (function (data, positions) {
   return compose(mergeAll, // eslint-disable-next-line no-unused-vars
   mapIndexed(function (_ref, idx) {
@@ -462,15 +533,17 @@ var AreaDatum = function AreaDatum(_ref) {
       dataPositions = _ref.dataPositions,
       datum = _ref.datum,
       fillColor = _ref.fillColor,
-      margin = _ref.margin,
       onClick = _ref.onClick,
       _onMouseEnter = _ref.onMouseEnter,
       _onMouseLeave = _ref.onMouseLeave,
       series = _ref.series,
-      svg = _ref.svg,
       theme = _ref.theme,
       withTooltip = _ref.tooltip,
       tooltipData = _ref.tooltipData;
+
+  var _useContext = useContext(GraphContext),
+      margin = _useContext.margin,
+      node = _useContext.node;
 
   var _useState = useState({
     pageX: null,
@@ -530,7 +603,7 @@ var AreaDatum = function AreaDatum(_ref) {
       var pageX = event.pageX,
           pageY = event.pageY;
 
-      var _getMousePosition = getMousePosition(svg, event),
+      var _getMousePosition = getMousePosition(node, event),
           _getMousePosition2 = _slicedToArray(_getMousePosition, 1),
           x = _getMousePosition2[0];
 
@@ -547,8 +620,7 @@ var AreaDatum = function AreaDatum(_ref) {
       }
     }
   })), withTooltip && tooltip.show && createPortal(React.createElement(Tooltip, {
-    pageX: tooltip.pageX,
-    pageY: tooltip.pageY
+    mousePosition: tooltip
   }, React.createElement(TooltipGroup, {
     theme: theme,
     data: currentTooltipData
@@ -636,8 +708,7 @@ var BarDatum = function BarDatum(_ref) {
       height: height
     }
   }), withTooltip && tooltip.show && createPortal(React.createElement(Tooltip, {
-    pageX: tooltip.pageX,
-    pageY: tooltip.pageY
+    mousePosition: tooltip
   }, React.createElement(TooltipItem, _extends({
     color: color
   }, datum))), document.body));
@@ -691,7 +762,7 @@ var Grid = styled.g.attrs(function () {
 })(_templateObject$3(), palette.grey);
 
 function _templateObject$4() {
-  var data = _taggedTemplateLiteral(["\n  text-anchor: middle;\n  transform: ", ";\n"]);
+  var data = _taggedTemplateLiteral(["\n  font-size: 0.9em;\n  text-anchor: middle;\n  transform: ", ";\n"]);
 
   _templateObject$4 = function _templateObject() {
     return data;
@@ -784,8 +855,7 @@ var LineDatum = function LineDatum(_ref) {
       }
     });
   })), withTooltip && tooltip.show && createPortal(React.createElement(Tooltip, {
-    pageX: tooltip.pageX,
-    pageY: tooltip.pageY
+    mousePosition: tooltip
   }, React.createElement(TooltipItem, {
     color: color,
     name: tooltip.name,
@@ -874,7 +944,7 @@ var Rect = styled.rect.attrs(function (_ref) {
 });
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteral(["\n  font-size: 0.8em;\n  font-style: italic;\n  text-anchor: end;\n"]);
+  var data = _taggedTemplateLiteral(["\n  font-size: 0.7em;\n  font-style: italic;\n  text-anchor: end;\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -993,7 +1063,7 @@ var SVG = styled.svg.attrs(function (_ref) {
 });
 
 function _templateObject$a() {
-  var data = _taggedTemplateLiteral(["\n  font-size: 1.5em;\n  text-anchor: middle;\n"]);
+  var data = _taggedTemplateLiteral(["\n  font-size: 1.2em;\n  text-anchor: middle;\n"]);
 
   _templateObject$a = function _templateObject() {
     return data;
@@ -1020,17 +1090,11 @@ function _templateObject$b() {
 
   return data;
 }
-var Container = styled.div.attrs(function (_ref) {
-  var pageX = _ref.pageX,
-      pageY = _ref.pageY,
-      width = _ref.width,
-      height = _ref.height;
+var TooltipBubble = styled.div.attrs(function (_ref) {
+  var position = _ref.position;
   return {
     className: 'silky-charts-tooltip',
-    style: {
-      left: "".concat(pageX - width / 2, "px"),
-      top: "".concat(pageY - height - 16, "px")
-    }
+    style: position
   };
 })(_templateObject$b(), tooltipBackground, function (_ref2) {
   var staticTooltip = _ref2.staticTooltip;
@@ -1043,8 +1107,15 @@ var Container = styled.div.attrs(function (_ref) {
   return height;
 });
 
-var Tooltip = function Tooltip(props) {
+var Tooltip = function Tooltip(_ref5) {
+  var children = _ref5.children,
+      mousePosition = _ref5.mousePosition;
   var tooltipRef = useRef();
+
+  var _useContext = useContext(GraphContext),
+      margin = _useContext.margin,
+      node = _useContext.node,
+      staticTooltip = _useContext.staticTooltip;
 
   var _useState = useState({
     width: 0,
@@ -1054,6 +1125,7 @@ var Tooltip = function Tooltip(props) {
       size = _useState2[0],
       setSize = _useState2[1];
 
+  var position = getTooltipPosition(node, margin, mousePosition, size, staticTooltip);
   useEffect(function () {
     var _tooltipRef$current = tooltipRef.current,
         offsetWidth = _tooltipRef$current.offsetWidth,
@@ -1063,9 +1135,11 @@ var Tooltip = function Tooltip(props) {
       height: offsetHeight
     });
   }, [tooltipRef, setSize]);
-  return React.createElement(Container, _extends({
-    ref: tooltipRef
-  }, size, props), props.children);
+  return React.createElement(TooltipBubble, _extends({
+    ref: tooltipRef,
+    position: position,
+    staticTooltip: staticTooltip
+  }, size), children);
 };
 
 function _templateObject5() {
@@ -1117,7 +1191,7 @@ function _templateObject$c() {
 
   return data;
 }
-var Container$1 = styled.div(_templateObject$c());
+var Container = styled.div(_templateObject$c());
 var Swatch = styled.span(_templateObject2$1(), function (_ref) {
   var swatchColor = _ref.swatchColor;
   return swatchColor || grey;
@@ -1143,7 +1217,7 @@ var TooltipGroup = function TooltipGroup(_ref4) {
   return React.createElement(React.Fragment, null, React.createElement(Name, null, isValidDate(name) ? timeFormat$1(name) : name), data.map(function (_ref5, idx) {
     var series = _ref5.series,
         value = _ref5.value;
-    return React.createElement(Container$1, {
+    return React.createElement(Container, {
       key: idx
     }, React.createElement(Swatch, {
       swatchColor: themes[theme][idx],
@@ -1241,5 +1315,5 @@ var useResize = (function (responsive, handleSize) {
   }, [handleResize, responsive]);
 });
 
-export { getId as a, SIZE as b, setupData as c, getMax as d, useResize as e, SVG as f, MainGroup as g, Grid as h, drawGrid as i, Title as j, Label as k, DataSource as l, DataGroup as m, BarDatum as n, getBaseColor as o, Axis as p, rotateXLabels as q, TIME_FORMAT as r, MARGIN as s, THEME as t, ROTATION as u, X_TICKS as v, SCALE_PADDING as w, Y_TICKS as x, getSize as y, ASPECT_RATIO as z, buildStack as A, toStackedForm as B, getStackedMax as C, setLineType as D, getLineDataForSeries as E, StackedBarDatum as F, LineDatum as G, palette as H, LINE_TYPE as I, SECONDARY_THEME as J, appendStackedValues as K, getSeries as L, extent as M, mapTooltipData as N, bySeries as O, AreaDatum as P };
-//# sourceMappingURL=chunk-e9603ea5.js.map
+export { getId as a, SIZE as b, setupData as c, getMax as d, useResize as e, GraphContext as f, SVG as g, MainGroup as h, Grid as i, drawGrid as j, Title as k, Label as l, DataSource as m, DataGroup as n, BarDatum as o, getBaseColor as p, Axis as q, rotateXLabels as r, TIME_FORMAT as s, MARGIN as t, THEME as u, ROTATION as v, X_TICKS as w, SCALE_PADDING as x, Y_TICKS as y, getSize as z, ASPECT_RATIO as A, buildStack as B, toStackedForm as C, getStackedMax as D, setLineType as E, getLineDataForSeries as F, StackedBarDatum as G, LineDatum as H, palette as I, LINE_TYPE as J, SECONDARY_THEME as K, appendStackedValues as L, getSeries as M, extent as N, mapTooltipData as O, bySeries as P, AreaDatum as Q };
+//# sourceMappingURL=chunk-d43ca2d7.js.map

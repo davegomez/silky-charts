@@ -5,8 +5,8 @@ import { scaleBand, scaleLinear } from 'd3-scale';
 import { select } from 'd3-selection';
 import { timeFormat } from 'd3-time-format';
 import identity from 'ramda/src/identity';
+import { a as getId, b as SIZE, c as setupData, B as buildStack, C as toStackedForm, d as getMax, D as getStackedMax, E as setLineType, F as getLineDataForSeries, e as useResize, f as GraphContext, g as SVG, h as MainGroup, i as Grid, j as drawGrid, k as Title, l as Label, m as DataSource, G as StackedBarDatum, q as Axis, r as rotateXLabels, H as LineDatum, I as palette, s as TIME_FORMAT, J as LINE_TYPE, t as MARGIN, x as SCALE_PADDING, K as SECONDARY_THEME, u as THEME, v as ROTATION, w as X_TICKS, y as Y_TICKS, z as getSize, A as ASPECT_RATIO } from './chunk-d43ca2d7.js';
 import 'react-dom';
-import { a as getId, b as SIZE, c as setupData, A as buildStack, B as toStackedForm, d as getMax, C as getStackedMax, D as setLineType, E as getLineDataForSeries, e as useResize, f as SVG, g as MainGroup, h as Grid, i as drawGrid, j as Title, k as Label, l as DataSource, F as StackedBarDatum, p as Axis, q as rotateXLabels, G as LineDatum, H as palette, r as TIME_FORMAT, I as LINE_TYPE, s as MARGIN, w as SCALE_PADDING, J as SECONDARY_THEME, t as THEME, u as ROTATION, v as X_TICKS, x as Y_TICKS, y as getSize, z as ASPECT_RATIO } from './chunk-e9603ea5.js';
 import { line } from 'd3-shape';
 import 'ramda/src/compose';
 import 'ramda/src/groupBy';
@@ -22,6 +22,7 @@ import 'ramda/src/map';
 import 'ramda/src/reduce';
 import 'ramda/src/values';
 import 'ramda/src/uniq';
+import 'ramda/src/always';
 import 'ramda/src/complement';
 import 'ramda/src/addIndex';
 import 'ramda/src/mergeAll';
@@ -66,6 +67,7 @@ var BarLine = function BarLine(_ref) {
       secondaryTheme = _ref$secondaryTheme === void 0 ? SECONDARY_THEME : _ref$secondaryTheme,
       _ref$stackedSeries = _ref.stackedSeries,
       stackedSeries = _ref$stackedSeries === void 0 ? [] : _ref$stackedSeries,
+      staticTooltip = _ref.staticTooltip,
       _ref$theme = _ref.theme,
       theme = _ref$theme === void 0 ? THEME : _ref$theme,
       title = _ref.title,
@@ -132,7 +134,13 @@ var BarLine = function BarLine(_ref) {
   };
 
   useResize(responsive, handleSize);
-  return React.createElement(SVG, {
+  return React.createElement(GraphContext.Provider, {
+    value: {
+      margin: margin,
+      node: svgRef.current,
+      staticTooltip: staticTooltip
+    }
+  }, React.createElement(SVG, {
     identifier: id,
     size: {
       width: svgWidth || width + margin.left + margin.right,
@@ -201,12 +209,15 @@ var BarLine = function BarLine(_ref) {
       d: line$1(datum),
       xScale: xScale,
       yScale: yScale,
+      margin: margin,
       onClick: onClick,
       onMouseEnter: onMouseEnter,
       onMouseLeave: onMouseLeave,
+      staticTooltip: staticTooltip,
+      svg: svgRef.current,
       tooltip: tooltip
     }));
-  })));
+  }))));
 };
 
 export default BarLine;

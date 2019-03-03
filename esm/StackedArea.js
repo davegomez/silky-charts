@@ -5,8 +5,8 @@ import { scaleTime, scaleLinear } from 'd3-scale';
 import { select } from 'd3-selection';
 import { timeFormat } from 'd3-time-format';
 import identity from 'ramda/src/identity';
+import { a as getId, b as SIZE, c as setupData, L as appendStackedValues, B as buildStack, M as getSeries, C as toStackedForm, N as extent, d as getMax, D as getStackedMax, E as setLineType, O as mapTooltipData, e as useResize, f as GraphContext, g as SVG, h as MainGroup, i as Grid, j as drawGrid, k as Title, l as Label, m as DataSource, P as bySeries, Q as AreaDatum, I as palette, q as Axis, r as rotateXLabels, s as TIME_FORMAT, J as LINE_TYPE, t as MARGIN, u as THEME, v as ROTATION, w as X_TICKS, y as Y_TICKS, z as getSize, A as ASPECT_RATIO } from './chunk-d43ca2d7.js';
 import 'react-dom';
-import { a as getId, b as SIZE, c as setupData, K as appendStackedValues, A as buildStack, L as getSeries, B as toStackedForm, M as extent, d as getMax, C as getStackedMax, D as setLineType, N as mapTooltipData, e as useResize, f as SVG, g as MainGroup, h as Grid, i as drawGrid, j as Title, k as Label, l as DataSource, O as bySeries, P as AreaDatum, H as palette, p as Axis, q as rotateXLabels, r as TIME_FORMAT, I as LINE_TYPE, s as MARGIN, t as THEME, u as ROTATION, v as X_TICKS, x as Y_TICKS, y as getSize, z as ASPECT_RATIO } from './chunk-e9603ea5.js';
 import { area } from 'd3-shape';
 import 'ramda/src/compose';
 import 'ramda/src/groupBy';
@@ -22,6 +22,7 @@ import 'ramda/src/map';
 import 'ramda/src/reduce';
 import 'ramda/src/values';
 import 'ramda/src/uniq';
+import 'ramda/src/always';
 import 'ramda/src/complement';
 import 'ramda/src/addIndex';
 import 'ramda/src/mergeAll';
@@ -59,6 +60,7 @@ var StackedArea = function StackedArea(_ref) {
       onMouseLeave = _ref$onMouseLeave === void 0 ? identity : _ref$onMouseLeave,
       _ref$responsive = _ref.responsive,
       responsive = _ref$responsive === void 0 ? false : _ref$responsive,
+      staticTooltip = _ref.staticTooltip,
       _ref$theme = _ref.theme,
       theme = _ref$theme === void 0 ? THEME : _ref$theme,
       title = _ref.title,
@@ -137,7 +139,13 @@ var StackedArea = function StackedArea(_ref) {
   };
 
   useResize(responsive, handleSize);
-  return React.createElement(SVG, {
+  return React.createElement(GraphContext.Provider, {
+    value: {
+      margin: margin,
+      node: svgRef.current,
+      staticTooltip: staticTooltip
+    }
+  }, React.createElement(SVG, {
     identifier: id,
     size: {
       width: svgWidth || width + margin.left + margin.right,
@@ -179,12 +187,10 @@ var StackedArea = function StackedArea(_ref) {
       datum: datum,
       fillColor: palette.themes[theme][idx],
       key: idx,
-      margin: margin,
       onClick: onClick,
       onMouseEnter: onMouseEnter,
       onMouseLeave: onMouseLeave,
       series: series,
-      svg: svgRef.current,
       theme: theme,
       tooltip: tooltip,
       tooltipData: tooltipData
@@ -196,7 +202,7 @@ var StackedArea = function StackedArea(_ref) {
       y: height
     },
     ref: function ref(node) {
-      select(node).call(axisBottom(xScale).ticks(xAxisTicks).tickFormat(isDates ? timeFormat$1 : null));
+      select(node).call(axisBottom(xScale).ticks(xAxisTicks).tickFormat(timeFormat$1));
       xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
     }
   }), React.createElement(Axis, {
@@ -204,7 +210,7 @@ var StackedArea = function StackedArea(_ref) {
     ref: function ref(node) {
       return select(node).call(axisLeft(yScale).ticks(yAxisTicks));
     }
-  })));
+  }))));
 };
 
 export default StackedArea;
