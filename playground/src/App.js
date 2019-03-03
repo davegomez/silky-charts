@@ -12,27 +12,34 @@ import './styles.css';
 const App = () => (
   <Container>
     <ChartContainer>
-      <Bar
+      <StackedArea
         // aspectRatio="4:3"
-        data={letters}
-        dataSource="Unknown"
+        data={fruits}
+        // dataSource="Unknown"
         // dateFormat="%B %d, %Y"
-        grid
+        // grid
         // height="300"
+        // lineSeries={['Sold', 'Lost']}
+        // lineType="curveCardinalOpen"
+        // lineTypeOption={0.1}
         margin={{ top: 100, right: 100, bottom: 100, left: 100 }}
         // onClick={() => {}}
         // onMouseEnter={() => {}}
         // onMouseLeave={() => {}}
+        // padding={1}
         responsive
+        // secondaryTheme="madang"
+        // stackedSeries={['Pear', 'Mango', 'Papaya']}
+        // staticTooltip="top-left"
         // theme="curiousBlue"
-        // tooltip
-        title="Placeholder Chart Title"
+        // title="Placeholder Chart Title"
+        tooltip
         // width={500}
-        xAxisChartLabel="X axis label"
+        // xAxisChartLabel="X axis label"
         // xAxisLabelRotation
         // xAxisLabelRotationValue={-65}
         // xAxisTicks={10}
-        yAxisChartLabel="Y axis label"
+        // yAxisChartLabel="Y axis label"
         // yAxisTicks={10}
       />
     </ChartContainer>
