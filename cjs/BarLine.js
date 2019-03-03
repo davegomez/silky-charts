@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var __chunk_1 = require('./chunk-6b49a288.js');
+var __chunk_1 = require('./chunk-8219fdff.js');
 var React = require('react');
 var React__default = _interopDefault(React);
 var d3Axis = require('d3-axis');
@@ -12,34 +12,33 @@ var d3Scale = require('d3-scale');
 var d3Selection = require('d3-selection');
 var d3TimeFormat = require('d3-time-format');
 var identity = _interopDefault(require('ramda/src/identity'));
-require('styled-components');
-var __chunk_2 = require('./chunk-b4002af8.js');
 require('react-dom');
-require('ramda/src/all');
-require('ramda/src/equals');
-require('ramda/src/or');
-require('ramda/src/type');
-require('ramda/src/complement');
-require('ramda/src/compose');
+var __chunk_2 = require('./chunk-3a949375.js');
 var d3Shape = require('d3-shape');
+require('ramda/src/compose');
 require('ramda/src/groupBy');
 require('ramda/src/prop');
 require('ramda/src/toPairs');
+var head = _interopDefault(require('ramda/src/head'));
 require('ramda/src/max');
 require('ramda/src/min');
-var head = _interopDefault(require('ramda/src/head'));
+require('ramda/src/find');
 require('ramda/src/filter');
 require('ramda/src/sum');
 require('ramda/src/map');
 require('ramda/src/reduce');
 require('ramda/src/values');
 require('ramda/src/uniq');
+require('ramda/src/complement');
+require('ramda/src/addIndex');
+require('ramda/src/mergeAll');
 require('ramda/src/cond');
+require('ramda/src/equals');
 require('ramda/src/T');
 require('ramda/src/flatten');
-require('ramda/src/mergeAll');
 require('ramda/src/sortBy');
 require('ramda/src/splitEvery');
+require('styled-components');
 require('ramda/src/last');
 
 var BarLine = function BarLine(_ref) {
