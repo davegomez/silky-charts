@@ -15,7 +15,7 @@ const Text = styled.text.attrs(({ height, margin, width }) => ({
   x: width,
   y: height + margin.bottom - 50,
 }))`
-  font-size: 0.8em;
+  font-size: 0.7em;
   font-style: italic;
   text-anchor: end;
 `;

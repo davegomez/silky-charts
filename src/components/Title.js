@@ -5,7 +5,7 @@ const Title = styled.text.attrs(({ margin, width }) => ({
   x: width / 2,
   y: 50 - margin.top,
 }))`
-  font-size: 1.5em;
+  font-size: 1.2em;
   text-anchor: middle;
 `;
 

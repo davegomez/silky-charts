@@ -2,7 +2,7 @@
 
 exports[`Title 1`] = `
 .c0 {
-  font-size: 1.5em;
+  font-size: 1.2em;
   text-anchor: middle;
 }
 

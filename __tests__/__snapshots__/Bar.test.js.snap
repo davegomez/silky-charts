@@ -818,10 +818,12 @@ exports[`Bar width grid 1`] = `
 
 exports[`Bar with Title, X label, Y label 1`] = `
 .c2 {
+  font-size: 0.9em;
   text-anchor: middle;
 }
 
 .c3 {
+  font-size: 0.9em;
   text-anchor: middle;
   -webkit-transform: rotate(-90deg);
   -ms-transform: rotate(-90deg);
@@ -842,7 +844,7 @@ exports[`Bar with Title, X label, Y label 1`] = `
 }
 
 .c1 {
-  font-size: 1.5em;
+  font-size: 1.2em;
   text-anchor: middle;
 }
 
@@ -1837,7 +1839,7 @@ exports[`Bar with source 1`] = `
 }
 
 .c1 {
-  font-size: 0.8em;
+  font-size: 0.7em;
   font-style: italic;
   text-anchor: end;
 }
@@ -2097,7 +2099,7 @@ exports[`Bar with source link 1`] = `
 }
 
 .c2 {
-  font-size: 0.8em;
+  font-size: 0.7em;
   font-style: italic;
   text-anchor: end;
 }

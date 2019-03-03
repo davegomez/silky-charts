@@ -1517,10 +1517,12 @@ pointer-events: .c5:hover {
 
 exports[`StackedArea with Title, X label, Y label 1`] = `
 .c2 {
+  font-size: 0.9em;
   text-anchor: middle;
 }
 
 .c3 {
+  font-size: 0.9em;
   text-anchor: middle;
   -webkit-transform: rotate(-90deg);
   -ms-transform: rotate(-90deg);
@@ -1573,7 +1575,7 @@ pointer-events: .c7:hover {
 }
 
 .c1 {
-  font-size: 1.5em;
+  font-size: 1.2em;
   text-anchor: middle;
 }
 
@@ -3477,7 +3479,7 @@ pointer-events: .c5:hover {
 }
 
 .c1 {
-  font-size: 0.8em;
+  font-size: 0.7em;
   font-style: italic;
   text-anchor: end;
 }
@@ -3960,7 +3962,7 @@ pointer-events: .c6:hover {
 }
 
 .c2 {
-  font-size: 0.8em;
+  font-size: 0.7em;
   font-style: italic;
   text-anchor: end;
 }

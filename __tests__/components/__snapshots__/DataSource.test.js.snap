@@ -7,7 +7,7 @@ exports[`DataSource:link 1`] = `
 }
 
 .c1 {
-  font-size: 0.8em;
+  font-size: 0.7em;
   font-style: italic;
   text-anchor: end;
 }
@@ -30,7 +30,7 @@ exports[`DataSource:link 1`] = `
 
 exports[`DataSource:link 2`] = `
 <text
-  class="sc-dnqmqq data-source opPsF"
+  class="sc-dnqmqq data-source huMPkl"
   height="10"
   width="10"
   x="10"
@@ -40,7 +40,7 @@ exports[`DataSource:link 2`] = `
 
 exports[`DataSource:text 1`] = `
 .c0 {
-  font-size: 0.8em;
+  font-size: 0.7em;
   font-style: italic;
   text-anchor: end;
 }

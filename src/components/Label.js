@@ -5,6 +5,7 @@ const Label = styled.text.attrs(({ axis, margin, width, height }) => ({
   x: axis === 'x' ? width / 2 : 0 - height / 2,
   y: axis === 'x' ? height + margin.bottom - 30 : 34 - margin.left,
 }))`
+  font-size: 0.9em;
   text-anchor: middle;
   transform: ${({ axis }) => axis === 'y' && 'rotate(-90deg)'};
 `;

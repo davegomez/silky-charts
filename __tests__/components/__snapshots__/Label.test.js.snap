@@ -2,6 +2,7 @@
 
 exports[`Label:X 1`] = `
 .c0 {
+  font-size: 0.9em;
   text-anchor: middle;
 }
 
@@ -16,6 +17,7 @@ exports[`Label:X 1`] = `
 
 exports[`Label:Y 1`] = `
 .c0 {
+  font-size: 0.9em;
   text-anchor: middle;
   -webkit-transform: rotate(-90deg);
   -ms-transform: rotate(-90deg);
