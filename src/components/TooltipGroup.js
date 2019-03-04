@@ -30,7 +30,7 @@ const Data = styled.div`
   color: ${white};
   font-size: 12px;
   font-weight: 600;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 `;
 
 const Divider = styled.span`
