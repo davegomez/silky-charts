@@ -12,7 +12,7 @@ var d3Scale = require('d3-scale');
 var d3Selection = require('d3-selection');
 var d3TimeFormat = require('d3-time-format');
 var identity = _interopDefault(require('ramda/src/identity'));
-var __chunk_2 = require('./chunk-cf03176d.js');
+var __chunk_2 = require('./chunk-afbe5103.js');
 require('react-dom');
 require('d3-shape');
 require('ramda/src/compose');
