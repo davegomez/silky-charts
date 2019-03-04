@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { getHoverColor } from '../utils';
+import { colorMod } from '../utils';
 import { LINE_STROKE_WIDTH } from '../utils/constants';
 
 const Path = styled.path.attrs(({ chart }) => ({
@@ -12,7 +12,7 @@ const Path = styled.path.attrs(({ chart }) => ({
 
   &:hover {
     fill: ${({ chart, fillColor }) =>
-      chart === 'stacked-area' && getHoverColor(fillColor)};
+      chart === 'stacked-area' && colorMod(fillColor)};
   }
 `;
 

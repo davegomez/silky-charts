@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { getHoverColor } from '../utils';
+import { colorMod } from '../utils';
 
 const Rect = styled.rect.attrs(
   ({ chart, position: { x, y }, size: { height, width } }) => ({
@@ -13,7 +13,7 @@ const Rect = styled.rect.attrs(
   fill: ${({ fillColor }) => fillColor};
 
   &:hover {
-    fill: ${({ fillColor }) => getHoverColor(fillColor)};
+    fill: ${({ fillColor }) => colorMod(fillColor)};
   }
 `;
 

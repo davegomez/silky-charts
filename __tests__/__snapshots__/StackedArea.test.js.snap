@@ -932,7 +932,7 @@ exports[`StackedArea width grid 1`] = `
 }
 
 .c1 line {
-  stroke: rgb(232,232,232);
+  stroke: rgb(243,243,243);
 }
 
 .c2 {
