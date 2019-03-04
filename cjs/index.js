@@ -9,7 +9,7 @@ require('d3-scale');
 require('d3-selection');
 require('d3-time-format');
 require('ramda/src/identity');
-require('./chunk-cf03176d.js');
+require('./chunk-afbe5103.js');
 require('react-dom');
 require('d3-shape');
 require('ramda/src/compose');
