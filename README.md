@@ -37,7 +37,7 @@
 + [Bar](#bar)
   + [Data definition](#data-definition)
   + [Props](#props)
-+ [BarLine](#barline)
++ [Combination](#combination)
   + [Data definition](#data-definition-1)
   + [Props](#props-1)
 + [StackedArea](#stackedarea)
@@ -55,7 +55,7 @@
 ## Features
 
 - Full React implementation (not a wrapper)
-- Tree shaking and code splitting support
+- Tree shaking and code splitting
 - Small and fast
 - Customizable and easy to style
 - Fully responsive
@@ -64,9 +64,10 @@
 
 ## Roadmap
 
-- [ ] Custom color themes support
-- [ ] Styled Components themes support
-- [ ] Empty and loading state
+- [ ] Custom color themes
+- [ ] Empty state
+- [ ] SVG / PNG export
+- [ ] Secondary style
 
 ## Installation
 
@@ -160,6 +161,16 @@ Most props and options are present indistinguishable in all charts.
 
 [Demo](https://x7mr6l9omq.codesandbox.io/) - [Sandbox](https://codesandbox.io/s/x7mr6l9omq)
 
+As known as Bar Graph or Column Graph.
+
+The classic Bar Chart uses either horizontal or vertical bars (column chart) to show discrete, numerical comparisons across categories. One axis of the chart shows the specific categories being compared and the other axis represents a discrete value scale.
+
+Bars Charts are distinguished from Histograms, as they do not display continuous developments over an interval. Bar Chart's discrete data is categorical data and therefore answers the question of "how many?" in each category.
+
+One major flaw with Bar Charts is that labelling becomes problematic when there are a large number of bars.
+
+<small style="text-align: right;">_--[The Data Visualisation Catalogue](https://datavizcatalogue.com/methods/bar_chart.html)_</small>
+
 ### Data definition
 
 ```
@@ -177,7 +188,13 @@ Most props and options are present indistinguishable in all charts.
 | ------- | :------: | :-----: | ---------------------------------------- |
 | padding | `Number` |  `0.1`  | Sets the padding between the chart bars. |
 
-## BarLine
+## Combination
+
+The combination chart is a visualization that combines the features of the bar chart and the line chart. The combination chart displays the data using a number of bars and/or lines, each of which represent a particular category.
+
+A combination of bars and lines in the same visualization can be useful when comparing values in different categories, since the combination gives a clear view of which category is higher or lower. An example of this can be seen when using the combination chart to compare the projected sales with the actual sales for different time periods.
+
+The series in the combination chart is a way to divide the data into slices. The difference is that the slices in the combination chart, called series, can be defined as bars or lines as well as being colored separately. That is, each series in the combination chart will be represented by a line or a set of bars in the visualization.
 
 [Demo](https://9oq4mx1z5y.codesandbox.io/) - [Sandbox](https://codesandbox.io/s/9oq4mx1z5y)
 
@@ -207,6 +224,12 @@ Most props and options are present indistinguishable in all charts.
 ## StackedArea
 
 [Demo](https://z2m6pjj6nl.codesandbox.io/) - [Sandbox](https://codesandbox.io/s/z2m6pjj6nl)
+
+Stacked Area Graphs work in the same way as simple Area Graphs do, except for the use of multiple data series that start each point from the point left by the previous data series.
+
+The entire graph represents the total of all the data plotted. Stacked Area Graphs also use the areas to convey whole numbers, so they do not work for negative values. Overall, they are useful for comparing multiple variables changing over an interval.
+
+<small style="text-align: right;">_--[The Data Visualisation Catalogue](https://datavizcatalogue.com/methods/stacked_area_graph.html)_</small>
 
 ### Data definition
 
