@@ -1248,7 +1248,7 @@ exports[`Bar with width 1`] = `
 </svg>
 `;
 
-exports[`BarLine 1`] = `
+exports[`Combination 1`] = `
 .c4 {
   fill: rgb(152,0,67);
 }
@@ -1664,7 +1664,7 @@ exports[`BarLine 1`] = `
 </svg>
 `;
 
-exports[`BarLine width grid 1`] = `
+exports[`Combination width grid 1`] = `
 .c5 {
   fill: rgb(152,0,67);
 }
@@ -1678,7 +1678,7 @@ exports[`BarLine width grid 1`] = `
 }
 
 .c1 line {
-  stroke: rgb(232,232,232);
+  stroke: rgb(243,243,243);
 }
 
 .c4 {
@@ -2206,7 +2206,7 @@ exports[`BarLine width grid 1`] = `
 </svg>
 `;
 
-exports[`BarLine with Title, X label, Y label 1`] = `
+exports[`Combination with Title, X label, Y label 1`] = `
 .c7 {
   fill: rgb(152,0,67);
 }
@@ -2666,7 +2666,7 @@ exports[`BarLine with Title, X label, Y label 1`] = `
 </svg>
 `;
 
-exports[`BarLine with X label rotation 1`] = `
+exports[`Combination with X label rotation 1`] = `
 .c4 {
   fill: rgb(152,0,67);
 }
@@ -3090,7 +3090,7 @@ exports[`BarLine with X label rotation 1`] = `
 </svg>
 `;
 
-exports[`BarLine with dates 1`] = `
+exports[`Combination with dates 1`] = `
 .c4 {
   fill: rgb(152,0,67);
 }
@@ -3506,7 +3506,7 @@ exports[`BarLine with dates 1`] = `
 </svg>
 `;
 
-exports[`BarLine with source 1`] = `
+exports[`Combination with source 1`] = `
 .c5 {
   fill: rgb(152,0,67);
 }
@@ -3937,7 +3937,7 @@ exports[`BarLine with source 1`] = `
 </svg>
 `;
 
-exports[`BarLine with source link 1`] = `
+exports[`Combination with source link 1`] = `
 .c6 {
   fill: rgb(152,0,67);
 }
@@ -4006,7 +4006,7 @@ exports[`BarLine with source link 1`] = `
       class="data-source-link c1"
       href="#"
       target="foo"
-      title="barLine"
+      title="combination"
     >
       <text
         class="data-source c2"

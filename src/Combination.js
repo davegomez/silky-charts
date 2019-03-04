@@ -50,7 +50,7 @@ import {
   TIME_FORMAT,
 } from './utils/constants';
 
-const BarLine = ({
+const Combination = ({
   aspectRatio = ASPECT_RATIO,
   data: chartData,
   dataSource,
@@ -238,4 +238,4 @@ const BarLine = ({
   );
 };
 
-export default BarLine;
+export default Combination;

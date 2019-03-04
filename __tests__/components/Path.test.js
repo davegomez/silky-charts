@@ -9,7 +9,7 @@ const props = {
 
 afterEach(cleanup);
 
-test('Path:BarLine', () => {
+test('Path:Combination', () => {
   const { container } = render(
     <svg>
       <Path {...props} chart="bar-line" fillColor="rgb(0, 0, 0)" />

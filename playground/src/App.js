@@ -2,7 +2,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { Bar, BarLine, StackedArea, toSeries } from 'silky-charts';
+import { Bar, Combination, StackedArea, toSeries } from 'silky-charts';
 import { aapl, fruits, letters, transport } from './data/';
 import Container from './components/Container';
 import ChartContainer from './components/ChartContainer';
