@@ -47,7 +47,7 @@ const Bar = ({
   dataSource,
   dateFormat = TIME_FORMAT,
   grid,
-  height: svgHeight = undefined,
+  height: graphHeight = undefined,
   horizontal,
   margin = MARGIN,
   onClick = identity,
@@ -58,7 +58,7 @@ const Bar = ({
   theme = THEME,
   title,
   tooltip,
-  width: svgWidth = undefined,
+  width: graphWidth = undefined,
   xAxisChartLabel,
   xAxisLabelRotation,
   xAxisLabelRotationValue = ROTATION,
@@ -84,12 +84,12 @@ const Bar = ({
 
   const handleSize = () => {
     const offsetWidth = svgRef.current.parentElement.offsetWidth;
-    if ((svgWidth || svgHeight) && !isSizeSet) {
+    if ((graphWidth || graphHeight) && !isSizeSet) {
       setSize({
-        ...getSize(svgWidth, svgHeight, margin, aspectRatio),
+        ...getSize(graphWidth, graphHeight, margin, aspectRatio),
         isSizeSet: true,
       });
-    } else if (offsetWidth !== svgWidth - (margin.left + margin.right)) {
+    } else if (offsetWidth !== graphWidth - (margin.left + margin.right)) {
       setSize({
         ...getSize(offsetWidth, undefined, margin, aspectRatio),
         isSizeSet: true,
@@ -106,8 +106,8 @@ const Bar = ({
       <SVG
         identifier={id}
         size={{
-          width: svgWidth || width + margin.left + margin.right,
-          height: svgHeight || height + margin.top + margin.bottom,
+          width: graphWidth || width + margin.left + margin.right,
+          height: graphHeight || height + margin.top + margin.bottom,
         }}
         ref={svgRef}
       >
