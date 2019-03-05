@@ -25,7 +25,6 @@ import {
   getBaseColor,
   getId,
   getMax,
-  getSize,
   rotateXLabels,
   setupData,
 } from './utils';
@@ -70,7 +69,7 @@ const Bar = ({
   const svgRef = useRef();
   const [id] = useState(getId('bar'));
   const timeFormat = d3TimeFormat(dateFormat);
-  const [{ width, height, isSizeSet }, setSize] = useState(SIZE);
+  const [{ width, height }, setSize] = useState(SIZE);
   const [isDates, data] = setupData(chartData);
 
   const xScale = d3ScaleBand()
@@ -82,22 +81,15 @@ const Bar = ({
     .domain([0, getMax(data.map(({ value }) => value))])
     .range([height, 0]);
 
-  const handleSize = () => {
-    const offsetWidth = svgRef.current.parentElement.offsetWidth;
-    if ((graphWidth || graphHeight) && !isSizeSet) {
-      setSize({
-        ...getSize(graphWidth, graphHeight, margin, aspectRatio),
-        isSizeSet: true,
-      });
-    } else if (offsetWidth !== graphWidth - (margin.left + margin.right)) {
-      setSize({
-        ...getSize(offsetWidth, undefined, margin, aspectRatio),
-        isSizeSet: true,
-      });
-    }
-  };
-
-  useResize(responsive, handleSize);
+  useResize({
+    aspectRatio,
+    graphHeight,
+    graphWidth,
+    margin,
+    responsive,
+    setSize,
+    svgRef,
+  });
 
   return (
     <GraphContext.Provider

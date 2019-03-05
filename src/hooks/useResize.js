@@ -1,17 +1,42 @@
 import { useEffect, useRef } from 'react';
 import useDebounce from './useDebounce';
+import { getSize } from '../utils';
 
-export default (responsive, handleSize) => {
+export default ({
+  aspectRatio,
+  graphHeight,
+  graphWidth,
+  margin,
+  responsive,
+  setSize,
+  svgRef,
+}) => {
+  const handleSize = () => {
+    const offsetWidth = svgRef.current.parentElement.offsetWidth;
+    setSize({
+      ...getSize(graphWidth || offsetWidth, graphHeight, margin, aspectRatio),
+      isSizeSet: true,
+    });
+  };
+
+  const handleResize = () => {
+    const offsetWidth = svgRef.current.parentElement.offsetWidth;
+    setSize({
+      ...getSize(offsetWidth, undefined, margin, aspectRatio),
+      isSizeSet: true,
+    });
+  };
+
   const refSize = useRef(handleSize);
-  const handleResize = useDebounce(handleSize, 250, [handleSize]);
+  const handleResizeDebounced = useDebounce(handleResize, 250, [handleResize]);
 
   useEffect(() => refSize.current(), [refSize]);
 
   useEffect(() => {
-    responsive && window.addEventListener('resize', handleResize);
+    responsive && window.addEventListener('resize', handleResizeDebounced);
 
     return () => {
-      responsive && window.removeEventListener('resize', handleResize);
+      responsive && window.removeEventListener('resize', handleResizeDebounced);
     };
-  }, [handleResize, responsive]);
+  }, [handleResizeDebounced, responsive]);
 };

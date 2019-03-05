@@ -26,7 +26,6 @@ export const ROTATION = -50;
 export const SIZE = {
   width: 0,
   height: 0,
-  isSizeSet: false,
 };
 export const X_TICKS = 10;
 export const Y_TICKS = 5;

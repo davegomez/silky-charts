@@ -30,7 +30,6 @@ import {
   getMax,
   getStackedMax,
   getSeries,
-  getSize,
   mapTooltipData,
   palette,
   rotateXLabels,
@@ -80,7 +79,7 @@ const StackedArea = ({
   const svgRef = useRef(null);
   const [id] = useState(getId('stacked-area'));
   const timeFormat = d3TimeFormat(dateFormat);
-  const [{ width, height, isSizeSet }, setSize] = useState(SIZE);
+  const [{ width, height }, setSize] = useState(SIZE);
   let [isDates, data, names] = setupData(chartData);
   data = appendStackedValues(
     buildStack(getSeries(data))(toStackedForm(data)),
@@ -110,22 +109,15 @@ const StackedArea = ({
   const dataPositions = names.map(name => xScale(name));
   const tooltipData = mapTooltipData(data, dataPositions);
 
-  const handleSize = () => {
-    const offsetWidth = svgRef.current.parentElement.offsetWidth;
-    if ((graphWidth || graphHeight) && !isSizeSet) {
-      setSize({
-        ...getSize(graphWidth, graphHeight, margin, aspectRatio),
-        isSizeSet: true,
-      });
-    } else if (offsetWidth !== graphWidth - (margin.left + margin.right)) {
-      setSize({
-        ...getSize(offsetWidth, undefined, margin, aspectRatio),
-        isSizeSet: true,
-      });
-    }
-  };
-
-  useResize(responsive, handleSize);
+  useResize({
+    aspectRatio,
+    graphHeight,
+    graphWidth,
+    margin,
+    responsive,
+    setSize,
+    svgRef,
+  });
 
   return (
     <GraphContext.Provider
