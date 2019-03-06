@@ -1,15 +1,16 @@
-import { selectAll as d3SelectAll } from 'd3-selection';
+import { select as d3Select } from 'd3-selection';
 
 /**
  * Rotate the X axis labels to a given degrees.
  *
- * @param {String} id Unique chart ID.
+ * @param {String} node Graph node.
  * @param {Number} deg Degrees to rotate.
  * @returns {Void}
  */
-export default (id, deg) => {
+export default (node, deg) => {
   const isNegative = deg < 0;
-  d3SelectAll(`#${id} .axis-x .tick text`)
+  d3Select(node)
+    .selectAll('.axis-x .tick text')
     .attr('text-anchor', isNegative ? 'end' : 'start')
     .attr('transform', `translate(${isNegative ? -12 : 12}, 6) rotate(${deg})`);
 };
