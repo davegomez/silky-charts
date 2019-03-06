@@ -1,6 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Axis 1`] = `
+exports[`Axis:bottom 1`] = `
+<g
+  class="axis-foo "
+  transform="translate(10, 10)"
+/>
+`;
+
+exports[`Axis:left 1`] = `
+<g
+  class="axis-foo "
+  transform="translate(10, 10)"
+/>
+`;
+
+exports[`Axis:right 1`] = `
+<g
+  class="axis-foo "
+  transform="translate(10, 10)"
+/>
+`;
+
+exports[`Axis:top 1`] = `
 <g
   class="axis-foo "
   transform="translate(10, 10)"

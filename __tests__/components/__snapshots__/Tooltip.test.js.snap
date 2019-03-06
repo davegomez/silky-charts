@@ -29,7 +29,6 @@ exports[`Tooltip 1`] = `
 <div
   class="silky-charts-tooltip c0"
   height="0"
-  style="left: 180px; top: 29px;"
   width="0"
 >
   foo

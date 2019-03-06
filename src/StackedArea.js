@@ -1,12 +1,10 @@
 import React, { useRef, useState } from 'react';
-import { axisBottom as d3AxisBottom, axisLeft as d3AxisLeft } from 'd3-axis';
 import {
   scaleTime as d3ScaleTime,
   scaleLinear as d3ScaleLinear,
 } from 'd3-scale';
 import { select as d3Select } from 'd3-selection';
 import { area as d3Area } from 'd3-shape';
-import { timeFormat as d3TimeFormat } from 'd3-time-format';
 import identity from 'ramda/src/identity';
 import { GraphContext } from './contexts';
 import {
@@ -31,7 +29,6 @@ import {
   getSeries,
   mapTooltipData,
   palette,
-  rotateXLabels,
   setLineType,
   setupData,
   toStackedForm,
@@ -76,7 +73,6 @@ const StackedArea = ({
   yAxisTicks = Y_TICKS,
 }) => {
   const svgRef = useRef(null);
-  const timeFormat = d3TimeFormat(dateFormat);
   const [{ width, height }, setSize] = useState(SIZE);
   let [isDates, data, names] = setupData(chartData);
   data = appendStackedValues(
@@ -119,7 +115,14 @@ const StackedArea = ({
 
   return (
     <GraphContext.Provider
-      value={{ margin, node: svgRef.current, staticTooltip }}
+      value={{
+        dateFormat,
+        margin,
+        node: svgRef.current,
+        staticTooltip,
+        xAxisLabelRotation,
+        xAxisLabelRotationValue,
+      }}
     >
       <SVG
         size={{
@@ -193,22 +196,18 @@ const StackedArea = ({
 
           <Axis
             axis="x"
+            axisTicks={xAxisTicks}
+            orientation="bottom"
             position={{ x: 0, y: height }}
-            ref={node => {
-              d3Select(node).call(
-                d3AxisBottom(xScale)
-                  .ticks(xAxisTicks)
-                  .tickFormat(timeFormat)
-              );
-              xAxisLabelRotation && rotateXLabels(id, xAxisLabelRotationValue);
-            }}
+            scale={xScale}
+            toDate={isDates}
           />
 
           <Axis
             axis="y"
-            ref={node =>
-              d3Select(node).call(d3AxisLeft(yScale).ticks(yAxisTicks))
-            }
+            axisTicks={yAxisTicks}
+            orientation="left"
+            scale={yScale}
           />
         </MainGroup>
       </SVG>
