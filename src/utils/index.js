@@ -7,7 +7,6 @@ export { default as drawGrid } from './drawGrid';
 export { default as extent } from './extent';
 export { default as getBaseColor } from './getBaseColor';
 export { default as colorMod } from './colorMod';
-export { default as getId } from './getId';
 export { default as getLineDataForSeries } from './getLineDataForSeries';
 export { default as getMax } from './getMax';
 export { default as getMin } from './getMin';

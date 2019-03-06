@@ -26,7 +26,6 @@ import {
   bySeries,
   drawGrid,
   extent,
-  getId,
   getMax,
   getStackedMax,
   getSeries,
@@ -77,7 +76,6 @@ const StackedArea = ({
   yAxisTicks = Y_TICKS,
 }) => {
   const svgRef = useRef(null);
-  const [id] = useState(getId('stacked-area'));
   const timeFormat = d3TimeFormat(dateFormat);
   const [{ width, height }, setSize] = useState(SIZE);
   let [isDates, data, names] = setupData(chartData);
@@ -124,7 +122,6 @@ const StackedArea = ({
       value={{ margin, node: svgRef.current, staticTooltip }}
     >
       <SVG
-        identifier={id}
         size={{
           width: graphWidth || width + margin.left + margin.right,
           height: graphHeight || height + margin.top + margin.bottom,

@@ -25,7 +25,6 @@ import useResize from './hooks/useResize';
 import {
   buildStack,
   drawGrid,
-  getId,
   getLineDataForSeries,
   getMax,
   getStackedMax,
@@ -81,7 +80,6 @@ const Combination = ({
   yAxisTicks = Y_TICKS,
 }) => {
   const svgRef = useRef();
-  const [id] = useState(getId('bar-line'));
   const timeFormat = d3TimeFormat(dateFormat);
   const [{ width, height }, setSize] = useState(SIZE);
   const [isDates, data] = setupData(chartData);
@@ -118,7 +116,6 @@ const Combination = ({
       value={{ margin, node: svgRef.current, staticTooltip }}
     >
       <SVG
-        identifier={id}
         size={{
           width: graphWidth || width + margin.left + margin.right,
           height: graphHeight || height + margin.top + margin.bottom,
