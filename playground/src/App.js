@@ -12,13 +12,13 @@ import './styles.css';
 const App = () => (
   <Container>
     <ChartContainer>
-      <StackedArea
+      <Bar
         // aspectRatio="4:3"
-        data={fruits}
+        data={letters}
         // dataSource="Unknown"
         // dateFormat="%B %d, %Y"
         // grid
-        // height="300"
+        // height={300}
         // lineSeries={['Sold', 'Lost']}
         // lineType="curveCardinalOpen"
         // lineTypeOption={0.1}
