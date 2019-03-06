@@ -2,6 +2,7 @@ export { default as appendStackedValues } from './appendStackedValues';
 export { default as buildStack } from './buildStack';
 export { default as bySeries } from './bySeries';
 export { default as classify } from './classify';
+export { default as d3Axis } from './d3Axis';
 export { default as drawGrid } from './drawGrid';
 export { default as extent } from './extent';
 export { default as getBaseColor } from './getBaseColor';
