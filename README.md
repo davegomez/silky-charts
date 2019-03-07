@@ -186,7 +186,7 @@ One major flaw with Bar Charts is that labelling becomes problematic when there 
 
 | Name    |   Type   | Default | Description                              |
 | ------- | :------: | :-----: | ---------------------------------------- |
-| padding | `Number` |  `0.1`  | Sets the padding between the chart bars. |
+| padding | `Number` |  `0.2`  | Sets the padding between the chart bars. |
 
 ## Combination
 
@@ -217,7 +217,7 @@ The series in the combination chart is a way to divide the data into slices. The
 | lineSeries     | `[String]` |                 | Series names of the datasets you want to appear as lines in the chart.                            |
 | lineType       |  `String`  | `"curveLinear"` | Define the line style to use based on [D3 Curves](https://github.com/d3/d3-shape#curves) options. |
 | lineTypeOption |   `Any`    |                 | If the line style accepts optional values you can set them using this prop.                       |
-| padding        |  `Number`  |      `0.1`      | Sets the padding between the chart bars.                                                          |
+| padding        |  `Number`  |      `0.2`      | Sets the padding between the chart bars.                                                          |
 | secondaryTheme |  `String`  | `"vividCerise"` | Color theme for the chart lines. Hint: opposite colors have better contrast.                      |
 | stackedSeries  | `[String]` |                 | Series names of the datasets you want to appear as stacked bars in the chart.                     |
 

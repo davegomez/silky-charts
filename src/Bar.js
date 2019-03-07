@@ -43,6 +43,7 @@ const Bar = ({
   onClick = identity,
   onMouseEnter = identity,
   onMouseLeave = identity,
+  padding: xScalePadding = SCALE_PADDING,
   responsive,
   staticTooltip,
   theme = THEME,
@@ -53,7 +54,6 @@ const Bar = ({
   xAxisLabelRotation,
   xAxisLabelRotationValue = ROTATION,
   xAxisTicks = X_TICKS,
-  padding: xScalePadding = SCALE_PADDING,
   yAxisChartLabel,
   yAxisTicks = Y_TICKS,
 }) => {
