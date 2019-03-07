@@ -7,7 +7,7 @@ const Path = styled.path.attrs(({ chart }) => ({
 }))`
   fill: ${({ fillColor }) => fillColor || 'none'};
   stroke: ${({ strokeColor }) => strokeColor || 'none'};
-  stroke-width: ${LINE_STROKE_WIDTH};
+  stroke-width: ${({ strokeWidth }) => strokeWidth || LINE_STROKE_WIDTH};
   pointer-events: ${({ chart }) => chart === 'bar-line' && 'none'}
 
   &:hover {

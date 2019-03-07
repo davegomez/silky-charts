@@ -22,16 +22,15 @@ const LineDatum = ({
 
   return (
     <Fragment>
-      <Path chart={chart} d={d} strokeColor={color} />
+      <Path chart={chart} d={d} strokeColor={color} strokeWidth={2} />
       <g className="line-dot-group">
         {data.map(({ name, value }, idx) => (
           <Circle
             key={idx}
             chart={chart}
-            color={color}
             cx={xScale(name) + xScale.bandwidth() / 2}
             cy={yScale(value)}
-            r={6}
+            r={5}
             onClick={onClick}
             onMouseEnter={event => {
               setTooltip(state => ({ ...state, show: true }));
@@ -45,6 +44,8 @@ const LineDatum = ({
               const { pageX, pageY } = event;
               setTooltip(state => ({ ...state, name, pageX, pageY, value }));
             }}
+            strokeColor={color}
+            strokeWidth={2}
           />
         ))}
       </g>

@@ -2,7 +2,9 @@
 
 exports[`Circle 1`] = `
 .c0 {
-  fill: rgb(0,0,0);
+  fill: rgb(255,255,255);
+  stroke: none;
+  stroke-width: 3;
 }
 
 <circle
