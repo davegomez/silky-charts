@@ -6,6 +6,7 @@ import 'jest-styled-components';
 
 const props = {
   data,
+  visibleTicks: true,
 };
 
 afterEach(cleanup);

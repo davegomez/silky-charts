@@ -34,6 +34,7 @@ const App = () => (
         // theme="curiousBlue"
         // title="Placeholder Chart Title"
         tooltip
+        // visibleTicks
         // width={500}
         // xAxisChartLabel="X axis label"
         // xAxisLabelRotation

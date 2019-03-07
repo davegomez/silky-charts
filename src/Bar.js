@@ -49,6 +49,7 @@ const Bar = ({
   theme = THEME,
   title,
   tooltip,
+  visibleTicks,
   width: graphWidth = undefined,
   xAxisChartLabel,
   xAxisLabelRotation,
@@ -87,6 +88,7 @@ const Bar = ({
         margin,
         node: svgRef.current,
         staticTooltip,
+        visibleTicks,
         xAxisLabelRotation,
         xAxisLabelRotationValue,
       }}

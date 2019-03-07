@@ -1,39 +1,34 @@
 import { rotateXLabels } from '../../src/utils';
 
-jest.mock('d3-selection', () => require.requireActual('d3-selection'));
-
-let template = `
-  <body>
-    <svg>
-      <g class="axis-x">
-        <g class="tick">
-          <text />
-        </g>
-        <g class="tick">
-          <text />
-        </g>
+const template = `
+  <svg>
+    <g class="axis-x">
+      <g class="tick">
+        <text />
       </g>
-    </svg>
-  </body>
-  `;
-
-let node = null;
-let labels = null;
+      <g class="tick">
+        <text />
+      </g>
+    </g>
+  </svg>
+`;
 
 beforeEach(() => {
   document.body.innerHTML = template;
-  node = document.querySelector('svg');
-  labels = node.querySelectorAll('.axis-x text');
 });
 
 afterEach(() => {
   document.body.innerHTML = '';
-  node = null;
-  labels = null;
+});
+
+test('null node on initial render', () => {
+  const node = null;
+  expect(rotateXLabels(node, 50)).toEqual(undefined);
 });
 
 test('rotate labels to 50 degrees', () => {
-  require.requireActual('d3-selection');
+  const node = document.querySelector('svg');
+  const labels = node.querySelectorAll('.axis-x text');
   rotateXLabels(node, 50);
   labels.forEach(label =>
     expect(label.getAttribute('transform')).toEqual(
@@ -42,7 +37,9 @@ test('rotate labels to 50 degrees', () => {
   );
 });
 
-test('rotate labels to 50 degrees', () => {
+test('rotate labels to -50 degrees', () => {
+  const node = document.querySelector('svg');
+  const labels = node.querySelectorAll('.axis-x text');
   rotateXLabels(node, -50);
   labels.forEach(label =>
     expect(label.getAttribute('transform')).toEqual(

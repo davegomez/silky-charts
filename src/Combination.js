@@ -68,6 +68,7 @@ const Combination = ({
   theme = THEME,
   title,
   tooltip,
+  visibleTicks,
   width: graphWidth = undefined,
   xAxisChartLabel,
   xAxisLabelRotation,
@@ -114,6 +115,7 @@ const Combination = ({
         margin,
         node: svgRef.current,
         staticTooltip,
+        visibleTicks,
         xAxisLabelRotation,
         xAxisLabelRotationValue,
       }}

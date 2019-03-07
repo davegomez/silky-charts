@@ -8,6 +8,7 @@ const props = {
   data,
   lineSeries: ['cherries', 'dates'],
   stackedSeries: ['apples', 'bananas'],
+  visibleTicks: true,
 };
 
 afterEach(cleanup);

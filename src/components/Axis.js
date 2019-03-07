@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { select as d3Select } from 'd3-selection';
 import { timeFormat as d3TimeFormat } from 'd3-time-format';
 import { GraphContext } from '../contexts';
-import { d3Axis, rotateXLabels } from '../utils';
+import { d3Axis, removeTicks, rotateXLabels } from '../utils';
 
 const Group = styled.g.attrs(({ axis, position }) => ({
   className: `axis-${axis}`,
@@ -13,6 +13,7 @@ const Group = styled.g.attrs(({ axis, position }) => ({
 const Axis = ({ axis, axisTicks, position, orientation, scale, toDate }) => {
   const {
     dateFormat,
+    visibleTicks,
     xAxisLabelRotation,
     xAxisLabelRotationValue,
   } = useContext(GraphContext);
@@ -23,6 +24,7 @@ const Axis = ({ axis, axisTicks, position, orientation, scale, toDate }) => {
         .ticks(axisTicks)
         .tickFormat(toDate ? timeFormat : null)
     );
+    !visibleTicks && removeTicks(node);
     xAxisLabelRotation && rotateXLabels(node, xAxisLabelRotationValue);
   };
 

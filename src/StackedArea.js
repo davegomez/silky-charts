@@ -64,6 +64,7 @@ const StackedArea = ({
   theme = THEME,
   title,
   tooltip,
+  visibleTicks,
   width: graphWidth = undefined,
   xAxisChartLabel,
   xAxisLabelRotation,
@@ -120,6 +121,7 @@ const StackedArea = ({
         margin,
         node: svgRef.current,
         staticTooltip,
+        visibleTicks,
         xAxisLabelRotation,
         xAxisLabelRotationValue,
       }}

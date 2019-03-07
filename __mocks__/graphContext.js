@@ -6,6 +6,7 @@ module.exports = {
   margin: rect,
   node: { getBoundingClientRect: jest.fn(() => rect) },
   staticTooltip: false,
+  visibleTicks: true,
   xAxisLabelRotation: false,
   xAxisLabelRotationValue: -65,
 };

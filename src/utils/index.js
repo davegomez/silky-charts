@@ -19,6 +19,7 @@ export { default as getTooltipPosition } from './getTooltipPosition';
 export { default as isValidDate } from './isValidDate';
 export { default as mapTooltipData } from './mapTooltipData';
 export { default as palette } from './palette';
+export { default as removeTicks } from './removeTicks';
 export { default as rotateXLabels } from './rotateXLabels';
 export { default as setLineType } from './setLineType';
 export { default as setupData } from './setupData';
