@@ -12,13 +12,13 @@ afterEach(cleanup);
 test('Path:Combination', () => {
   const { container } = render(
     <svg>
-      <Path {...props} chart="bar-line" fillColor="rgb(0, 0, 0)" />
+      <Path {...props} chart="combination" fillColor="rgb(0, 0, 0)" />
     </svg>
   );
 
   const path = container.querySelector('path');
   expect(path).toMatchSnapshot();
-  expect(path.classList.contains('bar-line')).toBe(true);
+  expect(path.classList.contains('combination')).toBe(true);
 });
 
 test('Path:StackedArea', () => {

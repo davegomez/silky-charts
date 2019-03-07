@@ -3,8 +3,7 @@
 exports[`AreaDatum 1`] = `
 .c0 {
   fill: none;
-  stroke: none;
-  stroke-width: 3;
+  stroke-width: 2;
 }
 
 pointer-events: .c0:hover {
@@ -16,7 +15,6 @@ pointer-events: .c0:hover {
 >
   <path
     class="line-path stacked-area c0"
-    stroke-width="0"
   />
 </g>
 `;
@@ -24,8 +22,7 @@ pointer-events: .c0:hover {
 exports[`AreaDatum:onMouseLeave hide tooltip 1`] = `
 .c0 {
   fill: none;
-  stroke: none;
-  stroke-width: 3;
+  stroke-width: 2;
 }
 
 pointer-events: .c0:hover {
@@ -38,7 +35,6 @@ pointer-events: .c0:hover {
   >
     <path
       class="line-path stacked-area c0"
-      stroke-width="0"
     />
   </g>
 </svg>

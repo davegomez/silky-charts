@@ -132,7 +132,7 @@ exports[`Bar responsive 1`] = `
       class="cherries-layer"
     >
       <path
-        class="line-path bar-line c3"
+        class="line-path combination c3"
         d="M74.81927710843374,135L204.93975903614458,119.11764705882354L335.06024096385545,127.05882352941177L465.18072289156623,254.11764705882354"
         stroke-width="2"
       />
@@ -140,28 +140,28 @@ exports[`Bar responsive 1`] = `
         class="line-dot-group"
       >
         <circle
-          class="bar-line c4"
+          class="combination c4"
           cx="74.81927710843374"
           cy="135"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c4"
+          class="combination c4"
           cx="204.93975903614458"
           cy="119.11764705882354"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c4"
+          class="combination c4"
           cx="335.06024096385545"
           cy="127.05882352941177"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c4"
+          class="combination c4"
           cx="465.18072289156623"
           cy="254.11764705882354"
           r="5"
@@ -173,7 +173,7 @@ exports[`Bar responsive 1`] = `
       class="dates-layer"
     >
       <path
-        class="line-path bar-line c5"
+        class="line-path combination c5"
         d="M74.81927710843374,262.05882352941177L204.93975903614458,150.88235294117646L335.06024096385545,198.52941176470588L465.18072289156623,166.76470588235293"
         stroke-width="2"
       />
@@ -181,28 +181,28 @@ exports[`Bar responsive 1`] = `
         class="line-dot-group"
       >
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="74.81927710843374"
           cy="262.05882352941177"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="204.93975903614458"
           cy="150.88235294117646"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="335.06024096385545"
           cy="198.52941176470588"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="465.18072289156623"
           cy="166.76470588235293"
           r="5"
@@ -346,7 +346,7 @@ exports[`Bar with height 1`] = `
       class="cherries-layer"
     >
       <path
-        class="line-path bar-line c3"
+        class="line-path combination c3"
         d="M10.7764390896921,5L29.518072289156624,4.411764705882353L48.25970548862115,4.705882352941177L67.00133868808567,9.411764705882353"
         stroke-width="2"
       />
@@ -354,28 +354,28 @@ exports[`Bar with height 1`] = `
         class="line-dot-group"
       >
         <circle
-          class="bar-line c4"
+          class="combination c4"
           cx="10.7764390896921"
           cy="5"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c4"
+          class="combination c4"
           cx="29.518072289156624"
           cy="4.411764705882353"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c4"
+          class="combination c4"
           cx="48.25970548862115"
           cy="4.705882352941177"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c4"
+          class="combination c4"
           cx="67.00133868808567"
           cy="9.411764705882353"
           r="5"
@@ -387,7 +387,7 @@ exports[`Bar with height 1`] = `
       class="dates-layer"
     >
       <path
-        class="line-path bar-line c5"
+        class="line-path combination c5"
         d="M10.7764390896921,9.705882352941176L29.518072289156624,5.588235294117647L48.25970548862115,7.352941176470589L67.00133868808567,6.176470588235294"
         stroke-width="2"
       />
@@ -395,28 +395,28 @@ exports[`Bar with height 1`] = `
         class="line-dot-group"
       >
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="10.7764390896921"
           cy="9.705882352941176"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="29.518072289156624"
           cy="5.588235294117647"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="48.25970548862115"
           cy="7.352941176470589"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="67.00133868808567"
           cy="6.176470588235294"
           r="5"
@@ -560,7 +560,7 @@ exports[`Bar with width 1`] = `
       class="cherries-layer"
     >
       <path
-        class="line-path bar-line c3"
+        class="line-path combination c3"
         d="M0,-16.875L0,-14.889705882352942L0,-15.882352941176471L0,-31.764705882352942"
         stroke-width="2"
       />
@@ -568,28 +568,28 @@ exports[`Bar with width 1`] = `
         class="line-dot-group"
       >
         <circle
-          class="bar-line c4"
+          class="combination c4"
           cx="0"
           cy="-16.875"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c4"
+          class="combination c4"
           cx="0"
           cy="-14.889705882352942"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c4"
+          class="combination c4"
           cx="0"
           cy="-15.882352941176471"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c4"
+          class="combination c4"
           cx="0"
           cy="-31.764705882352942"
           r="5"
@@ -601,7 +601,7 @@ exports[`Bar with width 1`] = `
       class="dates-layer"
     >
       <path
-        class="line-path bar-line c5"
+        class="line-path combination c5"
         d="M0,-32.75735294117647L0,-18.860294117647058L0,-24.816176470588236L0,-20.845588235294116"
         stroke-width="2"
       />
@@ -609,28 +609,28 @@ exports[`Bar with width 1`] = `
         class="line-dot-group"
       >
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="0"
           cy="-32.75735294117647"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="0"
           cy="-18.860294117647058"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="0"
           cy="-24.816176470588236"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="0"
           cy="-20.845588235294116"
           r="5"
@@ -774,7 +774,7 @@ exports[`Combination 1`] = `
       class="cherries-layer"
     >
       <path
-        class="line-path bar-line c3"
+        class="line-path combination c3"
         d="M74.81927710843374,135L204.93975903614458,119.11764705882354L335.06024096385545,127.05882352941177L465.18072289156623,254.11764705882354"
         stroke-width="2"
       />
@@ -782,28 +782,28 @@ exports[`Combination 1`] = `
         class="line-dot-group"
       >
         <circle
-          class="bar-line c4"
+          class="combination c4"
           cx="74.81927710843374"
           cy="135"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c4"
+          class="combination c4"
           cx="204.93975903614458"
           cy="119.11764705882354"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c4"
+          class="combination c4"
           cx="335.06024096385545"
           cy="127.05882352941177"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c4"
+          class="combination c4"
           cx="465.18072289156623"
           cy="254.11764705882354"
           r="5"
@@ -815,7 +815,7 @@ exports[`Combination 1`] = `
       class="dates-layer"
     >
       <path
-        class="line-path bar-line c5"
+        class="line-path combination c5"
         d="M74.81927710843374,262.05882352941177L204.93975903614458,150.88235294117646L335.06024096385545,198.52941176470588L465.18072289156623,166.76470588235293"
         stroke-width="2"
       />
@@ -823,28 +823,28 @@ exports[`Combination 1`] = `
         class="line-dot-group"
       >
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="74.81927710843374"
           cy="262.05882352941177"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="204.93975903614458"
           cy="150.88235294117646"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="335.06024096385545"
           cy="198.52941176470588"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="465.18072289156623"
           cy="166.76470588235293"
           r="5"
@@ -999,7 +999,7 @@ exports[`Combination width grid 1`] = `
       class="cherries-layer"
     >
       <path
-        class="line-path bar-line c4"
+        class="line-path combination c4"
         d="M74.81927710843374,135L204.93975903614458,119.11764705882354L335.06024096385545,127.05882352941177L465.18072289156623,254.11764705882354"
         stroke-width="2"
       />
@@ -1007,28 +1007,28 @@ exports[`Combination width grid 1`] = `
         class="line-dot-group"
       >
         <circle
-          class="bar-line c5"
+          class="combination c5"
           cx="74.81927710843374"
           cy="135"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c5"
+          class="combination c5"
           cx="204.93975903614458"
           cy="119.11764705882354"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c5"
+          class="combination c5"
           cx="335.06024096385545"
           cy="127.05882352941177"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c5"
+          class="combination c5"
           cx="465.18072289156623"
           cy="254.11764705882354"
           r="5"
@@ -1040,7 +1040,7 @@ exports[`Combination width grid 1`] = `
       class="dates-layer"
     >
       <path
-        class="line-path bar-line c6"
+        class="line-path combination c6"
         d="M74.81927710843374,262.05882352941177L204.93975903614458,150.88235294117646L335.06024096385545,198.52941176470588L465.18072289156623,166.76470588235293"
         stroke-width="2"
       />
@@ -1048,28 +1048,28 @@ exports[`Combination width grid 1`] = `
         class="line-dot-group"
       >
         <circle
-          class="bar-line c7"
+          class="combination c7"
           cx="74.81927710843374"
           cy="262.05882352941177"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c7"
+          class="combination c7"
           cx="204.93975903614458"
           cy="150.88235294117646"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c7"
+          class="combination c7"
           cx="335.06024096385545"
           cy="198.52941176470588"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c7"
+          class="combination c7"
           cx="465.18072289156623"
           cy="166.76470588235293"
           r="5"
@@ -1257,7 +1257,7 @@ exports[`Combination with Title, X label, Y label 1`] = `
       class="cherries-layer"
     >
       <path
-        class="line-path bar-line c6"
+        class="line-path combination c6"
         d="M74.81927710843374,135L204.93975903614458,119.11764705882354L335.06024096385545,127.05882352941177L465.18072289156623,254.11764705882354"
         stroke-width="2"
       />
@@ -1265,28 +1265,28 @@ exports[`Combination with Title, X label, Y label 1`] = `
         class="line-dot-group"
       >
         <circle
-          class="bar-line c7"
+          class="combination c7"
           cx="74.81927710843374"
           cy="135"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c7"
+          class="combination c7"
           cx="204.93975903614458"
           cy="119.11764705882354"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c7"
+          class="combination c7"
           cx="335.06024096385545"
           cy="127.05882352941177"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c7"
+          class="combination c7"
           cx="465.18072289156623"
           cy="254.11764705882354"
           r="5"
@@ -1298,7 +1298,7 @@ exports[`Combination with Title, X label, Y label 1`] = `
       class="dates-layer"
     >
       <path
-        class="line-path bar-line c8"
+        class="line-path combination c8"
         d="M74.81927710843374,262.05882352941177L204.93975903614458,150.88235294117646L335.06024096385545,198.52941176470588L465.18072289156623,166.76470588235293"
         stroke-width="2"
       />
@@ -1306,28 +1306,28 @@ exports[`Combination with Title, X label, Y label 1`] = `
         class="line-dot-group"
       >
         <circle
-          class="bar-line c9"
+          class="combination c9"
           cx="74.81927710843374"
           cy="262.05882352941177"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c9"
+          class="combination c9"
           cx="204.93975903614458"
           cy="150.88235294117646"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c9"
+          class="combination c9"
           cx="335.06024096385545"
           cy="198.52941176470588"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c9"
+          class="combination c9"
           cx="465.18072289156623"
           cy="166.76470588235293"
           r="5"
@@ -1471,7 +1471,7 @@ exports[`Combination with X label rotation 1`] = `
       class="cherries-layer"
     >
       <path
-        class="line-path bar-line c3"
+        class="line-path combination c3"
         d="M74.81927710843374,135L204.93975903614458,119.11764705882354L335.06024096385545,127.05882352941177L465.18072289156623,254.11764705882354"
         stroke-width="2"
       />
@@ -1479,28 +1479,28 @@ exports[`Combination with X label rotation 1`] = `
         class="line-dot-group"
       >
         <circle
-          class="bar-line c4"
+          class="combination c4"
           cx="74.81927710843374"
           cy="135"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c4"
+          class="combination c4"
           cx="204.93975903614458"
           cy="119.11764705882354"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c4"
+          class="combination c4"
           cx="335.06024096385545"
           cy="127.05882352941177"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c4"
+          class="combination c4"
           cx="465.18072289156623"
           cy="254.11764705882354"
           r="5"
@@ -1512,7 +1512,7 @@ exports[`Combination with X label rotation 1`] = `
       class="dates-layer"
     >
       <path
-        class="line-path bar-line c5"
+        class="line-path combination c5"
         d="M74.81927710843374,262.05882352941177L204.93975903614458,150.88235294117646L335.06024096385545,198.52941176470588L465.18072289156623,166.76470588235293"
         stroke-width="2"
       />
@@ -1520,28 +1520,28 @@ exports[`Combination with X label rotation 1`] = `
         class="line-dot-group"
       >
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="74.81927710843374"
           cy="262.05882352941177"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="204.93975903614458"
           cy="150.88235294117646"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="335.06024096385545"
           cy="198.52941176470588"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="465.18072289156623"
           cy="166.76470588235293"
           r="5"
@@ -1685,7 +1685,7 @@ exports[`Combination with dates 1`] = `
       class="cherries-layer"
     >
       <path
-        class="line-path bar-line c3"
+        class="line-path combination c3"
         d="M74.81927710843374,135L204.93975903614458,119.11764705882354L335.06024096385545,127.05882352941177L465.18072289156623,254.11764705882354"
         stroke-width="2"
       />
@@ -1693,28 +1693,28 @@ exports[`Combination with dates 1`] = `
         class="line-dot-group"
       >
         <circle
-          class="bar-line c4"
+          class="combination c4"
           cx="74.81927710843374"
           cy="135"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c4"
+          class="combination c4"
           cx="204.93975903614458"
           cy="119.11764705882354"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c4"
+          class="combination c4"
           cx="335.06024096385545"
           cy="127.05882352941177"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c4"
+          class="combination c4"
           cx="465.18072289156623"
           cy="254.11764705882354"
           r="5"
@@ -1726,7 +1726,7 @@ exports[`Combination with dates 1`] = `
       class="dates-layer"
     >
       <path
-        class="line-path bar-line c5"
+        class="line-path combination c5"
         d="M74.81927710843374,262.05882352941177L204.93975903614458,150.88235294117646L335.06024096385545,198.52941176470588L465.18072289156623,166.76470588235293"
         stroke-width="2"
       />
@@ -1734,28 +1734,28 @@ exports[`Combination with dates 1`] = `
         class="line-dot-group"
       >
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="74.81927710843374"
           cy="262.05882352941177"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="204.93975903614458"
           cy="150.88235294117646"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="335.06024096385545"
           cy="198.52941176470588"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="465.18072289156623"
           cy="166.76470588235293"
           r="5"
@@ -1914,7 +1914,7 @@ exports[`Combination with source 1`] = `
       class="cherries-layer"
     >
       <path
-        class="line-path bar-line c4"
+        class="line-path combination c4"
         d="M74.81927710843374,135L204.93975903614458,119.11764705882354L335.06024096385545,127.05882352941177L465.18072289156623,254.11764705882354"
         stroke-width="2"
       />
@@ -1922,28 +1922,28 @@ exports[`Combination with source 1`] = `
         class="line-dot-group"
       >
         <circle
-          class="bar-line c5"
+          class="combination c5"
           cx="74.81927710843374"
           cy="135"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c5"
+          class="combination c5"
           cx="204.93975903614458"
           cy="119.11764705882354"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c5"
+          class="combination c5"
           cx="335.06024096385545"
           cy="127.05882352941177"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c5"
+          class="combination c5"
           cx="465.18072289156623"
           cy="254.11764705882354"
           r="5"
@@ -1955,7 +1955,7 @@ exports[`Combination with source 1`] = `
       class="dates-layer"
     >
       <path
-        class="line-path bar-line c6"
+        class="line-path combination c6"
         d="M74.81927710843374,262.05882352941177L204.93975903614458,150.88235294117646L335.06024096385545,198.52941176470588L465.18072289156623,166.76470588235293"
         stroke-width="2"
       />
@@ -1963,28 +1963,28 @@ exports[`Combination with source 1`] = `
         class="line-dot-group"
       >
         <circle
-          class="bar-line c7"
+          class="combination c7"
           cx="74.81927710843374"
           cy="262.05882352941177"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c7"
+          class="combination c7"
           cx="204.93975903614458"
           cy="150.88235294117646"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c7"
+          class="combination c7"
           cx="335.06024096385545"
           cy="198.52941176470588"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c7"
+          class="combination c7"
           cx="465.18072289156623"
           cy="166.76470588235293"
           r="5"
@@ -2153,7 +2153,7 @@ exports[`Combination with source link 1`] = `
       class="cherries-layer"
     >
       <path
-        class="line-path bar-line c5"
+        class="line-path combination c5"
         d="M74.81927710843374,135L204.93975903614458,119.11764705882354L335.06024096385545,127.05882352941177L465.18072289156623,254.11764705882354"
         stroke-width="2"
       />
@@ -2161,28 +2161,28 @@ exports[`Combination with source link 1`] = `
         class="line-dot-group"
       >
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="74.81927710843374"
           cy="135"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="204.93975903614458"
           cy="119.11764705882354"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="335.06024096385545"
           cy="127.05882352941177"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c6"
+          class="combination c6"
           cx="465.18072289156623"
           cy="254.11764705882354"
           r="5"
@@ -2194,7 +2194,7 @@ exports[`Combination with source link 1`] = `
       class="dates-layer"
     >
       <path
-        class="line-path bar-line c7"
+        class="line-path combination c7"
         d="M74.81927710843374,262.05882352941177L204.93975903614458,150.88235294117646L335.06024096385545,198.52941176470588L465.18072289156623,166.76470588235293"
         stroke-width="2"
       />
@@ -2202,28 +2202,28 @@ exports[`Combination with source link 1`] = `
         class="line-dot-group"
       >
         <circle
-          class="bar-line c8"
+          class="combination c8"
           cx="74.81927710843374"
           cy="262.05882352941177"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c8"
+          class="combination c8"
           cx="204.93975903614458"
           cy="150.88235294117646"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c8"
+          class="combination c8"
           cx="335.06024096385545"
           cy="198.52941176470588"
           r="5"
           stroke-width="2"
         />
         <circle
-          class="bar-line c8"
+          class="combination c8"
           cx="465.18072289156623"
           cy="166.76470588235293"
           r="5"

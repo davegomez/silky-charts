@@ -17,7 +17,7 @@ const AreaDatum = ({
   tooltip: withTooltip,
   tooltipData,
 }) => {
-  const { margin, node } = useContext(GraphContext);
+  const { margin, node, outlinedStyle } = useContext(GraphContext);
   const [tooltip, setTooltip] = useState({
     pageX: null,
     pageY: null,
@@ -40,7 +40,6 @@ const AreaDatum = ({
           chart="stacked-area"
           fillColor={fillColor}
           d={area(datum)}
-          strokeWidth={0}
           onClick={onClick}
           onMouseEnter={event => {
             const { pageX, pageY } = event;
@@ -60,6 +59,7 @@ const AreaDatum = ({
               handleMouseMove(nearest);
             }
           }}
+          outlinedStyle={outlinedStyle}
         />
       </g>
       {withTooltip &&

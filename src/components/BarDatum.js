@@ -1,5 +1,6 @@
-import React, { Fragment, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { GraphContext } from '../contexts';
 import { Rect, Tooltip, TooltipItem } from './';
 
 const BarDatum = ({
@@ -14,6 +15,7 @@ const BarDatum = ({
   x,
   y,
 }) => {
+  const { outlinedStyle } = useContext(GraphContext);
   const [tooltip, setTooltip] = useState({
     pageX: null,
     pageY: null,
@@ -21,7 +23,7 @@ const BarDatum = ({
   });
 
   return (
-    <Fragment>
+    <>
       <Rect
         chart="bar"
         fillColor={color}
@@ -39,6 +41,7 @@ const BarDatum = ({
           const { pageX, pageY } = event;
           setTooltip(state => ({ ...state, pageX, pageY }));
         }}
+        outlinedStyle={outlinedStyle}
         position={{ x, y }}
         size={{ width, height }}
       />
@@ -50,7 +53,7 @@ const BarDatum = ({
           </Tooltip>,
           document.body
         )}
-    </Fragment>
+    </>
   );
 };
 

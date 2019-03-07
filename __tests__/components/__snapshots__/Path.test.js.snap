@@ -3,13 +3,13 @@
 exports[`Path:Combination 1`] = `
 .c0 {
   fill: rgb(0,0,0);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(0,0,0);
+  stroke-width: 2;
   pointer-events: none;
 }
 
 <path
-  class="line-path bar-line c0"
+  class="line-path combination c0"
 />
 `;
 
@@ -17,7 +17,7 @@ exports[`Path:StackedArea 1`] = `
 .c0 {
   fill: none;
   stroke: rgb(255,255,255);
-  stroke-width: 3;
+  stroke-width: 2;
 }
 
 pointer-events: .c0:hover {

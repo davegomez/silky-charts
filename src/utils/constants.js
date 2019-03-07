@@ -43,9 +43,12 @@ export const SCALE_TIME = 'time';
 // Themes
 export const THEME = 'monteCarlo';
 export const SECONDARY_THEME = 'vividCerise';
+export const OUTLINE_FILL = 50;
+export const OUTLINE_HOVER = 30;
+export const OUTLINE_STROKE = -20;
 
 // Line options
-export const LINE_STROKE_WIDTH = 3;
+export const LINE_STROKE_WIDTH = 2;
 export const LINE_TYPE = 'curveLinear';
 export const LINE_TYPES = {
   curveBasis,

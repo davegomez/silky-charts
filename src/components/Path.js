@@ -1,14 +1,22 @@
 import styled from 'styled-components';
 import { colorMod } from '../utils';
-import { LINE_STROKE_WIDTH } from '../utils/constants';
+import {
+  LINE_STROKE_WIDTH,
+  OUTLINE_FILL,
+  OUTLINE_STROKE,
+} from '../utils/constants';
 
 const Path = styled.path.attrs(({ chart }) => ({
   className: `line-path ${chart}`,
 }))`
-  fill: ${({ fillColor }) => fillColor || 'none'};
-  stroke: ${({ strokeColor }) => strokeColor || 'none'};
-  stroke-width: ${({ strokeWidth }) => strokeWidth || LINE_STROKE_WIDTH};
-  pointer-events: ${({ chart }) => chart === 'bar-line' && 'none'}
+  fill: ${({ fillColor, outlinedStyle }) =>
+    outlinedStyle ? colorMod(fillColor, OUTLINE_FILL) : fillColor || 'none'};
+  stroke: ${({ fillColor, strokeColor, outlinedStyle }) =>
+    outlinedStyle
+      ? colorMod(strokeColor || fillColor, OUTLINE_STROKE)
+      : strokeColor || fillColor};
+  stroke-width: ${LINE_STROKE_WIDTH};
+  pointer-events: ${({ chart }) => chart === 'combination' && 'none'}
 
   &:hover {
     fill: ${({ chart, fillColor }) =>

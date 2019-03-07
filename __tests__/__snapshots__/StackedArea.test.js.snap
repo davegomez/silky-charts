@@ -3,8 +3,8 @@
 exports[`StackedArea 1`] = `
 .c1 {
   fill: rgb(8,104,172);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(8,104,172);
+  stroke-width: 2;
 }
 
 pointer-events: .c1:hover {
@@ -13,8 +13,8 @@ pointer-events: .c1:hover {
 
 .c2 {
   fill: rgb(67,162,202);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(67,162,202);
+  stroke-width: 2;
 }
 
 pointer-events: .c2:hover {
@@ -23,8 +23,8 @@ pointer-events: .c2:hover {
 
 .c3 {
   fill: rgb(123,204,196);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(123,204,196);
+  stroke-width: 2;
 }
 
 pointer-events: .c3:hover {
@@ -33,8 +33,8 @@ pointer-events: .c3:hover {
 
 .c4 {
   fill: rgb(186,228,188);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(186,228,188);
+  stroke-width: 2;
 }
 
 pointer-events: .c4:hover {
@@ -61,7 +61,6 @@ pointer-events: .c4:hover {
       <path
         class="line-path stacked-area c1"
         d="M0,191.61290322580646L180,209.03225806451613L360,195.96774193548387L540,209.03225806451613L540,270L360,270L180,270L0,270Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -70,7 +69,6 @@ pointer-events: .c4:hover {
       <path
         class="line-path stacked-area c2"
         d="M0,121.93548387096774L180,148.06451612903226L360,139.3548387096774L540,152.4193548387097L540,209.03225806451613L360,195.96774193548387L180,209.03225806451613L0,191.61290322580646Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -79,7 +77,6 @@ pointer-events: .c4:hover {
       <path
         class="line-path stacked-area c3"
         d="M0,47.90322580645159L180,65.32258064516128L360,60.96774193548387L540,143.70967741935485L540,152.4193548387097L360,139.3548387096774L180,148.06451612903226L0,121.93548387096774Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -88,7 +85,6 @@ pointer-events: .c4:hover {
       <path
         class="line-path stacked-area c4"
         d="M0,43.54838709677418L180,0L360,21.774193548387103L540,87.09677419354841L540,143.70967741935485L360,60.96774193548387L180,65.32258064516128L0,47.90322580645159Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -105,8 +101,8 @@ pointer-events: .c4:hover {
 exports[`StackedArea 2`] = `
 .c1 {
   fill: rgb(8,104,172);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(8,104,172);
+  stroke-width: 2;
 }
 
 pointer-events: .c1:hover {
@@ -115,8 +111,8 @@ pointer-events: .c1:hover {
 
 .c2 {
   fill: rgb(67,162,202);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(67,162,202);
+  stroke-width: 2;
 }
 
 pointer-events: .c2:hover {
@@ -125,8 +121,8 @@ pointer-events: .c2:hover {
 
 .c3 {
   fill: rgb(123,204,196);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(123,204,196);
+  stroke-width: 2;
 }
 
 pointer-events: .c3:hover {
@@ -135,8 +131,8 @@ pointer-events: .c3:hover {
 
 .c4 {
   fill: rgb(186,228,188);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(186,228,188);
+  stroke-width: 2;
 }
 
 pointer-events: .c4:hover {
@@ -163,7 +159,6 @@ pointer-events: .c4:hover {
       <path
         class="line-path stacked-area c1"
         d="M0,191.61290322580646L180,209.03225806451613L360,195.96774193548387L540,209.03225806451613L540,270L360,270L180,270L0,270Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -172,7 +167,6 @@ pointer-events: .c4:hover {
       <path
         class="line-path stacked-area c2"
         d="M0,121.93548387096774L180,148.06451612903226L360,139.3548387096774L540,152.4193548387097L540,209.03225806451613L360,195.96774193548387L180,209.03225806451613L0,191.61290322580646Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -181,7 +175,6 @@ pointer-events: .c4:hover {
       <path
         class="line-path stacked-area c3"
         d="M0,47.90322580645159L180,65.32258064516128L360,60.96774193548387L540,143.70967741935485L540,152.4193548387097L360,139.3548387096774L180,148.06451612903226L0,121.93548387096774Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -190,7 +183,6 @@ pointer-events: .c4:hover {
       <path
         class="line-path stacked-area c4"
         d="M0,43.54838709677418L180,0L360,21.774193548387103L540,87.09677419354841L540,143.70967741935485L360,60.96774193548387L180,65.32258064516128L0,47.90322580645159Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -215,8 +207,8 @@ exports[`StackedArea width grid 1`] = `
 
 .c2 {
   fill: rgb(8,104,172);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(8,104,172);
+  stroke-width: 2;
 }
 
 pointer-events: .c2:hover {
@@ -225,8 +217,8 @@ pointer-events: .c2:hover {
 
 .c3 {
   fill: rgb(67,162,202);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(67,162,202);
+  stroke-width: 2;
 }
 
 pointer-events: .c3:hover {
@@ -235,8 +227,8 @@ pointer-events: .c3:hover {
 
 .c4 {
   fill: rgb(123,204,196);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(123,204,196);
+  stroke-width: 2;
 }
 
 pointer-events: .c4:hover {
@@ -245,8 +237,8 @@ pointer-events: .c4:hover {
 
 .c5 {
   fill: rgb(186,228,188);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(186,228,188);
+  stroke-width: 2;
 }
 
 pointer-events: .c5:hover {
@@ -276,7 +268,6 @@ pointer-events: .c5:hover {
       <path
         class="line-path stacked-area c2"
         d="M0,191.61290322580646L180,209.03225806451613L360,195.96774193548387L540,209.03225806451613L540,270L360,270L180,270L0,270Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -285,7 +276,6 @@ pointer-events: .c5:hover {
       <path
         class="line-path stacked-area c3"
         d="M0,121.93548387096774L180,148.06451612903226L360,139.3548387096774L540,152.4193548387097L540,209.03225806451613L360,195.96774193548387L180,209.03225806451613L0,191.61290322580646Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -294,7 +284,6 @@ pointer-events: .c5:hover {
       <path
         class="line-path stacked-area c4"
         d="M0,47.90322580645159L180,65.32258064516128L360,60.96774193548387L540,143.70967741935485L540,152.4193548387097L360,139.3548387096774L180,148.06451612903226L0,121.93548387096774Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -303,7 +292,6 @@ pointer-events: .c5:hover {
       <path
         class="line-path stacked-area c5"
         d="M0,43.54838709677418L180,0L360,21.774193548387103L540,87.09677419354841L540,143.70967741935485L360,60.96774193548387L180,65.32258064516128L0,47.90322580645159Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -333,8 +321,8 @@ exports[`StackedArea with Title, X label, Y label 1`] = `
 
 .c4 {
   fill: rgb(8,104,172);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(8,104,172);
+  stroke-width: 2;
 }
 
 pointer-events: .c4:hover {
@@ -343,8 +331,8 @@ pointer-events: .c4:hover {
 
 .c5 {
   fill: rgb(67,162,202);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(67,162,202);
+  stroke-width: 2;
 }
 
 pointer-events: .c5:hover {
@@ -353,8 +341,8 @@ pointer-events: .c5:hover {
 
 .c6 {
   fill: rgb(123,204,196);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(123,204,196);
+  stroke-width: 2;
 }
 
 pointer-events: .c6:hover {
@@ -363,8 +351,8 @@ pointer-events: .c6:hover {
 
 .c7 {
   fill: rgb(186,228,188);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(186,228,188);
+  stroke-width: 2;
 }
 
 pointer-events: .c7:hover {
@@ -422,7 +410,6 @@ pointer-events: .c7:hover {
       <path
         class="line-path stacked-area c4"
         d="M0,191.61290322580646L180,209.03225806451613L360,195.96774193548387L540,209.03225806451613L540,270L360,270L180,270L0,270Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -431,7 +418,6 @@ pointer-events: .c7:hover {
       <path
         class="line-path stacked-area c5"
         d="M0,121.93548387096774L180,148.06451612903226L360,139.3548387096774L540,152.4193548387097L540,209.03225806451613L360,195.96774193548387L180,209.03225806451613L0,191.61290322580646Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -440,7 +426,6 @@ pointer-events: .c7:hover {
       <path
         class="line-path stacked-area c6"
         d="M0,47.90322580645159L180,65.32258064516128L360,60.96774193548387L540,143.70967741935485L540,152.4193548387097L360,139.3548387096774L180,148.06451612903226L0,121.93548387096774Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -449,7 +434,6 @@ pointer-events: .c7:hover {
       <path
         class="line-path stacked-area c7"
         d="M0,43.54838709677418L180,0L360,21.774193548387103L540,87.09677419354841L540,143.70967741935485L360,60.96774193548387L180,65.32258064516128L0,47.90322580645159Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -466,8 +450,8 @@ pointer-events: .c7:hover {
 exports[`StackedArea with X label rotation 1`] = `
 .c1 {
   fill: rgb(8,104,172);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(8,104,172);
+  stroke-width: 2;
 }
 
 pointer-events: .c1:hover {
@@ -476,8 +460,8 @@ pointer-events: .c1:hover {
 
 .c2 {
   fill: rgb(67,162,202);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(67,162,202);
+  stroke-width: 2;
 }
 
 pointer-events: .c2:hover {
@@ -486,8 +470,8 @@ pointer-events: .c2:hover {
 
 .c3 {
   fill: rgb(123,204,196);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(123,204,196);
+  stroke-width: 2;
 }
 
 pointer-events: .c3:hover {
@@ -496,8 +480,8 @@ pointer-events: .c3:hover {
 
 .c4 {
   fill: rgb(186,228,188);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(186,228,188);
+  stroke-width: 2;
 }
 
 pointer-events: .c4:hover {
@@ -524,7 +508,6 @@ pointer-events: .c4:hover {
       <path
         class="line-path stacked-area c1"
         d="M0,191.61290322580646L180,209.03225806451613L360,195.96774193548387L540,209.03225806451613L540,270L360,270L180,270L0,270Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -533,7 +516,6 @@ pointer-events: .c4:hover {
       <path
         class="line-path stacked-area c2"
         d="M0,121.93548387096774L180,148.06451612903226L360,139.3548387096774L540,152.4193548387097L540,209.03225806451613L360,195.96774193548387L180,209.03225806451613L0,191.61290322580646Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -542,7 +524,6 @@ pointer-events: .c4:hover {
       <path
         class="line-path stacked-area c3"
         d="M0,47.90322580645159L180,65.32258064516128L360,60.96774193548387L540,143.70967741935485L540,152.4193548387097L360,139.3548387096774L180,148.06451612903226L0,121.93548387096774Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -551,7 +532,6 @@ pointer-events: .c4:hover {
       <path
         class="line-path stacked-area c4"
         d="M0,43.54838709677418L180,0L360,21.774193548387103L540,87.09677419354841L540,143.70967741935485L360,60.96774193548387L180,65.32258064516128L0,47.90322580645159Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -568,8 +548,8 @@ pointer-events: .c4:hover {
 exports[`StackedArea with custom date format 1`] = `
 .c1 {
   fill: rgb(8,104,172);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(8,104,172);
+  stroke-width: 2;
 }
 
 pointer-events: .c1:hover {
@@ -578,8 +558,8 @@ pointer-events: .c1:hover {
 
 .c2 {
   fill: rgb(67,162,202);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(67,162,202);
+  stroke-width: 2;
 }
 
 pointer-events: .c2:hover {
@@ -588,8 +568,8 @@ pointer-events: .c2:hover {
 
 .c3 {
   fill: rgb(123,204,196);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(123,204,196);
+  stroke-width: 2;
 }
 
 pointer-events: .c3:hover {
@@ -598,8 +578,8 @@ pointer-events: .c3:hover {
 
 .c4 {
   fill: rgb(186,228,188);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(186,228,188);
+  stroke-width: 2;
 }
 
 pointer-events: .c4:hover {
@@ -626,7 +606,6 @@ pointer-events: .c4:hover {
       <path
         class="line-path stacked-area c1"
         d="M0,191.61290322580646L180,209.03225806451613L360,195.96774193548387L540,209.03225806451613L540,270L360,270L180,270L0,270Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -635,7 +614,6 @@ pointer-events: .c4:hover {
       <path
         class="line-path stacked-area c2"
         d="M0,121.93548387096774L180,148.06451612903226L360,139.3548387096774L540,152.4193548387097L540,209.03225806451613L360,195.96774193548387L180,209.03225806451613L0,191.61290322580646Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -644,7 +622,6 @@ pointer-events: .c4:hover {
       <path
         class="line-path stacked-area c3"
         d="M0,47.90322580645159L180,65.32258064516128L360,60.96774193548387L540,143.70967741935485L540,152.4193548387097L360,139.3548387096774L180,148.06451612903226L0,121.93548387096774Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -653,7 +630,6 @@ pointer-events: .c4:hover {
       <path
         class="line-path stacked-area c4"
         d="M0,43.54838709677418L180,0L360,21.774193548387103L540,87.09677419354841L540,143.70967741935485L360,60.96774193548387L180,65.32258064516128L0,47.90322580645159Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -670,8 +646,8 @@ pointer-events: .c4:hover {
 exports[`StackedArea with height 1`] = `
 .c1 {
   fill: rgb(8,104,172);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(8,104,172);
+  stroke-width: 2;
 }
 
 pointer-events: .c1:hover {
@@ -680,8 +656,8 @@ pointer-events: .c1:hover {
 
 .c2 {
   fill: rgb(67,162,202);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(67,162,202);
+  stroke-width: 2;
 }
 
 pointer-events: .c2:hover {
@@ -690,8 +666,8 @@ pointer-events: .c2:hover {
 
 .c3 {
   fill: rgb(123,204,196);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(123,204,196);
+  stroke-width: 2;
 }
 
 pointer-events: .c3:hover {
@@ -700,8 +676,8 @@ pointer-events: .c3:hover {
 
 .c4 {
   fill: rgb(186,228,188);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(186,228,188);
+  stroke-width: 2;
 }
 
 pointer-events: .c4:hover {
@@ -728,7 +704,6 @@ pointer-events: .c4:hover {
       <path
         class="line-path stacked-area c1"
         d="M0,7.096774193548387L25.925925925925924,7.741935483870968L51.85185185185185,7.258064516129032L77.77777777777777,7.741935483870968L77.77777777777777,10L51.85185185185185,10L25.925925925925924,10L0,10Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -737,7 +712,6 @@ pointer-events: .c4:hover {
       <path
         class="line-path stacked-area c2"
         d="M0,4.516129032258065L25.925925925925924,5.483870967741936L51.85185185185185,5.161290322580645L77.77777777777777,5.645161290322581L77.77777777777777,7.741935483870968L51.85185185185185,7.258064516129032L25.925925925925924,7.741935483870968L0,7.096774193548387Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -746,7 +720,6 @@ pointer-events: .c4:hover {
       <path
         class="line-path stacked-area c3"
         d="M0,1.774193548387096L25.925925925925924,2.419354838709678L51.85185185185185,2.258064516129032L77.77777777777777,5.322580645161291L77.77777777777777,5.645161290322581L51.85185185185185,5.161290322580645L25.925925925925924,5.483870967741936L0,4.516129032258065Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -755,7 +728,6 @@ pointer-events: .c4:hover {
       <path
         class="line-path stacked-area c4"
         d="M0,1.612903225806452L25.925925925925924,0L51.85185185185185,0.806451612903226L77.77777777777777,3.225806451612904L77.77777777777777,5.322580645161291L51.85185185185185,2.258064516129032L25.925925925925924,2.419354838709678L0,1.774193548387096Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -772,8 +744,8 @@ pointer-events: .c4:hover {
 exports[`StackedArea with source 1`] = `
 .c2 {
   fill: rgb(8,104,172);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(8,104,172);
+  stroke-width: 2;
 }
 
 pointer-events: .c2:hover {
@@ -782,8 +754,8 @@ pointer-events: .c2:hover {
 
 .c3 {
   fill: rgb(67,162,202);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(67,162,202);
+  stroke-width: 2;
 }
 
 pointer-events: .c3:hover {
@@ -792,8 +764,8 @@ pointer-events: .c3:hover {
 
 .c4 {
   fill: rgb(123,204,196);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(123,204,196);
+  stroke-width: 2;
 }
 
 pointer-events: .c4:hover {
@@ -802,8 +774,8 @@ pointer-events: .c4:hover {
 
 .c5 {
   fill: rgb(186,228,188);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(186,228,188);
+  stroke-width: 2;
 }
 
 pointer-events: .c5:hover {
@@ -845,7 +817,6 @@ pointer-events: .c5:hover {
       <path
         class="line-path stacked-area c2"
         d="M0,191.61290322580646L180,209.03225806451613L360,195.96774193548387L540,209.03225806451613L540,270L360,270L180,270L0,270Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -854,7 +825,6 @@ pointer-events: .c5:hover {
       <path
         class="line-path stacked-area c3"
         d="M0,121.93548387096774L180,148.06451612903226L360,139.3548387096774L540,152.4193548387097L540,209.03225806451613L360,195.96774193548387L180,209.03225806451613L0,191.61290322580646Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -863,7 +833,6 @@ pointer-events: .c5:hover {
       <path
         class="line-path stacked-area c4"
         d="M0,47.90322580645159L180,65.32258064516128L360,60.96774193548387L540,143.70967741935485L540,152.4193548387097L360,139.3548387096774L180,148.06451612903226L0,121.93548387096774Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -872,7 +841,6 @@ pointer-events: .c5:hover {
       <path
         class="line-path stacked-area c5"
         d="M0,43.54838709677418L180,0L360,21.774193548387103L540,87.09677419354841L540,143.70967741935485L360,60.96774193548387L180,65.32258064516128L0,47.90322580645159Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -889,8 +857,8 @@ pointer-events: .c5:hover {
 exports[`StackedArea with source link 1`] = `
 .c3 {
   fill: rgb(8,104,172);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(8,104,172);
+  stroke-width: 2;
 }
 
 pointer-events: .c3:hover {
@@ -899,8 +867,8 @@ pointer-events: .c3:hover {
 
 .c4 {
   fill: rgb(67,162,202);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(67,162,202);
+  stroke-width: 2;
 }
 
 pointer-events: .c4:hover {
@@ -909,8 +877,8 @@ pointer-events: .c4:hover {
 
 .c5 {
   fill: rgb(123,204,196);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(123,204,196);
+  stroke-width: 2;
 }
 
 pointer-events: .c5:hover {
@@ -919,8 +887,8 @@ pointer-events: .c5:hover {
 
 .c6 {
   fill: rgb(186,228,188);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(186,228,188);
+  stroke-width: 2;
 }
 
 pointer-events: .c6:hover {
@@ -972,7 +940,6 @@ pointer-events: .c6:hover {
       <path
         class="line-path stacked-area c3"
         d="M0,191.61290322580646L180,209.03225806451613L360,195.96774193548387L540,209.03225806451613L540,270L360,270L180,270L0,270Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -981,7 +948,6 @@ pointer-events: .c6:hover {
       <path
         class="line-path stacked-area c4"
         d="M0,121.93548387096774L180,148.06451612903226L360,139.3548387096774L540,152.4193548387097L540,209.03225806451613L360,195.96774193548387L180,209.03225806451613L0,191.61290322580646Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -990,7 +956,6 @@ pointer-events: .c6:hover {
       <path
         class="line-path stacked-area c5"
         d="M0,47.90322580645159L180,65.32258064516128L360,60.96774193548387L540,143.70967741935485L540,152.4193548387097L360,139.3548387096774L180,148.06451612903226L0,121.93548387096774Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -999,7 +964,6 @@ pointer-events: .c6:hover {
       <path
         class="line-path stacked-area c6"
         d="M0,43.54838709677418L180,0L360,21.774193548387103L540,87.09677419354841L540,143.70967741935485L360,60.96774193548387L180,65.32258064516128L0,47.90322580645159Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -1016,8 +980,8 @@ pointer-events: .c6:hover {
 exports[`StackedArea with width 1`] = `
 .c1 {
   fill: rgb(8,104,172);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(8,104,172);
+  stroke-width: 2;
 }
 
 pointer-events: .c1:hover {
@@ -1026,8 +990,8 @@ pointer-events: .c1:hover {
 
 .c2 {
   fill: rgb(67,162,202);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(67,162,202);
+  stroke-width: 2;
 }
 
 pointer-events: .c2:hover {
@@ -1036,8 +1000,8 @@ pointer-events: .c2:hover {
 
 .c3 {
   fill: rgb(123,204,196);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(123,204,196);
+  stroke-width: 2;
 }
 
 pointer-events: .c3:hover {
@@ -1046,8 +1010,8 @@ pointer-events: .c3:hover {
 
 .c4 {
   fill: rgb(186,228,188);
-  stroke: none;
-  stroke-width: 3;
+  stroke: rgb(186,228,188);
+  stroke-width: 2;
 }
 
 pointer-events: .c4:hover {
@@ -1074,7 +1038,6 @@ pointer-events: .c4:hover {
       <path
         class="line-path stacked-area c1"
         d="M0,-23.951612903225808L0,-26.129032258064516L0,-24.495967741935484L0,-26.129032258064516L0,-33.75L0,-33.75L0,-33.75L0,-33.75Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -1083,7 +1046,6 @@ pointer-events: .c4:hover {
       <path
         class="line-path stacked-area c2"
         d="M0,-15.241935483870968L0,-18.508064516129032L0,-17.419354838709676L0,-19.05241935483871L0,-26.129032258064516L0,-24.495967741935484L0,-26.129032258064516L0,-23.951612903225808Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -1092,7 +1054,6 @@ pointer-events: .c4:hover {
       <path
         class="line-path stacked-area c3"
         d="M0,-5.987903225806448L0,-8.16532258064516L0,-7.620967741935484L0,-17.963709677419356L0,-19.05241935483871L0,-17.419354838709676L0,-18.508064516129032L0,-15.241935483870968Z"
-        stroke-width="0"
       />
     </g>
     <g
@@ -1101,7 +1062,6 @@ pointer-events: .c4:hover {
       <path
         class="line-path stacked-area c4"
         d="M0,-5.443548387096772L0,0L0,-2.721774193548388L0,-10.887096774193552L0,-17.963709677419356L0,-7.620967741935484L0,-8.16532258064516L0,-5.987903225806448Z"
-        stroke-width="0"
       />
     </g>
     <g

@@ -134,6 +134,7 @@ Most props and options are present indistinguishable in all charts.
 | onClick                 |    `Function`     |                | Callback function to call during the onClick event.                                                                               |
 | onMouseEnter            |    `Function`     |                | Callback function to call during the onMouseEnter event.                                                                          |
 | onMouseLeave            |    `Function`     |                | Callback function to call during the OnMouseLeave event.                                                                          |
+| outlinedStyle           |      Boolean      |    `false`     | Activates the outlined design style.                                                                                              |
 | responsive              |     `Boolean`     |    `false`     | Activates the chart responsiveness feature.                                                                                       |
 | staticTooltip           |     `String`      |                | Makes the tooltip to be static on the provided position. `[3]`                                                                    |
 | theme                   |     `String`      | `"monteCarlo"` | Color theme name. [Color themes](#color-themes)                                                                                   |

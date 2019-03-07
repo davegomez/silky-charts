@@ -18,9 +18,11 @@ afterEach(cleanup);
 
 test('BarDatum', () => {
   const { container } = render(
-    <svg>
-      <BarDatum {...props} />
-    </svg>
+    <GraphContext.Provider value={graphContext}>
+      <svg>
+        <BarDatum {...props} />
+      </svg>
+    </GraphContext.Provider>
   );
 
   const barDatum = container.querySelector('svg').firstChild;
@@ -32,9 +34,11 @@ test('BarDatum', () => {
 test('BarDatum:onClick', () => {
   const handleClick = jest.fn();
   const { container } = render(
-    <svg>
-      <BarDatum {...props} onClick={handleClick} />
-    </svg>
+    <GraphContext.Provider value={graphContext}>
+      <svg>
+        <BarDatum {...props} onClick={handleClick} />
+      </svg>
+    </GraphContext.Provider>
   );
 
   const barDatum = container.querySelector('svg').firstChild;
@@ -68,9 +72,11 @@ test('BarDatum:onMouseEnter show tooltip', () => {
 test('BarDatum:onMouseLeave hide tooltip', () => {
   const handleMouseLeave = jest.fn();
   const { container } = render(
-    <svg>
-      <BarDatum {...props} onMouseLeave={handleMouseLeave} tooltip />
-    </svg>
+    <GraphContext.Provider value={graphContext}>
+      <svg>
+        <BarDatum {...props} onMouseLeave={handleMouseLeave} tooltip />
+      </svg>
+    </GraphContext.Provider>
   );
 
   const svg = container.querySelector('svg');
@@ -87,9 +93,11 @@ test('BarDatum:onMouseLeave hide tooltip', () => {
 
 test('BarDatum:onMouseMove', () => {
   const { container } = render(
-    <svg>
-      <BarDatum {...props} tooltip />
-    </svg>
+    <GraphContext.Provider value={graphContext}>
+      <svg>
+        <BarDatum {...props} tooltip />
+      </svg>
+    </GraphContext.Provider>
   );
 
   const rect = container.querySelector('rect');

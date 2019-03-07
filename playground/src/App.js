@@ -26,12 +26,13 @@ const App = () => (
         // onClick={() => {}}
         // onMouseEnter={() => {}}
         // onMouseLeave={() => {}}
+        // outlinedStyle
         // padding={1}
         responsive
-        // secondaryTheme="madang"
+        // secondaryTheme="vividCerise"
         // stackedSeries={['Pear', 'Mango', 'Papaya']}
         // staticTooltip="top-left"
-        // theme="curiousBlue"
+        // theme="madang"
         // title="Placeholder Chart Title"
         tooltip
         // visibleTicks

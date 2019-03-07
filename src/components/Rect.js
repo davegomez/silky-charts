@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 import { colorMod } from '../utils';
+import {
+  OUTLINE_FILL,
+  OUTLINE_HOVER,
+  OUTLINE_STROKE,
+  LINE_STROKE_WIDTH,
+} from '../utils/constants';
 
 const Rect = styled.rect.attrs(
   ({ chart, position: { x, y }, size: { height, width } }) => ({
@@ -10,10 +16,16 @@ const Rect = styled.rect.attrs(
     y,
   })
 )`
-  fill: ${({ fillColor }) => fillColor};
+  fill: ${({ fillColor, outlinedStyle }) =>
+    outlinedStyle ? colorMod(fillColor, OUTLINE_FILL) : fillColor};
+  stroke: ${({ fillColor, outlinedStyle }) =>
+    outlinedStyle ? colorMod(fillColor, OUTLINE_STROKE) : null};
+  stroke-width: ${({ outlinedStyle }) =>
+    outlinedStyle ? LINE_STROKE_WIDTH : null};
 
   &:hover {
-    fill: ${({ fillColor }) => colorMod(fillColor)};
+    fill: ${({ fillColor, outlinedStyle }) =>
+      outlinedStyle ? colorMod(fillColor, OUTLINE_HOVER) : colorMod(fillColor)};
   }
 `;
 

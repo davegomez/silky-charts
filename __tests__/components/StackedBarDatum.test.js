@@ -1,5 +1,7 @@
 import React from 'react';
 import { render, fireEvent, cleanup } from 'react-testing-library';
+import { GraphContext } from '../../src/contexts';
+import graphContext from '../../__mocks__/graphContext';
 import always from 'ramda/src/always';
 import { StackedBarDatum } from '../../src/components';
 import { buildStack } from '../../src/utils';
@@ -27,9 +29,11 @@ afterEach(cleanup);
 
 test('StackedBarDatum', () => {
   const { container } = render(
-    <svg>
-      <StackedBarDatum {...props} series={series} />
-    </svg>
+    <GraphContext.Provider value={graphContext}>
+      <svg>
+        <StackedBarDatum {...props} series={series} />
+      </svg>
+    </GraphContext.Provider>
   );
 
   // Test just one layer
@@ -46,9 +50,11 @@ test('StackedBarDatum', () => {
 test('StackedBarDatum:onClick', () => {
   const handleClick = jest.fn();
   const { container } = render(
-    <svg>
-      <StackedBarDatum {...props} series={series} onClick={handleClick} />
-    </svg>
+    <GraphContext.Provider value={graphContext}>
+      <svg>
+        <StackedBarDatum {...props} series={series} onClick={handleClick} />
+      </svg>
+    </GraphContext.Provider>
   );
 
   const rect = container.querySelector('rect');
@@ -60,13 +66,15 @@ test('StackedBarDatum:onClick', () => {
 test('StackedBarDatum:onMouseEnter', () => {
   const handleMouseEnter = jest.fn();
   const { container } = render(
-    <svg>
-      <StackedBarDatum
-        {...props}
-        series={series}
-        onMouseEnter={handleMouseEnter}
-      />
-    </svg>
+    <GraphContext.Provider value={graphContext}>
+      <svg>
+        <StackedBarDatum
+          {...props}
+          series={series}
+          onMouseEnter={handleMouseEnter}
+        />
+      </svg>
+    </GraphContext.Provider>
   );
 
   const rect = container.querySelector('rect');
@@ -78,13 +86,15 @@ test('StackedBarDatum:onMouseEnter', () => {
 test('StackedBarDatum:onMouseLeave', () => {
   const handleMouseLeave = jest.fn();
   const { container } = render(
-    <svg>
-      <StackedBarDatum
-        {...props}
-        series={series}
-        onMouseLeave={handleMouseLeave}
-      />
-    </svg>
+    <GraphContext.Provider value={graphContext}>
+      <svg>
+        <StackedBarDatum
+          {...props}
+          series={series}
+          onMouseLeave={handleMouseLeave}
+        />
+      </svg>
+    </GraphContext.Provider>
   );
 
   const rect = container.querySelector('rect');

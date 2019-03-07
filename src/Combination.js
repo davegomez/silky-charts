@@ -60,6 +60,7 @@ const Combination = ({
   onClick = identity,
   onMouseEnter = identity,
   onMouseLeave = identity,
+  outlinedStyle,
   padding: xScalePadding = SCALE_PADDING,
   responsive,
   secondaryTheme = SECONDARY_THEME,
@@ -114,6 +115,7 @@ const Combination = ({
         dateFormat,
         margin,
         node: svgRef.current,
+        outlinedStyle,
         staticTooltip,
         visibleTicks,
         xAxisLabelRotation,
@@ -206,7 +208,7 @@ const Combination = ({
           {lineData.map((datum, idx) => (
             <g className={`${head(datum)['series']}-layer`} key={idx}>
               <LineDatum
-                chart="bar-line"
+                chart="combination"
                 data={datum}
                 color={palette.themes[secondaryTheme][idx]}
                 d={line(datum)}
