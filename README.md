@@ -63,16 +63,16 @@
 - Tree shaking and code splitting
 - Small and fast
 - Customizable and easy to style
+- Two visual styles (solid and outlined)
 - Fully responsive
 - Built in tooltips
 - Choropleth color themes
 
 ## Roadmap
 
-- [ ] Custom color themes
 - [ ] Empty state
-- [ ] SVG / PNG export
-- [ ] Secondary style
+- [ ] Custom color themes
+- [ ] SVG | PNG export
 
 ## Installation
 
