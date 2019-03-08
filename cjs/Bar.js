@@ -4,21 +4,20 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var __chunk_1 = require('./chunk-8219fdff.js');
+var __chunk_1 = require('./chunk-312f038a.js');
 var React = require('react');
 var React__default = _interopDefault(React);
-var d3Axis = require('d3-axis');
 var d3Scale = require('d3-scale');
 var d3Selection = require('d3-selection');
-var d3TimeFormat = require('d3-time-format');
 var identity = _interopDefault(require('ramda/src/identity'));
-var __chunk_2 = require('./chunk-afbe5103.js');
+var __chunk_2 = require('./chunk-ec892a96.js');
 require('react-dom');
 require('d3-shape');
 require('ramda/src/compose');
 require('ramda/src/groupBy');
 require('ramda/src/prop');
 require('ramda/src/toPairs');
+require('d3-axis');
 require('ramda/src/head');
 require('ramda/src/max');
 require('ramda/src/min');
@@ -40,6 +39,7 @@ require('ramda/src/flatten');
 require('ramda/src/sortBy');
 require('ramda/src/splitEvery');
 require('styled-components');
+require('d3-time-format');
 require('ramda/src/last');
 
 var Bar = function Bar(_ref) {
@@ -51,7 +51,7 @@ var Bar = function Bar(_ref) {
       dateFormat = _ref$dateFormat === void 0 ? __chunk_2.TIME_FORMAT : _ref$dateFormat,
       grid = _ref.grid,
       _ref$height = _ref.height,
-      svgHeight = _ref$height === void 0 ? undefined : _ref$height,
+      graphHeight = _ref$height === void 0 ? undefined : _ref$height,
       horizontal = _ref.horizontal,
       _ref$margin = _ref.margin,
       margin = _ref$margin === void 0 ? __chunk_2.MARGIN : _ref$margin,
@@ -61,40 +61,35 @@ var Bar = function Bar(_ref) {
       onMouseEnter = _ref$onMouseEnter === void 0 ? identity : _ref$onMouseEnter,
       _ref$onMouseLeave = _ref.onMouseLeave,
       onMouseLeave = _ref$onMouseLeave === void 0 ? identity : _ref$onMouseLeave,
+      outlinedStyle = _ref.outlinedStyle,
+      _ref$padding = _ref.padding,
+      xScalePadding = _ref$padding === void 0 ? __chunk_2.SCALE_PADDING : _ref$padding,
       responsive = _ref.responsive,
       staticTooltip = _ref.staticTooltip,
       _ref$theme = _ref.theme,
       theme = _ref$theme === void 0 ? __chunk_2.THEME : _ref$theme,
       title = _ref.title,
       tooltip = _ref.tooltip,
+      visibleTicks = _ref.visibleTicks,
       _ref$width = _ref.width,
-      svgWidth = _ref$width === void 0 ? undefined : _ref$width,
+      graphWidth = _ref$width === void 0 ? undefined : _ref$width,
       xAxisChartLabel = _ref.xAxisChartLabel,
       xAxisLabelRotation = _ref.xAxisLabelRotation,
       _ref$xAxisLabelRotati = _ref.xAxisLabelRotationValue,
       xAxisLabelRotationValue = _ref$xAxisLabelRotati === void 0 ? __chunk_2.ROTATION : _ref$xAxisLabelRotati,
       _ref$xAxisTicks = _ref.xAxisTicks,
       xAxisTicks = _ref$xAxisTicks === void 0 ? __chunk_2.X_TICKS : _ref$xAxisTicks,
-      _ref$padding = _ref.padding,
-      xScalePadding = _ref$padding === void 0 ? __chunk_2.SCALE_PADDING : _ref$padding,
       yAxisChartLabel = _ref.yAxisChartLabel,
       _ref$yAxisTicks = _ref.yAxisTicks,
       yAxisTicks = _ref$yAxisTicks === void 0 ? __chunk_2.Y_TICKS : _ref$yAxisTicks;
   var svgRef = React.useRef();
 
-  var _useState = React.useState(__chunk_2.getId('bar')),
-      _useState2 = __chunk_1._slicedToArray(_useState, 1),
-      id = _useState2[0];
-
-  var timeFormat = d3TimeFormat.timeFormat(dateFormat);
-
-  var _useState3 = React.useState(__chunk_2.SIZE),
-      _useState4 = __chunk_1._slicedToArray(_useState3, 2),
-      _useState4$ = _useState4[0],
-      width = _useState4$.width,
-      height = _useState4$.height,
-      isSizeSet = _useState4$.isSizeSet,
-      setSize = _useState4[1];
+  var _useState = React.useState(__chunk_2.SIZE),
+      _useState2 = __chunk_1._slicedToArray(_useState, 2),
+      _useState2$ = _useState2[0],
+      width = _useState2$.width,
+      height = _useState2$.height,
+      setSize = _useState2[1];
 
   var _setupData = __chunk_2.setupData(chartData),
       _setupData2 = __chunk_1._slicedToArray(_setupData, 2),
@@ -109,33 +104,30 @@ var Bar = function Bar(_ref) {
     var value = _ref3.value;
     return value;
   }))]).range([height, 0]);
-
-  var handleSize = function handleSize() {
-    var offsetWidth = svgRef.current.parentElement.offsetWidth;
-
-    if ((svgWidth || svgHeight) && !isSizeSet) {
-      setSize(__chunk_1._objectSpread({}, __chunk_2.getSize(svgWidth, svgHeight, margin, aspectRatio), {
-        isSizeSet: true
-      }));
-    } else if (offsetWidth !== svgWidth - (margin.left + margin.right)) {
-      setSize(__chunk_1._objectSpread({}, __chunk_2.getSize(offsetWidth, undefined, margin, aspectRatio), {
-        isSizeSet: true
-      }));
-    }
-  };
-
-  __chunk_2.useResize(responsive, handleSize);
+  __chunk_2.useResize({
+    aspectRatio: aspectRatio,
+    graphHeight: graphHeight,
+    graphWidth: graphWidth,
+    margin: margin,
+    responsive: responsive,
+    setSize: setSize,
+    svgRef: svgRef
+  });
   return React__default.createElement(__chunk_2.GraphContext.Provider, {
     value: {
+      dateFormat: dateFormat,
       margin: margin,
       node: svgRef.current,
-      staticTooltip: staticTooltip
+      outlinedStyle: outlinedStyle,
+      staticTooltip: staticTooltip,
+      visibleTicks: visibleTicks,
+      xAxisLabelRotation: xAxisLabelRotation,
+      xAxisLabelRotationValue: xAxisLabelRotationValue
     }
   }, React__default.createElement(__chunk_2.SVG, {
-    identifier: id,
     size: {
-      width: svgWidth || width + margin.left + margin.right,
-      height: svgHeight || height + margin.top + margin.bottom
+      width: graphWidth || width + margin.left + margin.right,
+      height: graphHeight || height + margin.top + margin.bottom
     },
     ref: svgRef
   }, React__default.createElement(__chunk_2.MainGroup, {
@@ -184,19 +176,19 @@ var Bar = function Bar(_ref) {
     });
   })), React__default.createElement(__chunk_2.Axis, {
     axis: "x",
+    axisTicks: xAxisTicks,
+    orientation: "bottom",
     position: {
       x: 0,
       y: height
     },
-    ref: function ref(node) {
-      d3Selection.select(node).call(d3Axis.axisBottom(xScale).ticks(xAxisTicks).tickFormat(isDates ? timeFormat : null));
-      xAxisLabelRotation && __chunk_2.rotateXLabels(id, xAxisLabelRotationValue);
-    }
+    scale: xScale,
+    toDate: isDates
   }), React__default.createElement(__chunk_2.Axis, {
     axis: "y",
-    ref: function ref(node) {
-      return d3Selection.select(node).call(d3Axis.axisLeft(yScale).ticks(yAxisTicks));
-    }
+    axisTicks: yAxisTicks,
+    orientation: "left",
+    scale: yScale
   }))));
 };
 

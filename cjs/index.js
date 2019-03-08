@@ -2,20 +2,19 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var __chunk_1 = require('./chunk-8219fdff.js');
+var __chunk_1 = require('./chunk-312f038a.js');
 require('react');
-require('d3-axis');
 require('d3-scale');
 require('d3-selection');
-require('d3-time-format');
 require('ramda/src/identity');
-require('./chunk-afbe5103.js');
+require('./chunk-ec892a96.js');
 require('react-dom');
 require('d3-shape');
 require('ramda/src/compose');
 require('ramda/src/groupBy');
 require('ramda/src/prop');
 require('ramda/src/toPairs');
+require('d3-axis');
 require('ramda/src/head');
 require('ramda/src/max');
 require('ramda/src/min');
@@ -37,15 +36,16 @@ require('ramda/src/flatten');
 require('ramda/src/sortBy');
 require('ramda/src/splitEvery');
 require('styled-components');
+require('d3-time-format');
 require('ramda/src/last');
 var Bar = require('./Bar.js');
-var BarLine = require('./BarLine.js');
+var Combination = require('./Combination.js');
 var StackedArea = require('./StackedArea.js');
 
 
 
 exports.toSeries = __chunk_1.toSeries;
 exports.Bar = Bar.default;
-exports.BarLine = BarLine.default;
+exports.Combination = Combination.default;
 exports.StackedArea = StackedArea.default;
 //# sourceMappingURL=index.js.map

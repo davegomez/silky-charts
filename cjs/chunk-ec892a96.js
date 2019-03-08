@@ -2,12 +2,10 @@
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-var __chunk_1 = require('./chunk-8219fdff.js');
+var __chunk_1 = require('./chunk-312f038a.js');
 var React = require('react');
 var React__default = _interopDefault(React);
-var d3Axis = require('d3-axis');
 var d3Selection = require('d3-selection');
-var d3TimeFormat = require('d3-time-format');
 var identity = _interopDefault(require('ramda/src/identity'));
 var reactDom = require('react-dom');
 var d3Shape = require('d3-shape');
@@ -15,6 +13,7 @@ var compose = _interopDefault(require('ramda/src/compose'));
 var groupBy = _interopDefault(require('ramda/src/groupBy'));
 var prop = _interopDefault(require('ramda/src/prop'));
 var toPairs = _interopDefault(require('ramda/src/toPairs'));
+var d3Axis$1 = require('d3-axis');
 var head = _interopDefault(require('ramda/src/head'));
 var max = _interopDefault(require('ramda/src/max'));
 var min = _interopDefault(require('ramda/src/min'));
@@ -35,6 +34,7 @@ var T = _interopDefault(require('ramda/src/T'));
 var sortBy = _interopDefault(require('ramda/src/sortBy'));
 var splitEvery = _interopDefault(require('ramda/src/splitEvery'));
 var styled = _interopDefault(require('styled-components'));
+var d3TimeFormat = require('d3-time-format');
 var last = _interopDefault(require('ramda/src/last'));
 
 var GraphContext = React.createContext();
@@ -94,6 +94,16 @@ var classify = (function (series) {
   return series.replace(/ /g, '-').toLowerCase();
 });
 
+var d3Axis = (function (orient, scale) {
+  var axes = {
+    top: d3Axis$1.axisTop,
+    right: d3Axis$1.axisRight,
+    bottom: d3Axis$1.axisBottom,
+    left: d3Axis$1.axisLeft
+  };
+  return axes[orient](scale);
+});
+
 /**
  * Draw the chart's vertical or horizontal grid.
  *
@@ -108,7 +118,7 @@ var classify = (function (series) {
  */
 
 var drawGrid = (function (horizontal, xScale, height, yScale, width, xAxisTicks, yAxisTicks) {
-  return horizontal ? d3Axis.axisBottom().scale(xScale).tickSize(height, 0, 0).ticks(xAxisTicks).tickFormat('') : d3Axis.axisLeft().scale(yScale).tickSize(-width, 0, 0).ticks(yAxisTicks).tickFormat('');
+  return horizontal ? d3Axis$1.axisBottom().scale(xScale).tickSize(height, 0, 0).ticks(xAxisTicks).tickFormat('') : d3Axis$1.axisLeft().scale(yScale).tickSize(-width, 0, 0).ticks(yAxisTicks).tickFormat('');
 });
 
 /**
@@ -124,9 +134,9 @@ var extent = (function (xs) {
 
 var white = 'rgb(255, 255, 255)'; // #FFFFFF
 
-var black = 'rgb(33, 33, 33)'; // #212121
+var black = 'rgb(27, 27, 27)'; // #1B1B1B
 
-var grey = 'rgb(232, 232, 232)'; // #E8E8E8
+var grey = 'rgb(243, 243, 243)'; // #F3F3F3
 
 var tooltipBackground = 'rgba(0, 0, 0, 0.85)';
 var themes = {
@@ -162,7 +172,7 @@ var getBaseColor = (function (theme) {
  * @param {Number} amt Amount to apply in order to make it darker or lighter.
  * @returns {String} RGB color.
  */
-var getHoverColor = (function () {
+var colorMod = (function () {
   var rgb = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'rgb(0, 0, 0)';
   var amt = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : -20;
   return "rgb(".concat(rgb.split(/\D/).filter(function (x) {
@@ -178,24 +188,6 @@ var getHoverColor = (function () {
 
     return val;
   }).join(', '), ")");
-});
-
-var innerId = 0;
-/**
- * Creates a unique ID for each chart of the same type rendered.
- *
- * @param {String} prefix Chart name.
- * @returns {String} ID
- */
-
-var getId = (function (prefix) {
-  if (!prefix) {
-    return null;
-  }
-
-  var id = "silky-charts_".concat(prefix, "-").concat(innerId);
-  innerId += 1;
-  return id;
 });
 
 /**
@@ -290,8 +282,7 @@ var MARGIN = {
 var ROTATION = -50;
 var SIZE = {
   width: 0,
-  height: 0,
-  isSizeSet: false
+  height: 0
 };
 var X_TICKS = 10;
 var Y_TICKS = 5;
@@ -299,12 +290,15 @@ var TIME_FORMAT = '%a %d';
 var TOOLTIP_DATE_FORMAT = '%b %d, %Y';
 var TOOLTIP_OFFSET = 20;
 var WIDTH = 640; // Scales
-var SCALE_PADDING = 0.1;
+var SCALE_PADDING = 0.15;
 
 var THEME = 'monteCarlo';
-var SECONDARY_THEME = 'vividCerise'; // Line options
+var SECONDARY_THEME = 'vividCerise';
+var OUTLINE_FILL = 50;
+var OUTLINE_HOVER = 30;
+var OUTLINE_STROKE = -20; // Line options
 
-var LINE_STROKE_WIDTH = 3;
+var LINE_STROKE_WIDTH = 2;
 var LINE_TYPE = 'curveLinear';
 var LINE_TYPES = {
   curveBasis: d3Shape.curveBasis,
@@ -457,16 +451,45 @@ var mapTooltipData = (function (data, positions) {
 });
 
 /**
+ * Remove the ticks from the axis after creation.
+ *
+ * @param {String} node Graph node.
+ * @returns {Object} Graph node.
+ */
+var removeTicks = (function (node) {
+  if (!node) {
+    return;
+  }
+
+  var ticks = node.querySelectorAll('.tick line');
+  ticks.forEach(function (tick) {
+    return tick.remove();
+  });
+  var path = node.querySelector('path.domain');
+  var d = path.getAttribute('d');
+  path.setAttribute('d', d.replace(/.5(V|H-)6/, ''));
+  return node;
+});
+
+/**
  * Rotate the X axis labels to a given degrees.
  *
- * @param {String} id Unique chart ID.
+ * @param {String} node Graph node.
  * @param {Number} deg Degrees to rotate.
- * @returns {Void}
+ * @returns {Object} Graph node.
  */
+var rotateXLabels = (function (node, deg) {
+  if (!node) {
+    return;
+  }
 
-var rotateXLabels = (function (id, deg) {
   var isNegative = deg < 0;
-  d3Selection.selectAll("#".concat(id, " .axis-x .tick text")).attr('text-anchor', isNegative ? 'end' : 'start').attr('transform', "translate(".concat(isNegative ? -12 : 12, ", 6) rotate(").concat(deg, ")"));
+  var labels = node.querySelectorAll('.axis-x .tick text');
+  labels.forEach(function (label) {
+    label.setAttribute('text-anchor', isNegative ? 'end' : 'start');
+    label.setAttribute('transform', "translate(".concat(isNegative ? -12 : 12, ", 6) rotate(").concat(deg, ")"));
+  });
+  return node;
 });
 
 /**
@@ -548,7 +571,8 @@ var AreaDatum = function AreaDatum(_ref) {
 
   var _useContext = React.useContext(GraphContext),
       margin = _useContext.margin,
-      node = _useContext.node;
+      node = _useContext.node,
+      outlinedStyle = _useContext.outlinedStyle;
 
   var _useState = React.useState({
     pageX: null,
@@ -580,7 +604,6 @@ var AreaDatum = function AreaDatum(_ref) {
     chart: "stacked-area",
     fillColor: fillColor,
     d: area(datum),
-    strokeWidth: 0,
     onClick: onClick,
     onMouseEnter: function onMouseEnter(event) {
       var pageX = event.pageX,
@@ -623,7 +646,8 @@ var AreaDatum = function AreaDatum(_ref) {
       if (nearest !== nearestPoint && tooltipData[nearest]) {
         handleMouseMove(nearest);
       }
-    }
+    },
+    outlinedStyle: outlinedStyle
   })), withTooltip && tooltip.show && reactDom.createPortal(React__default.createElement(Tooltip, {
     mousePosition: tooltip
   }, React__default.createElement(TooltipGroup, {
@@ -641,7 +665,7 @@ function _templateObject() {
 
   return data;
 }
-var Axis = styled.g.attrs(function (_ref) {
+var Group = styled.g.attrs(function (_ref) {
   var axis = _ref.axis,
       position = _ref.position;
   return {
@@ -649,6 +673,35 @@ var Axis = styled.g.attrs(function (_ref) {
     transform: position && "translate(".concat(position.x, ", ").concat(position.y, ")")
   };
 })(_templateObject());
+
+var Axis = function Axis(_ref2) {
+  var axis = _ref2.axis,
+      axisTicks = _ref2.axisTicks,
+      position = _ref2.position,
+      orientation = _ref2.orientation,
+      scale = _ref2.scale,
+      toDate = _ref2.toDate;
+
+  var _useContext = React.useContext(GraphContext),
+      dateFormat = _useContext.dateFormat,
+      visibleTicks = _useContext.visibleTicks,
+      xAxisLabelRotation = _useContext.xAxisLabelRotation,
+      xAxisLabelRotationValue = _useContext.xAxisLabelRotationValue;
+
+  var timeFormat = d3TimeFormat.timeFormat(dateFormat);
+
+  var buildAxis = function buildAxis(node) {
+    d3Selection.select(node).call(d3Axis(orientation, scale).ticks(axisTicks).tickFormat(toDate ? timeFormat : null));
+    !visibleTicks && removeTicks(node);
+    xAxisLabelRotation && rotateXLabels(node, xAxisLabelRotationValue);
+  };
+
+  return React__default.createElement(Group, {
+    axis: axis,
+    position: position,
+    ref: buildAxis
+  });
+};
 
 var BarDatum = function BarDatum(_ref) {
   var color = _ref.color,
@@ -662,6 +715,9 @@ var BarDatum = function BarDatum(_ref) {
       x = _ref.x,
       y = _ref.y;
 
+  var _useContext = React.useContext(GraphContext),
+      outlinedStyle = _useContext.outlinedStyle;
+
   var _useState = React.useState({
     pageX: null,
     pageY: null,
@@ -671,7 +727,7 @@ var BarDatum = function BarDatum(_ref) {
       tooltip = _useState2[0],
       setTooltip = _useState2[1];
 
-  return React__default.createElement(React.Fragment, null, React__default.createElement(Rect, {
+  return React__default.createElement(React__default.Fragment, null, React__default.createElement(Rect, {
     chart: "bar",
     fillColor: color,
     onClick: onClick,
@@ -704,6 +760,7 @@ var BarDatum = function BarDatum(_ref) {
         });
       });
     },
+    outlinedStyle: outlinedStyle,
     position: {
       x: x,
       y: y
@@ -720,7 +777,7 @@ var BarDatum = function BarDatum(_ref) {
 };
 
 function _templateObject$1() {
-  var data = __chunk_1._taggedTemplateLiteral(["\n  fill: ", ";\n"]);
+  var data = __chunk_1._taggedTemplateLiteral(["\n  fill: ", ";\n  stroke: ", ";\n  stroke-width: ", ";\n"]);
 
   _templateObject$1 = function _templateObject() {
     return data;
@@ -733,9 +790,12 @@ var Circle = styled.circle.attrs(function (_ref) {
   return {
     className: chart
   };
-})(_templateObject$1(), function (_ref2) {
-  var color = _ref2.color;
-  return color;
+})(_templateObject$1(), white, function (_ref2) {
+  var strokeColor = _ref2.strokeColor;
+  return strokeColor || 'none';
+}, function (_ref3) {
+  var strokeWidth = _ref3.strokeWidth;
+  return strokeWidth || LINE_STROKE_WIDTH;
 });
 
 function _templateObject$2() {
@@ -814,7 +874,8 @@ var LineDatum = function LineDatum(_ref) {
   return React__default.createElement(React.Fragment, null, React__default.createElement(Path, {
     chart: chart,
     d: d,
-    strokeColor: color
+    strokeColor: color,
+    strokeWidth: 2
   }), React__default.createElement("g", {
     className: "line-dot-group"
   }, data.map(function (_ref2, idx) {
@@ -823,10 +884,9 @@ var LineDatum = function LineDatum(_ref) {
     return React__default.createElement(Circle, {
       key: idx,
       chart: chart,
-      color: color,
       cx: xScale(name) + xScale.bandwidth() / 2,
       cy: yScale(value),
-      r: 6,
+      r: 5,
       onClick: onClick,
       onMouseEnter: function onMouseEnter(event) {
         setTooltip(function (state) {
@@ -857,7 +917,9 @@ var LineDatum = function LineDatum(_ref) {
             value: value
           });
         });
-      }
+      },
+      strokeColor: color,
+      strokeWidth: 2
     });
   })), withTooltip && tooltip.show && reactDom.createPortal(React__default.createElement(Tooltip, {
     mousePosition: tooltip
@@ -902,22 +964,25 @@ var Path = styled.path.attrs(function (_ref) {
     className: "line-path ".concat(chart)
   };
 })(_templateObject$6(), function (_ref2) {
-  var fillColor = _ref2.fillColor;
-  return fillColor || 'none';
+  var fillColor = _ref2.fillColor,
+      outlinedStyle = _ref2.outlinedStyle;
+  return outlinedStyle ? colorMod(fillColor, OUTLINE_FILL) : fillColor || 'none';
 }, function (_ref3) {
-  var strokeColor = _ref3.strokeColor;
-  return strokeColor || 'none';
+  var fillColor = _ref3.fillColor,
+      strokeColor = _ref3.strokeColor,
+      outlinedStyle = _ref3.outlinedStyle;
+  return outlinedStyle ? colorMod(strokeColor || fillColor, OUTLINE_STROKE) : strokeColor || fillColor;
 }, LINE_STROKE_WIDTH, function (_ref4) {
   var chart = _ref4.chart;
-  return chart === 'bar-line' && 'none';
+  return chart === 'combination' && 'none';
 }, function (_ref5) {
   var chart = _ref5.chart,
       fillColor = _ref5.fillColor;
-  return chart === 'stacked-area' && getHoverColor(fillColor);
+  return chart === 'stacked-area' && colorMod(fillColor);
 });
 
 function _templateObject$7() {
-  var data = __chunk_1._taggedTemplateLiteral(["\n  fill: ", ";\n\n  &:hover {\n    fill: ", ";\n  }\n"]);
+  var data = __chunk_1._taggedTemplateLiteral(["\n  fill: ", ";\n  stroke: ", ";\n  stroke-width: ", ";\n\n  &:hover {\n    fill: ", ";\n  }\n"]);
 
   _templateObject$7 = function _templateObject() {
     return data;
@@ -941,11 +1006,20 @@ var Rect = styled.rect.attrs(function (_ref) {
     y: y
   };
 })(_templateObject$7(), function (_ref2) {
-  var fillColor = _ref2.fillColor;
-  return fillColor;
+  var fillColor = _ref2.fillColor,
+      outlinedStyle = _ref2.outlinedStyle;
+  return outlinedStyle ? colorMod(fillColor, OUTLINE_FILL) : fillColor;
 }, function (_ref3) {
-  var fillColor = _ref3.fillColor;
-  return getHoverColor(fillColor);
+  var fillColor = _ref3.fillColor,
+      outlinedStyle = _ref3.outlinedStyle;
+  return outlinedStyle ? colorMod(fillColor, OUTLINE_STROKE) : null;
+}, function (_ref4) {
+  var outlinedStyle = _ref4.outlinedStyle;
+  return outlinedStyle ? LINE_STROKE_WIDTH : null;
+}, function (_ref5) {
+  var fillColor = _ref5.fillColor,
+      outlinedStyle = _ref5.outlinedStyle;
+  return outlinedStyle ? colorMod(fillColor, OUTLINE_HOVER) : colorMod(fillColor);
 });
 
 function _templateObject2() {
@@ -1306,21 +1380,42 @@ var useDebounce = (function (callback, delay, deps) {
   };
 });
 
-var useResize = (function (responsive, handleSize) {
+var useResize = (function (_ref) {
+  var aspectRatio = _ref.aspectRatio,
+      graphHeight = _ref.graphHeight,
+      graphWidth = _ref.graphWidth,
+      margin = _ref.margin,
+      responsive = _ref.responsive,
+      setSize = _ref.setSize,
+      svgRef = _ref.svgRef;
+
+  var handleSize = function handleSize() {
+    var offsetWidth = svgRef.current.parentElement.offsetWidth;
+    setSize(__chunk_1._objectSpread({}, getSize(graphWidth || offsetWidth, graphHeight, margin, aspectRatio), {
+      isSizeSet: true
+    }));
+  };
+
+  var handleResize = function handleResize() {
+    var offsetWidth = svgRef.current.parentElement.offsetWidth;
+    setSize(__chunk_1._objectSpread({}, getSize(offsetWidth, undefined, margin, aspectRatio), {
+      isSizeSet: true
+    }));
+  };
+
   var refSize = React.useRef(handleSize);
-  var handleResize = useDebounce(handleSize, 250, [handleSize]);
+  var handleResizeDebounced = useDebounce(handleResize, 250, [handleResize]);
   React.useEffect(function () {
     return refSize.current();
   }, [refSize]);
   React.useEffect(function () {
-    responsive && window.addEventListener('resize', handleResize);
+    responsive && window.addEventListener('resize', handleResizeDebounced);
     return function () {
-      responsive && window.removeEventListener('resize', handleResize);
+      responsive && window.removeEventListener('resize', handleResizeDebounced);
     };
-  }, [handleResize, responsive]);
+  }, [handleResizeDebounced, responsive]);
 });
 
-exports.getId = getId;
 exports.SIZE = SIZE;
 exports.setupData = setupData;
 exports.getMax = getMax;
@@ -1337,16 +1432,14 @@ exports.DataGroup = DataGroup;
 exports.BarDatum = BarDatum;
 exports.getBaseColor = getBaseColor;
 exports.Axis = Axis;
-exports.rotateXLabels = rotateXLabels;
+exports.ASPECT_RATIO = ASPECT_RATIO;
 exports.TIME_FORMAT = TIME_FORMAT;
 exports.MARGIN = MARGIN;
+exports.SCALE_PADDING = SCALE_PADDING;
 exports.THEME = THEME;
 exports.ROTATION = ROTATION;
 exports.X_TICKS = X_TICKS;
-exports.SCALE_PADDING = SCALE_PADDING;
 exports.Y_TICKS = Y_TICKS;
-exports.getSize = getSize;
-exports.ASPECT_RATIO = ASPECT_RATIO;
 exports.buildStack = buildStack;
 exports.toStackedForm = toStackedForm;
 exports.getStackedMax = getStackedMax;
@@ -1363,4 +1456,4 @@ exports.extent = extent;
 exports.mapTooltipData = mapTooltipData;
 exports.bySeries = bySeries;
 exports.AreaDatum = AreaDatum;
-//# sourceMappingURL=chunk-afbe5103.js.map
+//# sourceMappingURL=chunk-ec892a96.js.map
