@@ -20,9 +20,9 @@
     "prebuild": "npm run clean",
     "prerelease": "npm run build && git add -A && git commit -m 'Update build'",
     "release": "standard-version",
-    "release:major": "standard-version --release-as major",
-    "release:minor": "standard-version --release-as minor",
-    "release:pre": "standard-version --prerelease",
+    "release:major": "yarn release --release-as major",
+    "release:minor": "yarn release --release-as minor",
+    "release:pre": "yarn release --prerelease",
     "test": "jest",
     "test:watch": "jest --watch"
   },
