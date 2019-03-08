@@ -11,6 +11,11 @@
 
 <hr />
 
+<img
+    alt="Silky Charts Showcase"
+    src="https://raw.githubusercontent.com/davegomez/silky-charts/master/assets/showcase.jpg"
+  />
+
 **Disclaimer**: Silky Charts is a work in progress, there is still many charts and features to add before is considered stable so the API is subject to change during its development.
 
 <hr />
