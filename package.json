@@ -43,8 +43,9 @@
     "charts",
     "data",
     "visualization",
-    "data-visualization",
-    "svg"
+    "dataviz",
+    "svg",
+    "vx"
   ],
   "author": "Juan D. Gomez <dg.dave@gmail.com> (http://davidgomez.io/)",
   "license": "MIT",
